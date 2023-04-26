@@ -7,13 +7,6 @@
             <div>
                 <button>See</button>
             </div>
-            <hr>
-            22 <br>
-            22 <br>
-            22 <br>
-            22 <br>
-            22 <br>
-            22 <br>
         </div>
     </div>
 
