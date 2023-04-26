@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PatientController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Controller;
 
@@ -19,5 +20,7 @@ use App\Http\Controllers\Controller;
 //});
 
 Route::group(['prefix' => 'panel'],function (){
-    Route::view("/","admin.home");
+    Route::view("/","admin.home")->name("dashboard");
+
+    Route::get('/patients',[PatientController::class,"index"])->name("patients");
 });

@@ -38,7 +38,7 @@
     border-radius: 8px;
 }
 #main aside nav ul li.active{
-    background: #1277ff;
+    /*background: #1277ff;*/
 }
 #main aside nav ul li a{
     color: white;
@@ -46,8 +46,8 @@
 }
 
 #main aside nav ul li.active a{
-    text-shadow:0 0 2px rgba(26, 32, 44, 0.57);
-    font-weight: bold;
+    /*text-shadow:0 0 2px rgba(26, 32, 44, 0.57);*/
+    /*font-weight: bold;*/
 }
 
 #main .body{
