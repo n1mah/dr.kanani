@@ -1,0 +1,66 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+#main{
+    display: flex;
+    direction: rtl;
+    min-height: 100vh;
+}
+#main aside{
+    width: 20%;
+    min-height: 100vh;
+    background: #1a202c;
+    color: white;
+    padding: 20px;
+}
+#main aside header{
+    margin-bottom: 20px;
+}
+#main aside hr{
+    opacity: 0.3;
+}
+#main aside nav{
+    margin-top: 20px;
+}
+#main aside nav ul{
+    list-style: none;
+}
+#main aside nav ul li{
+    margin-bottom: 10px;
+    padding: 7px;
+    border-radius: 8px;
+}
+#main aside nav ul li.active{
+    background: #1277ff;
+}
+#main aside nav ul li a{
+    color: white;
+    text-decoration: none;
+}
+
+#main aside nav ul li.active a{
+    text-shadow:0 0 2px rgba(26, 32, 44, 0.57);
+    font-weight: bold;
+}
+
+#main .body{
+    min-height: 100vh;
+    width: 80%;
+    padding: 10px;
+
+}
+#main .body header{
+    height: 8.5vh;
+}
+#main .body hr{
+    opacity: 0.3;
+}
+#main .body div{
+    min-height: 90vh;
+}
+#main .body div button{
+    padding:10px ;
+    margin: 20px;
+}
