@@ -11,6 +11,11 @@
                 <form action="{{route("patient.store")}}" method="post">
                     @csrf
                     <div>
+                        <label for="national_code">کدملی</label>
+                        <input type="number" id="national_code">
+                    </div>
+                    <br>
+                    <div>
                         <label for="fName">نام</label>
                         <input type="text" id="fName">
                     </div>

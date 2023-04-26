@@ -18,21 +18,21 @@ class PatientController extends Controller
     }
     public function edit():View
     {
-        return view('admin.patient-edit ');
+        return view('admin.patient-edit');
     }
-    public function show()
+    public function show():string
     {
         return "show";
     }
-    public function store()
+    public function store():string
     {
         return "store";
     }
-    public function update()
+    public function update():string
     {
         return "update";
     }
-    public function destroy()
+    public function destroy():string
     {
         return "destroy";
     }
