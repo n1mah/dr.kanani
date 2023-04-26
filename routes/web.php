@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\InsuranceController;
 use App\Http\Controllers\PatientController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Controller;
@@ -29,5 +30,14 @@ Route::group(['prefix' => 'panel'],function (){
     Route::get('/patients/patient/edit',[PatientController::class,"edit"])->name("patient.editForm");
     Route::put('/patients/patient',[PatientController::class,"update"])->name("patient.update");
     Route::delete('/patients/{patient}',[PatientController::class,"destroy"])->name("patient.delete");
+
+
+    Route::get('/insurances',[InsuranceController::class,"index"])->name("insurances");
+    Route::get('/insurances/create',[InsuranceController::class,"create"])->name("insurance.addForm");
+    Route::post('/insurances',[InsuranceController::class,"store"])->name("insurance.store");
+    Route::get('/insurances/{insurance}',[InsuranceController::class,"show"])->name("insurance.show");
+    Route::get('/insurances/insurance/edit',[InsuranceController::class,"edit"])->name("insurance.editForm");
+    Route::put('/insurances/insurance',[InsuranceController::class,"update"])->name("insurance.update");
+    Route::delete('/insurances/{insurance}',[InsuranceController::class,"destroy"])->name("insurance.delete");
 
 });
