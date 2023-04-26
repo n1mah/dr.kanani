@@ -13,6 +13,11 @@
     min-height: 100vh;
     background: #1a202c;
     color: white;
+}
+#main aside>div{
+    height: 100%;
+    width: 20%;
+    position: fixed;
     padding: 20px;
 }
 #main aside header{
