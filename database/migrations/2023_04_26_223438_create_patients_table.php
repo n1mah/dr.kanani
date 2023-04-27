@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id("national_code");
             $table->string("firstname");
             $table->string("lastname");
-            $table->timestamp("birthdate");
+            $table->dateTime("birthday");
             $table->unsignedBigInteger("insurance_id");
             $table->foreign("insurance_id")->references("id")->on("insurances")->onUpdate("cascade")->onDelete("cascade");
             $table->string("mobile");
