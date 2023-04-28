@@ -2,7 +2,9 @@
 
 namespace App\Http\Requests;
 
+use Illuminate\Contracts\Validation\ValidationRule;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Routing\Route;
 
 class InsuranceRequest extends FormRequest
 {
@@ -11,18 +13,31 @@ class InsuranceRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
      * Get the validation rules that apply to the request.
      *
-     * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array|string>
+     * @return array<string, ValidationRule|array|string>
      */
-    public function rules(): array
+
+        public function rules(): array
     {
         return [
-            //
+            'title'=>'required',
+            'fee'=>'required|numeric',
         ];
     }
+    public function messages(): array
+    {
+        return [
+            'title.required' => 'عنوان بیمه را وارد کنید',
+            'fee.required' => 'مبلغ ویزیت این بیمه را وارد کنید',
+            'fee.numeric' => 'مبلغ ویزیت را به درستی وارد کنید ( عدد انگلیسی )',
+        ];
+    }
+//    protected $redirect = ;
+//    protected $redirectRoute = 'insurances';
+
 }
