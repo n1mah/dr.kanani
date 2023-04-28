@@ -36,8 +36,8 @@ Route::group(['prefix' => 'panel'],function (){
     Route::get('/insurances/create',[InsuranceController::class,"create"])->name("insurance.addForm");
     Route::post('/insurances',[InsuranceController::class,"store"])->name("insurance.store");
     Route::get('/insurances/{insurance}',[InsuranceController::class,"show"])->name("insurance.show");
-    Route::get('/insurances/insurance/edit',[InsuranceController::class,"edit"])->name("insurance.editForm");
-    Route::put('/insurances/insurance',[InsuranceController::class,"update"])->name("insurance.update");
+    Route::get('/insurances/{insurance}/edit',[InsuranceController::class,"edit"])->name("insurance.editForm");
+    Route::put('/insurances/{insurance}',[InsuranceController::class,"update"])->name("insurance.update");
     Route::delete('/insurances/{insurance}',[InsuranceController::class,"destroy"])->name("insurance.delete");
 
 });
