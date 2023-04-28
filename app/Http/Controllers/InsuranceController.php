@@ -61,9 +61,12 @@ class InsuranceController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id):String
+    public function update(InsuranceRequest $request,Insurance $insurance): \Illuminate\Http\RedirectResponse
     {
-        return "update";
+        $validated = $request->validated();
+        $insurance->update($validated);
+        return redirect()
+            ->route('insurances');
     }
 
     /**
