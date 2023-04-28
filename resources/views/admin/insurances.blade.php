@@ -23,18 +23,27 @@
                         </tr>
                         </thead>
                         <tbody>
+                        @foreach($insurances as $insurance)
                         <tr>
-                            <td>-</td>
-                            <td>-</td>
-                            <td>-</td>
+                            <td>{{$insurance->id}}</td>
+                            <td>{{$insurance->title}}</td>
+                            <td class="money">{{number_format((String)$insurance->fee)}}</td>
                             <td>
-                                <form action="{{route("insurance.editForm")}}" method="get">@csrf <button class="btn_up">ویرایش</button></form>
+                                <form action="{{route("insurance.editForm",$insurance)}}" method="get">
+                                    @csrf
+                                    <input type="hidden" name="id" value="{{$insurance->id}}">
+                                    <button class=" btn_up">ویرایش</button>
+                                </form>
                             </td>
                             <td>
-                                <form action="" method="post">@csrf <button class="btn_del">حذف</button></form>
+                                <form action="{{route("insurance.delete",$insurance)}}" method="post">
+                                    @csrf
+                                    @method('delete')
+                                    <button class="btn_del">حذف</button>
+                                </form>
                             </td>
                         </tr>
-
+                        @endforeach
                         </tbody>
                     </table>
                 </div>

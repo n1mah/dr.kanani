@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\InsuranceRequest;
+use App\Models\Insurance;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 
@@ -12,7 +14,10 @@ class InsuranceController extends Controller
      */
     public function index():View
     {
-        return view('admin.insurances');
+        $insurance= new Insurance();
+        return view('admin.insurances',[
+            'insurances'=>$insurance->all()
+        ]);
 
     }
 
