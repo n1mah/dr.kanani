@@ -72,8 +72,9 @@ class InsuranceController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id):string
+    public function destroy(Insurance $insurance):string
     {
-        return "destroy";
+         $insurance->delete();
+         return redirect()->back();
     }
 }
