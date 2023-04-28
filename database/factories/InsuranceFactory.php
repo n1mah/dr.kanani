@@ -17,9 +17,10 @@ class InsuranceFactory extends Factory
      */
     public function definition(): array
     {
+        $fees = [1800000, 1200000, 1000000, 1650000];
         return [
             'title' => fake()->jobTitle(),
-            'fee' => fake()->numberBetween(100,2000000),
+            'fee' => fake()->randomElement($fees)
         ];
     }
 }
