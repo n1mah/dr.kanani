@@ -10,17 +10,18 @@
                 <br>
                 <form action="{{route("insurance.store")}}" method="post">
                     @csrf
+                    @method('post')
                     <div>
                         <label for="title">عنوان</label>
-                        <input type="text" id="title">
+                        <input type="text" id="title" name="title">
                     </div>
                     <br>
                     <div>
                     <label for="fee">مبلغ ویزیت</label>
-                    <input type="number" id="fee">
+                    <input type="number" id="fee" name="fee">
                     </div>
                     <br>
-                    <input class="btn" type="button" value="افزودن">
+                    <input class="btn" type="submit" value="افزودن">
                 </form>
                 <br>
                 <div class="back-box">

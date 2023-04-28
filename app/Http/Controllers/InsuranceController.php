@@ -32,9 +32,11 @@ class InsuranceController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request):String
+    public function store(InsuranceRequest $request): \Illuminate\Http\RedirectResponse
     {
-        return "store";
+        Insurance::create($request->all());
+        return redirect()
+            ->route('insurances');
     }
 
     /**
