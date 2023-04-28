@@ -27,6 +27,13 @@
                 <div class="back-box">
                     <a href="{{route("insurances")}}">بازگشت</a>
                 </div>
+                @if($errors->any())
+                    <div class="errorBox">
+                        @foreach($errors->all() as $error)
+                            <strong>- {{ $error }}</strong>
+                        @endforeach
+                    </div>
+                @endif
             </div>
         </div>
     </div>
