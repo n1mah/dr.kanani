@@ -8,19 +8,20 @@
                 <h1>ویرایش بیمه</h1>
 
                 <br>
-                <form action="{{route("insurance.update")}}" method="post">
+                <form action="{{route("insurance.update",$insurance)}}" method="post">
                     @csrf
+                    @method('put')
                     <div>
                         <label for="title">عنوان</label>
-                        <input type="text" id="title">
+                        <input type="text" id="title" name="title" value="{{$insurance->title}}">
                     </div>
                     <br>
                     <div>
                         <label for="fee">مبلغ ویزیت</label>
-                        <input type="number" id="fee">
+                        <input type="text" id="fee" name="fee" value="{{$insurance->fee}}">
                     </div>
                     <br>
-                    <input class="btn" type="button" value="ویرایش">
+                    <input class="btn" type="submit" value="ویرایش">
                 </form>
                 <br>
                 <div class="back-box">

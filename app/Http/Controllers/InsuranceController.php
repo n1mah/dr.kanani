@@ -50,9 +50,12 @@ class InsuranceController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id=null):View
+    public function edit(Insurance $insurance):View
     {
-        return view('admin.insurance-edit');
+//        return $insurance;
+        return view('admin.insurance-edit',[
+           "insurance" =>$insurance
+        ]);
     }
 
     /**
