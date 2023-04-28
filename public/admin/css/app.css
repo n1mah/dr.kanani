@@ -111,7 +111,7 @@
     align-items: flex-start;
 }
 #patients-page .table table{
-    width: 75%;
+    width: 90%;
     border-collapse: collapse;
 }
 #patients-page .table table td,#patients-page .table table th{

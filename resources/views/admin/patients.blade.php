@@ -17,7 +17,6 @@
                         <tr>
                             <th>کدملی</th>
                             <th>نام</th>
-                            <th>نام خانوادگی</th>
                             <th>تولد</th>
                             <th>بیمه</th>
                             <th>موبایل</th>
@@ -27,22 +26,29 @@
                         </tr>
                         </thead>
                         <tbody>
+                        @foreach($patients as $patient)
                         <tr>
-                            <td>-</td>
-                            <td>-</td>
-                            <td>-</td>
-                            <td>-</td>
-                            <td>-</td>
-                            <td>-</td>
-                            <td>-</td>
+                            <td>{{$patient->national_code}}</td>
+                            <td>{{$patient->firstname}} {{$patient->lastname}}</td>
+                            <td>{{$patient->birthday}}</td>
+                            <td>{{$patient->insurance->title}}</td>
+                            <td>{{$patient->mobile}}</td>
+                            <td>{{$patient->phone}}</td>
                             <td>
-                                <form action="{{route("patient.editForm")}}" method="get">@csrf <button class="btn_up">ویرایش</button></form>
+                                <form action="{{route("patient.editForm",$patient)}}" method="post">
+                                    @csrf
+                                    <button class=" btn_up">ویرایش</button>
+                                </form>
                             </td>
                             <td>
-                                <form action="" method="post">@csrf <button class="btn_del">حذف</button></form>
+                                <form action="{{route("patient.delete",$patient)}}" method="post">
+                                    @csrf
+                                    @method('delete')
+                                    <button class=" btn_del">حذف</button>
+                                </form>
                             </td>
                         </tr>
-
+                        @endforeach
                         </tbody>
                     </table>
                 </div>
