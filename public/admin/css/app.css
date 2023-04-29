@@ -92,6 +92,47 @@ color: red;
     padding-left: 5px;
     padding-right: 5px;
 }
+.parent_pagination{
+    direction: ltr;
+    padding: 20px;
+}
+.parent_pagination .pagination{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    list-style: none;
+}
+
+.parent_pagination .pagination .style{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3px;
+    border-radius: 4px;
+    margin-left: 2px;
+    margin-right: 2px;
+    text-decoration: none;
+
+}
+
+.parent_pagination .pagination a{
+    width: 25px;
+    background-color: silver;
+    color: #1a202c;
+}
+.parent_pagination .pagination .disabled span{
+    width: 25px;
+    background-color: silver;
+    color: #1a202c;
+    opacity: 0.2;
+}
+
+.parent_pagination .pagination .active span{
+    width: 40px;
+    background-color: #1a202c;
+    color: white;
+}
+
 /*patients-page*/
 #patients-page{
 
@@ -142,6 +183,7 @@ color: red;
     color: white;
 }
 /*patients-page*/
+
 /*add-patient-page*/
 #add-patient-page{
 
