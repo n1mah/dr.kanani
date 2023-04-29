@@ -9,6 +9,7 @@ use App\Models\Patient;
 use Illuminate\Contracts\View\View;
 use Illuminate\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
+use Illuminate\Http\RedirectResponse;
 
 class AppointmentController extends Controller
 {
@@ -37,9 +38,11 @@ class AppointmentController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreAppointmentRequest $request)
+    public function store(StoreAppointmentRequest $request): RedirectResponse
     {
-        //
+        Appointment::create($request->all());
+        return redirect()
+            ->route('appointments');
     }
 
     /**
