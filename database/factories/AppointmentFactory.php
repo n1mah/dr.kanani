@@ -20,7 +20,7 @@ class AppointmentFactory extends Factory
         return [
 //            'patient_id' => Patient::all()->random()->id,
             'type' => fake()->word(),
-            'visit_time' => fake()->dateTime(),
+            'visit_time' => fake()->numberBetween(1682777781,1704067199),
             'descriptions' => fake()->sentence(),
             ];
     }
