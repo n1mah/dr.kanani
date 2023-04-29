@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AppointmentController;
 use App\Http\Controllers\InsuranceController;
 use App\Http\Controllers\PatientController;
 use Illuminate\Support\Facades\Route;
@@ -39,5 +40,13 @@ Route::group(['prefix' => 'panel'],function (){
     Route::get('/insurances/{insurance}/edit',[InsuranceController::class,"edit"])->name("insurance.editForm");
     Route::put('/insurances/{insurance}',[InsuranceController::class,"update"])->name("insurance.update");
     Route::delete('/insurances/{insurance}',[InsuranceController::class,"destroy"])->name("insurance.delete");
+
+    Route::get('/appointments',[AppointmentController::class,"index"])->name("appointments");
+    Route::get('/appointments/create',[AppointmentController::class,"create"])->name("appointment.addForm");
+    Route::post('/appointments',[AppointmentController::class,"store"])->name("appointment.store");
+    Route::get('/appointments/{appointment}',[AppointmentController::class,"show"])->name("appointment.show");
+    Route::get('/appointments/{appointment}/edit',[AppointmentController::class,"edit"])->name("appointment.editForm");
+    Route::put('/appointments/{appointment}',[AppointmentController::class,"update"])->name("appointment.update");
+    Route::delete('/appointments/{appointment}',[AppointmentController::class,"destroy"])->name("appointment.delete");
 
 });
