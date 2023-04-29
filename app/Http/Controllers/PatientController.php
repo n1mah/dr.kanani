@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\PatientRequest;
+use App\Http\Requests\PatientUpdateRequest;
+use App\Models\Insurance;
 use App\Models\Patient;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -23,9 +26,14 @@ class PatientController extends Controller
             'insurances'=>$insurances->all()
         ]);
     }
-    public function edit():View
+    public function edit(Patient $patient):View
     {
-        return view('admin.patient-edit');
+        $insurances=new Insurance();
+        return view('admin.patient-edit',[
+            'patient'=>$patient,
+            'insurances'=>$insurances->all()
+
+        ]);
     }
     public function show():string
     {

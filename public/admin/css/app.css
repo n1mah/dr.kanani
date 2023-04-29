@@ -86,6 +86,12 @@
 .money{
     font-family: Arial !important
 }
+.star-red {
+color: red;
+    font-size:12px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
 /*patients-page*/
 #patients-page{
 
@@ -168,7 +174,7 @@
     border-radius: 10px;
 }
 #add-patient-page form>div{
-    width: 40%;
+    width: 60%;
     display: flex;
     justify-content: space-between;
 }
@@ -182,10 +188,14 @@
 #add-patient-page form input:focus,#add-patient-page form select{
     border-bottom: 2px solid rgba(26, 32, 44);
 }
+#add-patient-page form input{
+    width: 60%;
+
+}
 #add-patient-page form input.btn{
     background-color: #0c6eff;
     color: white;
-    width: 40%;
+    width: 60%;
     border-bottom:none;
 }
 /*add-patient-page*/

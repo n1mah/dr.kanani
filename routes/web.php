@@ -27,8 +27,8 @@ Route::group(['prefix' => 'panel'],function (){
     Route::get('/patients/create',[PatientController::class,"create"])->name("patient.addForm");
     Route::post('/patients',[PatientController::class,"store"])->name("patient.store");
     Route::get('/patients/{patient}',[PatientController::class,"show"])->name("patient.show");
-    Route::get('/patients/patient/edit',[PatientController::class,"edit"])->name("patient.editForm");
-    Route::put('/patients/patient',[PatientController::class,"update"])->name("patient.update");
+    Route::get('/patients/{patient}/edit',[PatientController::class,"edit"])->name("patient.editForm");
+    Route::put('/patients/{patient}',[PatientController::class,"update"])->name("patient.update");
     Route::delete('/patients/{patient}',[PatientController::class,"destroy"])->name("patient.delete");
 
 
