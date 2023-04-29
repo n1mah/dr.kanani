@@ -232,7 +232,7 @@ color: red;
     border-radius: 10px;
 }
 #edit-patient-page form>div{
-    width: 40%;
+    width: 60%;
     display: flex;
     justify-content: space-between;
 }
@@ -245,6 +245,11 @@ color: red;
 }
 #edit-patient-page form input:focus,#add-patient-page form select{
     border-bottom: 2px solid rgba(26, 32, 44);
+}
+
+#edit-patient-page form input{
+    width: 60%;
+
 }
 #edit-patient-page form input.btn{
     background-color: #da4b00;
