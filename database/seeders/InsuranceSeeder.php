@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Appointment;
 use App\Models\Insurance;
 use App\Models\Patient;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -16,7 +17,12 @@ class InsuranceSeeder extends Seeder
     {
         Insurance::factory()
             ->has(Patient::factory()
-            ->count(4))
+                ->has(
+                    Appointment::factory()
+                    ->count(rand(1,3))
+                )
+                ->count(4)
+            )
             ->count(10)
             ->create();
     }

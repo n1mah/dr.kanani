@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Patient;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,7 +18,10 @@ class AppointmentFactory extends Factory
     public function definition(): array
     {
         return [
-            //
-        ];
+//            'patient_id' => Patient::all()->random()->id,
+            'type' => fake()->word(),
+            'visit_time' => fake()->dateTime(),
+            'descriptions' => fake()->sentence(),
+            ];
     }
 }
