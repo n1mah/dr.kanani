@@ -20,9 +20,11 @@ class PatientFactory extends Factory
             'national_code' => fake()->numberBetween(1000000000,9999999999),
             'firstname' => fake()->firstName(),
             'lastname' => fake()->lastName(),
-            'birthday' => fake()->dateTimeBetween('-20 days', now()),
-            'mobile' => fake()->phoneNumber(),
-            'phone' => fake()->phoneNumber(),
+            'day' => fake()->numberBetween(1, 30),
+            'month' => fake()->numberBetween(1,12),
+            'year' => fake()->numberBetween(1350,1400),
+            'mobile' => "09".fake()->randomElement([12,'03',18,10,33,39,37,36]).fake()->numberBetween(1000000,9999999),
+            'phone' => "0".fake()->randomElement([81,21]).fake()->numberBetween(10000000,99999999),
             ];
     }
 }
