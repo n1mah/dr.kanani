@@ -53,8 +53,9 @@ class PatientController extends Controller
             ->route('patients');
 
     }
-    public function destroy():string
+    public function destroy(Patient $patient)
     {
-        return "destroy";
+        $patient->delete();
+        return redirect()->back();
     }
 }
