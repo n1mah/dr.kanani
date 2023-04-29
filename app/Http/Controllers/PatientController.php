@@ -31,9 +31,11 @@ class PatientController extends Controller
     {
         return "show";
     }
-    public function store():string
+    public function store(PatientRequest $request):string
     {
-        return "store";
+        Patient::create($request->all());
+        return redirect()
+            ->route('patients');
     }
     public function update():string
     {
