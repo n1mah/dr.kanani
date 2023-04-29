@@ -92,6 +92,7 @@ color: red;
     padding-left: 5px;
     padding-right: 5px;
 }
+
 .parent_pagination{
     direction: ltr;
     padding: 20px;
@@ -460,3 +461,56 @@ color: red;
     border-bottom:none;
 }
 /*edit-insurance-page*/
+
+
+
+/*appointments-page*/
+#appointments-page{
+
+}
+#appointments-page h1{
+    text-align: center;
+}
+#appointments-page .add-box{
+    height: 5vh;
+    display: flex;
+    align-items: center;
+}
+#appointments-page .add-box a{
+    text-decoration: none;
+    padding: 7px 15px;
+    background-color: #1a202c;
+    color: white;
+    border-radius: 10px;
+}
+#appointments-page .table{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+#appointments-page .table table{
+    width: 90%;
+    border-collapse: collapse;
+}
+#appointments-page .table table td,#appointments-page .table table th{
+    border: 1px solid silver;
+    border-collapse: collapse;
+    padding: 2px;
+    text-align: center;
+
+}
+#appointments-page .table table button{
+    padding: 6px 12px;
+    outline: none;
+    border: none;
+    border-radius: 10px;
+}
+#appointments-page .table table button.btn_up{
+    background-color: #ff742c;
+    color: white;
+}
+#appointments-page .table table button.btn_del{
+    background-color: #da0000;
+    color: white;
+}
+/*appointments-page*/
