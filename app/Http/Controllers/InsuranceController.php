@@ -16,7 +16,7 @@ class InsuranceController extends Controller
     {
         $insurance= new Insurance();
         return view('admin.insurances',[
-            'insurances'=>$insurance->all()
+            'insurances'=>$insurance->orderBy("id","desc")->paginate(10)
         ]);
 
     }
@@ -72,7 +72,7 @@ class InsuranceController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Insurance $insurance):string
+    public function destroy(Insurance $insurance): \Illuminate\Http\RedirectResponse
     {
          $insurance->delete();
          return redirect()->back();

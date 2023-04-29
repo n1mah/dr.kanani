@@ -47,6 +47,9 @@
                         </tbody>
                     </table>
                 </div>
+                <div class="pagination">
+                    <x-panel.pagination :lists="$insurances" />
+                </div>
             </div>
         </div>
     </div>
