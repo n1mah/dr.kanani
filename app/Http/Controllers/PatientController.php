@@ -45,9 +45,13 @@ class PatientController extends Controller
         return redirect()
             ->route('patients');
     }
-    public function update():string
+    public function update(PatientUpdateRequest $request,Patient $patient)
     {
-        return "update";
+        $validated = $request->validated();
+        $patient->update($validated);
+        return redirect()
+            ->route('patients');
+
     }
     public function destroy():string
     {
