@@ -35,9 +35,9 @@
                             <td>{{$patient->mobile}}</td>
                             <td>{{$patient->phone}}</td>
                             <td>
-                                <form action="{{route("patient.editForm",$patient)}}" method="post">
+                                <form action="{{route("patient.editForm",$patient)}}" method="get">
                                     @csrf
-                                    <button class=" btn_up">ویرایش</button>
+                                    <button type="submit" class="btn_up">ویرایش</button>
                                 </form>
                             </td>
                             <td>

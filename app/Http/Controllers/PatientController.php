@@ -13,7 +13,7 @@ class PatientController extends Controller
     {
         $patient= new Patient;
         return view('admin.patients',[
-            'patients'=>$patient->all()
+            'patients'=>$patient->orderBy("created_at","desc")
         ]);
     }
     public function create():View
