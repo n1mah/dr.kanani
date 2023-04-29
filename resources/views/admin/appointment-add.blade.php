@@ -11,8 +11,8 @@
                     @csrf
                     @method('post')
                     <div>
-                        <label for="patient">بیمار<span class="star-red">*</span></label>
-                        <select id="patient" name="patient_id">
+                        <label for="patient_id">بیمار<span class="star-red">*</span></label>
+                        <select id="patient_id" name="patient_id">
                             @foreach($patients as $patient)
                                 <option value="{{$patient->national_code}}">{{$patient->firstname}} {{$patient->lastname}}</option>
                             @endforeach
@@ -34,7 +34,7 @@
                     <br>
                     <div>
                     <label for="description">توضیح</label>
-                        <textarea id="description" name="description"></textarea>
+                        <textarea id="description" name="descriptions"></textarea>
                     </div>
                     <br>
                     <input class="btn" type="submit" value="افزودن">
