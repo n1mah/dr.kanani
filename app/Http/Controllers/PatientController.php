@@ -18,7 +18,10 @@ class PatientController extends Controller
     }
     public function create():View
     {
-        return view('admin.patient-add');
+        $insurances=new Insurance();
+        return view('admin.patient-add',[
+            'insurances'=>$insurances->all()
+        ]);
     }
     public function edit():View
     {
