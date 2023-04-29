@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreAppointmentRequest;
 use App\Http\Requests\UpdateAppointmentRequest;
 use App\Models\Appointment;
+use App\Models\Patient;
 use Illuminate\Contracts\View\View;
 use Illuminate\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
@@ -25,9 +26,12 @@ class AppointmentController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(): View
     {
-        //
+        $patients=new Patient();
+        return view('admin.appointment-add',[
+            'patients'=>$patients->all()
+        ]);
     }
 
     /**
