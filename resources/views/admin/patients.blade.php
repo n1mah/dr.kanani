@@ -30,7 +30,7 @@
                         <tr>
                             <td>{{$patient->national_code}}</td>
                             <td>{{$patient->firstname}} {{$patient->lastname}}</td>
-                            <td>{{$patient->birthday}}</td>
+                            <td>{{$patient->year}}/{{$patient->month}}/{{$patient->day}}</td>
                             <td>{{$patient->insurance->title}}</td>
                             <td>{{$patient->mobile}}</td>
                             <td>{{$patient->phone}}</td>
