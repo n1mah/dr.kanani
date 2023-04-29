@@ -16,21 +16,9 @@ use App\Http\Controllers\Controller;
 |
 */
 
-Route::get('/', function () {
-//    return view('welcome');
-//    Test
-//      $a=\App\Models\Appointment::find(1);
-//      dd($a->patient->national_code);
+//Route::get('/', function () {
 //
-//
-//      $b=\App\Models\Patient::find(1829048304);
-//    foreach ($b->appointments as $w)
-//        echo $w->type."<br>";
-
-    $a=\App\Models\Appointment::find(1);
-    dd($a->visit_time);
-
-});
+//});
 
 Route::group(['prefix' => 'panel'],function (){
     Route::view("/","admin.home")->name("dashboard");
