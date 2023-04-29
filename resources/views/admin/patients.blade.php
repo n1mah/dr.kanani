@@ -52,6 +52,9 @@
                         </tbody>
                     </table>
                 </div>
+                <div class="pagination">
+                    <x-panel.pagination :lists="$patients" />
+                </div>
             </div>
         </div>
     </div>
