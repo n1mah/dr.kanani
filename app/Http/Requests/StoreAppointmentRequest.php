@@ -11,7 +11,7 @@ class StoreAppointmentRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,22 @@ class StoreAppointmentRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'patient_id'=>'required|exists:patients,national_code|integer',
+            'type'=>'required|max:64',
+            'visit_time'=>'required|numeric',
+            'descriptions'=>'nullable',
+        ];
+    }
+    public function messages(): array
+    {
+        return [
+            'patient_id.required' => 'بیمار را انتخاب کنید',
+            'patient_id.exists' => 'بیمار را به درستی انتخاب کنید',
+            'patient_id.integer' => 'کد بیمار نامعتبر می باشد',
+            'type.required' => 'نوع ویزیت را وارد کنید',
+            'type.max' => 'نوع ویزیت نامعتبر می باشد',
+            'visit_time.required' => 'زمان ویزیت را انتخاب کنید',
+            'visit_time.numeric' => 'زمان ویزیت باید تایم استمپ باشد (نامعتبر)',
         ];
     }
 }
