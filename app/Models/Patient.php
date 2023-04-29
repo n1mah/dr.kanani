@@ -13,6 +13,10 @@ class Patient extends Model
     {
         return $this->belongsTo(Insurance::class);
     }
+    public function appointments():\Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(Appointment::class,"patient_id");
+    }
     public $incrementing = false;
     protected $primaryKey = 'national_code';
     protected $fillable = [
