@@ -56,9 +56,13 @@ class AppointmentController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Appointment $appointment)
+    public function edit(Appointment $appointment): View|Application|Factory
     {
-        //
+        $patient=new Patient();
+        return view('admin.appointment-edit',[
+            'patients'=>$patient->all(),
+            'appointment'=>$appointment
+        ]);
     }
 
     /**
