@@ -79,8 +79,9 @@ class AppointmentController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Appointment $appointment)
+    public function destroy(Appointment $appointment): RedirectResponse
     {
-        //
+        $appointment->delete();
+        return redirect()->back();
     }
 }

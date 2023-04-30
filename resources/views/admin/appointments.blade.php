@@ -39,7 +39,7 @@
                                 </form>
                             </td>
                             <td>
-                                <form action="{{route("patient.delete",$appointment)}}" method="post">
+                                <form action="{{route("appointment.delete",$appointment)}}" method="post">
                                     @csrf
                                     @method('delete')
                                     <button class="btn_del">حذف</button>
