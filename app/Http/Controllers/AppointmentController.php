@@ -68,9 +68,12 @@ class AppointmentController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateAppointmentRequest $request, Appointment $appointment)
+    public function update(UpdateAppointmentRequest $request, Appointment $appointment): RedirectResponse
     {
-        //
+        $validated = $request->validated();
+        $appointment->update($validated);
+        return redirect()
+            ->route('appointments');
     }
 
     /**
