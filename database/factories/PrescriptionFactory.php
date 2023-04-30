@@ -17,7 +17,10 @@ class PrescriptionFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            // 'appointment_id'
+            'reason' => fake()->sentence(rand(1,6)),
+            'type' => fake()->word(),
+            'text_prescription' => fake()->sentence(rand(1,15)),
         ];
     }
 }
