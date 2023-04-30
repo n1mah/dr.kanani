@@ -17,6 +17,17 @@ class Patient extends Model
     {
         return $this->hasMany(Appointment::class,"patient_id");
     }
+    public function prescriptions(): \Illuminate\Database\Eloquent\Relations\HasManyThrough
+    {
+        return $this->hasManyThrough(
+            Prescription::class,
+            Appointment::class,
+            "patient_id",
+            "appointment_id",
+            "national_code",
+            "id"
+        );
+    }
     public $incrementing = false;
     protected $primaryKey = 'national_code';
     protected $fillable = [

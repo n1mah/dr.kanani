@@ -13,6 +13,10 @@ class Appointment extends Model
     {
         return $this->belongsTo(Patient::class,"patient_id","national_code");
     }
+    public function prescriptions():\Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(Prescription::class);
+    }
     protected $fillable = [
         'patient_id','type', 'visit_time', 'descriptions'
     ];
