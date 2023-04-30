@@ -17,9 +17,26 @@ use App\Http\Controllers\Controller;
 |
 */
 
-//Route::get('/', function () {
-//
-//});
+Route::get('/', function () {
+    $user = \App\Models\Patient::first();
+    foreach ($user->prescriptions->all() as $a)
+        echo ($a->appointment_id." ".$a->reason."<br>");
+
+    echo ("<br>");
+    echo ("<br>");
+    foreach ($user->appointments->all() as $a)
+        echo ($a->id." ".$a->type."<br>");
+
+    echo ("<br>");
+    echo ("<br>");
+    foreach ($user->prescriptions->all() as $c)
+    echo ($c->appointment->id ." ".$c->appointment->type."<br>");
+
+    echo ("<br>");
+    echo ("<br>");
+
+
+});
 
 Route::group(['prefix' => 'panel'],function (){
     Route::view("/","admin.home")->name("dashboard");
