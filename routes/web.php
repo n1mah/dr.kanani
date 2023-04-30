@@ -3,6 +3,7 @@
 use App\Http\Controllers\AppointmentController;
 use App\Http\Controllers\InsuranceController;
 use App\Http\Controllers\PatientController;
+use App\Http\Controllers\PrescriptionController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Controller;
 
@@ -18,23 +19,6 @@ use App\Http\Controllers\Controller;
 */
 
 Route::get('/', function () {
-    $user = \App\Models\Patient::first();
-    foreach ($user->prescriptions->all() as $a)
-        echo ($a->appointment_id." ".$a->reason."<br>");
-
-    echo ("<br>");
-    echo ("<br>");
-    foreach ($user->appointments->all() as $a)
-        echo ($a->id." ".$a->type."<br>");
-
-    echo ("<br>");
-    echo ("<br>");
-    foreach ($user->prescriptions->all() as $c)
-    echo ($c->appointment->id ." ".$c->appointment->type."<br>");
-
-    echo ("<br>");
-    echo ("<br>");
-
 
 });
 
@@ -65,5 +49,14 @@ Route::group(['prefix' => 'panel'],function (){
     Route::get('/appointments/{appointment}/edit',[AppointmentController::class,"edit"])->name("appointment.editForm");
     Route::put('/appointments/{appointment}',[AppointmentController::class,"update"])->name("appointment.update");
     Route::delete('/appointments/{appointment}',[AppointmentController::class,"destroy"])->name("appointment.delete");
+
+
+    Route::get('/prescriptions',[PrescriptionController::class,"index"])->name("prescriptions");
+    Route::get('/prescriptions/create',[PrescriptionController::class,"create"])->name("prescription.addForm");
+    Route::post('/prescriptions',[PrescriptionController::class,"store"])->name("prescription.store");
+    Route::get('/prescriptions/{prescription}',[PrescriptionController::class,"show"])->name("prescription.show");
+    Route::get('/prescriptions/{prescription}/edit',[PrescriptionController::class,"edit"])->name("prescription.editForm");
+    Route::put('/prescriptions/{prescription}',[PrescriptionController::class,"update"])->name("prescription.update");
+    Route::delete('/prescriptions/{prescription}',[PrescriptionController::class,"destroy"])->name("prescription.delete");
 
 });
