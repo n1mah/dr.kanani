@@ -631,3 +631,59 @@ color: red;
     border-bottom:none;
 }
 /*edit-appointment-page*/
+
+
+/*prescriptions-page*/
+#prescriptions-page{
+
+}
+#prescriptions-page h1{
+    text-align: center;
+}
+#prescriptions-page .add-box{
+    height: 5vh;
+    display: flex;
+    align-items: center;
+}
+#prescriptions-page .add-box a{
+    text-decoration: none;
+    padding: 7px 15px;
+    background-color: #1a202c;
+    color: white;
+    border-radius: 10px;
+}
+#prescriptions-page .table{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+#prescriptions-page .table table{
+    width: 90%;
+    border-collapse: collapse;
+}
+#prescriptions-page .table table td,#prescriptions-page .table table th{
+    border: 1px solid silver;
+    border-collapse: collapse;
+    padding: 2px;
+    text-align: center;
+
+}
+#prescriptions-page .table table button{
+    padding: 6px 12px;
+    outline: none;
+    border: none;
+    border-radius: 10px;
+}
+#prescriptions-page .table table button.btn_up{
+    background-color: #ff742c;
+    color: white;
+}
+#prescriptions-page .table table button.btn_del{
+    background-color: #da0000;
+    color: white;
+}
+#prescriptions-page .table table button.btn_see{
+    background-color: #47a6ff;
+    color: white;
+}
+/*prescriptions-page*/

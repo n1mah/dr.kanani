@@ -5,15 +5,21 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StorePrescriptionRequest;
 use App\Http\Requests\UpdatePrescriptionRequest;
 use App\Models\Prescription;
+use Illuminate\Contracts\View\View;
+use Illuminate\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
 
 class PrescriptionController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index():View
     {
-        //
+        $prescriptions= new Prescription;
+        return view('admin.prescriptions',[
+            'prescriptions'=>$prescriptions->orderBy("updated_at","desc")->paginate(15)
+        ]);
     }
 
     /**
