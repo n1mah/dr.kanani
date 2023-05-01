@@ -686,6 +686,10 @@ color: red;
     background-color: #47a6ff;
     color: white;
 }
+#prescriptions-page .table table button.btn_add{
+    background-color: #7b00ff;
+    color: white;
+}
 /*prescriptions-page*/
 
 
@@ -696,9 +700,36 @@ color: red;
 #add-prescription-page h1{
     text-align: center;
 }
+#add-prescription-page h1 span{
+    font-size: small;
+    color: #0c6eff;
+}
 #add-prescription-page p{
     padding: 10px ;
+    margin: 20px;
 }
+#add-prescription-page p.text-center{
+    text-align: center;
+    background-color: rgba(255, 12, 12, 0.11);
+    border-radius: 10px;
+    width: 50%;
+    margin:10px auto;
+}
+#add-prescription-page p span{
+    color: red;
+    font-weight: bold;
+}
+#add-prescription-page p.text-center .span1{
+    color: #0c6eff;
+    font-weight: bold;
+    margin: 6px;
+}
+#add-prescription-page p.text-center .span2{
+    color: #ff5800;
+    margin: 6px;
+    font-weight: bold;
+}
+
 #add-prescription-page .back-box{
     height: 5vh;
     display: flex;
@@ -742,11 +773,42 @@ color: red;
     width: 60%;
 
 }
+#add-prescription-page form .btn-group{
+    width: 60%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
 #add-prescription-page form input.btn{
     background-color: #0c6eff;
     color: white;
     width: 60%;
     border-bottom:none;
+    font-size: medium;
+    padding: 5px;
+    border-radius: 10px;
+}
+#add-prescription-page form input.btn-h{
+    background-color: #0c6eff;
+    color: white;
+    width: 49%;
+    border-bottom:none;
+
+}
+#add-prescription-page form a{
+    margin: 10px    ;
+    background-color: #ff5800;
+    color: white;
+    width: 49%;
+    border-bottom:none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    padding: 3px 6px;
+    border-radius: 3px;
+    outline: none;
+
 }
 #add-prescription-page form select{
     width:80%;

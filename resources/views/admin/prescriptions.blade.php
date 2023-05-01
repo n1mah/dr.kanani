@@ -32,10 +32,18 @@
                             <td>{{$prescription->appointment->patient->firstname}} {{$prescription->appointment->patient->lastname}}</td>
                             <td>{{$prescription->type}}</td>
                             <td>
-                                <form action="{{route("prescription.show",$prescription)}}" method="get">
-                                    @csrf
-                                    <button type="submit" class="btn_see">مشاهده</button>
-                                </form>
+                                @if(empty(trim($prescription->text_prescription)))
+                                    <form action="{{route("prescription.show",$prescription)}}" method="get">
+                                        @csrf
+                                        <button type="submit" class="btn_add">افزودن نسخه</button>
+                                    </form>
+                                @else
+                                    <form action="{{route("prescription.show",$prescription)}}" method="get">
+                                        @csrf
+                                        <button type="submit" class="btn_see">مشاهده</button>
+                                    </form>
+                                @endif
+
                             </td>
                             <td>
                                 <form action="{{route("prescription.editForm",$prescription)}}" method="get">

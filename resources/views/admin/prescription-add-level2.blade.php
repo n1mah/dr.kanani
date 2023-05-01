@@ -5,11 +5,11 @@
             <x-panel.header-body />
             <hr>
             <div id="add-prescription-page">
-                <h1>افزودن نسخه جدید</h1>
+                <h1>افزودن نسخه جدید<span> ( مرحله ۲ از ۳ ) </span></h1>
                 <br>
                 <p>نوبت بیمار مورد نظر را انتخاب کنید</p>
-                <p>درصورت نداشتن وقت قبلی , گزینه بدون نوبت را انتخاب کنید</p>
-                <form action="{{route("prescription.addForm3",$patient_model)}}" method="post">
+                <p> درصورت نداشتن وقت قبلی , گزینه <span> بدون نوبت </span>  را انتخاب کنید</p>
+                <form action="{{route("prescription.addForm3",$patient)}}" method="post">
                     @csrf
                     @method('post')
                     <div>
@@ -23,23 +23,23 @@
                     </div>
                     <br>
                     <div>
-                        <label for="reason">دلیل مراجه<span class="star-red">*</span></label>
+                        <label for="reason">دلیل مراجعه<span class="star-red">*</span></label>
                         <textarea id="reason" name="reason" rows="6"></textarea>
                     </div>
                     <br>
                     <div>
-                        <label for="type">نوع <span class="star-red">*</span></label>
+                        <label for="type">نوع مراجعه <span class="star-red">*</span></label>
                         <select id="type" name="type">
                             <option value="ویزیت">ویزیت</option>
                             <option value="بررسی آزمایش یا تست">بررسی آزمایش یا تست</option>
                         </select>
                     </div>
                     <br>
-                    <input class="btn" type="submit" value="انتخاب وقت (نوبت) بیمار برای ثبت نسخه">
+                    <input class="btn" type="submit" value="انتخاب نوبت , دلیل مراجعه و نوع مراجعه   - ادامه ">
                 </form>
                 <br>
                 <div class="back-box">
-                    <a href="{{route("prescriptions")}}">بازگشت به صفحه نسخه ها</a>
+                    <a href="{{route("prescription.addForm1")}}">بازگشت به صفحه قبل</a>
                 </div>
 
 

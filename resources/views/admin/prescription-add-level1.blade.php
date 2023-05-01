@@ -27,6 +27,12 @@
                 <div class="back-box">
                     <a href="{{route("prescriptions")}}">بازگشت</a>
                 </div>
+                @if(Session::get('patient_err'))
+                    <div class="errorBox">
+                        <strong>- {{ Session::get('patient_err') }}</strong>
+                    </div>
+
+                @endif
                 @if($errors->any())
                     <div class="errorBox">
                         @foreach($errors->all() as $error)
@@ -34,6 +40,7 @@
                         @endforeach
                     </div>
                 @endif
+
             </div>
         </div>
     </div>
