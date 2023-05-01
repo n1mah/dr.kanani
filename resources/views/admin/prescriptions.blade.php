@@ -8,7 +8,7 @@
                 <h1>نسخه ها</h1>
                 <br>
                 <div class="add-box">
-                    <a href="{{route("prescription.addForm")}}">افزودن نسخه جدید</a>
+                    <a href="{{route("prescription.addForm1")}}">افزودن نسخه جدید</a>
                 </div>
                 <br>
                 <div class="table">

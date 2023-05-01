@@ -687,3 +687,76 @@ color: red;
     color: white;
 }
 /*prescriptions-page*/
+
+
+/*add-prescription-page*/
+#add-prescription-page{
+
+}
+#add-prescription-page h1{
+    text-align: center;
+}
+#add-prescription-page p{
+    padding: 10px ;
+}
+#add-prescription-page .back-box{
+    height: 5vh;
+    display: flex;
+    align-items: center;
+}
+
+#add-prescription-page .back-box a {
+    text-decoration: none;
+    padding: 7px 15px;
+    background-color: #1a202c;
+    color: white;
+    border-radius: 10px;
+}
+#add-prescription-page form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background-color: rgba(192, 192, 192, 0.69);
+    width: 75%;
+    margin: auto;
+    border-radius: 10px;
+}
+#add-prescription-page form>div{
+    width: 60%;
+    display: flex;
+    justify-content: space-between;
+}
+#add-prescription-page form input,#add-prescription-page form select{
+    padding: 3px 6px;
+    border: none;
+    border-bottom: 2px solid #777777;
+    border-radius: 3px;
+    outline: none;
+}
+#add-prescription-page form input:focus,#add-prescription-page form select{
+    border-bottom: 2px solid rgba(26, 32, 44);
+}
+#add-prescription-page form input{
+    width: 60%;
+
+}
+#add-prescription-page form input.btn{
+    background-color: #0c6eff;
+    color: white;
+    width: 60%;
+    border-bottom:none;
+}
+#add-prescription-page form select{
+    width:80%;
+    border-bottom:3px solid #0c6eff;
+}
+#add-prescription-page form textarea{
+    width:80%;
+    resize: vertical;
+    border: none;
+    border-bottom:3px solid #0c6eff;
+}
+/*add-prescription-page*/
+

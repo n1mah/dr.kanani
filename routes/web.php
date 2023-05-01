@@ -52,7 +52,9 @@ Route::group(['prefix' => 'panel'],function (){
 
 
     Route::get('/prescriptions',[PrescriptionController::class,"index"])->name("prescriptions");
-    Route::get('/prescriptions/create',[PrescriptionController::class,"create"])->name("prescription.addForm");
+    Route::get('/prescriptions/create/level1',[PrescriptionController::class,"create"])->name("prescription.addForm1");
+    Route::post('/prescriptions/create/level2',[PrescriptionController::class,"create2"])->name("prescription.addForm2");
+    Route::post('/prescriptions/create/level3',[PrescriptionController::class,"create3"])->name("prescription.addForm3");
     Route::post('/prescriptions',[PrescriptionController::class,"store"])->name("prescription.store");
     Route::get('/prescriptions/{prescription}',[PrescriptionController::class,"show"])->name("prescription.show");
     Route::get('/prescriptions/{prescription}/edit',[PrescriptionController::class,"edit"])->name("prescription.editForm");
