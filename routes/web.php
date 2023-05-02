@@ -54,13 +54,11 @@ Route::group(['prefix' => 'panel'],function (){
     Route::get('/prescriptions',[PrescriptionController::class,"index"])->name("prescriptions");
     Route::get('/prescriptions/create/level1',[PrescriptionController::class,"create"])->name("prescription.addForm1");//select patient
     Route::post('/prescriptions/create/level2',[PrescriptionController::class,"create2"])->name("prescription.addForm2");//get patient//select appointment
-    Route::get('/prescriptions/create/level2',[PrescriptionController::class,"create2_error"]);//get patient//select appointment
-    Route::post('/prescriptions/create/level3/{patient}',[PrescriptionController::class,"create3"])->name("prescription.addForm3");//get Patient model & appointment
-    Route::post('/prescriptions/create/level4/{prescription}',[PrescriptionController::class,"create4"])->name("prescription.addForm4");//get Patient model & appointment
-    Route::post('/prescriptions',[PrescriptionController::class,"store"])->name("prescription.store");
+    Route::get('/prescriptions/create/level2',[PrescriptionController::class,"create2_error"]);//back to level 1 with error level 2
+    Route::post('/prescriptions/create/level3/{patient}',[PrescriptionController::class,"store"])->name("prescription.store");//get Patient model & appointment ->create Prescription
+    Route::post('/prescriptions/update/prescription/{prescription}',[PrescriptionController::class,"update"])->name("prescription.update");//get Patient model & appointment
     Route::get('/prescriptions/{prescription}',[PrescriptionController::class,"show"])->name("prescription.show");
     Route::get('/prescriptions/{prescription}/edit',[PrescriptionController::class,"edit"])->name("prescription.editForm");
-    Route::put('/prescriptions/{prescription}',[PrescriptionController::class,"update"])->name("prescription.update");
     Route::delete('/prescriptions/{prescription}',[PrescriptionController::class,"destroy"])->name("prescription.delete");
 
 });

@@ -9,7 +9,7 @@
                 <br>
                 <p>نوبت بیمار مورد نظر را انتخاب کنید</p>
                 <p> درصورت نداشتن وقت قبلی , گزینه <span> بدون نوبت </span>  را انتخاب کنید</p>
-                <form action="{{route("prescription.addForm3",$patient)}}" method="post">
+                <form action="{{route("prescription.store",$patient)}}" method="post">
                     @csrf
                     @method('post')
                     <div>

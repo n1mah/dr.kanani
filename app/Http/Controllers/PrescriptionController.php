@@ -59,7 +59,7 @@ class PrescriptionController extends Controller
             'patients'=>$patients->all()
         ]);
     }
-    public function create3(Patient $patient,StorePrescriptionRequest $request)
+    public function store(Patient $patient,StorePrescriptionRequest $request): View|Application|Factory|\Illuminate\Contracts\Foundation\Application
     {
         $validated = $request->all();
         $appointment_id=$validated["appointment_id"];
@@ -77,7 +77,7 @@ class PrescriptionController extends Controller
             'prescription'=>$prescription,
         ]);
     }
-    public function create4(Prescription $prescription):View|RedirectResponse
+    public function update(Prescription $prescription):View|RedirectResponse
     {
         $prescription->text_prescription=request("text_prescription");
         $prescription->save();
@@ -87,10 +87,6 @@ class PrescriptionController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StorePrescriptionRequest $request)
-    {
-        //
-    }
 
     /**
      * Display the specified resource.
@@ -111,10 +107,6 @@ class PrescriptionController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdatePrescriptionRequest $request, Prescription $prescription)
-    {
-        //
-    }
 
     /**
      * Remove the specified resource from storage.

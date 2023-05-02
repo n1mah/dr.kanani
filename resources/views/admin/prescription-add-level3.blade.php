@@ -10,7 +10,7 @@
                 <p class="text-center">در این مرحله میتوانید نسخه خود را <span class="span1"> ثبت </span> کنید یا آن را به <span class="span2"> بعدا </span> موکول کنید</p>
                 <p> اگر نسخه را وارد نکنید به طور پیشفرض به بعدا موکول می شود </p>
                 <br>
-                <form action="{{route("prescription.addForm4",$prescription)}}" method="post">
+                <form action="{{route("prescription.update",$prescription)}}" method="post">
                     @csrf
                     @method('post')
                     <br>
