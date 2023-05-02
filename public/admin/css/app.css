@@ -175,6 +175,18 @@ color: red;
     border: none;
     border-radius: 10px;
 }
+#patients-page .table table button.btn_prep{
+    background-color: rgb(182, 179, 0);
+    color: white;
+}
+#patients-page .table table button.btn_visit{
+    background-color: rgb(182, 0, 97);
+    color: white;
+}
+#patients-page .table table button.btn_show{
+    background-color: rgba(0, 60, 182, 1);
+    color: white;
+}
 #patients-page .table table button.btn_up{
     background-color: #ff742c;
     color: white;
@@ -301,6 +313,66 @@ color: red;
     border-bottom:none;
 }
 /*edit-patient-page*/
+
+
+/*show-patient-page*/
+#show-patient-page{
+
+}
+#show-patient-page h1{
+    text-align: center;
+}
+#show-patient-page .back-box{
+    height: 5vh;
+    display: flex;
+    align-items: center;
+}
+
+#show-patient-page .back-box a {
+    text-decoration: none;
+    padding: 7px 15px;
+    background-color: #1a202c;
+    color: white;
+    border-radius: 10px;
+}
+#show-patient-page form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background-color: rgba(192, 192, 192, 0.69);
+    width: 75%;
+    margin: auto;
+    border-radius: 10px;
+}
+#show-patient-page form>div{
+    width: 60%;
+    display: flex;
+    justify-content: space-between;
+}
+#show-patient-page form input,#add-patient-page form select{
+    padding: 3px 6px;
+    border: none;
+    border-bottom: 2px solid #777777;
+    border-radius: 3px;
+    outline: none;
+}
+#show-patient-page form input:focus,#add-patient-page form select{
+    border-bottom: 2px solid rgba(26, 32, 44);
+}
+
+#show-patient-page form input{
+    width: 60%;
+
+}
+#show-patient-page form input.btn{
+    background-color: #da4b00;
+    color: white;
+    width: 40%;
+    border-bottom:none;
+}
+/*show-patient-page*/
 
 
 

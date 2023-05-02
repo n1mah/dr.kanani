@@ -32,12 +32,13 @@ class PatientController extends Controller
         return view('admin.patient-edit',[
             'patient'=>$patient,
             'insurances'=>$insurances->all()
-
         ]);
     }
-    public function show():string
+    public function show(Patient $patient):View
     {
-        return "show";
+        return view('admin.patient',[
+            'patient'=>$patient,
+        ]);
     }
     public function store(PatientRequest $request):string
     {

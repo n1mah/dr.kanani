@@ -17,10 +17,10 @@
                         <tr>
                             <th>کدملی</th>
                             <th>نام</th>
-                            <th>تولد</th>
-                            <th>بیمه</th>
                             <th>موبایل</th>
-                            <th>تلفن</th>
+                            <th>نوبت ها</th>
+                            <th>نسخه ها</th>
+                            <th>اطلاعات</th>
                             <th>ویرایش</th>
                             <th>حذف</th>
                         </tr>
@@ -30,10 +30,25 @@
                         <tr>
                             <td>{{$patient->national_code}}</td>
                             <td>{{$patient->firstname}} {{$patient->lastname}}</td>
-                            <td>{{$patient->year}}/{{$patient->month}}/{{$patient->day}}</td>
-                            <td>{{$patient->insurance->title}}</td>
                             <td>{{$patient->mobile}}</td>
-                            <td>{{$patient->phone}}</td>
+                            <td>
+                                <form action="{{route("patient.editForm",$patient)}}" method="get">
+                                    @csrf
+                                    <button type="submit" class="btn_visit">مشاهده</button>
+                                </form>
+                            </td>
+                            <td>
+                                <form action="{{route("patient.editForm",$patient)}}" method="get">
+                                    @csrf
+                                    <button type="submit" class="btn_prep">مشاهده</button>
+                                </form>
+                            </td>
+                            <td>
+                                <form action="{{route("patient.show",$patient)}}" method="get">
+                                    @csrf
+                                    <button type="submit" class="btn_show">مشاهده</button>
+                                </form>
+                            </td>
                             <td>
                                 <form action="{{route("patient.editForm",$patient)}}" method="get">
                                     @csrf
