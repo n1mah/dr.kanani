@@ -80,7 +80,7 @@ class PrescriptionController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Prescription $prescription):View|RedirectResponse
+    public function edit(Prescription $prescription):View
     {
         return view('admin.prescription-edit',[
             'prescription'=>$prescription,
@@ -100,9 +100,11 @@ class PrescriptionController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Prescription $prescription)
+    public function show(Prescription $prescription): View
     {
-        //
+        return view('admin.prescription-show',[
+            'prescription'=>$prescription,
+        ]);
     }
 
 
