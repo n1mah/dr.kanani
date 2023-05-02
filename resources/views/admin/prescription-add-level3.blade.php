@@ -8,13 +8,14 @@
                 <h1>افزودن نسخه جدید<span> ( مرحله 3 از 3 ) </span></h1>
                 <br>
                 <p class="text-center">در این مرحله میتوانید نسخه خود را <span class="span1"> ثبت </span> کنید یا آن را به <span class="span2"> بعدا </span> موکول کنید</p>
+                <p> اگر نسخه را وارد نکنید به طور پیشفرض به بعدا موکول می شود </p>
                 <br>
                 <form action="{{route("prescription.addForm4",$prescription)}}" method="post">
                     @csrf
                     @method('post')
                     <br>
                     <div>
-                        <label for="text_prescription">نسخه<span class="star-red">*</span></label>
+                        <label for="text_prescription">نسخه</label>
                         <textarea id="text_prescription" name="text_prescription" rows="6"></textarea>
                     </div>
                     <br>

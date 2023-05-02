@@ -15,7 +15,7 @@
                     <div>
                         <label for="appointment_id">وقت (نوبت)<span class="star-red">*</span></label>
                         <select id="appointment_id" name="appointment_id">
-                            <option value="null">بدون نوبت</option>
+                            <option value="">بدون نوبت</option>
                             @foreach($appointments as $appointment)
                                 <option value="{{$appointment->id}}">{{$appointment->visit_time}}</option>
                             @endforeach

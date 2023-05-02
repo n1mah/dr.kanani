@@ -35,6 +35,10 @@
                 @endif
                 @if($errors->any())
                     <div class="errorBox">
+                        @if(!$errors->first('patient_err'))
+                            <p>اخطار : لطفا مجدد مراحل را طی کنید و اطلاعات را به درستی وارد کنید</p>
+                            <span>خطا ها :</span>
+                        @endif
                         @foreach($errors->all() as $error)
                             <strong>- {{ $error }}</strong>
                         @endforeach

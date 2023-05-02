@@ -36,7 +36,7 @@ class PrescriptionController extends Controller
         ]);
     }
 
-    public function create2(): RedirectResponse | View
+    public function create2(): Factory|Application|View|\Illuminate\Contracts\Foundation\Application|RedirectResponse
     {
         $patient_id=request("patient_id");
         $patient=new Patient();
@@ -45,37 +45,34 @@ class PrescriptionController extends Controller
         }catch(\Exception $exception){
           return  redirect()->back()->withErrors(['patient_err' => ['لطفا بیمار را از لیست بیماران انتخاب کنید (نامعتبر)']]);
         }
-//        dd($patientN->national_code);
         $appointment=new Appointment();
         return view('admin.prescription-add-level2',[
             'appointments'=>$appointment->where("patient_id",$patient_id)->orderby("visit_time")->get(),
             'patient'=>$patientN
         ]);
-    }
-    public function create3(Patient $patient):View
-    {
-        $type=request("type");
-        $reason=request("reason");
-        $appointment=new Appointment();
-        $appointment_id=request("appointment_id");
 
-        if ($appointment_id==="null"){
+    }
+    public function create2_error(): View|Application|Factory|\Illuminate\Contracts\Foundation\Application
+    {
+        $patients=new Patient();
+        return view('admin.prescription-add-level1',[
+            'patients'=>$patients->all()
+        ]);
+    }
+    public function create3(Patient $patient,StorePrescriptionRequest $request)
+    {
+        $validated = $request->all();
+        $appointment_id=$validated["appointment_id"];
+        if ($appointment_id==="" || is_null($appointment_id)){
             $appointmentN = new Appointment;
             $appointmentN->patient_id =$patient->national_code;
-            $appointmentN->descriptions =$reason;
-            $appointmentN->type = request("type");
+            $appointmentN->descriptions =$validated["reason"];
+            $appointmentN->type = $validated["type"];
+            $appointmentN->visit_time =time();
             $appointmentN->save();
-            $appointment_id_=$appointmentN->id;
-        }else{
-            $appointment_id_=$appointment_id;
-            $appointmentN=Appointment::find($appointment_id_)->first();
+            $validated["appointment_id"]=$appointmentN->id;
         }
-
-        $prescription= new Prescription;
-        $prescription->appointment_id=$appointment_id_;
-        $prescription->type=$type;
-        $prescription->reason=$reason;
-        $prescription->save();
+        $prescription= Prescription::create($validated);
         return view('admin.prescription-add-level3',[
             'prescription'=>$prescription,
         ]);
