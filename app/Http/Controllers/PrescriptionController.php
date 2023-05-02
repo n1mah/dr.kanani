@@ -77,6 +77,15 @@ class PrescriptionController extends Controller
             'prescription'=>$prescription,
         ]);
     }
+    /**
+     * Show the form for editing the specified resource.
+     */
+    public function edit(Prescription $prescription):View|RedirectResponse
+    {
+        return view('admin.prescription-edit',[
+            'prescription'=>$prescription,
+        ]);
+    }
     public function update(Prescription $prescription):View|RedirectResponse
     {
         $prescription->text_prescription=request("text_prescription");
@@ -96,13 +105,7 @@ class PrescriptionController extends Controller
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Prescription $prescription)
-    {
-        //
-    }
+
 
     /**
      * Update the specified resource in storage.

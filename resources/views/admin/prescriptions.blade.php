@@ -33,7 +33,7 @@
                             <td>{{$prescription->type}}</td>
                             <td>
                                 @if(empty(trim($prescription->text_prescription)))
-                                    <form action="{{route("prescription.show",$prescription)}}" method="get">
+                                    <form action="{{route("prescription.editForm",$prescription)}}" method="post">
                                         @csrf
                                         <button type="submit" class="btn_add">افزودن نسخه</button>
                                     </form>
