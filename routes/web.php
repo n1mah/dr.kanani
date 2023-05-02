@@ -59,6 +59,12 @@ Route::group(['prefix' => 'panel'],function (){
     Route::post('/prescriptions/update/prescription/{prescription}',[PrescriptionController::class,"update"])->name("prescription.update");//get Patient model & appointment
     Route::post('/prescriptions/prescription/{prescription}/edit',[PrescriptionController::class,"edit"])->name("prescription.editForm");//get Patient model & appointment
     Route::get('/prescriptions/{prescription}',[PrescriptionController::class,"show"])->name("prescription.show");
+    Route::get('/prescriptions/{prescription}/edit-special',[PrescriptionController::class,"edit_special"])->name("prescription.edit_special");
+    Route::get('/prescriptions/{prescription}/edit-special-1',[PrescriptionController::class,"edit_special_1"])->name("prescription.edit_special_1");
+    Route::get('/prescriptions/{prescription}/edit-special-2',[PrescriptionController::class,"edit_special_2"])->name("prescription.edit_special_2");
+    Route::post('/prescriptions/{prescription}/edit-special-2/{patient_id}',[PrescriptionController::class,"edit_special_2_process"])->name("prescription.update_special_2");//get patient//select appointment
+    Route::get('/prescriptions/{prescription}/edit-special-3',[PrescriptionController::class,"edit_special_3"])->name("prescription.edit_special_3");
+    Route::post('/prescriptions/{prescription}/edit-special-3',[PrescriptionController::class,"edit_special_3_process"])->name("prescription.update_special_3");
     Route::delete('/prescriptions/{prescription}',[PrescriptionController::class,"destroy"])->name("prescription.delete");
 
 });

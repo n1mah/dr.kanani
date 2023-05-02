@@ -16,10 +16,11 @@ class PrescriptionFactory extends Factory
      */
     public function definition(): array
     {
+        $types = ["ویزیت","بررسی آزمایش یا تست"];
         return [
             // 'appointment_id'
             'reason' => fake()->sentence(rand(1,6)),
-            'type' => fake()->word(),
+            'type' => fake()->randomElement($types),
             'text_prescription' => fake()->sentence(rand(1,15)),
         ];
     }

@@ -11,7 +11,7 @@ class UpdatePrescriptionRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,21 @@ class UpdatePrescriptionRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+//            'appointment_id'=>'exists:appointments,id|nullable',
+            'reason'=>'required|max:255',
+            'type'=>'required|max:64',
+            'text_prescription'=>'nullable',
+        ];
+    }
+    public function messages(): array
+    {
+        return [
+//            'appointment_id.integer' => 'وقت (نوبت) نامعتبر می باشد',
+//            'appointment_id.exists' => 'وقت (نوبت) وجود ندارد . لطفا به درستی انتخاب کنید',
+            'reason.required' => 'دلیل مراجعه را وارد کنید',
+            'reason.max' => 'دلیل مراجعه نامعتبر می باشد . لطفا حداکثر در ۲۵۵ کارکتر توضیح دهید',
+            'type.required' => 'نوع ویزیت را به درستی انتخاب کنید',
+            'type.max' => 'نوع ویزیت نامعتبر می باشد',
         ];
     }
 }

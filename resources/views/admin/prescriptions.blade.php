@@ -46,7 +46,7 @@
 
                             </td>
                             <td>
-                                <form action="{{route("prescription.editForm",$prescription)}}" method="get">
+                                <form action="{{route("prescription.edit_special",$prescription)}}" method="get">
                                     @csrf
                                     <button type="submit" class="btn_up">ویرایش</button>
                                 </form>

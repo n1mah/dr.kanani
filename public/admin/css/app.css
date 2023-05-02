@@ -1035,3 +1035,158 @@ color: red;
 }
 /*show-prescription-page*/
 
+
+/*edit-special-prescription-page*/
+#edit-special-prescription-page{
+
+}
+#edit-special-prescription-page h1{
+    text-align: center;
+}
+#edit-special-prescription-page h1 span{
+    font-size: small;
+    color: #0c6eff;
+}
+#edit-special-prescription-page p{
+    padding: 10px ;
+    margin: 20px;
+}
+#edit-special-prescription-page p.text-center{
+    text-align: center;
+    background-color: rgba(255, 12, 12, 0.11);
+    border-radius: 10px;
+    width: 50%;
+    margin:10px auto;
+}
+#edit-special-prescription-page p span{
+    color: red;
+    font-weight: bold;
+}
+#edit-special-prescription-page p.text-center .span1{
+    color: #0c6eff;
+    font-weight: bold;
+    margin: 6px;
+}
+#edit-special-prescription-page p.text-center .span2{
+    color: #ff5800;
+    margin: 6px;
+    font-weight: bold;
+}
+
+#edit-special-prescription-page .back-box{
+    height: 5vh;
+    display: flex;
+    align-items: center;
+}
+
+#edit-special-prescription-page .back-box a {
+    text-decoration: none;
+    padding: 7px 15px;
+    background-color: #1a202c;
+    color: white;
+    border-radius: 10px;
+}
+#edit-special-prescription-page form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background-color: rgba(192, 192, 192, 0.69);
+    width: 75%;
+    margin: auto;
+    border-radius: 10px;
+}
+#edit-special-prescription-page form>div{
+    width: 60%;
+    display: flex;
+    justify-content: space-between;
+}
+#edit-special-prescription-page form input,#edit-special-prescription-page form select{
+    padding: 3px 6px;
+    border: none;
+    border-bottom: 2px solid #777777;
+    border-radius: 3px;
+    outline: none;
+}
+#edit-special-prescription-page form input:focus,#edit-special-prescription-page form select{
+    border-bottom: 2px solid rgba(26, 32, 44);
+}
+#edit-special-prescription-page form input{
+    width: 60%;
+
+}
+#edit-special-prescription-page form .btn-group{
+    width: 60%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#edit-special-prescription-page form textarea{
+    padding: 5px;
+    width:80%;
+    resize: vertical;
+    border: none;
+    border-bottom:3px solid #0c6eff;
+}
+
+#edit-special-prescription-page .btn-group{
+    width: 60%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: auto;
+}
+
+#edit-special-prescription-page .btn-group-single{
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+}
+
+#edit-special-prescription-page form input.btn{
+    background-color: #ff5800;
+    color: white;
+    width: 60%;
+    border-bottom:none;
+    font-size: medium;
+    padding: 5px;
+    border-radius: 10px;
+    text-shadow: 0 0 2px black;
+}
+
+#edit-special-prescription-page .btn-back-group{
+    padding-bottom: 20px;
+    width: 60%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+}
+#edit-special-prescription-page .btn-back-group a{
+    text-decoration: none;
+    padding: 7px 15px;
+    background-color: #1a202c;
+    color: white;
+    border-radius: 10px;
+}
+#edit-special-prescription-page .btn-group a{
+    margin: 10px    ;
+    background-color: #ff5800;
+    color: white;
+    width: 32%;
+    border-bottom:none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    padding: 3px 6px;
+    border-radius: 3px;
+    outline: none;
+
+}
+/*edit-special-prescription-page*/
+
