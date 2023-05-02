@@ -110,14 +110,11 @@ class PrescriptionController extends Controller
 
 
     /**
-     * Update the specified resource in storage.
-     */
-
-    /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Prescription $prescription)
+    public function destroy(Prescription $prescription): RedirectResponse
     {
-        //
+        $prescription->delete();
+        return redirect()->back();
     }
 }
