@@ -51,6 +51,7 @@ Route::group(['prefix' => 'panel'],function (){
     Route::get('/appointments/{appointment}/edit',[AppointmentController::class,"edit"])->name("appointment.editForm");
     Route::put('/appointments/{appointment}',[AppointmentController::class,"update"])->name("appointment.update");
     Route::delete('/appointments/{appointment}',[AppointmentController::class,"destroy"])->name("appointment.delete");
+    Route::get('/appointments/{appointment}/prescriptions',[AppointmentController::class,"show_prescriptions"])->name("appointment.prescriptions");
 
 
     Route::get('/prescriptions',[PrescriptionController::class,"index"])->name("prescriptions");

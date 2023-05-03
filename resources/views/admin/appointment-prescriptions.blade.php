@@ -1,41 +1,41 @@
 <x-panel.layouts.header />
-    <div id="main">
-        <x-panel.aside />
-        <div class="body">
-            <x-panel.header-body />
-            <hr>
-            <div id="prescriptions-page">
-                <h1>نسخه ها</h1>
-                <br>
-                <div class="add-box">
-                    <a href="{{route("prescription.addForm1")}}">افزودن نسخه جدید</a>
-                </div>
-                <br>
-                <div class="table">
-                    <table>
-                        <thead>
-                        <tr>
-                            <th>کد</th>
-                            <th>دلیل مراجعه</th>
-                            <th>نام بیمار</th>
-                            <th>نوع</th>
-                            <th>نسخه</th>
-                            <th>ویرایش</th>
-                            <th>حذف</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        @foreach($prescriptions as $prescription)
+<div id="main">
+    <x-panel.aside />
+    <div class="body">
+        <x-panel.header-body />
+        <hr>
+        <div id="appointment-prescriptions-page">
+            <h1>نسخه ها</h1>
+            <br>
+            <h2>بیمار : <span>{{$prescriptions->first()->appointment->patient->firstname}} {{$prescriptions->first()->appointment->patient->lastname}}</span></h2>
+            <h2>وقت : <span>{{$prescriptions->first()->appointment->visit_time}}</span></h2>
+            <div class="add-box">
+                <a href="{{route("prescription.addForm1")}}">افزودن نسخه جدید</a>
+            </div>
+            <br>
+            <div class="table">
+                <table>
+                    <thead>
+                    <tr>
+                        <th>کد</th>
+                        <th>دلیل مراجعه</th>
+                        <th>نوع</th>
+                        <th>نسخه</th>
+                        <th>ویرایش</th>
+                        <th>حذف</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    @foreach($prescriptions as $prescription)
                         <tr>
                             <td>{{$prescription->id}}</td>
                             <td>{{$prescription->reason}}</td>
-                            <td>{{$prescription->appointment->patient->firstname}} {{$prescription->appointment->patient->lastname}}</td>
                             <td>{{$prescription->type}}</td>
                             <td>
                                 @if(empty(trim($prescription->text_prescription)))
                                     <form action="{{route("prescription.editForm",$prescription)}}" method="post">
                                         @csrf
-                                        <button type="submit" class="btn_add">افزودن نسخه</button>
+                                        <button type="submit" class="btn_add">افزودن متن نسخه</button>
                                     </form>
                                 @else
                                     <form action="{{route("prescription.show",$prescription)}}" method="get">
@@ -59,15 +59,19 @@
                                 </form>
                             </td>
                         </tr>
-                        @endforeach
-                        </tbody>
-                    </table>
-                </div>
-                <div class="pagination">
-                    <x-panel.pagination :lists="$prescriptions" />
-                </div>
+                    @endforeach
+                    </tbody>
+                </table>
+            </div>
+            <div class="pagination">
+                <x-panel.pagination :lists="$prescriptions" />
+            </div>
+            <br>
+            <div class="btn-box">
+                <a href="{{redirect()->back()->getTargetUrl() }}">بازگشت</a>
             </div>
         </div>
     </div>
+</div>
 
 <x-panel.layouts.footer />

@@ -633,6 +633,24 @@ color: red;
     background-color: #da0000;
     color: white;
 }
+#appointments-page .table table button.btn_prep{
+    background-color: rgb(182, 179, 0);
+    color: white;
+}
+#appointments-page .table table .btn_disable{
+    background-color: rgb(178, 178, 178);
+    color: white;
+    padding: 4px 5px;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    font-size: small;
+    cursor: not-allowed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
 /*appointments-page*/
 
 /*add-appointment-page*/
@@ -1393,6 +1411,34 @@ color: red;
     align-items: center;
     justify-content: center;
 }
+
+#patient-appointments-page .table table button.btn_see{
+    background-color: #47a6ff;
+    color: white;
+}
+#patient-appointments-page .table table button.btn_add{
+    background-color: #7b00ff;
+    color: white;
+}
+
+#patient-appointments-page .table table button.btn_prep{
+    background-color: rgb(182, 179, 0);
+    color: white;
+}
+#patient-appointments-page  .btn_disable{
+    background-color: rgb(178, 178, 178);
+    color: white;
+    padding: 4px 5px;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    font-size: small;
+    cursor: not-allowed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 /*patient-appointments-page*/
 
 /*patient-prescriptions-page*/
@@ -1477,5 +1523,109 @@ color: red;
     align-items: center;
     justify-content: center;
 }
+
+#patient-prescriptions-page .table table button.btn_see{
+    background-color: #47a6ff;
+    color: white;
+}
+#patient-prescriptions-page .table table button.btn_add{
+    background-color: #7b00ff;
+    color: white;
+}
 /*patient-prescriptions-page*/
+
+
+
+/*appointment-prescriptions-page*/
+#appointment-prescriptions-page{
+
+}
+#appointment-prescriptions-page h1{
+    text-align: center;
+}
+#appointment-prescriptions-page h2{
+    text-align: center;
+    font-size: medium;
+    padding: 10px;
+    width: 30%;
+    background-color: rgba(26, 32, 44, 0.15);
+    margin:10px auto;
+    border-radius: 16px;
+}
+#appointment-prescriptions-page h2 span{
+    font-weight: bold;
+    padding: 10px;
+    color: #0c6eff;
+}
+
+#appointment-prescriptions-page .add-box{
+    height: 5vh;
+    display: flex;
+    align-items: center;
+}
+#appointment-prescriptions-page .add-box a{
+    text-decoration: none;
+    padding: 7px 15px;
+    background-color: #1a202c;
+    color: white;
+    border-radius: 10px;
+}
+#appointment-prescriptions-page .table{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+#appointment-prescriptions-page .table table{
+    width: 90%;
+    border-collapse: collapse;
+}
+#appointment-prescriptions-page .table table td,#appointment-prescriptions-page .table table th{
+    border: 1px solid silver;
+    border-collapse: collapse;
+    padding: 2px;
+    text-align: center;
+
+}
+#appointment-prescriptions-page .table table button{
+    padding: 6px 12px;
+    outline: none;
+    border: none;
+    border-radius: 10px;
+}
+#appointment-prescriptions-page .table table button.btn_up{
+    background-color: #ff742c;
+    color: white;
+}
+#appointment-prescriptions-page .table table button.btn_del{
+    background-color: #da0000;
+    color: white;
+}
+
+#appointment-prescriptions-page .btn-box{
+    width: 60%;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#appointment-prescriptions-page .btn-box a{
+    text-decoration: none;
+    padding: 7px 15px;
+    background-color: #1a202c;
+    color: white;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#appointment-prescriptions-page .table table button.btn_see{
+    background-color: #47a6ff;
+    color: white;
+}
+#appointment-prescriptions-page .table table button.btn_add{
+    background-color: #7b00ff;
+    color: white;
+}
+/*appointment-prescriptions-page*/
 

@@ -33,7 +33,7 @@
 
                 <br>
                 <div class="back-box">
-                    <a href="{{route("prescriptions")}}">بازگشت به نسخه ها</a>
+                    <a href="{{redirect()->back()->getTargetUrl() }}">بازگشت به نسخه ها</a>
                 </div>
 
 

@@ -20,6 +20,7 @@
                             <th>نوع</th>
                             <th>وقت ملاقات</th>
                             <th>توضیح وقت</th>
+                            <th>نسخه ها</th>
                             <th>ویرایش</th>
                             <th>حذف</th>
                         </tr>
@@ -32,6 +33,16 @@
                             <td>{{$appointment->type}}</td>
                             <td>{{$appointment->visit_time}}</td>
                             <td>{{$appointment->descriptions}}</td>
+                            <td>
+                                @if(count($appointment->prescriptions)>0)
+                                    <form action="{{route("appointment.prescriptions",$appointment)}}" method="get">
+                                        @csrf
+                                        <button type="submit" class="btn_prep">مشاهده نسخه ها این نوبت</button>
+                                    </form>
+                                @else
+                                    <span class="btn_disable">نوبت نسخه ای ندارد</span>
+                                @endif
+                            </td>
                             <td>
                                 <form action="{{route("appointment.editForm",$appointment)}}" method="get">
                                     @csrf

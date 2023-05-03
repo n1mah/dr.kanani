@@ -91,7 +91,7 @@ class PrescriptionController extends Controller
         $prescription->text_prescription=request("text_prescription");
         $prescription->save();
         return redirect()
-            ->route('prescriptions');
+            ->route('prescription.show',$prescription);
     }
     /**
      * Store a newly created resource in storage.

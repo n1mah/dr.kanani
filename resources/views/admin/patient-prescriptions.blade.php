@@ -34,12 +34,12 @@
                                 @if(empty(trim($prescription->text_prescription)))
                                     <form action="{{route("prescription.editForm",$prescription)}}" method="post">
                                         @csrf
-                                        <button type="submit" class="btn_add">افزودن نسخه</button>
+                                        <button type="submit" class="btn_add">افزودن متن نسخه</button>
                                     </form>
                                 @else
                                     <form action="{{route("prescription.show",$prescription)}}" method="get">
                                         @csrf
-                                        <button type="submit" class="btn_see">مشاهده</button>
+                                        <button type="submit" class="btn_see">مشاهده جزییات</button>
                                     </form>
                                 @endif
 

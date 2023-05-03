@@ -72,8 +72,8 @@ class AppointmentController extends Controller
     {
         $validated = $request->validated();
         $appointment->update($validated);
-        return redirect()
-            ->route('appointments');
+        return redirect()->back();
+
     }
 
     /**
@@ -83,5 +83,14 @@ class AppointmentController extends Controller
     {
         $appointment->delete();
         return redirect()->back();
+    }
+
+    public function show_prescriptions(Appointment $appointment):View
+    {
+        $prescriptions=$appointment->prescriptions()->orderBy("updated_at","desc")->paginate(10);
+//        dd($prescriptions);
+        return view('admin.appointment-prescriptions',[
+            'prescriptions'=>$prescriptions
+        ]);
     }
 }
