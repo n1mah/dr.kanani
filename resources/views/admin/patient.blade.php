@@ -48,8 +48,8 @@
                 </form>
                 <br>
                 <div class="btn-box">
-                    <a href="{{route("patients")}}" class="btn_visit">مشاهده نوبت ها</a>
-                    <a href="{{route("patients")}}" class="btn_prep">مشاهده مشاهده نسخه ها</a>
+                    <a href="{{route("patient.appointments",$patient)}}" class="btn_visit">مشاهده نوبت ها</a>
+                    <a href="{{route("patient.prescriptions",$patient)}}" class="btn_prep">مشاهده مشاهده نسخه ها</a>
                     <a href="{{route("patients")}}" class="btn_result">مشاهده مشاهده تست ها و آزمایشات</a>
                 </div>
                 <div class="back-box">

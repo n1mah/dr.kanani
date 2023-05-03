@@ -32,13 +32,13 @@
                             <td>{{$patient->firstname}} {{$patient->lastname}}</td>
                             <td>{{$patient->mobile}}</td>
                             <td>
-                                <form action="{{route("patient.editForm",$patient)}}" method="get">
+                                <form action="{{route("patient.appointments",$patient)}}" method="get">
                                     @csrf
                                     <button type="submit" class="btn_visit">مشاهده</button>
                                 </form>
                             </td>
                             <td>
-                                <form action="{{route("patient.editForm",$patient)}}" method="get">
+                                <form action="{{route("patient.prescriptions",$patient)}}" method="get">
                                     @csrf
                                     <button type="submit" class="btn_prep">مشاهده</button>
                                 </form>

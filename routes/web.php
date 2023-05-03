@@ -32,6 +32,8 @@ Route::group(['prefix' => 'panel'],function (){
     Route::get('/patients/{patient}/edit',[PatientController::class,"edit"])->name("patient.editForm");
     Route::put('/patients/{patient}',[PatientController::class,"update"])->name("patient.update");
     Route::delete('/patients/{patient}',[PatientController::class,"destroy"])->name("patient.delete");
+    Route::get('/patients/{patient}/appointments',[PatientController::class,"show_appointments"])->name("patient.appointments");
+    Route::get('/patients/{patient}/prescriptions',[PatientController::class,"show_prescriptions"])->name("patient.prescriptions");
 
 
     Route::get('/insurances',[InsuranceController::class,"index"])->name("insurances");

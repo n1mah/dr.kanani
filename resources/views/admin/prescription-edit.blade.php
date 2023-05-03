@@ -33,7 +33,7 @@
 
                 <br>
                 <div class="back-box">
-                    <a href="{{route("prescriptions")}}">انصراف و بازگشت به نسخه ها</a>
+                    <a href="{{route("prescriptions")}}">بازگشت به نسخه ها</a>
                 </div>
 
 

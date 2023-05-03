@@ -25,7 +25,7 @@
                 </form>
                 <br>
                 <div class="back-box">
-                    <a href="{{route("prescriptions")}}">بازگشت</a>
+                    <a href="{{redirect()->back()->getTargetUrl() }}">بازگشت</a>
                 </div>
                 @if(Session::get('patient_err'))
                     <div class="errorBox">

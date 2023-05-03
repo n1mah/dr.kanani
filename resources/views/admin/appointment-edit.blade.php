@@ -41,7 +41,7 @@
                 </form>
                 <br>
                 <div class="back-box">
-                    <a href="{{route("appointments")}}">بازگشت</a>
+                    <a href="{{redirect()->back()->getTargetUrl() }}">بازگشت</a>
                 </div>
                 @if($errors->any())
                 <div class="errorBox">

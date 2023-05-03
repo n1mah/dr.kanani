@@ -5,7 +5,7 @@
             <x-panel.header-body />
             <hr>
             <div id="show-prescription-page">
-                <h1> افزودن متن نسخه / ویرایش  نسخه </h1>
+                <h1> مشاهده جزییات  نسخه </h1>
                 <br>
                 <form action="">
                     @csrf
@@ -41,7 +41,7 @@
 
                 <br>
                 <div class="back-box">
-                    <a href="{{route("prescriptions")}}">بازگشت به نسخه ها</a>
+                    <a href="{{redirect()->back()->getTargetUrl() }}">بازگشت به نسخه ها</a>
                 </div>
 
             </div>

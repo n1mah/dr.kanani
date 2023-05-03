@@ -1310,3 +1310,172 @@ color: red;
 }
 /*edit-special-prescription-page*/
 
+
+
+/*patient-appointments-page*/
+#patient-appointments-page{
+
+}
+#patient-appointments-page h1{
+    text-align: center;
+}
+#patient-appointments-page h2{
+    text-align: center;
+    font-size: medium;
+    padding: 10px;
+    width: 30%;
+    background-color: rgba(26, 32, 44, 0.15);
+    margin:10px auto;
+    border-radius: 16px;
+}
+#patient-appointments-page h2 span{
+    font-weight: bold;
+    padding: 10px;
+    color: #0c6eff;
+}
+#patient-appointments-page .add-box{
+    height: 5vh;
+    display: flex;
+    align-items: center;
+}
+#patient-appointments-page .add-box a{
+    text-decoration: none;
+    padding: 7px 15px;
+    background-color: #1a202c;
+    color: white;
+    border-radius: 10px;
+}
+#patient-appointments-page .table{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+#patient-appointments-page .table table{
+    width: 90%;
+    border-collapse: collapse;
+}
+#patient-appointments-page .table table td,#patient-appointments-page .table table th{
+    border: 1px solid silver;
+    border-collapse: collapse;
+    padding: 2px;
+    text-align: center;
+
+}
+#patient-appointments-page .table table button{
+    padding: 6px 12px;
+    outline: none;
+    border: none;
+    border-radius: 10px;
+}
+#patient-appointments-page .table table button.btn_up{
+    background-color: #ff742c;
+    color: white;
+}
+#patient-appointments-page .table table button.btn_del{
+    background-color: #da0000;
+    color: white;
+}
+
+#patient-appointments-page .btn-box{
+    width: 60%;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#patient-appointments-page .btn-box a{
+    text-decoration: none;
+    padding: 7px 15px;
+    background-color: #1a202c;
+    color: white;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+/*patient-appointments-page*/
+
+/*patient-prescriptions-page*/
+#patient-prescriptions-page{
+
+}
+#patient-prescriptions-page h1{
+    text-align: center;
+}
+#patient-prescriptions-page h2{
+    text-align: center;
+    font-size: medium;
+    padding: 10px;
+    width: 30%;
+    background-color: rgba(26, 32, 44, 0.15);
+    margin:10px auto;
+    border-radius: 16px;
+}
+#patient-prescriptions-page h2 span{
+    font-weight: bold;
+    padding: 10px;
+    color: #0c6eff;
+}
+
+#patient-prescriptions-page .add-box{
+    height: 5vh;
+    display: flex;
+    align-items: center;
+}
+#patient-prescriptions-page .add-box a{
+    text-decoration: none;
+    padding: 7px 15px;
+    background-color: #1a202c;
+    color: white;
+    border-radius: 10px;
+}
+#patient-prescriptions-page .table{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+#patient-prescriptions-page .table table{
+    width: 90%;
+    border-collapse: collapse;
+}
+#patient-prescriptions-page .table table td,#patient-prescriptions-page .table table th{
+    border: 1px solid silver;
+    border-collapse: collapse;
+    padding: 2px;
+    text-align: center;
+
+}
+#patient-prescriptions-page .table table button{
+    padding: 6px 12px;
+    outline: none;
+    border: none;
+    border-radius: 10px;
+}
+#patient-prescriptions-page .table table button.btn_up{
+    background-color: #ff742c;
+    color: white;
+}
+#patient-prescriptions-page .table table button.btn_del{
+    background-color: #da0000;
+    color: white;
+}
+
+#patient-prescriptions-page .btn-box{
+    width: 60%;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#patient-prescriptions-page .btn-box a{
+    text-decoration: none;
+    padding: 7px 15px;
+    background-color: #1a202c;
+    color: white;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+/*patient-prescriptions-page*/
+
