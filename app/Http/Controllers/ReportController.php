@@ -20,6 +20,12 @@ class ReportController extends Controller
             'reports'=>$reports->orderBy("updated_at","desc")->paginate(15)
         ]);
     }
+    public function show(Report $report): View
+    {
+        return view('admin.report-show',[
+            'report'=>$report,
+        ]);
+    }
     public function create():View
     {
         $patients=new Patient;

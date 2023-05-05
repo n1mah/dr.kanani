@@ -39,7 +39,7 @@
                             </td>
                             <td>
 {{--                                @if(empty(trim($report->text_prescription)))--}}
-                                    <form action="" method="post">
+                                    <form action="{{route("report.show",$report)}}" method="get">
                                         @csrf
                                         <button type="submit" class="btn_see">مشاهده</button>
                                     </form>

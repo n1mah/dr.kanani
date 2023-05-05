@@ -72,6 +72,7 @@ Route::group(['prefix' => 'panel'],function (){
     Route::delete('/prescriptions/{prescription}',[PrescriptionController::class,"destroy"])->name("prescription.delete");
 
     Route::get('/reports',[ReportController::class,"index"])->name("reports");
+    Route::get('/reports/{report}',[ReportController::class,"show"])->name("report.show");
     Route::get('/reports/create',[ReportController::class,"create"])->name("report.addForm");
     Route::post('/reports',[ReportController::class,"store"])->name("report.store");
     Route::get('/reports/create/{patient}/{report}',[ReportController::class,"create2"])->name("report.addForm2");
