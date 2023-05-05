@@ -8,7 +8,7 @@
                 <h1>گزارشات و آزمایشات</h1>
                 <br>
                 <div class="add-box">
-                    <a href="">افزودن گزارش جدید</a>
+                    <a href="{{route("report.addForm")}}">افزودن گزارش جدید</a>
                 </div>
                 <br>
                 <div class="table">
