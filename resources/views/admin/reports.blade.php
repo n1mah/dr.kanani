@@ -53,7 +53,7 @@
                                 </form>
                             </td>
                             <td>
-                                <form action="" method="post">
+                                <form action="{{route("report.delete",$report)}}" method="post">
                                     @csrf
                                     @method('delete')
                                     <button class="btn_del">حذف</button>

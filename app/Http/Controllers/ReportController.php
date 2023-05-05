@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Report;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 
 class ReportController extends Controller
@@ -14,5 +15,9 @@ class ReportController extends Controller
             'reports'=>$reports->orderBy("updated_at","desc")->paginate(15)
         ]);
     }
-
+    public function destroy(Report $report): RedirectResponse
+    {
+        $report->delete();
+        return redirect()->back();
+    }
 }

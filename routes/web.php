@@ -72,5 +72,6 @@ Route::group(['prefix' => 'panel'],function (){
     Route::delete('/prescriptions/{prescription}',[PrescriptionController::class,"destroy"])->name("prescription.delete");
 
     Route::get('/reports',[ReportController::class,"index"])->name("reports");
+    Route::delete('/reports/{report}',[ReportController::class,"destroy"])->name("report.delete");
 
 });
