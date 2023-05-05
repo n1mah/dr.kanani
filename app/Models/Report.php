@@ -14,7 +14,7 @@ class Report extends Model
     }
     public function prescription(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {
-        return $this->belongsTo(Prescription::class,"prescription_id","national_code");
+        return $this->belongsTo(Prescription::class,"prescription_id");
     }
     protected $fillable = [
         'patient_id','prescription_id','title', 'content'

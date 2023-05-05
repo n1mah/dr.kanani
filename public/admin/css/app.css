@@ -1629,3 +1629,64 @@ color: red;
 }
 /*appointment-prescriptions-page*/
 
+
+
+/*reports-page*/
+#reports-page{
+
+}
+#reports-page h1{
+    text-align: center;
+}
+#reports-page .add-box{
+    height: 5vh;
+    display: flex;
+    align-items: center;
+}
+#reports-page .add-box a{
+    text-decoration: none;
+    padding: 7px 15px;
+    background-color: #1a202c;
+    color: white;
+    border-radius: 10px;
+}
+#reports-page .table{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+#reports-page .table table{
+    width: 90%;
+    border-collapse: collapse;
+}
+#reports-page .table table td,#reports-page .table table th{
+    border: 1px solid silver;
+    border-collapse: collapse;
+    padding: 2px;
+    text-align: center;
+
+}
+#reports-page .table table button{
+    padding: 6px 12px;
+    outline: none;
+    border: none;
+    border-radius: 10px;
+}
+#reports-page .table table button.btn_up{
+    background-color: #ff742c;
+    color: white;
+}
+#reports-page .table table button.btn_del{
+    background-color: #da0000;
+    color: white;
+}
+#reports-page .table table button.btn_see{
+    background-color: #47a6ff;
+    color: white;
+}
+#reports-page .table table button.btn_add{
+    background-color: #7b00ff;
+    color: white;
+}
+/*reports-page*/
+

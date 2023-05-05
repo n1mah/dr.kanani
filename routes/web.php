@@ -4,6 +4,7 @@ use App\Http\Controllers\AppointmentController;
 use App\Http\Controllers\InsuranceController;
 use App\Http\Controllers\PatientController;
 use App\Http\Controllers\PrescriptionController;
+use App\Http\Controllers\ReportController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Controller;
 
@@ -69,5 +70,7 @@ Route::group(['prefix' => 'panel'],function (){
     Route::get('/prescriptions/{prescription}/edit-special-3',[PrescriptionController::class,"edit_special_3"])->name("prescription.edit_special_3");
     Route::post('/prescriptions/{prescription}/edit-special-3',[PrescriptionController::class,"edit_special_3_process"])->name("prescription.update_special_3");
     Route::delete('/prescriptions/{prescription}',[PrescriptionController::class,"destroy"])->name("prescription.delete");
+
+    Route::get('/reports',[ReportController::class,"index"])->name("reports");
 
 });
