@@ -1944,3 +1944,315 @@ color: red;
     width: 100%;
 }
 /*show-report-page*/
+
+
+/*edit-special-report-page*/
+#edit-special-report-page{
+
+}
+#edit-special-report-page h1{
+    text-align: center;
+}
+#edit-special-report-page h1 span{
+    font-size: small;
+    color: #0c6eff;
+}
+#edit-special-report-page p{
+    padding: 10px ;
+    margin: 20px;
+}
+#edit-special-report-page p.text-center{
+    text-align: center;
+    background-color: rgba(255, 12, 12, 0.11);
+    border-radius: 10px;
+    width: 50%;
+    margin:10px auto;
+}
+#edit-special-report-page p span{
+    color: red;
+    font-weight: bold;
+}
+#edit-special-report-page p.text-center .span1{
+    color: #0c6eff;
+    font-weight: bold;
+    margin: 6px;
+}
+#edit-special-report-page p.text-center .span2{
+    color: #ff5800;
+    margin: 6px;
+    font-weight: bold;
+}
+
+#edit-special-report-page .back-box{
+    height: 5vh;
+    display: flex;
+    align-items: center;
+}
+
+#edit-special-report-page .back-box a {
+    text-decoration: none;
+    padding: 7px 15px;
+    background-color: #1a202c;
+    color: white;
+    border-radius: 10px;
+}
+#edit-special-report-page form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background-color: rgba(192, 192, 192, 0.69);
+    width: 75%;
+    margin: auto;
+    border-radius: 10px;
+}
+#edit-special-report-page form>div{
+    width: 60%;
+    display: flex;
+    justify-content: space-between;
+}
+#edit-special-report-page form input,#edit-special-report-page form select{
+    padding: 3px 6px;
+    border: none;
+    border-bottom: 2px solid #777777;
+    border-radius: 3px;
+    outline: none;
+}
+#edit-special-report-page form input:focus,#edit-special-report-page form select{
+    border-bottom: 2px solid rgba(26, 32, 44);
+}
+#edit-special-report-page form input{
+    width: 60%;
+
+}
+#edit-special-report-page form .btn-group{
+    width: 60%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#edit-special-report-page form textarea{
+    padding: 5px;
+    width:80%;
+    resize: vertical;
+    border: none;
+    border-bottom:3px solid #0c6eff;
+}
+
+#edit-special-report-page .btn-group{
+    width: 60%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: auto;
+}
+
+#edit-special-report-page .btn-group-single{
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+}
+
+#edit-special-report-page form input.btn{
+    background-color: #ff5800;
+    color: white;
+    width: 60%;
+    border-bottom:none;
+    font-size: medium;
+    padding: 5px;
+    border-radius: 10px;
+    text-shadow: 0 0 2px black;
+}
+
+#edit-special-report-page .btn-back-group{
+    padding-bottom: 20px;
+    width: 60%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+}
+#edit-special-report-page .btn-back-group a{
+    text-decoration: none;
+    padding: 7px 15px;
+    background-color: #1a202c;
+    color: white;
+    border-radius: 10px;
+}
+#edit-special-report-page .btn-group a{
+    margin: 10px ;
+    background-color: #ff5800;
+    color: white;
+    width: 48%;
+    border-bottom:none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    padding: 5px 12px;
+    border-radius: 3px;
+    outline: none;
+
+}
+
+#edit-special-report-page form input{
+    width:80%;
+}
+#edit-special-report-page form select{
+    width:80%;
+}
+
+#edit-special-report-page form textarea{
+    padding: 5px;
+    width:80%;
+    resize: vertical;
+    border: none;
+    border-bottom:3px solid gray;
+}
+#edit-special-report-page hr{
+    background-color: #1a202c;
+    height: 5px;
+    width: 100%;
+}
+/*edit-special-report-page*/
+
+
+/*edit-report-page*/
+#edit-report-page{
+
+}
+#edit-report-page h1{
+    text-align: center;
+}
+#edit-report-page h1 span{
+    font-size: small;
+    color: #0c6eff;
+}
+#edit-report-page p{
+    padding: 10px ;
+    margin: 20px;
+}
+#edit-report-page p.text-center{
+    text-align: center;
+    background-color: rgba(255, 12, 12, 0.11);
+    border-radius: 10px;
+    width: 50%;
+    margin:10px auto;
+}
+#edit-report-page p span{
+    color: red;
+    font-weight: bold;
+}
+#edit-report-page p.text-center .span1{
+    color: #0c6eff;
+    font-weight: bold;
+    margin: 6px;
+}
+#edit-report-page p.text-center .span2{
+    color: #ff5800;
+    margin: 6px;
+    font-weight: bold;
+}
+
+#edit-report-page .back-box{
+    height: 5vh;
+    display: flex;
+    align-items: center;
+}
+
+#edit-report-page .back-box a {
+    text-decoration: none;
+    padding: 7px 15px;
+    background-color: #1a202c;
+    color: white;
+    border-radius: 10px;
+}
+#edit-report-page form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background-color: rgba(192, 192, 192, 0.69);
+    width: 75%;
+    margin: auto;
+    border-radius: 10px;
+}
+#edit-report-page form>div{
+    width: 60%;
+    display: flex;
+    justify-content: space-between;
+}
+#edit-report-page form input,#edit-report-page form select{
+    padding: 3px 6px;
+    border: none;
+    border-bottom: 2px solid #777777;
+    border-radius: 3px;
+    outline: none;
+}
+#edit-report-page form input:focus,#edit-report-page form select{
+    border-bottom: 2px solid rgba(26, 32, 44);
+}
+#edit-report-page form input{
+    width: 60%;
+
+}
+#edit-report-page form .btn-group{
+    width: 60%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+#edit-report-page form input.btn{
+    background-color: #0c6eff;
+    color: white;
+    width: 60%;
+    border-bottom:none;
+    font-size: medium;
+    padding: 5px;
+    border-radius: 10px;
+}
+#edit-report-page form input.btn-h{
+    background-color: #0c6eff;
+    color: white;
+    width: 49%;
+    border-bottom:none;
+
+}
+#edit-report-page form a{
+    margin: 10px    ;
+    background-color: #ff5800;
+    color: white;
+    width: 49%;
+    border-bottom:none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    padding: 3px 6px;
+    border-radius: 3px;
+    outline: none;
+
+}
+#edit-report-page form select{
+    width:80%;
+    border-bottom:3px solid #0c6eff;
+}
+#edit-report-page form input{
+    width:80%;
+    resize: vertical;
+    border: none;
+    border-bottom:3px solid #0c6eff;
+}
+#edit-report-page form textarea{
+    width:80%;
+    resize: vertical;
+    border: none;
+    border-bottom:3px solid #0c6eff;
+}
+/*edit-report-page*/
+

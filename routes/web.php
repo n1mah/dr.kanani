@@ -73,11 +73,29 @@ Route::group(['prefix' => 'panel'],function (){
 
     Route::get('/reports',[ReportController::class,"index"])->name("reports");
     Route::get('/reports/{report}',[ReportController::class,"show"])->name("report.show");
-    Route::get('/reports/create',[ReportController::class,"create"])->name("report.addForm");
+    Route::get('/report/create',[ReportController::class,"create"])->name("report.addForm");
     Route::post('/reports',[ReportController::class,"store"])->name("report.store");
     Route::get('/reports/create/{patient}/{report}',[ReportController::class,"create2"])->name("report.addForm2");
-    Route::post('/report/{report}/prescription',[ReportController::class,"update_prescription"])->name("report.store_prescription");
+    Route::post('/reports/{report}/prescription',[ReportController::class,"update_prescription"])->name("report.store_prescription");
+    Route::get('/reports/{report}/edit-special',[ReportController::class,"edit_special"])->name("report.edit_special");
+    Route::get('/reports/{report}/edit',[ReportController::class,"edit"])->name("report.editForm");
+    Route::put('/reports/{report}',[ReportController::class,"update"])->name("report.update");
 
     Route::delete('/reports/{report}',[ReportController::class,"destroy"])->name("report.delete");
+
+
+    //
+//Route::get('/reports',[ReportController::class,"index"])->name("reports");
+//Route::get('/reports/{report}',[ReportController::class,"show"])->name("report.show");
+//Route::get('/report/create',[ReportController::class,"create"])->name("report.addForm");
+//Route::post('/reports',[ReportController::class,"store"])->name("report.store");
+//Route::get('/reports/create/{patient}/{report}',[ReportController::class,"create"])->name("report.addForm");
+//Route::post('/reports/{report}/prescription',[ReportController::class,"update_prescription"])->name("report.store_prescription");
+//Route::get('/reports/{report}/edit-special',[ReportController::class,"edit_special"])->name("report.edit_special");
+//Route::get('/reports/{report}/edit',[ReportController::class,"edit"])->name("report.editForm");
+//Route::put('/reports/{report}',[ReportController::class,"update"])->name("report.update");
+//Route::put('/reports/{report}/prescription',[ReportController::class,"update_prescription2"])->name("report.update_prescription");
+//
+//Route::delete('/reports/{report}',[ReportController::class,"destroy"])->name("report.delete");
 
 });

@@ -16,14 +16,14 @@
                         <select id="prescription_id" name="prescription_id">
                             <option value="">نسخه ندارد</option>
                             @foreach($prescriptions as $prescription)
-                                <option value="{{$prescription->id}}">{{$prescription->id}} {{$prescription->reason}}</option>
+                                <option value="{{$prescription->id}}" @isset($report->prescription->id) {{ $report->prescription->id == $prescription->id ? 'selected' : ''}}@endisset>{{$prescription->id}} {{$prescription->reason}}</option>
                             @endforeach
                         </select>
                     </div>
                     <br>
 
 
-                    <input class="btn" type="submit" value="افزودن نسخه مربوط به آزمایش / گزارش ">
+                    <input class="btn" type="submit" value="ثبت نسخه مربوط به آزمایش / گزارش ">
                 </form>
                 <br>
                 <div class="back-box">

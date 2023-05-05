@@ -26,6 +26,32 @@ class ReportController extends Controller
             'report'=>$report,
         ]);
     }
+    public function edit(Report $report): View
+    {
+        $patients=new Patient;
+        return view('admin.report-edit-report',[
+            'report'=>$report,
+            'patients'=>$patients->all()
+
+        ]);
+    }
+    public function edit_special(Report $report): View
+    {
+        return view('admin.report-edit-select',[
+            'report'=>$report,
+        ]);
+    }
+
+    public function update(StoreReportRequest $request,Report $report)
+    {
+        $report_item=$report->update($request->all());
+        $patient=$report->patient;
+        return redirect()
+            ->route('report.addForm2',[
+                'patient'=>$patient,
+                'report'=>$report
+            ]);
+    }
     public function create():View
     {
         $patients=new Patient;
@@ -44,7 +70,8 @@ class ReportController extends Controller
                 'report'=>$report
             ]);
     }
-    public function create2(Report $report ,Patient $patient):View
+
+    public function create2(Patient $patient,Report $report):View
     {
         return view('admin.report-add-prescription',[
             'prescriptions'=>$patient->prescriptions,

@@ -38,16 +38,14 @@
                                 @endisset
                             </td>
                             <td>
-{{--                                @if(empty(trim($report->text_prescription)))--}}
                                     <form action="{{route("report.show",$report)}}" method="get">
                                         @csrf
                                         <button type="submit" class="btn_see">مشاهده</button>
                                     </form>
-{{--                                @endif--}}
 
                             </td>
                             <td>
-                                <form action="" method="get">
+                                <form  action="{{route("report.edit_special",$report)}}" method="get">
                                     @csrf
                                     <button type="submit" class="btn_up">ویرایش</button>
                                 </form>
