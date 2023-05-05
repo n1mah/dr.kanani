@@ -17,6 +17,10 @@ class Patient extends Model
     {
         return $this->hasMany(Appointment::class,"patient_id");
     }
+    public function reports():\Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(Report::class,"patient_id");
+    }
     public function prescriptions(): \Illuminate\Database\Eloquent\Relations\HasManyThrough
     {
         return $this->hasManyThrough(

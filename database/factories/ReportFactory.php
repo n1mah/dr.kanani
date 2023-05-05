@@ -2,6 +2,8 @@
 
 namespace Database\Factories;
 
+use App\Models\Patient;
+use App\Models\Prescription;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -16,8 +18,12 @@ class ReportFactory extends Factory
      */
     public function definition(): array
     {
+       $p= Prescription::all()->random();
         return [
-            //
+             'patient_id'=>$p->appointment->patient->national_code,
+             'prescription_id'=>$p->id,
+            'title' => fake()->sentence(rand(1,8)),
+            'content' =>  fake()->sentence(rand(5,15)),
         ];
     }
 }

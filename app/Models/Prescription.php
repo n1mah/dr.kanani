@@ -11,6 +11,10 @@ class Prescription extends Model
     {
         return $this->belongsTo(Appointment::class);
     }
+    public function reports():\Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(Report::class,"prescription_id");
+    }
 
     use HasFactory;
 
