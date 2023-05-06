@@ -179,6 +179,10 @@ color: red;
     background-color: rgb(182, 179, 0);
     color: white;
 }
+#patients-page .table table button.btn_report{
+    background-color: rgb(0, 182, 91);
+    color: white;
+}
 #patients-page .table table button.btn_visit{
     background-color: rgb(182, 0, 97);
     color: white;
@@ -778,6 +782,48 @@ color: red;
 #prescriptions-page h1{
     text-align: center;
 }
+
+#prescriptions-page h2{
+    text-align: center;
+    font-size: medium;
+    padding: 10px;
+    width: 30%;
+    background-color: rgba(26, 32, 44, 0.15);
+    margin:10px auto;
+    border-radius: 16px;
+}
+
+#prescriptions-page .not_record{
+    text-align: center;
+    font-size: medium;
+    padding: 10px;
+    width: 60%;
+    background-color: rgb(255, 0, 0);
+    margin:20px auto;
+    border-radius: 16px;
+    color: white;
+}
+
+
+#prescriptions-page .btn-box{
+    width: 60%;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#prescriptions-page .btn-box a{
+    text-decoration: none;
+    padding: 7px 15px;
+    background-color: #1a202c;
+    color: white;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 #prescriptions-page .add-box{
     height: 5vh;
     display: flex;
@@ -827,6 +873,19 @@ color: red;
 #prescriptions-page .table table button.btn_add{
     background-color: #7b00ff;
     color: white;
+}
+#prescriptions-page .table table button.btn_report{
+    background-color: rgb(0, 182, 91);
+    color: white;
+}
+#prescriptions-page .table table td span{
+    display: inline-flex;
+    background-color: rgb(206, 206, 206);
+    color: #494949;
+    border-radius: 8px;
+    font-size: small;
+    margin: 2px 4px;
+    cursor: not-allowed;
 }
 /*prescriptions-page*/
 
@@ -1170,6 +1229,24 @@ color: red;
     resize: vertical;
     border: none;
     border-bottom:3px solid #0c6eff;
+}
+
+#show-prescription-page .btn-box{
+    width: 60%;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#show-prescription-page .btn-box .btn_result{
+    display: flex;
+    background-color: rgb(0, 182, 79);
+    color: white;
+    text-decoration: none;
+    padding: 7px 15px;
+    border-radius: 10px;
+    align-items: center;
+    justify-content: center;
 }
 /*show-prescription-page*/
 
@@ -1638,6 +1715,46 @@ color: red;
 #reports-page h1{
     text-align: center;
 }
+
+#reports-page h2{
+    text-align: center;
+    font-size: medium;
+    padding: 10px;
+    width: 30%;
+    background-color: rgba(26, 32, 44, 0.15);
+    margin:10px auto;
+    border-radius: 16px;
+}
+
+#reports-page .not_record{
+    text-align: center;
+    font-size: medium;
+    padding: 10px;
+    width: 60%;
+    background-color: rgb(255, 0, 0);
+    margin:20px auto;
+    border-radius: 16px;
+    color: white;
+}
+
+#reports-page .btn-box{
+    width: 60%;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#reports-page .btn-box a{
+    text-decoration: none;
+    padding: 7px 15px;
+    background-color: #1a202c;
+    color: white;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 #reports-page .add-box{
     height: 5vh;
     display: flex;

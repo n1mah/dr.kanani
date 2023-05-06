@@ -38,8 +38,10 @@
 
                     <br>
                 </form>
-
                 <br>
+                <div class="btn-box">
+                    <a href="{{route("prescription.reports",$prescription)}}" class="btn_result">مشاهده مشاهده تست ها و آزمایشات</a>
+                </div>
                 <div class="back-box">
                     <a href="{{redirect()->back()->getTargetUrl() }}">بازگشت به نسخه ها</a>
                 </div>

@@ -35,6 +35,7 @@ Route::group(['prefix' => 'panel'],function (){
     Route::delete('/patients/{patient}',[PatientController::class,"destroy"])->name("patient.delete");
     Route::get('/patients/{patient}/appointments',[PatientController::class,"show_appointments"])->name("patient.appointments");
     Route::get('/patients/{patient}/prescriptions',[PatientController::class,"show_prescriptions"])->name("patient.prescriptions");
+    Route::get('/patients/{patient}/reports',[PatientController::class,"show_reports"])->name("patient.reports");
 
 
     Route::get('/insurances',[InsuranceController::class,"index"])->name("insurances");
@@ -70,6 +71,7 @@ Route::group(['prefix' => 'panel'],function (){
     Route::get('/prescriptions/{prescription}/edit-special-3',[PrescriptionController::class,"edit_special_3"])->name("prescription.edit_special_3");
     Route::post('/prescriptions/{prescription}/edit-special-3',[PrescriptionController::class,"edit_special_3_process"])->name("prescription.update_special_3");
     Route::delete('/prescriptions/{prescription}',[PrescriptionController::class,"destroy"])->name("prescription.delete");
+    Route::get('/prescriptions/{prescription}/reports',[PrescriptionController::class,"show_reports"])->name("prescription.reports");
 
     Route::get('/reports',[ReportController::class,"index"])->name("reports");
     Route::get('/reports/{report}',[ReportController::class,"show"])->name("report.show");

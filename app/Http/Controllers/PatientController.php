@@ -77,4 +77,12 @@ class PatientController extends Controller
             'prescriptions'=>$prescriptions
         ]);
     }
+    public function show_reports(Patient $patient):View
+    {
+        $reports=$patient->reports()->orderBy("updated_at","desc")->paginate(10);
+        return view('admin.patient-reports',[
+            'reports'=>$reports,
+            'patient'=>$patient
+        ]);
+    }
 }

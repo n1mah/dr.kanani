@@ -20,6 +20,7 @@
                             <th>موبایل</th>
                             <th>نوبت ها</th>
                             <th>نسخه ها</th>
+                            <th>آزمایشات/گزارشات</th>
                             <th>اطلاعات</th>
                             <th>ویرایش</th>
                             <th>حذف</th>
@@ -41,6 +42,12 @@
                                 <form action="{{route("patient.prescriptions",$patient)}}" method="get">
                                     @csrf
                                     <button type="submit" class="btn_prep">مشاهده</button>
+                                </form>
+                            </td>
+                            <td>
+                                <form action="{{route("patient.reports",$patient)}}" method="get">
+                                    @csrf
+                                    <button type="submit" class="btn_report">مشاهده</button>
                                 </form>
                             </td>
                             <td>

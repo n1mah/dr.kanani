@@ -203,4 +203,16 @@ class PrescriptionController extends Controller
         $prescription->delete();
         return redirect()->back();
     }
+
+    public function show_reports(Prescription $prescription):View
+    {
+        $reports=$prescription->reports()->orderBy("updated_at","desc")->paginate(10);
+        $patient=$prescription->appointment->patient;
+        return view('admin.prescription-reports',[
+            'reports'=>$reports,
+            'prescription'=>$prescription,
+            'patient'=>$patient
+        ]);
+    }
+
 }

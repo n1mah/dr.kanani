@@ -20,6 +20,7 @@
                             <th>نام بیمار</th>
                             <th>نوع</th>
                             <th>نسخه</th>
+                            <th>گزارش/آزمایش</th>
                             <th>ویرایش</th>
                             <th>حذف</th>
                         </tr>
@@ -42,6 +43,18 @@
                                         @csrf
                                         <button type="submit" class="btn_see">مشاهده جزییات</button>
                                     </form>
+                                @endif
+
+                            </td>
+                            <td>
+                                @if(($prescription->reports()->count()>0))
+                                    <form action="{{route("prescription.reports",$prescription)}}" method="get">
+                                        @csrf
+                                        <button type="submit" class="btn_report">مشاهده</button>
+                                    </form>
+                                @else
+                                        @csrf
+                                        <span>گزارش یا آزمایش ندارد</span>
                                 @endif
 
                             </td>
