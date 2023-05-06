@@ -11,8 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('appointment', function (Blueprint $table) {
+        Schema::table('appointments', function (Blueprint $table) {
             $table->integer('status')->default(0)->nullable();
+            $table->timestamp("change_status")->nullable();
+
         });
     }
 
@@ -21,8 +23,9 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('appointment', function (Blueprint $table) {
+        Schema::table('appointments', function (Blueprint $table) {
             $table->dropColumn('status');
+            $table->dropColumn('change_status');
         });
     }
 };

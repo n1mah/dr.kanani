@@ -29,5 +29,12 @@ class Appointment extends Model
             set: fn ($value) => date('Y-m-d H:i:s', $value),
         );
     }
+    protected function changeStatus(): Attribute
+    {
+        return Attribute::make(
+            get: fn ($value) => strtotime($value),
+            set: fn ($value) => date('Y-m-d H:i:s', $value),
+        );
+    }
 
 }

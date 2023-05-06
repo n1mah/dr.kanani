@@ -17,10 +17,13 @@ class AppointmentFactory extends Factory
      */
     public function definition(): array
     {
+        $time=fake()->numberBetween(1682777781,1704067199);
         return [
 //            'patient_id' => Patient::all()->random()->id,
             'type' => fake()->word(),
-            'visit_time' => fake()->numberBetween(1682777781,1704067199),
+            'visit_time' => $time,
+            'status' => 1,
+//            'change_status' => $time+(60*60*2),
             'descriptions' => fake()->sentence(),
             ];
     }
