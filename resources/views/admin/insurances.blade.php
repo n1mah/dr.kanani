@@ -13,6 +13,8 @@
                 <br>
                 <hr>
                 <br>
+                <h3>جستجو</h3>
+                <br>
                 <form action="{{route("insurances.search")}}" method="post" class="search-box">
                     @csrf
                     @method("post")
