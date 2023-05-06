@@ -18,7 +18,7 @@ class Appointment extends Model
         return $this->hasMany(Prescription::class);
     }
     protected $fillable = [
-        'patient_id','type', 'visit_time', 'descriptions'
+        'patient_id','type', 'visit_time', 'descriptions', 'status', 'change_status'
     ];
     protected $primaryKey = 'id';
 

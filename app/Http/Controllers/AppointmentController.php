@@ -93,4 +93,30 @@ class AppointmentController extends Controller
             'prescriptions'=>$prescriptions
         ]);
     }
+
+
+    public function success(Appointment $appointment): RedirectResponse
+    {
+//        $status = request("status");
+//        if ($status==1 || $status==2){
+            $time=time();
+            $appointment->status=1;
+            $appointment->change_status=$time;
+            $appointment->save();
+//        }
+        return redirect()->back();
+
+    }
+    public function cancel(Appointment $appointment): RedirectResponse
+    {
+//        $status = request("status");
+//        if ($status==1 || $status==2){
+            $time=time();
+            $appointment->status=2;
+            $appointment->change_status=$time;
+            $appointment->save();
+//        }
+        return redirect()->back();
+
+    }
 }

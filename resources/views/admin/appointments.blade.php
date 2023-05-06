@@ -51,12 +51,14 @@
 
                             <td>
                                 @if($appointment->status==0)
-                                    <form action="{{route("appointment.prescriptions",$appointment)}}" method="get">
+                                    <form action="{{route("appointment.cancel",$appointment)}}" method="post">
                                         @csrf
+                                        @method("put")
                                         <button type="submit" class="btn_cancel">کنسل</button>
                                     </form>
-                                    <form action="{{route("appointment.prescriptions",$appointment)}}" method="get">
+                                    <form action="{{route("appointment.success",$appointment)}}" method="post">
                                         @csrf
+                                        @method("put")
                                         <button type="submit" class="btn_success">ویزیت شده</button>
                                     </form>
                                 @elseif($appointment->status==1 || $appointment->status==2)
