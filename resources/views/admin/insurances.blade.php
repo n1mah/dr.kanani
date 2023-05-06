@@ -11,6 +11,16 @@
                     <a href="{{route("insurance.addForm")}}">افزودن بیمه جدید</a>
                 </div>
                 <br>
+                <hr>
+                <br>
+                <form class="search-box">
+                    <label for="search">عنوان بیمه :</label>
+                    <input type="search" id="search" placeholder="عنوان را وارد کنید ...">
+                    <input type="submit" id="search_btn" value="جستجو">
+                </form>
+                <br>
+                <hr>
+                <br>
                 <div class="table">
                     <table>
                         <thead>

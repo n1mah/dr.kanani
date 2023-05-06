@@ -11,6 +11,16 @@
                     <a href="{{route("patient.addForm")}}">افزودن بیمار جدید</a>
                 </div>
                 <br>
+                <hr>
+                <br>
+                <form class="search-box">
+                    <label for="search">نام / نام خانوادگی / کدملی / بیمه :</label>
+                    <input type="search" id="search" placeholder="متن جستجو خود را وارد کنید ...">
+                    <input type="submit" id="search_btn" value="جستجو">
+                </form>
+                <br>
+                <hr>
+                <br>
                 <div class="table">
                     <table>
                         <thead>
