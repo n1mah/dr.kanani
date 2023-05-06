@@ -36,6 +36,7 @@ Route::group(['prefix' => 'panel'],function (){
     Route::get('/patients/{patient}/appointments',[PatientController::class,"show_appointments"])->name("patient.appointments");
     Route::get('/patients/{patient}/prescriptions',[PatientController::class,"show_prescriptions"])->name("patient.prescriptions");
     Route::get('/patients/{patient}/reports',[PatientController::class,"show_reports"])->name("patient.reports");
+    Route::post('/patients/search',[PatientController::class,"search"])->name("patients.search");
 
 
     Route::get('/insurances',[InsuranceController::class,"index"])->name("insurances");

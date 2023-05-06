@@ -13,10 +13,14 @@
                 <br>
                 <hr>
                 <br>
-                <form class="search-box">
+                <form action="{{route("patients.search")}}" method="post" class="search-box">
+                    @csrf
+                    @method("post")
                     <label for="search">نام / نام خانوادگی / کدملی / بیمه :</label>
-                    <input type="search" id="search" placeholder="متن جستجو خود را وارد کنید ...">
+                    <input type="search" id="search" name="search" placeholder="متن جستجو خود را وارد کنید ...">
                     <input type="submit" id="search_btn" value="جستجو">
+                    <span class="split"></span>
+                    <a href="{{route("patients")}}">نمایش همه</a>
                 </form>
                 <br>
                 <hr>

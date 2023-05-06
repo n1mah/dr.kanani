@@ -85,4 +85,16 @@ class PatientController extends Controller
             'patient'=>$patient
         ]);
     }
+    public function search()
+    {
+        $search=request("search");
+        $patients= Patient::join('insurances', 'insurances.id', '=', 'patients.insurance_id')
+                           ->where('firstname', 'LIKE', '%'.$search.'%')
+                           ->orWhere('lastname', 'LIKE', '%'.$search.'%')
+                           ->orWhere('national_code', 'LIKE', '%'.$search.'%')
+                           ->orWhere('insurances.title', 'LIKE', '%'.$search.'%');
+        return view('admin.patients',[
+            'patients'=>$patients->orderBy("patients.updated_at","desc")->paginate(10)
+        ]);
+    }
 }
