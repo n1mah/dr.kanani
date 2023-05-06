@@ -523,6 +523,28 @@ color: red;
     font-size: medium;
 
 }
+
+#insurances-page .search-box .split{
+    display: block;
+    margin-right: 4px;
+    height: 100%;
+    padding:12px 1px;
+    background-color: silver;
+}
+
+#insurances-page .search-box a{
+    padding: 6px 10px;
+    display: flex;
+    border: none;
+    outline: none;
+    border: 2px solid #0c6eff;
+    background-color: #0c6eff ;
+    color: white;
+    margin: 10px;
+    font-size: medium;
+    text-decoration: none;
+
+}
 #insurances-page .add-box{
     height: 5vh;
     display: flex;

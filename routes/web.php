@@ -46,6 +46,7 @@ Route::group(['prefix' => 'panel'],function (){
     Route::get('/insurances/{insurance}/edit',[InsuranceController::class,"edit"])->name("insurance.editForm");
     Route::put('/insurances/{insurance}',[InsuranceController::class,"update"])->name("insurance.update");
     Route::delete('/insurances/{insurance}',[InsuranceController::class,"destroy"])->name("insurance.delete");
+    Route::post('/insurances/search',[InsuranceController::class,"search"])->name("insurances.search");
 
     Route::get('/appointments',[AppointmentController::class,"index"])->name("appointments");
     Route::get('/appointments/create',[AppointmentController::class,"create"])->name("appointment.addForm");

@@ -13,10 +13,14 @@
                 <br>
                 <hr>
                 <br>
-                <form class="search-box">
+                <form action="{{route("insurances.search")}}" method="post" class="search-box">
+                    @csrf
+                    @method("post")
                     <label for="search">عنوان بیمه :</label>
-                    <input type="search" id="search" placeholder="عنوان را وارد کنید ...">
+                    <input type="search" id="search" name="search" placeholder="عنوان را وارد کنید ...">
                     <input type="submit" id="search_btn" value="جستجو">
+                    <span class="split"></span>
+                    <a href="{{route("insurances")}}">نمایش همه</a>
                 </form>
                 <br>
                 <hr>

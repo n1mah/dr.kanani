@@ -77,4 +77,12 @@ class InsuranceController extends Controller
          $insurance->delete();
          return redirect()->back();
     }
+    public function search()
+    {
+        $search=request("search");
+        $insurances= Insurance::where('title', 'LIKE', '%'.$search.'%');
+        return view('admin.insurances',[
+            'insurances'=>$insurances->orderBy("id","desc")->paginate(10)
+        ]);
+    }
 }
