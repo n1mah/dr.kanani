@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AppointmentController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\InsuranceController;
 use App\Http\Controllers\PatientController;
 use App\Http\Controllers\PrescriptionController;
@@ -24,7 +25,7 @@ Route::get('/', function () {
 });
 
 Route::group(['prefix' => 'panel'],function (){
-    Route::view("/","admin.home")->name("dashboard");
+    Route::get('/',[DashboardController::class,"index"])->name("dashboard");
 
     Route::get('/patients',[PatientController::class,"index"])->name("patients");
     Route::get('/patients/create',[PatientController::class,"create"])->name("patient.addForm");

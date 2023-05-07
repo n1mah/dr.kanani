@@ -16,7 +16,7 @@
 }
 #main aside>div{
     height: 100%;
-    width: 20%;
+    width: 15%;
     position: fixed;
     padding: 20px;
 }
@@ -994,6 +994,24 @@ color: red;
 }
 #show-appointment-page .form input{
     width: 70%;
+}
+#show-appointment-page #status{
+
+}
+#show-appointment-page #status.v0{
+    background-color: rgba(26, 32, 44, 0.57);
+    color: white;
+    border: 1px solid rgba(26, 32, 44,1);
+}
+#show-appointment-page #status.v1{
+    background-color: rgb(24, 182, 0);
+    color: white;
+    border: 1px solid rgb(24, 182, 0);
+}
+#show-appointment-page #status.v2{
+    background-color: rgb(182, 0, 0);
+    color: white;
+    border: 1px solid  rgb(182, 0, 0);
 }
 #show-appointment-page .form select{
     width: 70%;
@@ -2726,3 +2744,121 @@ color: red;
 }
 /*edit-report-page*/
 
+/*Home*/
+#home{
+    display: flex;
+
+}
+#home .right-body{
+    width: 50%;
+    padding: 20px;
+}
+#home .left-body{
+    width: 50%;
+}
+
+#home .today-appointment{
+border-top:2px solid #1a202c;
+border-bottom:2px solid #1a202c;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+#home .today-appointment h2{
+  text-align: center;
+    padding-bottom: 20px;
+}
+#home .today-appointment table{
+    width: 100%;
+    border-collapse: collapse;
+}
+#home .today-appointment table td,#home .today-appointment table th{
+    border: 2px solid #1a202c;
+    border-collapse: collapse;
+    padding: 2px;
+    text-align: center;
+}
+#home .today-appointment table th{
+    padding: 10px;
+    background-color: #1a202c;
+    color: white;
+}
+#home .today-appointment table button{
+    padding: 6px 12px;
+    outline: none;
+    border: none;
+    border-radius: 10px;
+}
+#home .today-appointment table button.btn_see{
+    background-color: #47a6ff;
+    color: #1a202c;
+    border:2px solid #1a202c;
+}
+#home .today-appointment table button.btn_up{
+    background-color: #ff742c;
+    color: white;
+}
+#home .today-appointment table button.btn_del{
+    background-color: #da0000;
+    color: white;
+}
+#home .today-appointment table button.btn_prep{
+    background-color: rgb(182, 179, 0);
+    color: white;
+}
+#home .today-appointment table button.btn_success{
+    background-color: rgb(24, 182, 0);
+    color: white;
+}
+#home .today-appointment table button.btn_cancel{
+    background-color: rgb(182, 0, 0);
+    color: white;
+}
+#home .today-appointment table span{
+    font-size: small;
+    color: slategrey;
+}
+#home .today-appointment table td .text_unknown{
+    padding: 5px 11px;
+    color: #1a202c;
+    display: inline-block;
+    border-radius: 3px;
+}
+#home .today-appointment table td.text_unknown{
+    /*background-color: rgb(131, 131, 131);*/
+    /*color: white;*/
+}
+#home .today-appointment table td .text_cancel{
+    padding: 5px 11px;
+    color: #1a202c;
+    display: inline-block;
+    border-radius: 3px;
+}
+#home .today-appointment table td.text_cancel{
+    background-color: rgb(255, 96, 96);
+    /*color: white;*/
+}
+#home .today-appointment table td .text_success{
+    padding: 5px 11px;
+    color: #1a202c;
+    display: inline-block;
+    border-radius: 3px;
+}
+#home .today-appointment table td.text_success{
+    background-color: rgb(142, 255, 124);
+    /*color: white;*/
+}
+#home .today-appointment table .btn_disable{
+    background-color: rgb(178, 178, 178);
+    color: white;
+    padding: 4px 5px;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    font-size: small;
+    cursor: not-allowed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+/*Home*/

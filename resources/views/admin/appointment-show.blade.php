@@ -44,6 +44,26 @@
                         <textarea rows="5" disabled id="description" name="descriptions">{{ $appointment->descriptions }}</textarea>
                     </div>
                     <br>
+
+                    <br>
+                    <div>
+                        <label for="visit_time">وضعیت</label>
+                        @php
+                        $status_str="";
+                            if($appointment->status==0){
+                                $status_str="تعیین نشده";
+                                $status_cls="v0";
+                            }elseif ($appointment->status==1){
+                                $status_str="ویزیت شده";
+                                $status_cls="v1";
+                            }elseif ($appointment->status==2){
+                                $status_str="کنسل شده";
+                                $status_cls="v2";
+                            }
+                         @endphp
+                        <input disabled id="status" name="status" class="{{$status_cls}}" value="{{ $status_str }}">
+
+                    </div>
                 </form>
                 <br>
                 <div class="back-box">
