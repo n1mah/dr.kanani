@@ -25,14 +25,14 @@ class Appointment extends Model
     protected function visitTime(): Attribute
     {
         return Attribute::make(
-            get: fn ($value) => strtotime($value),
+            get: fn ($value) =>  (strtotime($value))-(60*60*1), //1402
             set: fn ($value) => date('Y-m-d H:i:s', $value),
         );
     }
     protected function changeStatus(): Attribute
     {
         return Attribute::make(
-            get: fn ($value) => strtotime($value),
+            get: fn ($value) => (strtotime($value))-(60*60*1), //1402
             set: fn ($value) => date('Y-m-d H:i:s', $value),
         );
     }

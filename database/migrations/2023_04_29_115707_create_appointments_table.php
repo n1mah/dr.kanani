@@ -16,7 +16,7 @@ return new class extends Migration
             $table->unsignedBigInteger("patient_id");
             $table->foreign("patient_id")->references("national_code")->on("patients")->onUpdate("cascade")->onDelete("cascade");
             $table->string("type");
-            $table->timestamp("visit_time");
+            $table->timestamp("visit_time")->nullable();;
             $table->string("descriptions")->nullable();
             $table->timestamps();
         });
