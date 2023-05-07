@@ -30,11 +30,11 @@
                         <tbody>
                         @foreach($appointments as $appointment)
                         <tr>
-                            <td>{{$appointment->id}}</td>
-                            <td>{{$appointment->patient->firstname}} {{$appointment->patient->lastname}}</td>
-                            <td>{{$appointment->type}}</td>
-                            <td>{{$appointment->visit_time}}</td>
-                            <td>{{$appointment->descriptions}}</td>
+                            <td @if($appointment->status==2) class="text_cancel" @endif>{{$appointment->id}}</td>
+                            <td @if($appointment->status==2) class="text_cancel" @endif>{{$appointment->patient->firstname}} {{$appointment->patient->lastname}}</td>
+                            <td @if($appointment->status==2) class="text_cancel" @endif>{{$appointment->type}}</td>
+                            <td @if($appointment->status==2) class="text_cancel" @endif>{{$appointment->visit_time}}</td>
+                            <td @if($appointment->status==2) class="text_cancel" @endif>{{$appointment->descriptions}}</td>
                             @if($appointment->status==0)
                             <td class="text_unknown">
                                         <span class="text_unknown">تعیین نشده</span>
@@ -49,7 +49,13 @@
                                 </td>
                             @endif
 
+                            @if($appointment->status==0)
                             <td>
+                            @elseif($appointment->status==1)
+                            <td class="text_success">
+                            @elseif($appointment->status==2)
+                            <td class="text_cancel">
+                            @endif
                                 @if($appointment->status==0)
                                     <form action="{{route("appointment.cancel",$appointment)}}" method="post">
                                         @csrf
@@ -59,22 +65,33 @@
                                     <form action="{{route("appointment.success",$appointment)}}" method="post">
                                         @csrf
                                         @method("put")
-                                        <button type="submit" class="btn_success">ویزیت شده</button>
+                                        <button type="submit" class="btn_success">ویزیت</button>
                                     </form>
                                 @elseif($appointment->status==1 || $appointment->status==2)
-                                    <span>غیر قابل تغییر</span>
+                                    <span class="text_unknown">غیر قابل تغییر</span>
                                 @endif
                             </td>
-                            <td>
-                                @if(count($appointment->prescriptions)>0)
-                                    <form action="{{route("appointment.prescriptions",$appointment)}}" method="get">
-                                        @csrf
-                                        <button type="submit" class="btn_prep">مشاهده نسخه ها این نوبت</button>
-                                    </form>
+
+                            @if($appointment->status==2)
+                                    <td class="text_cancel">
+                                        <span class="text_cancel">نوبت کنسل شده</span>
+                                    </td>
+                            @else
+                                    <td>
+                                        @if(count($appointment->prescriptions)>0)
+                                            <form action="{{route("appointment.prescriptions",$appointment)}}" method="get">
+                                                @csrf
+                                                <button type="submit" class="btn_prep">مشاهده نسخه ها این نوبت</button>
+                                            </form>
+                                        @else
+                                            <span class="btn_disable">نوبت نسخه ای ندارد</span>
+                                        @endif
+                                    </td>
+                            @endif
+                                @if($appointment->status==2)
+                                    <td class="text_cancel"></td>
+                                    <td class="text_cancel"></td>
                                 @else
-                                    <span class="btn_disable">نوبت نسخه ای ندارد</span>
-                                @endif
-                            </td>
                             <td>
                                 <form action="{{route("appointment.editForm",$appointment)}}" method="get">
                                     @csrf
@@ -88,6 +105,7 @@
                                     <button class="btn_del">حذف</button>
                                 </form>
                             </td>
+                                @endif
                         </tr>
                         @endforeach
                         </tbody>

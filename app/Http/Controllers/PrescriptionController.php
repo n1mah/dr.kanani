@@ -47,7 +47,7 @@ class PrescriptionController extends Controller
         }
         $appointment=new Appointment();
         return view('admin.prescription-add-level2',[
-            'appointments'=>$appointment->where("patient_id",$patient_id)->orderby("visit_time")->get(),
+            'appointments'=>$appointment->where("patient_id",$patient_id)->whereIn("status",[0,1])->orderby("visit_time")->get(),
             'patient'=>$patientN
         ]);
 

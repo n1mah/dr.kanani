@@ -20,6 +20,7 @@
                             <th>نوع</th>
                             <th>وقت ملاقات</th>
                             <th>توضیح وقت</th>
+                            <th>وضعیت</th>
                             <th>نسخه</th>
                             <th>ویرایش</th>
                             <th>حذف</th>
@@ -28,32 +29,60 @@
                         <tbody>
                         @foreach($appointments as $appointment)
                         <tr>
-                            <td>{{$appointment->id}}</td>
-                            <td>{{$appointment->type}}</td>
-                            <td>{{$appointment->visit_time}}</td>
-                            <td>{{$appointment->descriptions}}</td>
-                            <td>
-                                @if(count($appointment->prescriptions)>0)
-                                    <form action="{{route("appointment.prescriptions",$appointment)}}" method="get">
-                                        @csrf
-                                        <button type="submit" class="btn_prep">مشاهده نسخه ها</button>
-                                    </form>
-                                @else
-                                    <span class="btn_disable">نوبت نسخه ای ندارد</span>
+                            <td @if($appointment->status==2) class="text_cancel" @endif>{{$appointment->id}}</td>
+                            <td @if($appointment->status==2) class="text_cancel" @endif>{{$appointment->type}}</td>
+                            <td @if($appointment->status==2) class="text_cancel" @endif>{{$appointment->visit_time}}</td>
+                            <td @if($appointment->status==2) class="text_cancel" @endif>{{$appointment->descriptions}}</td>
+                            @if($appointment->status==0)
+                                <td class="text_unknown">
+                                    <span class="text_unknown">تعیین نشده</span>
+                                </td>
+                            @elseif($appointment->status==1)
+                                <td class="text_success">
+                                    <span class="text_success">ویزیت شده</span>
+                                </td>
+                            @elseif($appointment->status==2)
+                                <td class="text_cancel">
+                                    <span class="text_cancel">کنسلی</span>
+                                </td>
                             @endif
-                            <td>
-                                <form action="{{route("appointment.editForm",$appointment)}}" method="get">
-                                    @csrf
-                                    <button type="submit" class="btn_up">ویرایش</button>
-                                </form>
-                            </td>
-                            <td>
-                                <form action="{{route("appointment.delete",$appointment)}}" method="post">
-                                    @csrf
-                                    @method('delete')
-                                    <button class="btn_del">حذف</button>
-                                </form>
-                            </td>
+
+
+                            @if($appointment->status==2)
+                                <td class="text_cancel">
+                                    <span class="text_cancel">نوبت کنسل شده</span>
+                                </td>
+                            @else
+                                <td>
+                                    @if(count($appointment->prescriptions)>0)
+                                        <form action="{{route("appointment.prescriptions",$appointment)}}" method="get">
+                                            @csrf
+                                            <button type="submit" class="btn_prep">مشاهده نسخه ها</button>
+                                        </form>
+                                    @else
+                                        <span class="btn_disable">نوبت نسخه ای ندارد</span>
+                                    @endif
+                                </td>
+                            @endif
+                            @if($appointment->status==2)
+                                <td class="text_cancel"></td>
+                                <td class="text_cancel"></td>
+                            @else
+
+                                <td>
+                                    <form action="{{route("appointment.editForm",$appointment)}}" method="get">
+                                        @csrf
+                                        <button type="submit" class="btn_up">ویرایش</button>
+                                    </form>
+                                </td>
+                                <td>
+                                    <form action="{{route("appointment.delete",$appointment)}}" method="post">
+                                        @csrf
+                                        @method('delete')
+                                        <button class="btn_del">حذف</button>
+                                    </form>
+                                </td>
+                            @endif
                         </tr>
                         @endforeach
                         </tbody>

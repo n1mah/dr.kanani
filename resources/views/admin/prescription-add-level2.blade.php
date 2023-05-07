@@ -9,6 +9,7 @@
                 <br>
                 <p>نوبت بیمار مورد نظر را انتخاب کنید</p>
                 <p> درصورت نداشتن وقت قبلی , گزینه <span> بدون نوبت </span>  را انتخاب کنید</p>
+                <p>  <span> نکته :  </span> نوبت های کنسل شده در لیست نوبت ها وجود ندارد </p>
                 <form action="{{route("prescription.store",$patient)}}" method="post">
                     @csrf
                     @method('post')
