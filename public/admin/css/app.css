@@ -739,6 +739,10 @@ color: red;
     border: none;
     border-radius: 10px;
 }
+#appointments-page .table table button.btn_see{
+    background-color: #47a6ff;
+    color: white;
+}
 #appointments-page .table table button.btn_up{
     background-color: #ff742c;
     color: white;
@@ -901,7 +905,7 @@ color: red;
     border-radius: 10px;
 }
 #edit-appointment-page form>div{
-    width: 40%;
+    width: 60%;
     display: flex;
     justify-content: space-between;
 }
@@ -915,6 +919,18 @@ color: red;
 #edit-appointment-page form input:focus,#add-appointment-page form select{
     border-bottom: 2px solid rgba(26, 32, 44);
 }
+#edit-appointment-page form textarea{
+    width: 70%;
+}
+#edit-appointment-page form label{
+    width: 25%;
+}
+#edit-appointment-page form input{
+    width: 70%;
+}
+#edit-appointment-page form select{
+    width: 70%;
+}
 #edit-appointment-page form input.btn{
     background-color: #da4b00;
     color: white;
@@ -922,6 +938,137 @@ color: red;
     border-bottom:none;
 }
 /*edit-appointment-page*/
+
+
+/*show-appointment-page*/
+#show-appointment-page{
+
+}
+#show-appointment-page h1{
+    text-align: center;
+}
+#show-appointment-page .back-box{
+    height: 5vh;
+    display: flex;
+    align-items: center;
+}
+
+#show-appointment-page .back-box a {
+    text-decoration: none;
+    padding: 7px 15px;
+    background-color: #1a202c;
+    color: white;
+    border-radius: 10px;
+}
+#show-appointment-page .form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background-color: rgba(192, 192, 192, 0.69);
+    width: 75%;
+    margin: auto;
+    border-radius: 10px;
+}
+#show-appointment-page .form>div{
+    width: 60%;
+    display: flex;
+    justify-content: space-between;
+}
+#show-appointment-page .form input,#add-appointment-page .form select{
+    padding: 3px 6px;
+    border: none;
+    border-bottom: 2px solid #777777;
+    border-radius: 3px;
+    outline: none;
+}
+#show-appointment-page .form input:focus,#add-appointment-page .form select{
+    border-bottom: 2px solid rgba(26, 32, 44);
+}
+#show-appointment-page .form textarea{
+    width: 70%;
+}
+#show-appointment-page .form label{
+    width: 25%;
+}
+#show-appointment-page .form input{
+    width: 70%;
+}
+#show-appointment-page .form select{
+    width: 70%;
+}
+#show-appointment-page .form input.btn{
+    background-color: #da4b00;
+    color: white;
+    width: 40%;
+    border-bottom:none;
+}
+
+
+#show-appointment-page .table{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+#show-appointment-page .table table{
+    width: 90%;
+    border-collapse: collapse;
+}
+#show-appointment-page .table table td,#show-appointment-page .table table th{
+    border: 1px solid silver;
+    border-collapse: collapse;
+    padding: 2px;
+    text-align: center;
+
+}
+#show-appointment-page .table table button{
+    padding: 6px 12px;
+    outline: none;
+    border: none;
+    border-radius: 10px;
+}
+#show-appointment-page .table table button.btn_up{
+    background-color: #ff742c;
+    color: white;
+}
+
+#show-appointment-page .table table button.btn_see{
+    background-color: #47a6ff;
+    color: white;
+}
+#show-appointment-page .table table button.btn_del{
+    background-color: #da0000;
+    color: white;
+}
+#show-appointment-page .parent-status{
+    display: flex;
+    align-items: center;
+}
+
+#show-appointment-page .status {
+    margin: 6px;
+}
+#show-appointment-page .status .btn_cancel{
+    background-color: rgb(182, 0, 0);
+    color: white;
+    padding: 6px;
+    width: 100%;
+    outline: none;
+    border: none;
+    border-radius: 10px;
+}
+#show-appointment-page .status .btn_success{
+    background-color: rgb(24, 182, 0);
+    color: white;
+    padding: 6px;
+    width: 100%;
+    outline: none;
+    border: none;
+    border-radius: 10px;
+}
+
+/*show-appointment-page*/
 
 
 /*prescriptions-page*/

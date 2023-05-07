@@ -23,6 +23,7 @@
                             <th>وضعیت</th>
                             <th>تغییر وضعیت</th>
                             <th>نسخه ها</th>
+                            <th>مشاهده</th>
                             <th>ویرایش</th>
                             <th>حذف</th>
                         </tr>
@@ -91,7 +92,15 @@
                                 @if($appointment->status==2)
                                     <td class="text_cancel"></td>
                                     <td class="text_cancel"></td>
+                                    <td class="text_cancel"></td>
                                 @else
+
+                            <td>
+                                        <form action="{{route("appointment.show",$appointment)}}" method="get">
+                                            @csrf
+                                            <button type="submit" class="btn_see">مشاهده</button>
+                                        </form>
+                            </td>
                             <td>
                                 <form action="{{route("appointment.editForm",$appointment)}}" method="get">
                                     @csrf

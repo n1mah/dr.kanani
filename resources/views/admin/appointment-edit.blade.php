@@ -34,7 +34,7 @@
                     <br>
                     <div>
                         <label for="description">توضیح</label>
-                        <textarea id="description" name="descriptions">{{ $appointment->descriptions }}</textarea>
+                        <textarea id="description" rows="5" name="descriptions">{{ $appointment->descriptions }}</textarea>
                     </div>
                     <br>
                     <input class="btn" type="submit" value="ویرایش">

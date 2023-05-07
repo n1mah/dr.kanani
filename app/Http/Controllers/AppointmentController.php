@@ -50,7 +50,12 @@ class AppointmentController extends Controller
      */
     public function show(Appointment $appointment)
     {
-        //
+        $prescriptions=$appointment->prescriptions()->orderBy("updated_at","desc")->paginate(10);
+
+        return view('admin.appointment-show',[
+            'appointment'=>$appointment,
+            'prescriptions'=>$prescriptions
+        ]);
     }
 
     /**
