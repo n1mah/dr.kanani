@@ -1041,6 +1041,36 @@ color: red;
     background-color: #da0000;
     color: white;
 }
+#show-appointment-page .box-btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#show-appointment-page .box-btn form{
+    width: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#show-appointment-page .box-btn button.btn_up{
+    background-color: #ff742c;
+    color: white;
+    padding: 6px 12px;
+    outline: none;
+    border: none;
+    border-radius: 10px;
+    width: 70%;
+
+}
+#show-appointment-page .box-btn button.btn_del{
+    background-color: #da0000;
+    color: white;
+    padding: 6px 12px;
+    outline: none;
+    border: none;
+    border-radius: 10px;
+    width: 70%;
+}
 #show-appointment-page .parent-status{
     display: flex;
     align-items: center;

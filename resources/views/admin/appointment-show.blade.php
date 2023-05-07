@@ -7,6 +7,17 @@
             <div id="show-appointment-page">
                 <h1>مشاهده وقت ویزیت</h1>
                 <br>
+                <div class="box-btn">
+                        <form action="{{route("appointment.editForm",$appointment)}}" method="get">
+                            @csrf
+                            <button type="submit" class="btn_up">ویرایش</button>
+                        </form>
+                        <form action="{{route("appointment.delete",$appointment)}}" method="post">
+                            @csrf
+                            @method('delete')
+                            <button class="btn_del">حذف</button>
+                        </form>
+                </div>
                 <form class="form">
                     <div>
                         <label for="patient_id">بیمار</label>

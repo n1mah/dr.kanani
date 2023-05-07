@@ -87,7 +87,7 @@ class AppointmentController extends Controller
     public function destroy(Appointment $appointment): RedirectResponse
     {
         $appointment->delete();
-        return redirect()->back();
+        return redirect()->route('appointments');
     }
 
     public function show_prescriptions(Appointment $appointment):View
