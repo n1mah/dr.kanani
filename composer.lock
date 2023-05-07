@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8e6e7fe5fd9d19060838a2fee2857ca4",
+    "content-hash": "46479ee4e27b8886a8792712600d6263",
     "packages": [
         {
             "name": "brick/math",
@@ -1701,6 +1701,53 @@
                 }
             ],
             "time": "2022-04-17T13:12:02+00:00"
+        },
+        {
+            "name": "mokhosh/jarbon",
+            "version": "v0.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mokhosh/jarbon.git",
+                "reference": "4a2e1031fc9facf81d072fdeb461796d875e2a76"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mokhosh/jarbon/zipball/4a2e1031fc9facf81d072fdeb461796d875e2a76",
+                "reference": "4a2e1031fc9facf81d072fdeb461796d875e2a76",
+                "shasum": ""
+            },
+            "require": {
+                "nesbot/carbon": "^2.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Mokhosh\\Jarbon\\JarbonServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Mokhosh\\Jarbon\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Mohammad Sadeq Khoshnazar",
+                    "email": "mskhoshnazar@gmail.com"
+                }
+            ],
+            "description": "A Jalali wrapper for Carbon to use with Laravel.",
+            "support": {
+                "issues": "https://github.com/mokhosh/jarbon/issues",
+                "source": "https://github.com/mokhosh/jarbon/tree/v0.3.0"
+            },
+            "time": "2021-05-21T05:29:08+00:00"
         },
         {
             "name": "monolog/monolog",

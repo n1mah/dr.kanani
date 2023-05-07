@@ -5,9 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Mokhosh\Jarbon\JarbonTrait;
 
 class Appointment extends Model
 {
+    use JarbonTrait;
     use HasFactory;
     public function patient(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {
@@ -22,13 +24,21 @@ class Appointment extends Model
     ];
     protected $primaryKey = 'id';
 
-    protected function visitTime(): Attribute
+//    protected function visitTimeJ(): Attribute
+//    {
+//        return Attribute::make(
+//            get: fn() => $this->visit_time, //1402
+////            set: fn () => date('Y-m-d H:i:s', $value),
+//        );
+//    }
+     protected function visitTime(): Attribute
     {
         return Attribute::make(
-            get: fn ($value) =>  (strtotime($value))-(60*60*1), //1402
-            set: fn ($value) => date('Y-m-d H:i:s', $value),
+            get: fn ($value) =>  $value->jormat("y"), //1402
+//            set: fn ($value) => date('Y-m-d H:i:s', $value),
         );
     }
+
     protected function changeStatus(): Attribute
     {
         return Attribute::make(
