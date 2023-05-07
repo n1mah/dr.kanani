@@ -59,6 +59,12 @@ Route::group(['prefix' => 'panel'],function (){
     Route::get('/appointments/{appointment}/prescriptions',[AppointmentController::class,"show_prescriptions"])->name("appointment.prescriptions");
     Route::put('/appointments/{appointment}/success',[AppointmentController::class,"success"])->name("appointment.success");
     Route::put('/appointments/{appointment}/cancel',[AppointmentController::class,"cancel"])->name("appointment.cancel");
+    Route::get('/appointment/today_list',[AppointmentController::class,"today"])->name("appointments.today");
+    Route::get('/appointment/tomorrow_list',[AppointmentController::class,"tomorrow"])->name("appointments.tomorrow");
+    Route::get('/appointment/week_list',[AppointmentController::class,"week"])->name("appointments.week");
+    Route::get('/appointment/month_list',[AppointmentController::class,"month"])->name("appointments.month");
+    Route::get('/appointment/period_30_list',[AppointmentController::class,"period30"])->name("appointments.period30");
+    Route::get('/appointment/before_30day_list',[AppointmentController::class,"before30"])->name("appointments.before30");
 
 
     Route::get('/prescriptions',[PrescriptionController::class,"index"])->name("prescriptions");

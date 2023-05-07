@@ -705,6 +705,26 @@ color: red;
 #appointments-page h1{
     text-align: center;
 }
+
+#appointments-page .btn-list{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#appointments-page .btn-list a{
+    padding: 6px 10px;
+    display: flex;
+    border: none;
+    outline: none;
+    border: 2px solid #0c6eff;
+    background-color: #0c6eff ;
+    color: white;
+    margin: 10px;
+    font-size: medium;
+    text-decoration: none;
+    border-radius: 5px;
+}
 #appointments-page .add-box{
     height: 5vh;
     display: flex;
@@ -2762,6 +2782,26 @@ border-top:2px solid #1a202c;
 border-bottom:2px solid #1a202c;
     padding-top: 20px;
     padding-bottom: 20px;
+}
+
+#home .today-appointment .btn-list{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#home .today-appointment .btn-list a{
+    padding: 6px 10px;
+    display: flex;
+    border: none;
+    outline: none;
+    border: 2px solid #0c6eff;
+    background-color: #0c6eff ;
+    color: white;
+    margin: 10px;
+    font-size: medium;
+    text-decoration: none;
+    border-radius: 5px;
 }
 #home .today-appointment h2{
   text-align: center;

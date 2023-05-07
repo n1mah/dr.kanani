@@ -51,6 +51,9 @@
                             @endforeach
                             </tbody>
                         </table>
+                        <div class="btn-list">
+                            <a class="btn-data" href="{{route("appointments")}}">همه وقت ها</a>
+                        </div>
                     </div>
                 </div>
             </div>
