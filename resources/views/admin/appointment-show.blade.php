@@ -36,7 +36,7 @@
                     <br>
                     <div>
                         <label for="visit_time">زمان ویزیت</label>
-                        <input disabled type="number" id="visit_time" name="visit_time" value="{{ $appointment->visit_time }}">
+                        <input disabled dir="ltr" id="visit_time" name="visit_time" value="{{ $appointment->visitTimeGetter }}">
                     </div>
                     <br>
                     <div>

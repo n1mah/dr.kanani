@@ -27,15 +27,20 @@ class Appointment extends Model
     protected function visitTime(): Attribute
     {
         return Attribute::make(
-            get: fn ($value) => (new Verta((strtotime($value))))->format('Y/n/j  H:i') , //1402
+            get: fn ($value) => strtotime($value), //1402
             set: fn ($value) => date('Y-m-d H:i:s', ($value+(3600*3.5))),
         );
     }
     protected function changeStatus(): Attribute
     {
         return Attribute::make(
-            get: fn ($value) => (new Verta((strtotime($value))))->format('Y/n/j  H:i'), //1402
+            get: fn ($value) => strtotime($value), //1402
             set: fn ($value) => date('Y/m/d  H:i:s', ($value+(3600*3.5))),
+        );
+    }
+    protected function visitTimeGetter(): Attribute{
+        return Attribute::make(
+            get: fn () => (new Verta($this->visit_time))->format('Y/n/j  H:i'), //1402
         );
     }
 

@@ -22,7 +22,7 @@
                             @foreach($appointments as $appointment)
                                 <tr>
                                     <td @if($appointment->status==2) class="text_cancel" @elseif($appointment->status==1)  class="text_success" @endif>{{$appointment->patient->firstname}} {{$appointment->patient->lastname}}</td>
-                                    <td @if($appointment->status==2) class="text_cancel" @elseif($appointment->status==1)  class="text_success" @endif dir="ltr">{{$appointment->visit_time}}</td>
+                                    <td @if($appointment->status==2) class="text_cancel" @elseif($appointment->status==1)  class="text_success" @endif dir="ltr">{{$appointment->visitTimeGetter}}</td>
                                     @if($appointment->status==0)
                                         <td class="text_unknown">
                                             <span class="text_unknown">تعیین نشده</span>

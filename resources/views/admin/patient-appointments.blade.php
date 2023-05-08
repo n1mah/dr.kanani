@@ -31,7 +31,7 @@
                         <tr>
                             <td @if($appointment->status==2) class="text_cancel" @endif>{{$appointment->id}}</td>
                             <td @if($appointment->status==2) class="text_cancel" @endif>{{$appointment->type}}</td>
-                            <td @if($appointment->status==2) class="text_cancel" @endif>{{$appointment->visit_time}}</td>
+                            <td @if($appointment->status==2) class="text_cancel" @endif>{{$appointment->visitTimeGetter}}</td>
                             <td @if($appointment->status==2) class="text_cancel" @endif>{{$appointment->descriptions}}</td>
                             @if($appointment->status==0)
                                 <td class="text_unknown">
