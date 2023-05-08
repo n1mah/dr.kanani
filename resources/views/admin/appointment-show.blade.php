@@ -87,6 +87,7 @@
                       </form>
                   </div>
                 @endif
+                @if(count($prescriptions)>0)
                 <hr>
                 <br>
                 <h2>نسخه های وقت</h2>
@@ -142,6 +143,9 @@
                         </tbody>
                     </table>
                 </div>
+                @else
+                    <p class="text-center">نسخه ای برای این وقت ویزیت وجود ندارد</p>
+                @endif
             </div>
         </div>
     </div>

@@ -15,7 +15,7 @@
                     @method('post')
                     <div>
                         <label for="appointment_id">وقت (نوبت)<span class="star-red">*</span></label>
-                        <select id="appointment_id" name="appointment_id">
+                        <select id="appointment_id" name="appointment_id" dir="ltr">
                             <option value="">بدون نوبت</option>
                             @foreach($appointments as $appointment)
                                 <option value="{{$appointment->id}}">{{$appointment->visitTimeGetter}}</option>

@@ -746,6 +746,13 @@ color: red;
     width: 90%;
     border-collapse: collapse;
 }
+#appointments-page .table table td a{
+    color: #1a202c;
+    font-weight: bold;
+    background-color: #d7d7d7;
+    padding: 5px;
+    border-radius: 5px;
+}
 #appointments-page .table table td,#appointments-page .table table th{
     border: 1px solid silver;
     border-collapse: collapse;
@@ -1214,7 +1221,14 @@ color: red;
     border-collapse: collapse;
     padding: 2px;
     text-align: center;
+}
 
+#prescriptions-page .table table td a{
+    color: #1a202c;
+    font-weight: bold;
+    background-color: #d7d7d7;
+    padding: 5px;
+    border-radius: 5px;
 }
 #prescriptions-page .table table button{
     padding: 6px 12px;
@@ -2172,7 +2186,23 @@ color: red;
     border-collapse: collapse;
     padding: 2px;
     text-align: center;
+}
 
+#reports-page .table table td a{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #1a202c;
+    font-weight: bold;
+    background-color: #d7d7d7;
+    padding: 5px;
+    border-radius: 5px;
+}
+#reports-page .table table td a.btn_prepp{
+display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px;
 }
 #reports-page .table table button{
     padding: 6px 12px;

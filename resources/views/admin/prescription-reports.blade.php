@@ -71,7 +71,7 @@
                     <x-panel.pagination :lists="$reports" />
                 </div>
                 @else
-                    <p class="not_record">گزارش یا آزمایشی برای این بیمار وجود ندارد</p>
+                    <p class="not_record">گزارش یا آزمایشی برای این نسخه بیمار وجود ندارد</p>
                 @endif
 
                 <br>

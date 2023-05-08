@@ -45,7 +45,7 @@
                         @foreach($appointments as $appointment)
                         <tr>
                             <td @if($appointment->status==2) class="text_cancel" @endif>{{$appointment->id}}</td>
-                            <td @if($appointment->status==2) class="text_cancel" @endif>{{$appointment->patient->firstname}} {{$appointment->patient->lastname}}</td>
+                            <td @if($appointment->status==2) class="text_cancel" @endif><a title="مشاهده" target="_blank" href="{{route("patient.show",$appointment->patient)}}">{{$appointment->patient->firstname}} {{$appointment->patient->lastname}}</a></td>
                             <td @if($appointment->status==2) class="text_cancel" @endif>{{$appointment->type}}</td>
                             <td @if($appointment->status==2) class="text_cancel" @endif dir="ltr">{{$appointment->visitTimeGetter}}</td>
                             <td @if($appointment->status==2) class="text_cancel" @endif>{{$appointment->descriptions}}</td>

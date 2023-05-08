@@ -31,12 +31,10 @@
                             <td>{{$report->id}}</td>
                             <td>{{$report->title}}</td>
                             <td>{{$report->content}}</td>
-                            <td>{{$report->patient->firstname}} {{$report->patient->lastname}}</td>
-                            <td>
-                                @isset($report->prescription->id)
-                                    {{ $report->prescription->id}}<br>{{$report->prescription->reason}}
-                                @endisset
-                            </td>
+                            <td><a title="مشاهده" target="_blank" href="{{route("patient.show",$report->patient)}}">{{$report->patient->firstname}} {{$report->patient->lastname}}</a></td>
+
+                            <td>@isset($report->prescription->id)<a title="مشاهده" class="btn_prepp" target="_blank" href="{{route("patient.show",$report->patient)}}">{{ $report->prescription->id}}<br>{{$report->prescription->reason}}</a>@endisset</td>
+
                             <td>
                                     <form action="{{route("report.show",$report)}}" method="get">
                                         @csrf

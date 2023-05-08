@@ -30,7 +30,7 @@
                         <tr>
                             <td>{{$prescription->id}}</td>
                             <td>{{$prescription->reason}}</td>
-                            <td>{{$prescription->appointment->patient->firstname}} {{$prescription->appointment->patient->lastname}}</td>
+                            <td><a title="مشاهده" target="_blank" href="{{route("patient.show",$prescription->appointment->patient)}}">{{$prescription->appointment->patient->firstname}} {{$prescription->appointment->patient->lastname}}</a></td>
                             <td>{{$prescription->type}}</td>
                             <td>
                                 @if(empty(trim($prescription->text_prescription)))
