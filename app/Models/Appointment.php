@@ -5,9 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Hekmatinasser\Verta\Verta;
 
 class Appointment extends Model
 {
+
     use HasFactory;
     public function patient(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {
@@ -25,15 +27,16 @@ class Appointment extends Model
     protected function visitTime(): Attribute
     {
         return Attribute::make(
-            get: fn ($value) =>  (strtotime($value))-(60*60*1), //1402
-            set: fn ($value) => date('Y-m-d H:i:s', $value),
+            get: fn ($value) => (new Verta((strtotime($value))))->format('Y/n/j  H:i') , //1402
+//            set: fn ($value) => new Verta($value)->formatGregorian('Y-m-d H:i:s');,
+            set: fn ($value) => date('Y-m-d H:i:s', ($value+(3600*3.5))),
         );
     }
     protected function changeStatus(): Attribute
     {
         return Attribute::make(
-            get: fn ($value) => (strtotime($value))-(60*60*1), //1402
-            set: fn ($value) => date('Y-m-d H:i:s', $value),
+            get: fn ($value) => (new Verta((strtotime($value))))->format('Y/n/j  H:i'), //1402
+            set: fn ($value) => date('Y/m/d  H:i:s', ($value+(3600*3.5))),
         );
     }
 
