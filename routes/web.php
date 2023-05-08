@@ -21,7 +21,6 @@ use App\Http\Controllers\Controller;
 */
 
 Route::get('/', function () {
-
 });
 
 Route::group(['prefix' => 'panel'],function (){
@@ -64,7 +63,7 @@ Route::group(['prefix' => 'panel'],function (){
     Route::get('/appointment/week_list',[AppointmentController::class,"week"])->name("appointments.week");
     Route::get('/appointment/month_list',[AppointmentController::class,"month"])->name("appointments.month");
     Route::get('/appointment/period_30_list',[AppointmentController::class,"period30"])->name("appointments.period30");
-    Route::get('/appointment/before_30day_list',[AppointmentController::class,"before30"])->name("appointments.before30");
+    Route::get('/appointment/before_30day_list',[AppointmentController::class,"before30Day"])->name("appointments.before30Day");
 
 
     Route::get('/prescriptions',[PrescriptionController::class,"index"])->name("prescriptions");

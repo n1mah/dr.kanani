@@ -128,12 +128,9 @@ class AppointmentController extends Controller
     public function today()
     {
         $appointments= new Appointment;
-        $datetime = new DateTime('tomorrow');
-        $now = date("Y-m-d H:i:s", (strtotime('now')-(60*60*1)));//1402
-        $today = date("Y-m-d H:i:s", (strtotime('today')));
-        $tomorrow = date("Y-m-d H:i:s", (strtotime('tomorrow')));
+        $today = date("Y-m-d H:i:s", (strtotime('today')+(4.5*3600)));
+        $tomorrow = date("Y-m-d H:i:s", (strtotime('tomorrow')+(4.5*3600)));
         $appointments_today_tomorrow= $appointments->whereBetween('visit_time',[$today,$tomorrow])->orderBy("visit_time","asc")->paginate(10);
-//        dd($appointments_today_tomorrow);
         return view('admin.appointments',[
             'appointments'=>$appointments_today_tomorrow
         ]);
@@ -141,9 +138,9 @@ class AppointmentController extends Controller
     public function tomorrow()
     {
         $appointments= new Appointment;
-        $tomorrow = date("Y-m-d H:i:s", (strtotime('tomorrow')));
-        $afterTomorrow = date("Y-m-d H:i:s", (strtotime('+2 day')));
-        $appointments_tomorrow_afterTomorrow= $appointments->whereBetween('visit_time',[$tomorrow,$afterTomorrow])->orderBy("visit_time","asc")->paginate(10);
+        $tomorrow = date("Y-m-d H:i:s", (strtotime('tomorrow')+(4.5*3600)));
+        $dayAfterTomorrow = date("Y-m-d H:i:s", (strtotime('+2 day')+(4.5*3600)));
+        $appointments_tomorrow_afterTomorrow= $appointments->whereBetween('visit_time',[$tomorrow,$dayAfterTomorrow])->orderBy("visit_time","asc")->paginate(10);
         return view('admin.appointments',[
             'appointments'=>$appointments_tomorrow_afterTomorrow
         ]);
@@ -151,8 +148,8 @@ class AppointmentController extends Controller
     public function week()
     {
         $appointments= new Appointment;
-        $today = date("Y-m-d H:i:s", (strtotime('today')));
-        $week = date("Y-m-d H:i:s", (strtotime('+1 week')));
+        $today = date("Y-m-d H:i:s", (strtotime('today')+(4.5*3600)));
+        $week = date("Y-m-d H:i:s", (strtotime('+1 week')+(4.5*3600)));
         $appointments_week= $appointments->whereBetween('visit_time',[$today,$week])->orderBy("visit_time","asc")->paginate(10);
         return view('admin.appointments',[
             'appointments'=>$appointments_week
@@ -161,8 +158,8 @@ class AppointmentController extends Controller
     public function month()
     {
         $appointments= new Appointment;
-        $today = date("Y-m-d H:i:s", (strtotime('today')));
-        $month = date("Y-m-d H:i:s", (strtotime('+1 month')));
+        $today = date("Y-m-d H:i:s", (strtotime('today')+(4.5*3600)));
+        $month = date("Y-m-d H:i:s", (strtotime('+1 month')+(4.5*3600)));
         $appointments_month= $appointments->whereBetween('visit_time',[$today,$month])->orderBy("visit_time","asc")->paginate(10);
         return view('admin.appointments',[
             'appointments'=>$appointments_month
@@ -171,18 +168,18 @@ class AppointmentController extends Controller
     public function period30()
     {
         $appointments= new Appointment;
-        $before = date("Y-m-d H:i:s", (strtotime('-15 day')));
-        $after = date("Y-m-d H:i:s", (strtotime('+15 day')));
+        $before = date("Y-m-d H:i:s", (strtotime('-15 day')+(4.5*3600)));
+        $after = date("Y-m-d H:i:s", (strtotime('+15 day')+(4.5*3600)));
         $between30= $appointments->whereBetween('visit_time',[$before,$after])->orderBy("visit_time","asc")->paginate(10);
         return view('admin.appointments',[
             'appointments'=>$between30
         ]);
     }
-    public function before30()
+    public function before30Day()
     {
         $appointments= new Appointment;
-        $before30 = date("Y-m-d H:i:s", (strtotime('-30 day')));
-        $today = date("Y-m-d H:i:s", (strtotime('today')));
+        $before30 = date("Y-m-d H:i:s", (strtotime('-30 day')+(4.5*3600)));
+        $today = date("Y-m-d H:i:s", (strtotime('today')+(4.5*3600)));
         $between30= $appointments->whereBetween('visit_time',[$before30,$today])->orderBy("visit_time","asc")->paginate(10);
         return view('admin.appointments',[
             'appointments'=>$between30

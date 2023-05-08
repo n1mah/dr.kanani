@@ -20,7 +20,7 @@
                 <a class="btn-data" href="{{route("appointments.week")}}">وقت تا 7 روز آینده</a>
                 <a class="btn-data" href="{{route("appointments.month")}}">وقت تا 30 روز آینده</a>
                 <a class="btn-data" href="{{route("appointments.period30")}}">وقت های 15 روز قبل و 15  روز آینده</a>
-                <a class="btn-data" href="{{route("appointments.before30")}}">وقت های 30 روز گذشته</a>
+                <a class="btn-data" href="{{route("appointments.before30Day")}}">وقت های 30 روز گذشته</a>
                 </div>
                 <br>
                 <br>

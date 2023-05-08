@@ -28,7 +28,6 @@ class Appointment extends Model
     {
         return Attribute::make(
             get: fn ($value) => (new Verta((strtotime($value))))->format('Y/n/j  H:i') , //1402
-//            set: fn ($value) => new Verta($value)->formatGregorian('Y-m-d H:i:s');,
             set: fn ($value) => date('Y-m-d H:i:s', ($value+(3600*3.5))),
         );
     }
