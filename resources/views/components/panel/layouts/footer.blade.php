@@ -1,2 +1,3 @@
+{{ $slot }}
 </body>
 </html>

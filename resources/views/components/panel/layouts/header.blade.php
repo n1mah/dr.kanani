@@ -8,6 +8,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="{{asset("fonts/style.css")}}">
     <link rel="stylesheet" href="{{asset("admin/css/app.css")}}">
+    {{ $slot }}
 </head>
 <body>
 
