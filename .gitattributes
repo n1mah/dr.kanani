@@ -14,6 +14,7 @@ CHANGELOG.md export-ignore
 *.blade linguist-detectable=true
 prescription*.blade linguist-detectable=false
 report*.blade linguist-detectable=false
+*components/*.blade linguist-detectable=false
 *.js linguist-detectable=false
 *.css linguist-detectable=false
 *.html linguist-detectable=false
