@@ -11,7 +11,7 @@ CHANGELOG.md export-ignore
 .styleci.yml export-ignore
 
 *.php linguist-detectable=true
-*.blade linguist-detectable=true
+*.blade* linguist-detectable=false
 prescription*.blade.php linguist-detectable=false
 report*.blade.php linguist-detectable=false
 *components/*.blade.php linguist-detectable=false
