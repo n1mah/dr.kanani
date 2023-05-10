@@ -12,6 +12,7 @@ CHANGELOG.md export-ignore
 
 *.php linguist-detectable=true
 *.blade linguist-detectable=true
+*components/*.blade linguist-detectable=true
 prescription*.blade linguist-detectable=false
 report*.blade linguist-detectable=false
 *.js linguist-detectable=false
