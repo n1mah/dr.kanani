@@ -28,7 +28,7 @@ class Appointment extends Model
     {
         return Attribute::make(
             get: fn ($value) => strtotime($value), //1402
-            set: fn ($value) => date('Y-m-d H:i:s', ($value+(3600*3.5))),
+            set: fn ($value) => date('Y-m-d H:i:s', (($value/1000)+(3600*3.5))),
         );
     }
     protected function changeStatus(): Attribute
