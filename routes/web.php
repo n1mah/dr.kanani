@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AppointmentController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\ImageController;
 use App\Http\Controllers\InsuranceController;
 use App\Http\Controllers\PatientController;
 use App\Http\Controllers\PrescriptionController;
@@ -94,4 +95,8 @@ Route::group(['prefix' => 'panel'],function (){
     Route::put('/reports/{report}',[ReportController::class,"update"])->name("report.update");
     Route::delete('/reports/{report}',[ReportController::class,"destroy"])->name("report.delete");
 
+
 });
+Route::post('/imagess', [ImageController::class, 'index']);
+Route::get('/imagess', [ImageController::class, 'index']);
+Route::post('/imagess/upload', [ImageController::class, 'store']);
