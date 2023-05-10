@@ -844,6 +844,9 @@ color: red;
 #add-appointment-page h1{
     text-align: center;
 }
+#add-appointment-page form span{
+    font-size: small;
+}
 #add-appointment-page .back-box{
     height: 5vh;
     display: flex;
