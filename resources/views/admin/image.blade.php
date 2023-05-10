@@ -26,7 +26,7 @@
                     @foreach($images as $image)
                         <div class="col-md-4">
                             <div class="card mb-4">
-                                <img src="images/{{($image->image_path)}}" width="200px" alt="nit" class="card-img-top">
+                                <img src="images/{{($image->image_path)}}" width="300px" alt="nit" class="card-img-top">
                                 <div class="card-body">
                                     <h5 class="card-title">xd</h5>
                                 </div>
