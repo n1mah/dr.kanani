@@ -26,15 +26,15 @@ class ImageRequest extends FormRequest
     {
         return [
             'description' => 'nullable',
-            'image' => 'required|image|max:2048',
+            'images.*' => 'required|image|max:2048',
         ];
     }
     public function messages(): array
     {
         return [
-            'image.required' => 'تصویر را انتخاب کنید',
-            'image.image' => 'تصویر را به درستی انتخاب کنید',
-            'image.max' => 'اندازه تصویر بزرگ می باشد ',
+            'images.0.required' => 'تصویر را انتخاب کنید',
+            'images.0.image' => 'تصویر را به درستی انتخاب کنید',
+            'images.0.max' => 'اندازه تصویر بزرگ می باشد ',
         ];
     }
 //    protected $redirect = ;
