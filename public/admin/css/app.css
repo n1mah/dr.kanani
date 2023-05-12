@@ -133,7 +133,17 @@ color: red;
     background-color: #1a202c;
     color: white;
 }
-
+.image_file{
+    background-color: #1a202c;
+    color: white;
+    display: flex;
+    width: 80%;
+    padding: 10px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+}
 /*patients-page*/
 #patients-page{
 
@@ -1332,6 +1342,9 @@ color: red;
     margin: auto;
     border-radius: 10px;
 }
+#add-prescription-page form .custom-file-input{
+    display: none;
+}
 #add-prescription-page form>div{
     width: 60%;
     display: flex;
@@ -1558,6 +1571,9 @@ color: red;
     color: white;
     border-radius: 10px;
 }
+
+
+
 #show-prescription-page form{
     display: flex;
     flex-direction: column;
@@ -1628,6 +1644,45 @@ color: red;
     border-radius: 10px;
     align-items: center;
     justify-content: center;
+}
+
+#show-prescription-page .splitter{
+    height: 1px;
+    background-color: #b4b4b6;
+    width: 100%;
+    margin: 10px;
+}
+#show-prescription-page .show-images{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+#show-prescription-page .show-images h3{
+    text-align: center;
+    width: 100%;
+}
+#show-prescription-page .show-images p{
+    text-align: center;
+}
+#show-prescription-page .show-images .parent-box{
+    padding: 10px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+#show-prescription-page .show-images .parent-box a {
+    margin: 10px;
+}
+#show-prescription-page .show-images .parent-box a img{
+    border: 1px solid silver;
+}
+#show-prescription-page .show-images .parent-box a:hover img{
+    border: 2px solid rgb(65, 65, 65);
+    transform: scale(1.1);
+    transition: border 500ms , transform .5s;
 }
 /*show-prescription-page*/
 

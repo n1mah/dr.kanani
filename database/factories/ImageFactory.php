@@ -18,7 +18,6 @@ class ImageFactory extends Factory
     {
         return [
 //                'image_path' => ""
-//            'descriptions' => fake()->sentence(),
         ];
     }
 }

@@ -7,10 +7,13 @@ use App\Http\Requests\UpdatePrescriptionRequest;
 use App\Models\Appointment;
 use App\Models\Patient;
 use App\Models\Prescription;
+//use http\Env\Request;
 use Illuminate\Contracts\View\View;
 use Illuminate\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
+
 
 class PrescriptionController extends Controller
 {
@@ -86,8 +89,12 @@ class PrescriptionController extends Controller
             'prescription'=>$prescription,
         ]);
     }
-    public function update(Prescription $prescription):View|RedirectResponse
+    public function update(Request $request,Prescription $prescription):View|RedirectResponse
     {
+        $files= request()->file("images");
+//        dd($files);
+        $imageController= new ImageController;
+        $imageController->store($files,$prescription->id);
         $prescription->text_prescription=request("text_prescription");
         $prescription->save();
         return redirect()

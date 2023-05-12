@@ -97,6 +97,6 @@ Route::group(['prefix' => 'panel'],function (){
 
 
 });
-Route::post('/imagess', [ImageController::class, 'index']);
-Route::get('/imagess', [ImageController::class, 'index']);
-Route::post('/imagess/upload', [ImageController::class, 'store']);
+//Route::post('/imagess', [ImageController::class, 'index']);
+//Route::get('/imagess', [ImageController::class, 'index']);
+//Route::post('/imagess/upload', [ImageController::class, 'store']);

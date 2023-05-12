@@ -15,6 +15,10 @@ class Prescription extends Model
     {
         return $this->hasMany(Report::class,"prescription_id");
     }
+    public function images():\Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(Image::class,"prescription_id");
+    }
 
     use HasFactory;
 

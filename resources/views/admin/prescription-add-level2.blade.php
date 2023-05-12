@@ -25,7 +25,7 @@
                     <br>
                     <div>
                         <label for="reason">دلیل مراجعه<span class="star-red">*</span></label>
-                        <textarea id="reason" name="reason" rows="6"></textarea>
+                        <textarea id="reason" name="reason" rows="3"></textarea>
                     </div>
                     <br>
                     <div>

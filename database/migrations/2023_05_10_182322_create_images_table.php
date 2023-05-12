@@ -14,7 +14,8 @@ return new class extends Migration
         Schema::create('images', function (Blueprint $table) {
             $table->id();
             $table->text('image_path');
-            $table->string("description")->nullable();
+            $table->unsignedBigInteger("prescription_id");
+            $table->foreign("prescription_id")->references("id")->on("prescriptions")->onUpdate("cascade")->onDelete("cascade");
             $table->timestamps();
         });
     }

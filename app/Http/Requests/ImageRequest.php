@@ -25,7 +25,6 @@ class ImageRequest extends FormRequest
         public function rules(): array
     {
         return [
-            'description' => 'nullable',
             'images.*' => 'required|image|max:2000',
         ];
     }
