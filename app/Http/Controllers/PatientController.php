@@ -18,7 +18,7 @@ class PatientController extends Controller
     {
         $patient= new Patient;
         return view('admin.patients',[
-            'patients'=>$patient->orderBy("updated_at","desc")->paginate(10)
+            'patients'=>$patient->orderBy("created_at","asc")->paginate(10)
         ]);
     }
     public function create():View

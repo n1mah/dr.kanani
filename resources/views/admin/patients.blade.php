@@ -49,22 +49,34 @@
                             <td>{{$patient->firstname}} {{$patient->lastname}}</td>
                             <td>{{$patient->mobile}}</td>
                             <td>
+                                @if(count($patient->appointments)>0)
                                 <form action="{{route("patient.appointments",$patient)}}" method="get">
                                     @csrf
                                     <button type="submit" class="btn_visit">مشاهده</button>
                                 </form>
+                                @else
+                                    ندارد
+                                @endif
                             </td>
                             <td>
+                                @if(count($patient->prescriptions)>0)
                                 <form action="{{route("patient.prescriptions",$patient)}}" method="get">
                                     @csrf
                                     <button type="submit" class="btn_prep">مشاهده</button>
                                 </form>
+                                @else
+                                    ندارد
+                                @endif
                             </td>
                             <td>
+                                @if(count($patient->reports)>0)
                                 <form action="{{route("patient.reports",$patient)}}" method="get">
                                     @csrf
                                     <button type="submit" class="btn_report">مشاهده</button>
                                 </form>
+                                @else
+                                    ندارد
+                                @endif
                             </td>
                             <td>
                                 <form action="{{route("patient.show",$patient)}}" method="get">
