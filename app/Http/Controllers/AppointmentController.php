@@ -7,6 +7,7 @@ use App\Http\Requests\UpdateAppointmentRequest;
 use App\Models\Appointment;
 use App\Models\Patient;
 use DateTime;
+use Hekmatinasser\Verta\Verta;
 use Illuminate\Contracts\View\View;
 use Illuminate\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
@@ -14,6 +15,29 @@ use Illuminate\Http\RedirectResponse;
 
 class AppointmentController extends Controller
 {
+    public $timeAdded=(3600*(4.5)); //4.5*3600
+
+    public function GetToday()
+    {
+        return date("Y-m-d H:i:s", ((Verta::today("Asia/Tehran")->timestamp)+$this->timeAdded));
+    }
+    public function GetTomorrow()
+    {
+        return date("Y-m-d H:i:s", ((Verta::tomorrow("Asia/Tehran")->timestamp)+$this->timeAdded));
+    }
+    public function GetAddDay($day)
+    {
+
+        return date("Y-m-d H:i:s", ((Verta::today("Asia/Tehran")->addDays($day)->timestamp)+$this->timeAdded));
+    }
+    public function GetSubDay($day)
+    {
+        return date("Y-m-d H:i:s", ((Verta::today("Asia/Tehran")->subDays($day)->timestamp)+$this->timeAdded));
+    }
+    public function GetOtherDay($str)
+    {
+        return date("Y-m-d H:i:s", ((verta("Asia/Tehran",$str)->formatDifference()->timestamp)+$this->timeAdded));
+    }
     /**
      * Display a listing of the resource.
      */
@@ -21,7 +45,7 @@ class AppointmentController extends Controller
     {
         $appointments= new Appointment;
         return view('admin.appointments',[
-            'appointments'=>$appointments->orderBy("updated_at","desc")->paginate(10)
+            'appointments'=>$appointments->orderBy("id","desc")->paginate(10)
         ]);
     }
 
@@ -127,8 +151,11 @@ class AppointmentController extends Controller
     public function today()
     {
         $appointments= new Appointment;
-        $today = date("Y-m-d H:i:s", (strtotime('today')+(4.5*3600)));
-        $tomorrow = date("Y-m-d H:i:s", (strtotime('tomorrow')+(4.5*3600)));
+        $today = $this->GetToday();
+//        echo $today=Verta::today("Asia/Tehran")->timestamp;
+//        dd($today);
+        $tomorrow = $this->GetTomorrow();
+////        dd($tomorrow);
         $appointments_today_tomorrow= $appointments->whereBetween('visit_time',[$today,$tomorrow])->orderBy("visit_time","asc")->paginate(10);
         return view('admin.appointments',[
             'appointments'=>$appointments_today_tomorrow
@@ -137,8 +164,10 @@ class AppointmentController extends Controller
     public function tomorrow()
     {
         $appointments= new Appointment;
-        $tomorrow = date("Y-m-d H:i:s", (strtotime('tomorrow')+(4.5*3600)));
-        $dayAfterTomorrow = date("Y-m-d H:i:s", (strtotime('tomorrow +1 day')+(4.5*3600)));
+        $tomorrow = $this->GetTomorrow();
+//        dd(Verta::today("Asia/Tehran"),Verta::today("Asia/Tehran")->addDay());
+//        dd(Verta::today("Asia/Tehran"),Verta::today("Asia/Tehran")->addDays(2));
+        $dayAfterTomorrow = $this->GetAddDay(2);
         $appointments_tomorrow_afterTomorrow= $appointments->whereBetween('visit_time',[$tomorrow,$dayAfterTomorrow])->orderBy("visit_time","asc")->paginate(10);
         return view('admin.appointments',[
             'appointments'=>$appointments_tomorrow_afterTomorrow
@@ -147,8 +176,8 @@ class AppointmentController extends Controller
     public function week()
     {
         $appointments= new Appointment;
-        $today = date("Y-m-d H:i:s", (strtotime('today')+(4.5*3600)));
-        $week = date("Y-m-d H:i:s", (strtotime('today +7 day')+(4.5*3600)));
+        $today = $this->GetToday();
+        $week = $this->GetAddDay(7);
         $appointments_week= $appointments->whereBetween('visit_time',[$today,$week])->orderBy("visit_time","asc")->paginate(10);
         return view('admin.appointments',[
             'appointments'=>$appointments_week
@@ -157,8 +186,8 @@ class AppointmentController extends Controller
     public function month()
     {
         $appointments= new Appointment;
-        $today = date("Y-m-d H:i:s", (strtotime('today')+(4.5*3600)));
-        $month = date("Y-m-d H:i:s", (strtotime('today +30 day')+(4.5*3600)));
+        $today = $this->GetToday();
+        $month = $this->GetAddDay(30);
         $appointments_month= $appointments->whereBetween('visit_time',[$today,$month])->orderBy("visit_time","asc")->paginate(10);
         return view('admin.appointments',[
             'appointments'=>$appointments_month
@@ -167,8 +196,8 @@ class AppointmentController extends Controller
     public function period30()
     {
         $appointments= new Appointment;
-        $before = date("Y-m-d H:i:s", (strtotime('today -15 day')+(4.5*3600)));
-        $after = date("Y-m-d H:i:s", (strtotime('today +15 day')+(4.5*3600)));
+        $before = $this->GetSubDay(15);
+        $after = $this->GetAddDay(15);
         $between30= $appointments->whereBetween('visit_time',[$before,$after])->orderBy("visit_time","asc")->paginate(10);
         return view('admin.appointments',[
             'appointments'=>$between30
@@ -177,8 +206,8 @@ class AppointmentController extends Controller
     public function before30Day()
     {
         $appointments= new Appointment;
-        $before30 = date("Y-m-d H:i:s", (strtotime('today -30 day')+(4.5*3600)));
-        $today = date("Y-m-d H:i:s", (strtotime('today')+(4.5*3600)));
+        $before30 = $this->GetSubDay(30);
+        $today = $this->GetToday();
         $between30= $appointments->whereBetween('visit_time',[$before30,$today])->orderBy("visit_time","asc")->paginate(10);
         return view('admin.appointments',[
             'appointments'=>$between30
