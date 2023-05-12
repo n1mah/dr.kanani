@@ -26,15 +26,16 @@ class ImageRequest extends FormRequest
     {
         return [
             'description' => 'nullable',
-            'images.*' => 'required|image|max:2048',
+            'images.*' => 'required|image|max:2000',
         ];
     }
     public function messages(): array
     {
         return [
-            'images.0.required' => 'تصویر را انتخاب کنید',
-            'images.0.image' => 'تصویر را به درستی انتخاب کنید',
-            'images.0.max' => 'اندازه تصویر بزرگ می باشد ',
+            'images.*' => 'تصاویر را به درستی انتخاب کنید . حجم فایل انتخابی باید کمتر از 2مگابایت و از انواع تصاویر با پسوند مجاز',
+            'images.*.required' => 'تصویر را انتخاب کنید',
+            'images.*.image' => 'تصاویر را به درستی انتخاب کنید . نوع فایل مجاز نمی باشد',
+            'images.*.max' => 'اندازه تصاویر بزرگ می باشد ',
         ];
     }
 //    protected $redirect = ;
