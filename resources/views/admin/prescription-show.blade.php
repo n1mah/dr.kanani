@@ -7,7 +7,7 @@
             <div id="show-prescription-page">
                 <h1> مشاهده جزییات  نسخه </h1>
                 <br>
-                <form action="">
+                <form>
                     @csrf
                     <br>
                     <div>
@@ -27,15 +27,29 @@
                     <br>
                     <div>
                         <label for="reason">علت مراجعه</label>
-                        <textarea id="reason" disabled name="text_prescription" rows="6">{{$prescription->reason}}</textarea>
+                        <textarea id="reason" disabled name="text_prescription" rows="3">{{$prescription->reason}}</textarea>
                     </div>
                     <br>
                     <div>
                         <label for="text_prescription">نسخه</label>
-                        <textarea id="text_prescription" disabled name="text_prescription" rows="6">{{$prescription->text_prescription}}</textarea>
+                        <textarea id="text_prescription" disabled name="text_prescription" rows="2">{{$prescription->text_prescription}}</textarea>
                     </div>
                     <br>
+                    <div class="splitter"></div>
+                            <div class="show-images">
+                                <h3>تصاویر نسخه ها</h3>
+                                <p>برای مشاهده دقیق تر هرکدام از تصاویر بر روی آن کلیک کنید</p>
 
+                                <br>
+                                <div class="parent-box">
+                                    @foreach($prescription->images as $image)
+
+{{--                                    <img src="images/{{$image->image_path}}" width="150px" alt="">--}}
+                                        <a href="{{asset("images/$image->image_path")}}" title="prescription-{{asset("images/$image->image_path")}}" target="_blank"><img src="{{asset("images/$image->image_path")}}" width="300px" alt="prescription-{{asset("images/$image->image_path")}}" title="prescription-{{asset("images/$image->image_path")}}"></a>
+
+                                    @endforeach
+                                </div>
+                            </div>
                     <br>
                 </form>
                 <br>
