@@ -3249,3 +3249,61 @@ border-bottom:2px solid #1a202c;
     border-bottom:none;
 }
 /*show-financial-page*/
+
+/*edit-financial-page*/
+#edit-financial-page{
+
+}
+#edit-financial-page h1{
+    text-align: center;
+}
+#edit-financial-page .back-box{
+    height: 5vh;
+    display: flex;
+    align-items: center;
+}
+
+#edit-financial-page .back-box a {
+    text-decoration: none;
+    padding: 7px 15px;
+    background-color: #1a202c;
+    color: white;
+    border-radius: 10px;
+}
+#edit-financial-page form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background-color: rgba(192, 192, 192, 0.69);
+    width: 75%;
+    margin: auto;
+    border-radius: 10px;
+}
+#edit-financial-page form>div{
+    width: 70%;
+    display: flex;
+    justify-content: space-between;
+}
+#edit-financial-page form input,
+#edit-financial-page form select,
+#edit-financial-page form textarea{
+    padding: 3px 6px;
+    border: none;
+    border-bottom: 2px solid #777777;
+    border-radius: 3px;
+    outline: none;
+    width: 80%;
+
+}
+#edit-financial-page form input:focus,#edit-financial-page form select{
+    border-bottom: 2px solid rgba(26, 32, 44);
+}
+#edit-financial-page form input.btn{
+    background-color: #ff742c;
+    color: white;
+    width: 70%;
+    border-bottom:none;
+}
+/*edit-financial-page*/

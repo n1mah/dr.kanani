@@ -9,24 +9,24 @@
                 <br>
                 <form>
                     <div>
-                        <label for="title">عنوان<span class="star-red">*</span></label>
+                        <label for="title">عنوان</label>
                         <input disabled type="text" id="title" name="title" value="{{$financialTransaction->title}}">
                     </div>
                     <br>
                     <div>
-                        <label for="patient_id">بیمار<span class="star-red">*</span></label>
+                        <label for="patient_id">بیمار</label>
                         <select disabled id="patient_id" name="patient_id">
                                 <option>{{$financialTransaction->patient->firstname}} {{$financialTransaction->patient->lastname}}</option>
                         </select>
                     </div>
                     <br>
                     <div>
-                        <label for="payment_amount">مبلغ پرداختی<span class="star-red">*</span></label>
+                        <label for="payment_amount">مبلغ پرداختی</label>
                         <input disabled type="number" id="payment_amount" name="payment_amount" value="{{$financialTransaction->payment_amount}}">
                     </div>
                     <br>
                     <div>
-                        <label for="method">نوع پرداخت<span class="star-red">*</span></label>
+                        <label for="method">نوع پرداخت</label>
                         <select disabled id="method" name="method">
                                 <option>{{$financialTransaction->method}}</option>
                         </select>

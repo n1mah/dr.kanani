@@ -55,4 +55,21 @@ class FinancialTransactionController extends Controller
             'financialTransaction'=>$financialTransaction,
         ]);
     }
+    public function edit(FinancialTransaction $financialTransaction): \Illuminate\Contracts\View\View|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application
+    {
+        $patient= new Patient;
+        $methods = [ "دستگاه کارتخوان" , "کارت به کارت", "نقدی" , "چندحالتی" , "غیره"];
+        return view('admin.financial_transactions.edit',[
+            "methods"=>$methods,
+            'patients'=>$patient->orderBy("firstname","asc")->orderBy("lastname","asc")->get(),
+            'financialTransaction'=>$financialTransaction,
+        ]);
+    }
+
+    public function update(FinancialTransactionRequest $request,FinancialTransaction $financialTransaction): \Illuminate\Http\RedirectResponse
+    {
+        $financialTransaction->update($request->all());
+        return redirect()
+            ->route('financials');
+    }
 }

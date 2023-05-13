@@ -60,8 +60,7 @@
                                 </form>
                             </td>
                             <td>
-{{--                                <form action="{{route("financial.editForm",$financialTransaction)}}" method="get">--}}
-                                <form action="" method="get">
+                                <form action="{{route("financial.editForm",$financialTransaction)}}" method="get">
                                     @csrf
                                     <input type="hidden" name="id" value="{{$financialTransaction->id}}">
                                     <button class="btn_up">ویرایش</button>
