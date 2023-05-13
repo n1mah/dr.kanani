@@ -67,8 +67,7 @@
                                 </form>
                             </td>
                             <td>
-{{--                                <form action="{{route("financial.delete",$financialTransaction)}}" method="post">--}}
-                                <form action="" method="post">
+                                <form action="{{route("financial.delete",$financialTransaction)}}" method="post">
                                     @csrf
                                     @method('delete')
                                     <button class="btn_del">حذف</button>

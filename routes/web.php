@@ -104,5 +104,6 @@ Route::group(['prefix' => 'panel'],function (){
     Route::get('/financial_transactions/{financial_transaction}',[FinancialTransactionController::class,"show"])->name("financial.show");
     Route::get('/financial_transactions/{financial_transaction}/edit',[FinancialTransactionController::class,"edit"])->name("financial.editForm");
     Route::put('/financial_transactions/{financial_transaction}',[FinancialTransactionController::class,"update"])->name("financial.update");
+    Route::delete('/financial_transactions/{financial_transaction}',[FinancialTransactionController::class,"destroy"])->name("financial.delete");
 
 });

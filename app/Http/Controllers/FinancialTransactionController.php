@@ -72,4 +72,10 @@ class FinancialTransactionController extends Controller
         return redirect()
             ->route('financials');
     }
+    public function destroy(FinancialTransaction $financialTransaction): \Illuminate\Http\RedirectResponse
+    {
+        $financialTransaction->delete();
+        return redirect()
+            ->route('financials');
+    }
 }
