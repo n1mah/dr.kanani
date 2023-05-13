@@ -49,4 +49,10 @@ class FinancialTransactionController extends Controller
             ->route('financials');
     }
 
+    public function show(FinancialTransaction $financialTransaction): \Illuminate\Contracts\View\View|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application
+    {
+        return view('admin.financial_transactions.show',[
+            'financialTransaction'=>$financialTransaction,
+        ]);
+    }
 }

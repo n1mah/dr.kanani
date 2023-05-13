@@ -101,5 +101,6 @@ Route::group(['prefix' => 'panel'],function (){
     Route::post('/financial_transactions/search',[FinancialTransactionController::class,"search"])->name("financials.search");
     Route::get('/financial_transactions/create',[FinancialTransactionController::class,"create"])->name("financial.addForm");
     Route::post('/financial_transactions',[FinancialTransactionController::class,"store"])->name("financial.store");
+    Route::get('/financial_transactions/{financial_transaction}',[FinancialTransactionController::class,"show"])->name("financial.show");
 
 });

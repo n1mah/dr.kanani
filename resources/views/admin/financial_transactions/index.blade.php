@@ -53,8 +53,7 @@
                             <td class="money">{{number_format((String)$financialTransaction->payment_amount)}}</td>
                             <td>{{$financialTransaction->method}}</td>
                             <td>
-{{--                                <form action="{{route("financial.editForm",$financialTransaction)}}" method="get">--}}
-                                <form action="" method="get">
+                                <form action="{{route("financial.show",$financialTransaction)}}" method="get">
                                     @csrf
                                     <input type="hidden" name="id" value="{{$financialTransaction->id}}">
                                     <button class="btn_see">مشاهده</button>
