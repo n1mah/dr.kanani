@@ -7,6 +7,7 @@
             <li><a href="{{route("appointments")}}">وقت ها</a></li>
             <li><a href="{{route("prescriptions")}}">نسخه ها</a></li>
             <li><a href="{{route("reports")}}">آزمایش و گزارشات</a></li>
+            <li><a href="{{route("financials")}}">تراکنش های مالی</a></li>
         </ul>
     </nav>
 </div>

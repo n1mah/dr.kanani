@@ -3014,3 +3014,122 @@ border-bottom:2px solid #1a202c;
 
 }
 /*Home*/
+
+
+/*financial-page*/
+#financial-page{
+
+}
+#financial-page h1{
+    text-align: center;
+}
+#financial-page .search-box{
+    display: flex;
+    align-items: center;
+}
+#financial-page .search-box label{
+    margin-left: 10px;
+    padding: 6px 10px;
+    display: flex;
+    border: none;
+    outline: none;
+    font-size: medium;
+}
+#financial-page .search-box input#search{
+    width: 35%;
+    padding: 6px 10px;
+    display: flex;
+    border: none;
+    outline: none;
+    border-bottom: 2px solid #1a202c;
+    font-size: medium;
+
+}
+#financial-page .search-box input#search_btn{
+    padding: 6px 10px;
+    display: flex;
+    border: none;
+    outline: none;
+    border: 2px solid #1a202c;
+    background-color: #1a202c ;
+    color: white;
+    margin: 10px;
+    font-size: medium;
+
+}
+
+#financial-page .search-box .split{
+    display: block;
+    margin-right: 4px;
+    height: 100%;
+    padding:12px 1px;
+    background-color: silver;
+}
+
+#financial-page .search-box a{
+    padding: 6px 10px;
+    display: flex;
+    border: none;
+    outline: none;
+    border: 2px solid #0c6eff;
+    background-color: #0c6eff ;
+    color: white;
+    margin: 10px;
+    font-size: medium;
+    text-decoration: none;
+
+}
+#financial-page .add-box{
+    height: 5vh;
+    display: flex;
+    align-items: center;
+}
+#financial-page .add-box a{
+    text-decoration: none;
+    padding: 7px 15px;
+    background-color: #1a202c;
+    color: white;
+    border-radius: 10px;
+}
+#financial-page .table{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+#financial-page .table table{
+    width: 75%;
+    border-collapse: collapse;
+}
+#financial-page .table table td,#financial-page .table table th{
+    border: 1px solid silver;
+    border-collapse: collapse;
+    padding: 2px;
+    text-align: center;
+
+}
+#financial-page .table table button{
+    padding: 6px 12px;
+    outline: none;
+    border: none;
+    border-radius: 10px;
+}
+#financial-page .table table td a{
+    color: #1a202c;
+    font-weight: bold;
+    background-color: #d7d7d7;
+    padding: 5px;
+    border-radius: 5px;
+}
+#financial-page .table table button.btn_up{
+    background-color: #ff742c;
+    color: white;
+}
+#financial-page .table table button.btn_del{
+    background-color: #da0000;
+    color: white;
+}
+#financial-page .table table button.btn_see{
+    background-color: #47a6ff;
+    color: white;
+}
+/*financial-page*/

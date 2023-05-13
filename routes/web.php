@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AppointmentController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\FinancialTransactionController;
 use App\Http\Controllers\ImageController;
 use App\Http\Controllers\InsuranceController;
 use App\Http\Controllers\PatientController;
@@ -96,7 +97,7 @@ Route::group(['prefix' => 'panel'],function (){
     Route::delete('/reports/{report}',[ReportController::class,"destroy"])->name("report.delete");
 
 
+    Route::get('/financial_transactions',[FinancialTransactionController::class,"index"])->name("financials");
+    Route::post('/financial_transactions/search',[FinancialTransactionController::class,"search"])->name("financials.search");
+
 });
-//Route::post('/imagess', [ImageController::class, 'index']);
-//Route::get('/imagess', [ImageController::class, 'index']);
-//Route::post('/imagess/upload', [ImageController::class, 'store']);
