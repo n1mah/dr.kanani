@@ -27,10 +27,20 @@
                     <input type="search" id="search" name="search" placeholder="جستجو مورد نظر را وارد کنید ...">
                     <input type="submit" id="search_btn" value="جستجو">
                     <span class="split"></span>
-                    <a href="{{route("financials")}}">نمایش همه</a>
+{{--                    <a href="{{route("financials")}}">نمایش همه</a>--}}
                 </form>
                 <br>
                 <hr>
+                    <br>
+                    <div class="btn-list">
+                        <a class="btn-data" href="{{route("financials")}}">همه تراکنش های مالی</a>
+                        <a class="btn-data" href="{{route("financials.today")}}">تراکنش های مالی امروز</a>
+{{--                        <a class="btn-data" href="{{route("appointments.today")}}">تراکنش های مالی 7 روز گذشته</a>--}}
+{{--                        <a class="btn-data" href="{{route("appointments.today")}}">تراکنش های مالی 30 روز گذشته</a>--}}
+
+                    </div>
+                    <br>
+                    <hr>
                 @endif
                 <br>
                 <div class="table">

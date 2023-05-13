@@ -106,5 +106,6 @@ Route::group(['prefix' => 'panel'],function (){
     Route::put('/financial_transactions/{financial_transaction}',[FinancialTransactionController::class,"update"])->name("financial.update");
     Route::delete('/financial_transactions/{financial_transaction}',[FinancialTransactionController::class,"destroy"])->name("financial.delete");
     Route::get('/financial_transactions/{patient}/patient',[FinancialTransactionController::class,"index_patient"])->name("financials.patient");
+    Route::get('/financial_transactions/today/list',[FinancialTransactionController::class,"today"])->name("financials.today");
 
 });

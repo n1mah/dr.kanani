@@ -5,11 +5,31 @@ namespace App\Http\Controllers;
 use App\Http\Requests\FinancialTransactionRequest;
 use App\Models\FinancialTransaction;
 use App\Models\Patient;
+use Hekmatinasser\Verta\Verta;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 
 class FinancialTransactionController extends Controller
 {
+    public $timeAdded=(3600*(4.5)); //4.5*3600
+
+    public function GetToday()
+    {
+        return date("Y-m-d H:i:s", ((Verta::today("Asia/Tehran")->timestamp)+$this->timeAdded));
+    }
+    public function GetTomorrow()
+    {
+        return date("Y-m-d H:i:s", ((Verta::tomorrow("Asia/Tehran")->timestamp)+$this->timeAdded));
+    }
+    public function GetAddDay($day)
+    {
+
+        return date("Y-m-d H:i:s", ((Verta::today("Asia/Tehran")->addDays($day)->timestamp)+$this->timeAdded));
+    }
+    public function GetSubDay($day)
+    {
+        return date("Y-m-d H:i:s", ((Verta::today("Asia/Tehran")->subDays($day)->timestamp)+$this->timeAdded));
+    }
     public function index(): \Illuminate\Contracts\View\View|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application
     {
         $financialTransactions= new FinancialTransaction();
@@ -85,6 +105,28 @@ class FinancialTransactionController extends Controller
         return view('admin.financial_transactions.index',[
             'financialTransactions'=>$financialTransactions,
             'hasSearch'=>false
+        ]);
+    }
+    public function today()
+    {
+        $financialTransaction= new FinancialTransaction;
+        $today = $this->GetToday();
+//        dd($today);
+        $tomorrow = $this->GetTomorrow();
+        $financialTransaction_today_tomorrow= $financialTransaction->whereBetween('created_at',[$today,$tomorrow])->orderBy("created_at","asc")->paginate(10);
+        return view('admin.financial_transactions.index',[
+            'financialTransactions'=>$financialTransaction_today_tomorrow,
+        ]);
+    }
+    public function last_7day()
+    {
+        $financialTransaction= new FinancialTransaction;
+        $today = $this->GetToday();
+//        dd($today);
+        $tomorrow = $this->GetTomorrow();
+        $financialTransaction_today_tomorrow= $financialTransaction->whereBetween('created_at',[$today,$tomorrow])->orderBy("created_at","asc")->paginate(10);
+        return view('admin.financial_transactions.index',[
+            'financialTransactions'=>$financialTransaction_today_tomorrow,
         ]);
     }
 }

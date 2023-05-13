@@ -3081,6 +3081,25 @@ border-bottom:2px solid #1a202c;
     background-color: silver;
 }
 
+#financial-page .btn-list{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#financial-page .btn-list a{
+    padding: 6px 10px;
+    display: flex;
+    border: none;
+    outline: none;
+    border: 2px solid #0c6eff;
+    background-color: #0c6eff ;
+    color: white;
+    margin: 10px;
+    font-size: medium;
+    text-decoration: none;
+    border-radius: 5px;
+}
 #financial-page .search-box a{
     padding: 6px 10px;
     display: flex;

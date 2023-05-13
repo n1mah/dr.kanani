@@ -34,10 +34,6 @@ class AppointmentController extends Controller
     {
         return date("Y-m-d H:i:s", ((Verta::today("Asia/Tehran")->subDays($day)->timestamp)+$this->timeAdded));
     }
-    public function GetOtherDay($str)
-    {
-        return date("Y-m-d H:i:s", ((verta("Asia/Tehran",$str)->formatDifference()->timestamp)+$this->timeAdded));
-    }
     /**
      * Display a listing of the resource.
      */
