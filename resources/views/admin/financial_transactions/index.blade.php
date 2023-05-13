@@ -8,8 +8,7 @@
                 <h1>تراکنش های مالی</h1>
                 <br>
                 <div class="add-box">
-                    <a href="">افزودن تراکنش جدید</a>
-{{--                    <a href="{{route("financial.addForm")}}">افزودن بیمه جدید</a>--}}
+                    <a href="{{route("financial.addForm")}}">افزودن تراکنش جدید</a>
                 </div>
                 <br>
                 <hr>

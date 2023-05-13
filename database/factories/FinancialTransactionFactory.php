@@ -19,8 +19,7 @@ class FinancialTransactionFactory extends Factory
     {
         $appointment= Appointment::all()->random();
 
-        $methods = ["کارت به کارت", "نقدی", "دستگاه pos" , "چندحالتی", "غیره"];
-//        $fees = [1800000, 1200000, 1000000, 1650000];
+        $methods = [ "دستگاه کارتخوان" , "کارت به کارت", "نقدی" , "چندحالتی" , "غیره"];
         return [
             'patient_id'=>$appointment->patient->national_code,
             'title' => fake()->word(),
