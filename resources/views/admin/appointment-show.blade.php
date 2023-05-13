@@ -83,7 +83,7 @@
                       <form class="status" action="{{route("appointment.success",$appointment)}}" method="post">
                           @csrf
                           @method("put")
-                          <button type="submit" class="btn_success">ویزیت</button>
+                          <button type="submit" class="btn_success">ویزیت شد</button>
                       </form>
                   </div>
                 @endif

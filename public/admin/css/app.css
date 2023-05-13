@@ -1913,6 +1913,30 @@ color: red;
     display: inline-block;
     border-radius: 3px;
 }
+
+#patient-appointments-page .table table button.btn_success{
+    background-color: rgb(24, 182, 0);
+    color: white;
+}
+#patient-appointments-page .table table button.btn_cancel{
+    background-color: rgb(182, 0, 0);
+    color: white;
+}
+#patient-appointments-page .table table span{
+    font-size: small;
+    color: slategrey;
+}
+#patient-appointments-page .table table td .text_unknown{
+    padding: 5px 11px;
+    color: white;
+    display: inline-block;
+    border-radius: 3px;
+}
+#patient-appointments-page .table table td.text_unknown{
+    background-color: rgb(131, 131, 131);
+}
+
+
 #patient-appointments-page .table table td.text_unknown{
     background-color: rgb(131, 131, 131);
 }

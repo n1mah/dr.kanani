@@ -21,6 +21,7 @@
                             <th>وقت ملاقات</th>
                             <th>توضیح وقت</th>
                             <th>وضعیت</th>
+                            <th>تغییر</th>
                             <th>نسخه</th>
                             <th>ویرایش</th>
                             <th>حذف</th>
@@ -47,9 +48,30 @@
                                 </td>
                             @endif
 
-
-                            @if($appointment->status==2)
+                            @if($appointment->status==0)
+                                <td>
+                            @elseif($appointment->status==1)
+                                <td class="text_success">
+                            @elseif($appointment->status==2)
                                 <td class="text_cancel">
+                                    @endif
+                                    @if($appointment->status==0)
+                                        <form action="{{route("appointment.cancel",$appointment)}}" method="post">
+                                            @csrf
+                                            @method("put")
+                                            <button type="submit" class="btn_cancel">کنسل</button>
+                                        </form>
+                                        <form action="{{route("appointment.success",$appointment)}}" method="post">
+                                            @csrf
+                                            @method("put")
+                                            <button type="submit" class="btn_success">ویزیت شد</button>
+                                        </form>
+                                    @elseif($appointment->status==1 || $appointment->status==2)
+                                        <span class="text_unknown">غیر قابل تغییر</span>
+                                    @endif
+                                </td>
+                            @if($appointment->status==2)
+                                <td class="text_cancel" colspan="3">
                                     <span class="text_cancel">نوبت کنسل شده</span>
                                 </td>
                             @else
@@ -64,11 +86,8 @@
                                     @endif
                                 </td>
                             @endif
-                            @if($appointment->status==2)
-                                <td class="text_cancel"></td>
-                                <td class="text_cancel"></td>
-                            @else
 
+                            @if($appointment->status!=2)
                                 <td>
                                     <form action="{{route("appointment.editForm",$appointment)}}" method="get">
                                         @csrf

@@ -79,7 +79,7 @@
                                     <form action="{{route("appointment.success",$appointment)}}" method="post">
                                         @csrf
                                         @method("put")
-                                        <button type="submit" class="btn_success">ویزیت</button>
+                                        <button type="submit" class="btn_success">ویزیت شد</button>
                                     </form>
                                 @elseif($appointment->status==1 || $appointment->status==2)
                                     <span class="text_unknown">غیر قابل تغییر</span>
