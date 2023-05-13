@@ -78,4 +78,13 @@ class FinancialTransactionController extends Controller
         return redirect()
             ->route('financials');
     }
+
+    public function index_patient(Patient $patient): \Illuminate\Contracts\View\View|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application
+    {
+        $financialTransactions=$patient->financialTransactions()->orderBy("id","desc")->paginate(10);
+        return view('admin.financial_transactions.index',[
+            'financialTransactions'=>$financialTransactions,
+            'hasSearch'=>false
+        ]);
+    }
 }

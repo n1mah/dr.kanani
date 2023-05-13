@@ -7,11 +7,15 @@
             <div id="financial-page">
                 <h1>تراکنش های مالی</h1>
                 <br>
+                @if(isset($hasSearch))
+                    <h2>بیمار : <a title="مشاهده" target="_blank" href="{{route("patient.show",$financialTransactions->first()->patient)}}"><span>{{$financialTransactions->first()->patient->firstname}} {{$financialTransactions->first()->patient->lastname}}</span></a></h2>
+                @endif
                 <div class="add-box">
                     <a href="{{route("financial.addForm")}}">افزودن تراکنش جدید</a>
                 </div>
                 <br>
                 <hr>
+                @if(!isset($hasSearch))
                 <br>
                 <h3>جستجو</h3>
                 <span>جستجو در بین عنوان تراکنش , نام یا نام خانوادگی بیمار , کدملی بیمار , نوع پرداخت</span>
@@ -27,6 +31,7 @@
                 </form>
                 <br>
                 <hr>
+                @endif
                 <br>
                 <div class="table">
                     <table>
@@ -34,7 +39,9 @@
                         <tr>
                             <th>شماره</th>
                             <th>عنوان</th>
+                            @if(!isset($hasSearch))
                             <th>بیمار</th>
+                            @endif
                             <th><small>تاریخ ثبت پرداخت</small></th>
                             <th>مبلغ</th>
                             <th><small>نوع پرداخت</small></th>
@@ -48,7 +55,9 @@
                         <tr>
                             <td>{{$financialTransaction->id}}</td>
                             <td>{{$financialTransaction->title}}</td>
+                            @if(!isset($hasSearch))
                             <td><a title="مشاهده" target="_blank" href="{{route("patient.show",$financialTransaction->patient)}}">{{$financialTransaction->patient->firstname}} {{$financialTransaction->patient->lastname}}</a></td>
+                            @endif
                             <td>{{$financialTransaction->created_at}}</td>
                             <td class="money">{{number_format((String)$financialTransaction->payment_amount)}}</td>
                             <td>{{$financialTransaction->method}}</td>

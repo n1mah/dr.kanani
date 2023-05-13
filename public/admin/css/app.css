@@ -3023,6 +3023,21 @@ border-bottom:2px solid #1a202c;
 #financial-page h1{
     text-align: center;
 }
+
+#financial-page h2{
+    text-align: center;
+    font-size: medium;
+    padding: 10px;
+    width: 30%;
+    background-color: rgba(26, 32, 44, 0.15);
+    margin:10px auto;
+    border-radius: 16px;
+}
+#financial-page h2 span{
+    font-weight: bold;
+    padding: 10px;
+    color: #0c6eff;
+}
 #financial-page .search-box{
     display: flex;
     align-items: center;
