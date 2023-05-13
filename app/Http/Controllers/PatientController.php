@@ -17,28 +17,28 @@ class PatientController extends Controller
     public function index():View
     {
         $patient= new Patient;
-        return view('admin.patients',[
+        return view('admin.patients.patients',[
             'patients'=>$patient->orderBy("created_at","asc")->paginate(10)
         ]);
     }
     public function create():View
     {
         $insurances=new Insurance();
-        return view('admin.patient-add',[
+        return view('admin.patients.patient-add',[
             'insurances'=>$insurances->all()
         ]);
     }
     public function edit(Patient $patient):View
     {
         $insurances=new Insurance();
-        return view('admin.patient-edit',[
+        return view('admin.patients.patient-edit',[
             'patient'=>$patient,
             'insurances'=>$insurances->all()
         ]);
     }
     public function show(Patient $patient):View
     {
-        return view('admin.patient',[
+        return view('admin.patients.patient',[
             'patient'=>$patient,
         ]);
     }
@@ -66,21 +66,21 @@ class PatientController extends Controller
     {
 //        dd(redirect()->back());
         $appointments=$patient->appointments()->orderBy("visit_time","desc")->paginate(10);
-        return view('admin.patient-appointments',[
+        return view('admin.patients.patient-appointments',[
             'appointments'=>$appointments
         ]);
     }
     public function show_prescriptions(Patient $patient):View
     {
         $prescriptions=$patient->prescriptions()->orderBy("updated_at","desc")->paginate(10);
-        return view('admin.patient-prescriptions',[
+        return view('admin.patients.patient-prescriptions',[
             'prescriptions'=>$prescriptions
         ]);
     }
     public function show_reports(Patient $patient):View
     {
         $reports=$patient->reports()->orderBy("updated_at","desc")->paginate(10);
-        return view('admin.patient-reports',[
+        return view('admin.patients.patient-reports',[
             'reports'=>$reports,
             'patient'=>$patient
         ]);
@@ -93,7 +93,7 @@ class PatientController extends Controller
                            ->orWhere('lastname', 'LIKE', '%'.$search.'%')
                            ->orWhere('national_code', 'LIKE', '%'.$search.'%')
                            ->orWhere('insurances.title', 'LIKE', '%'.$search.'%');
-        return view('admin.patients',[
+        return view('admin.patients.patients',[
             'patients'=>$patients->orderBy("patients.updated_at","desc")->paginate(10)
         ]);
     }

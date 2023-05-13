@@ -15,7 +15,7 @@ class InsuranceController extends Controller
     public function index():View
     {
         $insurance= new Insurance();
-        return view('admin.insurances',[
+        return view('admin.insurances.insurances',[
             'insurances'=>$insurance->orderBy("id","desc")->paginate(10)
         ]);
 
@@ -26,7 +26,7 @@ class InsuranceController extends Controller
      */
     public function create():View
     {
-        return view('admin.insurance-add');
+        return view('admin.insurances.insurance-add');
     }
 
     /**
@@ -53,7 +53,7 @@ class InsuranceController extends Controller
     public function edit(Insurance $insurance):View
     {
 //        return $insurance;
-        return view('admin.insurance-edit',[
+        return view('admin.insurances.insurance-edit',[
            "insurance" =>$insurance
         ]);
     }
@@ -81,7 +81,7 @@ class InsuranceController extends Controller
     {
         $search=request("search");
         $insurances= Insurance::where('title', 'LIKE', '%'.$search.'%');
-        return view('admin.insurances',[
+        return view('admin.insurances.insurances',[
             'insurances'=>$insurances->orderBy("id","desc")->paginate(10)
         ]);
     }

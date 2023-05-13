@@ -10,36 +10,23 @@ use Intervention\Image\Facades\Image as ImageAlia;
 
 class ImageController extends Controller
 {
-//    public function index()
-//    {
-//        $images = Image::orderBy("created_at","desc")->get();;
-//        return view('admin.image', compact('images'));
-//    }
-    public function store(Array $files,$prescription_id)
+    public function store(Array $files,$prescription_id):void
     {
-//        $files= $request->file("images");
-
         $count=0;
         foreach($files as $file){
             $size=(int)ceil($file->getSize()/1000);     //Kb
-            if ($size>=2000 || $size==0){
-//                dd($size);
-
-            }else{
-//                dd($size);
+            if ($size < 2000 && $size != 0) {
                 $count++;
-                $pass=$file->extension();
-                $imageName = time().'-c'.$count.'.'.$pass;
+                $pass = $file->extension();
+                $imageName = time() . '-c' . $count . '.' . $pass;
                 $img = ImageAlia::make($file)->widen(600);
-                $img->save(public_path("images/".$imageName));
+                $img->save(public_path("images/" . $imageName));
                 $image = new Image([
                     'image_path' => $imageName,
                     'prescription_id' => $prescription_id,
                 ]);
                 $image->save();
             }
-
         }
-//        return redirect('/imagess')->with('success', 'Image uploaded successfully');
     }
 }

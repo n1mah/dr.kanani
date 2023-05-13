@@ -44,7 +44,7 @@ class AppointmentController extends Controller
     public function index(): View|Application|Factory
     {
         $appointments= new Appointment;
-        return view('admin.appointments',[
+        return view('admin.appointments.appointments',[
             'appointments'=>$appointments->orderBy("id","desc")->paginate(10)
         ]);
     }
@@ -55,7 +55,7 @@ class AppointmentController extends Controller
     public function create(): View
     {
         $patients=new Patient();
-        return view('admin.appointment-add',[
+        return view('admin.appointments.appointment-add',[
             'patients'=>$patients->all()
         ]);
     }
@@ -77,7 +77,7 @@ class AppointmentController extends Controller
     {
         $prescriptions=$appointment->prescriptions()->orderBy("updated_at","desc")->paginate(10);
 
-        return view('admin.appointment-show',[
+        return view('admin.appointments.appointment-show',[
             'appointment'=>$appointment,
             'prescriptions'=>$prescriptions
         ]);
@@ -89,7 +89,7 @@ class AppointmentController extends Controller
     public function edit(Appointment $appointment): View|Application|Factory
     {
         $patient=new Patient();
-        return view('admin.appointment-edit',[
+        return view('admin.appointments.appointment-edit',[
             'patients'=>$patient->all(),
             'appointment'=>$appointment
         ]);
@@ -118,7 +118,7 @@ class AppointmentController extends Controller
     {
         $prescriptions=$appointment->prescriptions()->orderBy("updated_at","desc")->paginate(10);
 //        dd($prescriptions);
-        return view('admin.appointment-prescriptions',[
+        return view('admin.appointments.appointment-prescriptions',[
             'prescriptions'=>$prescriptions
         ]);
     }
@@ -157,7 +157,7 @@ class AppointmentController extends Controller
         $tomorrow = $this->GetTomorrow();
 ////        dd($tomorrow);
         $appointments_today_tomorrow= $appointments->whereBetween('visit_time',[$today,$tomorrow])->orderBy("visit_time","asc")->paginate(10);
-        return view('admin.appointments',[
+        return view('admin.appointments.appointments',[
             'appointments'=>$appointments_today_tomorrow
         ]);
     }
@@ -169,7 +169,7 @@ class AppointmentController extends Controller
 //        dd(Verta::today("Asia/Tehran"),Verta::today("Asia/Tehran")->addDays(2));
         $dayAfterTomorrow = $this->GetAddDay(2);
         $appointments_tomorrow_afterTomorrow= $appointments->whereBetween('visit_time',[$tomorrow,$dayAfterTomorrow])->orderBy("visit_time","asc")->paginate(10);
-        return view('admin.appointments',[
+        return view('admin.appointments.appointments',[
             'appointments'=>$appointments_tomorrow_afterTomorrow
         ]);
     }
@@ -179,7 +179,7 @@ class AppointmentController extends Controller
         $today = $this->GetToday();
         $week = $this->GetAddDay(7);
         $appointments_week= $appointments->whereBetween('visit_time',[$today,$week])->orderBy("visit_time","asc")->paginate(10);
-        return view('admin.appointments',[
+        return view('admin.appointments.appointments',[
             'appointments'=>$appointments_week
         ]);
     }
@@ -189,7 +189,7 @@ class AppointmentController extends Controller
         $today = $this->GetToday();
         $month = $this->GetAddDay(30);
         $appointments_month= $appointments->whereBetween('visit_time',[$today,$month])->orderBy("visit_time","asc")->paginate(10);
-        return view('admin.appointments',[
+        return view('admin.appointments.appointments',[
             'appointments'=>$appointments_month
         ]);
     }
@@ -199,7 +199,7 @@ class AppointmentController extends Controller
         $before = $this->GetSubDay(15);
         $after = $this->GetAddDay(15);
         $between30= $appointments->whereBetween('visit_time',[$before,$after])->orderBy("visit_time","asc")->paginate(10);
-        return view('admin.appointments',[
+        return view('admin.appointments.appointments',[
             'appointments'=>$between30
         ]);
     }
@@ -209,7 +209,7 @@ class AppointmentController extends Controller
         $before30 = $this->GetSubDay(30);
         $today = $this->GetToday();
         $between30= $appointments->whereBetween('visit_time',[$before30,$today])->orderBy("visit_time","asc")->paginate(10);
-        return view('admin.appointments',[
+        return view('admin.appointments.appointments',[
             'appointments'=>$between30
         ]);
     }

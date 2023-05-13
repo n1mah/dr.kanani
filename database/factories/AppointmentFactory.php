@@ -21,7 +21,7 @@ class AppointmentFactory extends Factory
         return [
 //            'patient_id' => Patient::all()->random()->id,
             'type' => fake()->word(),
-            'visit_time' => $time,
+            'visit_time' => $time*1000,
             'status' => 1,
 //            'change_status' => $time+(60*60*2),
             'descriptions' => fake()->sentence(),

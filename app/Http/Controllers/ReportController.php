@@ -16,20 +16,20 @@ class ReportController extends Controller
     public function index(): View|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application
     {
         $reports= new Report;
-        return view('admin.reports',[
+        return view('admin.reports.reports',[
             'reports'=>$reports->orderBy("updated_at","desc")->paginate(15)
         ]);
     }
     public function show(Report $report): View
     {
-        return view('admin.report-show',[
+        return view('admin.reports.report-show',[
             'report'=>$report,
         ]);
     }
     public function edit(Report $report): View
     {
         $patients=new Patient;
-        return view('admin.report-edit-report',[
+        return view('admin.reports.report-edit-report',[
             'report'=>$report,
             'patients'=>$patients->all()
 
@@ -37,7 +37,7 @@ class ReportController extends Controller
     }
     public function edit_special(Report $report): View
     {
-        return view('admin.report-edit-select',[
+        return view('admin.reports.report-edit-select',[
             'report'=>$report,
         ]);
     }
@@ -55,7 +55,7 @@ class ReportController extends Controller
     public function create():View
     {
         $patients=new Patient;
-        return view('admin.report-add',[
+        return view('admin.reports.report-add',[
             'patients'=>$patients->all()
         ]);
     }
@@ -73,7 +73,7 @@ class ReportController extends Controller
 
     public function create2(Patient $patient,Report $report):View
     {
-        return view('admin.report-add-prescription',[
+        return view('admin.reports.report-add-prescription',[
             'prescriptions'=>$patient->prescriptions,
             'report'=>$report
         ]);
