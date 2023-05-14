@@ -26,8 +26,8 @@
                     </div>
                     <br>
                     <div>
-                        <label for="content">محتوا گزارش<span class="star-red">*</span></label>
-                        <textarea id="content" name="content" rows="6">{{$report->content}}</textarea>
+                        <label for="content">محتوا گزارش</label>
+                        <textarea id="content" name="content" rows="3">{{$report->content}}</textarea>
                     </div>
                     <br>
                     <input class="btn" type="submit" value="ویرایش">

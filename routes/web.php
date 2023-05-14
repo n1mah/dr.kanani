@@ -87,6 +87,9 @@ Route::group(['prefix' => 'panel'],function (){
     Route::post('/prescriptions/{prescription}/edit-special-3',[PrescriptionController::class,"edit_special_3_process"])->name("prescription.update_special_3");
     Route::delete('/prescriptions/{prescription}',[PrescriptionController::class,"destroy"])->name("prescription.delete");
     Route::get('/prescriptions/{prescription}/reports',[PrescriptionController::class,"show_reports"])->name("prescription.reports");
+    Route::get('/prescriptions/{prescription}/edit-image',[PrescriptionController::class,"edit_image"])->name("prescription.image");
+    Route::delete('/prescriptions/{prescription}/image/{image}',[PrescriptionController::class,"delete_image"])->name("prescription.image.delete");
+
 
     Route::get('/reports',[ReportController::class,"index"])->name("reports");
     Route::get('/reports/{report}',[ReportController::class,"show"])->name("report.show");

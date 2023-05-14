@@ -1764,6 +1764,10 @@ color: red;
     padding: 10px ;
     margin: 20px;
 }
+
+#edit-special-prescription-page form .custom-file-input{
+    display: none;
+}
 #edit-special-prescription-page p.text-center{
     text-align: center;
     background-color: rgba(255, 12, 12, 0.11);
@@ -1860,6 +1864,16 @@ color: red;
     margin: auto;
 }
 
+#edit-special-prescription-page form input.btn-img{
+    background-color: rgba(0, 60, 182, 0.57);
+    color: white;
+    width: 100%;
+    border-bottom:none;
+    font-size: medium;
+    padding: 5px;
+    border-radius: 10px;
+    text-shadow: 0 0 2px black;
+}
 #edit-special-prescription-page form input.btn{
     background-color: #ff5800;
     color: white;
@@ -1899,7 +1913,81 @@ color: red;
     padding: 3px 6px;
     border-radius: 3px;
     outline: none;
+}
+#edit-special-prescription-page .splitter{
+    height: 1px;
+    background-color: #b4b4b6;
+    width: 100%;
+    margin: 10px;
+}
+#edit-special-prescription-page .show-images{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+#edit-special-prescription-page .show-images h3{
+    text-align: center;
+    width: 100%;
+}
+#edit-special-prescription-page .show-images p{
+    text-align: center;
+}
+#edit-special-prescription-page .show-images .parent-box{
+    padding: 10px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+#edit-special-prescription-page .show-images .parent-box .box .btn_del{
+    background-color: #da0000;
+    border: none;
+    outline: none;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#edit-special-prescription-page .show-images .parent-box .box .btn_del:hover{
+    background-color: #7c0000;
+    transition: background-color .5s;
+}
 
+#edit-special-prescription-page .show-images .parent-box .box{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    background-color: silver;
+    margin: 10px;
+}
+#edit-special-prescription-page .show-images .parent-box a {
+    margin: 10px;
+}
+#edit-special-prescription-page .show-images .parent-box .box a img{
+    width: 300px;
+    height: 300px;
+    object-fit: scale-down;
+}
+#edit-special-prescription-page .show-images .parent-box a img{
+    border: 1px solid silver;
+}
+#edit-special-prescription-page .show-images .parent-box a:hover img{
+    border: 2px solid rgb(65, 65, 65);
+    transform: scale(1.1);
+    transition: border 500ms , transform .5s;
+}
+#edit-special-prescription-page .show-images .parent-box .box:hover{
+    border:none;
+    transform: scale(1.1);
+    transition: transform .5s;
+}
+#edit-special-prescription-page .show-images .parent-box .box a:hover img{
+    border:none;
 }
 /*edit-special-prescription-page*/
 
@@ -2773,6 +2861,12 @@ display: flex;
     justify-content: space-between;
     margin: auto;
 }
+#edit-special-report-page .btn-group a{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
 
 #edit-special-report-page .btn-group-single{
     width: 80%;
@@ -2821,7 +2915,6 @@ display: flex;
     padding: 5px 12px;
     border-radius: 3px;
     outline: none;
-
 }
 
 #edit-special-report-page form input{
@@ -2830,7 +2923,6 @@ display: flex;
 #edit-special-report-page form select{
     width:80%;
 }
-
 #edit-special-report-page form textarea{
     padding: 5px;
     width:80%;
@@ -2842,6 +2934,45 @@ display: flex;
     background-color: #1a202c;
     height: 5px;
     width: 100%;
+}
+
+#edit-special-report-page .splitter{
+    height: 1px;
+    background-color: #b4b4b6;
+    width: 100%;
+    margin: 10px;
+}
+#edit-special-report-page .show-images{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+#edit-special-report-page .show-images h3{
+    text-align: center;
+    width: 100%;
+}
+#edit-special-report-page .show-images p{
+    text-align: center;
+}
+#edit-special-report-page .show-images .parent-box{
+    padding: 10px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+#show-report-page .show-images .parent-box a {
+    margin: 10px;
+}
+#show-report-page .show-images .parent-box a img{
+    border: 1px solid silver;
+}
+#show-report-page .show-images .parent-box a:hover img{
+    border: 2px solid rgb(65, 65, 65);
+    transform: scale(1.1);
+    transition: border 500ms , transform .5s;
 }
 /*edit-special-report-page*/
 

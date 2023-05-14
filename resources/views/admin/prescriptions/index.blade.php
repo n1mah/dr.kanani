@@ -31,7 +31,7 @@
                             <td><a title="مشاهده" target="_blank" href="{{route("patient.show",$prescription->appointment->patient)}}">{{$prescription->appointment->patient->firstname}} {{$prescription->appointment->patient->lastname}}</a></td>
                             <td>{{$prescription->type}}</td>
                             <td>
-                                @if(empty(trim($prescription->text_prescription)))
+                                @if(count($prescription->images)<1)
                                     <form action="{{route("prescription.editForm",$prescription)}}" method="post">
                                         @csrf
                                         <button type="submit" class="btn_add">افزودن نسخه</button>

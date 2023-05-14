@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StorePrescriptionRequest;
 use App\Http\Requests\UpdatePrescriptionRequest;
 use App\Models\Appointment;
+use App\Models\Image;
 use App\Models\Patient;
 use App\Models\Prescription;
 //use http\Env\Request;
@@ -48,7 +49,6 @@ class PrescriptionController extends Controller
             'appointments'=>$appointment->where("patient_id",$patient_id)->whereIn("status",[0,1])->orderby("visit_time")->get(),
             'patient'=>$patientN
         ]);
-
     }
 
     public function create2_error(): View|Application|Factory|\Illuminate\Contracts\Foundation\Application
@@ -144,6 +144,28 @@ class PrescriptionController extends Controller
         ]);
     }
 
+    public function edit_image(Prescription $prescription): RedirectResponse | View
+    {
+        $appointment=new Appointment();
+        $patient_id=request("patient_id");
+        if (is_null($patient_id)) {
+            $patient_id = $prescription->appointment->patient->national_code;
+        }
+        $patient=new Patient();
+        try {
+            $patientN=$patient->findOrFail($patient_id)->where('national_code', $patient_id)->get()->first();
+        }catch(\Exception $exception){
+            return  redirect()->back()->withErrors(['patient_err' => ['لطفا بیمار را از لیست بیماران انتخاب کنید (نامعتبر)']]);
+        }
+        return view('admin.prescriptions.edit-images',[
+            'prescription'=>$prescription,
+            'patient_id'=>$patient_id,
+            'patient'=>$patientN,
+            'appointments'=>$appointment->where("patient_id",$patient_id)->whereIn("status",[0,1])->orderby("visit_time")->get(),
+            'appointment'=>$prescription->appointment
+        ]);
+    }
+
     public function edit_special_2_process(Prescription $prescription,$patient_id): Factory|Application|View|\Illuminate\Contracts\Foundation\Application|RedirectResponse
     {
         $appointment_id=request("appointment_id");
@@ -200,5 +222,11 @@ class PrescriptionController extends Controller
             'patient'=>$patient,
             'back'=>redirect()->back()->getTargetUrl()
         ]);
+    }
+
+    public function delete_image(Prescription $prescription,Image $image): RedirectResponse
+    {
+        $image->delete();
+        return redirect()->back();
     }
 }
