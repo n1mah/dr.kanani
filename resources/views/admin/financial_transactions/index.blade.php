@@ -10,6 +10,9 @@
                 @if(isset($hasSearch))
                     <h2>بیمار : <a title="مشاهده" target="_blank" href="{{route("patient.show",$financialTransactions->first()->patient)}}"><span>{{$financialTransactions->first()->patient->firstname}} {{$financialTransactions->first()->patient->lastname}}</span></a></h2>
                 @endif
+                @if(isset($appointment))
+                    <h2>نوبت : <a title="مشاهده" target="_blank" dir="ltr" href="{{route("appointment.show",$financialTransactions->first()->appointment)}}"><span>{{$financialTransactions->first()->appointment->visitTimeGetter}}</span></a></h2>
+                @endif
                 <div class="add-box">
                     <a href="{{route("financial.addForm")}}">افزودن تراکنش جدید</a>
                 </div>
@@ -53,7 +56,9 @@
                             @if(!isset($hasSearch))
                             <th>بیمار</th>
                             @endif
+                            @if(!isset($appointment))
                             <th>نوبت</th>
+                            @endif
                             <th><small>تاریخ ثبت پرداخت</small></th>
                             <th>مبلغ</th>
                             <th><small>نوع پرداخت</small></th>
@@ -70,6 +75,7 @@
                             @if(!isset($hasSearch))
                             <td><a title="مشاهده" target="_blank" href="{{route("patient.show",$financialTransaction->patient)}}">{{$financialTransaction->patient->firstname}} {{$financialTransaction->patient->lastname}}</a></td>
                             @endif
+                            @if(!isset($appointment))
                             <td dir="ltr">
                                 @if($financialTransaction->appointment)
                                     <a title="مشاهده" target="_blank" href="{{route("appointment.show",$financialTransaction->appointment)}}">
@@ -79,7 +85,7 @@
                                     <small>تراکنش به نوبتی متصل نیست</small>
                                 @endif
                                 </td>
-
+                            @endif
                             <td>{{$financialTransaction->created_at}}</td>
                             <td class="money">{{number_format((String)$financialTransaction->payment_amount)}}</td>
                             <td>{{$financialTransaction->method}}</td>

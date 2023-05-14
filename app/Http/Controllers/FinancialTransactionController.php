@@ -120,7 +120,8 @@ class FinancialTransactionController extends Controller
         $financialTransactions=$appointment->financialTransactions()->orderBy("id","desc")->paginate(10);
         return view('admin.financial_transactions.index',[
             'financialTransactions'=>$financialTransactions,
-            'hasSearch'=>false
+            'hasSearch'=>false,
+            'appointment'=>true
         ]);
     }
     public function today()

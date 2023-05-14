@@ -779,26 +779,37 @@ color: red;
 #appointments-page .table table button.btn_see{
     background-color: #47a6ff;
     color: white;
+    cursor: pointer;
 }
 #appointments-page .table table button.btn_up{
     background-color: #ff742c;
     color: white;
+    cursor: pointer;
 }
 #appointments-page .table table button.btn_del{
     background-color: #da0000;
     color: white;
+    cursor: pointer;
 }
 #appointments-page .table table button.btn_prep{
     background-color: rgb(182, 179, 0);
     color: white;
+    cursor: pointer;
+}
+#appointments-page .table table button.btn_financial{
+    background-color: #fdb025;
+    color: white;
+    cursor: pointer;
 }
 #appointments-page .table table button.btn_success{
     background-color: rgb(24, 182, 0);
     color: white;
+    cursor: pointer;
 }
 #appointments-page .table table button.btn_cancel{
     background-color: rgb(182, 0, 0);
     color: white;
+    cursor: pointer;
 }
 #appointments-page .table table span{
    font-size: small;

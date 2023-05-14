@@ -36,6 +36,7 @@
                             <th>وضعیت</th>
                             <th>تغییر وضعیت</th>
                             <th>نسخه ها</th>
+                            <th><small>تراکنش های نوبت</small></th>
                             <th>مشاهده</th>
                             <th>ویرایش</th>
                             <th>حذف</th>
@@ -99,6 +100,16 @@
                                             </form>
                                         @else
                                             <span class="btn_disable">نوبت نسخه ای ندارد</span>
+                                        @endif
+                                    </td>
+                                    <td>
+                                        @if(count($appointment->financialTransactions)>0)
+                                            <form action="{{route("financials.appointment",$appointment)}}" method="get">
+                                                @csrf
+                                                <button type="submit" class="btn_financial">مشاهده تاراکنش های این نوبت</button>
+                                            </form>
+                                        @else
+                                            <span class="btn_disable">نوبت تراکنشی ندارد</span>
                                         @endif
                                     </td>
                             @endif
