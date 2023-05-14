@@ -16,54 +16,56 @@ class ReportController extends Controller
     public function index(): View|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application
     {
         $reports= new Report;
-        return view('admin.reports.reports',[
+        return view('admin.reports.index',[
             'reports'=>$reports->orderBy("updated_at","desc")->paginate(15)
         ]);
     }
+
     public function show(Report $report): View
     {
-        return view('admin.reports.report-show',[
+        return view('admin.reports.show',[
             'report'=>$report,
         ]);
     }
+
     public function edit(Report $report): View
     {
         $patients=new Patient;
-        return view('admin.reports.report-edit-report',[
+        return view('admin.reports.edit-report',[
             'report'=>$report,
             'patients'=>$patients->all()
-
         ]);
     }
+
     public function edit_special(Report $report): View
     {
-        return view('admin.reports.report-edit-select',[
+        return view('admin.reports.edit-select',[
             'report'=>$report,
         ]);
     }
 
-    public function update(StoreReportRequest $request,Report $report)
+    public function update(StoreReportRequest $request,Report $report): RedirectResponse
     {
-        $report_item=$report->update($request->all());
+        $report->update($request->all());
         $patient=$report->patient;
-        return redirect()
-            ->route('report.addForm2',[
-                'patient'=>$patient,
-                'report'=>$report
-            ]);
+        return redirect()->route('report.addForm2',[
+            'patient'=>$patient,
+            'report'=>$report
+        ]);
     }
+
     public function create():View
     {
         $patients=new Patient;
-        return view('admin.reports.report-add',[
+        return view('admin.reports.add',[
             'patients'=>$patients->all()
         ]);
     }
-    public function store(StoreReportRequest $request)
+
+    public function store(StoreReportRequest $request): RedirectResponse
     {
         $report=Report::create($request->all());
         $patient=$report->patient;
-
         return redirect()
             ->route('report.addForm2',[
                 'patient'=>$patient,
@@ -73,17 +75,18 @@ class ReportController extends Controller
 
     public function create2(Patient $patient,Report $report):View
     {
-        return view('admin.reports.report-add-prescription',[
+        return view('admin.reports.add-prescription',[
             'prescriptions'=>$patient->prescriptions,
             'report'=>$report
         ]);
     }
-    public function update_prescription(UpdateReportRequest $request,Report $report)
+
+    public function update_prescription(UpdateReportRequest $request,Report $report): RedirectResponse
     {
         $report->update($request->all());
-        return redirect()
-            ->route('reports');
+        return redirect()->route('reports');
     }
+
     public function destroy(Report $report): RedirectResponse
     {
         $report->delete();

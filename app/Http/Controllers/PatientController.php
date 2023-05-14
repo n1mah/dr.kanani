@@ -17,45 +17,48 @@ class PatientController extends Controller
     public function index():View
     {
         $patient= new Patient;
-        return view('admin.patients.patients',[
+        return view('admin.patients.index',[
             'patients'=>$patient->orderBy("created_at","asc")->paginate(10)
         ]);
     }
+
     public function create():View
     {
         $insurances=new Insurance();
-        return view('admin.patients.patient-add',[
+        return view('admin.patients.add',[
             'insurances'=>$insurances->all()
         ]);
     }
+
     public function edit(Patient $patient):View
     {
         $insurances=new Insurance();
-        return view('admin.patients.patient-edit',[
+        return view('admin.patients.edit',[
             'patient'=>$patient,
             'insurances'=>$insurances->all()
         ]);
     }
+
     public function show(Patient $patient):View
     {
-        return view('admin.patients.patient',[
+        return view('admin.patients.show',[
             'patient'=>$patient,
         ]);
     }
+
     public function store(PatientRequest $request):string
     {
         Patient::create($request->all());
-        return redirect()
-            ->route('patients');
+        return redirect()->route('patients');
     }
+
     public function update(PatientUpdateRequest $request,Patient $patient)
     {
         $validated = $request->validated();
         $patient->update($validated);
-        return redirect()
-            ->route('patients');
-
+        return redirect()->route('patients');
     }
+
     public function destroy(Patient $patient)
     {
         $patient->delete();
@@ -64,28 +67,30 @@ class PatientController extends Controller
 
     public function show_appointments(Patient $patient):View
     {
-//        dd(redirect()->back());
         $appointments=$patient->appointments()->orderBy("visit_time","desc")->paginate(10);
-        return view('admin.patients.patient-appointments',[
+        return view('admin.patients.appointments',[
             'appointments'=>$appointments
         ]);
     }
+
     public function show_prescriptions(Patient $patient):View
     {
         $prescriptions=$patient->prescriptions()->orderBy("updated_at","desc")->paginate(10);
-        return view('admin.patients.patient-prescriptions',[
+        return view('admin.patients.prescriptions',[
             'prescriptions'=>$prescriptions
         ]);
     }
+
     public function show_reports(Patient $patient):View
     {
         $reports=$patient->reports()->orderBy("updated_at","desc")->paginate(10);
-        return view('admin.patients.patient-reports',[
+        return view('admin.patients.reports',[
             'reports'=>$reports,
             'patient'=>$patient
         ]);
     }
-    public function search()
+
+    public function search(): View|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application
     {
         $search=request("search");
         $patients= Patient::join('insurances', 'insurances.id', '=', 'patients.insurance_id')
@@ -93,7 +98,7 @@ class PatientController extends Controller
                            ->orWhere('lastname', 'LIKE', '%'.$search.'%')
                            ->orWhere('national_code', 'LIKE', '%'.$search.'%')
                            ->orWhere('insurances.title', 'LIKE', '%'.$search.'%');
-        return view('admin.patients.patients',[
+        return view('admin.patients.index',[
             'patients'=>$patients->orderBy("patients.updated_at","desc")->paginate(10)
         ]);
     }

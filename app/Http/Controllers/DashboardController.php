@@ -15,7 +15,7 @@ class DashboardController extends Controller
         $tomorrow = date("Y-m-d H:i:s", (strtotime('tomorrow')+(4.5*3600)));
         $appointments= new Appointment;
         $appointments_today_tomorrow= $appointments->whereBetween('visit_time',[$today,$tomorrow])->orderBy("visit_time","asc")->get();
-        return view('admin.home',[
+        return view('admin.index',[
                 'appointments'=>$appointments_today_tomorrow
             ]);
     }

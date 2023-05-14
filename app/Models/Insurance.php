@@ -9,11 +9,13 @@ class Insurance extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'title','fee'
+    ];
+
     public function patients():\Illuminate\Database\Eloquent\Relations\HasMany
     {
         return $this->hasMany(Patient::class);
     }
-    protected $fillable = [
-        'title','fee'
-    ];
+
 }

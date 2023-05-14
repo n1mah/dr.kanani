@@ -9,14 +9,19 @@ use Illuminate\Database\Eloquent\Model;
 class FinancialTransaction extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'title','patient_id','appointment_id','method', 'payment_amount', 'comment'
+    ];
     public function patient(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {
         return $this->belongsTo(Patient::class,"patient_id","national_code");
     }
+
     public function appointment(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {
         return $this->belongsTo(Appointment::class);
     }
+
     protected function createdAt(): Attribute
     {
         return Attribute::make(
@@ -24,7 +29,4 @@ class FinancialTransaction extends Model
             set: fn () => date('Y-m-d H:i:s', time()+(3600*3.5)),
         );
     }
-    protected $fillable = [
-        'title','patient_id','appointment_id','method', 'payment_amount', 'comment'
-    ];
 }

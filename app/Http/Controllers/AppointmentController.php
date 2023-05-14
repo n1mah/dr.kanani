@@ -34,31 +34,23 @@ class AppointmentController extends Controller
     {
         return date("Y-m-d H:i:s", ((Verta::today("Asia/Tehran")->subDays($day)->timestamp)+$this->timeAdded));
     }
-    /**
-     * Display a listing of the resource.
-     */
+
     public function index(): View|Application|Factory
     {
         $appointments= new Appointment;
-        return view('admin.appointments.appointments',[
+        return view('admin.appointments.index',[
             'appointments'=>$appointments->orderBy("id","desc")->paginate(10)
         ]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create(): View
     {
         $patients=new Patient();
-        return view('admin.appointments.appointment-add',[
+        return view('admin.appointments.add',[
             'patients'=>$patients->all()
         ]);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(StoreAppointmentRequest $request): RedirectResponse
     {
         Appointment::create($request->all());
@@ -66,34 +58,28 @@ class AppointmentController extends Controller
             ->route('appointments');
     }
 
-    /**
-     * Display the specified resource.
-     */
+
     public function show(Appointment $appointment)
     {
         $prescriptions=$appointment->prescriptions()->orderBy("updated_at","desc")->paginate(10);
 
-        return view('admin.appointments.appointment-show',[
+        return view('admin.appointments.show',[
             'appointment'=>$appointment,
             'prescriptions'=>$prescriptions
         ]);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
+
     public function edit(Appointment $appointment): View|Application|Factory
     {
         $patient=new Patient();
-        return view('admin.appointments.appointment-edit',[
+        return view('admin.appointments.edit',[
             'patients'=>$patient->all(),
             'appointment'=>$appointment
         ]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
+
     public function update(UpdateAppointmentRequest $request, Appointment $appointment): RedirectResponse
     {
         $validated = $request->validated();
@@ -101,9 +87,7 @@ class AppointmentController extends Controller
         return redirect()->route('appointments');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
+
     public function destroy(Appointment $appointment): RedirectResponse
     {
         $appointment->delete();
@@ -113,34 +97,25 @@ class AppointmentController extends Controller
     public function show_prescriptions(Appointment $appointment):View
     {
         $prescriptions=$appointment->prescriptions()->orderBy("updated_at","desc")->paginate(10);
-//        dd($prescriptions);
-        return view('admin.appointments.appointment-prescriptions',[
+        return view('admin.appointments.prescriptions',[
             'prescriptions'=>$prescriptions
         ]);
     }
 
-
     public function success(Appointment $appointment): RedirectResponse
     {
-//        $status = request("status");
-//        if ($status==1 || $status==2){
             $time=time();
             $appointment->status=1;
             $appointment->change_status=$time;
             $appointment->save();
-//        }
         return redirect()->back();
-
     }
     public function cancel(Appointment $appointment): RedirectResponse
     {
-//        $status = request("status");
-//        if ($status==1 || $status==2){
             $time=time();
             $appointment->status=2;
             $appointment->change_status=$time;
             $appointment->save();
-//        }
         return redirect()->back();
     }
 
@@ -148,85 +123,80 @@ class AppointmentController extends Controller
     {
         $appointments= new Appointment;
         $today = $this->GetToday();
-//        echo $today=Verta::today("Asia/Tehran")->timestamp;
-//        dd($today);
         $tomorrow = $this->GetTomorrow();
-////        dd($tomorrow);
         $appointments_today_tomorrow= $appointments->whereBetween('visit_time',[$today,$tomorrow])->orderBy("visit_time","asc")->paginate(10);
-        return view('admin.appointments.appointments',[
+        return view('admin.appointments.index',[
             'appointments'=>$appointments_today_tomorrow
         ]);
     }
-    public function tomorrow()
+    public function tomorrow(): View|Application|Factory|\Illuminate\Contracts\Foundation\Application
     {
         $appointments= new Appointment;
         $tomorrow = $this->GetTomorrow();
-//        dd(Verta::today("Asia/Tehran"),Verta::today("Asia/Tehran")->addDay());
-//        dd(Verta::today("Asia/Tehran"),Verta::today("Asia/Tehran")->addDays(2));
         $dayAfterTomorrow = $this->GetAddDay(2);
         $appointments_tomorrow_afterTomorrow= $appointments->whereBetween('visit_time',[$tomorrow,$dayAfterTomorrow])->orderBy("visit_time","asc")->paginate(10);
-        return view('admin.appointments.appointments',[
+        return view('admin.appointments.index',[
             'appointments'=>$appointments_tomorrow_afterTomorrow
         ]);
     }
-    public function week()
+    public function week(): View|Application|Factory|\Illuminate\Contracts\Foundation\Application
     {
         $appointments= new Appointment;
         $today = $this->GetToday();
-        $week = $this->GetAddDay(7);
-        $appointments_week= $appointments->whereBetween('visit_time',[$today,$week])->orderBy("visit_time","asc")->paginate(10);
-        return view('admin.appointments.appointments',[
-            'appointments'=>$appointments_week
+        $after7day = $this->GetAddDay(7);
+        $appointments_7= $appointments->whereBetween('visit_time',[$today,$after7day])->orderBy("visit_time","asc")->paginate(10);
+        return view('admin.appointments.index',[
+            'appointments'=>$appointments_7
         ]);
     }
-    public function month()
+    public function month(): View|Application|Factory|\Illuminate\Contracts\Foundation\Application
     {
         $appointments= new Appointment;
         $today = $this->GetToday();
-        $month = $this->GetAddDay(30);
-        $appointments_month= $appointments->whereBetween('visit_time',[$today,$month])->orderBy("visit_time","asc")->paginate(10);
-        return view('admin.appointments.appointments',[
-            'appointments'=>$appointments_month
+        $after30day = $this->GetAddDay(30);
+        $appointments_30= $appointments->whereBetween('visit_time',[$today,$after30day])->orderBy("visit_time","asc")->paginate(10);
+        return view('admin.appointments.index',[
+            'appointments'=>$appointments_30
         ]);
     }
-    public function period30()
+    public function period30(): View|Application|Factory|\Illuminate\Contracts\Foundation\Application
     {
         $appointments= new Appointment;
-        $before = $this->GetSubDay(15);
-        $after = $this->GetAddDay(15);
-        $between30= $appointments->whereBetween('visit_time',[$before,$after])->orderBy("visit_time","asc")->paginate(10);
-        return view('admin.appointments.appointments',[
-            'appointments'=>$between30
+        $before15day = $this->GetSubDay(15);
+        $after15day = $this->GetAddDay(15);
+        $between30days= $appointments->whereBetween('visit_time',[$before15day,$after15day])->orderBy("visit_time","asc")->paginate(10);
+        return view('admin.appointments.index',[
+            'appointments'=>$between30days
         ]);
     }
-    public function before30Day()
+    public function before30Day(): View|Application|Factory|\Illuminate\Contracts\Foundation\Application
     {
         $appointments= new Appointment;
-        $before30 = $this->GetSubDay(30);
+        $before30day = $this->GetSubDay(30);
         $today = $this->GetToday();
-        $between30= $appointments->whereBetween('visit_time',[$before30,$today])->orderBy("visit_time","asc")->paginate(10);
-        return view('admin.appointments.appointments',[
-            'appointments'=>$between30
+        $between30days= $appointments->whereBetween('visit_time',[$before30day,$today])->orderBy("visit_time","asc")->paginate(10);
+        return view('admin.appointments.index',[
+            'appointments'=>$between30days
         ]);
     }
     public function canceled(): View|Application|Factory
     {
         $appointments= new Appointment;
-        return view('admin.appointments.appointments',[
+        return view('admin.appointments.index',[
             'appointments'=>$appointments->whereIn("status",[2])->orderBy("id","desc")->paginate(10)
         ]);
     }
     public function succeed(): View|Application|Factory
     {
         $appointments= new Appointment;
-        return view('admin.appointments.appointments',[
+        return view('admin.appointments.index',[
             'appointments'=>$appointments->whereIn("status",[1])->orderBy("id","desc")->paginate(10)
         ]);
     }
     public function initial_status(): View|Application|Factory
     {
         $appointments= new Appointment;
-        return view('admin.appointments.appointments',[
+        return view('admin.appointments.index',[
             'appointments'=>$appointments->whereIn("status",[0])->orderBy("id","desc")->paginate(10)
         ]);
     }
