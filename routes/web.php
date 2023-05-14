@@ -110,5 +110,6 @@ Route::group(['prefix' => 'panel'],function (){
     Route::get('/financial_transactions/Last_7_Days/list',[FinancialTransactionController::class,"last_7day"])->name("financials.last_7day");
     Route::get('/financial_transactions/ordered/list',[FinancialTransactionController::class,"index_ordered_time"])->name("financials.ordered");
     Route::get('/financial_transactions/Last_30_Days/list',[FinancialTransactionController::class,"last_30day"])->name("financials.last_30day");
+    Route::get('/financial_transactions/{appointment}/appointment',[FinancialTransactionController::class,"index_appointment"])->name("financials.appointment");
 
 });

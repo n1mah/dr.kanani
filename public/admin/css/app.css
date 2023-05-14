@@ -1117,7 +1117,7 @@ color: red;
     outline: none;
     border: none;
     border-radius: 10px;
-    width: 70%;
+    width: 90%;
 
 }
 #show-appointment-page .box-btn button.btn_del{
@@ -1127,7 +1127,25 @@ color: red;
     outline: none;
     border: none;
     border-radius: 10px;
-    width: 70%;
+    width: 90%;
+}
+#show-appointment-page .box-btn button.btn_see{
+    background-color: #47a6ff;
+    color: white;
+    padding: 6px 12px;
+    outline: none;
+    border: none;
+    border-radius: 10px;
+    width: 90%;
+}
+#show-appointment-page .box-btn button.btn_financial{
+    background-color: #fdb025;
+    color: white;
+    padding: 6px 12px;
+    outline: none;
+    border: none;
+    border-radius: 10px;
+    width: 90%;
 }
 #show-appointment-page .parent-status{
     display: flex;
@@ -3131,7 +3149,7 @@ border-bottom:2px solid #1a202c;
     align-items: flex-start;
 }
 #financial-page .table table{
-    width: 75%;
+    width: 90%;
     border-collapse: collapse;
 }
 #financial-page .table table td,#financial-page .table table th{

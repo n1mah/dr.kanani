@@ -17,6 +17,23 @@
                             @method('delete')
                             <button class="btn_del">حذف</button>
                         </form>
+                        @if(count($appointment->prescriptions)>0)
+                            <form action="{{route("appointment.prescriptions",$appointment)}}" method="get">
+                                @csrf
+                                <button type="submit" class="btn_see">مشاهده نسخه ها این نوبت</button>
+                            </form>
+                        @else
+                            <a type="submit" class="btn_see" onclick="alert('این نوبت نسخه ندارد');return false;">مشاهده نسخه ها این نوبت</a>
+                        @endif
+                        @if(count($appointment->financialTransactions)>0)
+                            <form action="{{route("financials.appointment",$appointment)}}" method="get">
+                                @csrf
+                                <button type="submit" class="btn_financial">مشاهده تراکنشات نوبت</button>
+                            </form>
+                        @else
+                            <a type="submit" class="btn_see" onclick="alert('برای این نوبت تراکنش مالی ثبت نشده');return false;">مشاهده نسخه ها این نوبت</a>
+                        @endif
+
                 </div>
                 <form class="form">
                     <div>
