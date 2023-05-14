@@ -31,7 +31,7 @@
                     <br>
                     <div>
                         <label for="visit_time_date">تاریخ و زمان ویزیت<span class="star-red">*</span></label>
-                        <input readonly type="text" id="visit_time_date" class="visit_time_date"  value="{{ date("Y-m-d H:i:s",($appointment->visit_time-(3600*4.5))) }}" dir="ltr" />
+                        <input readonly type="text" id="visit_time_date" class="visit_time_date"  value="{{ date("Y-m-d H:i:s",($appointment->visit_time)) }}" dir="ltr" />
                         <input type="hidden" class="visit_time"  id="visit_time" name="visit_time"/>
                     </div>
                     <br>

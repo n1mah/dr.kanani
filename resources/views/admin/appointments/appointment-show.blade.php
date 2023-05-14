@@ -23,7 +23,6 @@
                                 <button type="submit" class="btn_see">مشاهده نسخه ها این نوبت</button>
                             </form>
                         @else
-                            <a type="submit" class="btn_see" onclick="alert('این نوبت نسخه ندارد');return false;">مشاهده نسخه ها این نوبت</a>
                         @endif
                         @if(count($appointment->financialTransactions)>0)
                             <form action="{{route("financials.appointment",$appointment)}}" method="get">

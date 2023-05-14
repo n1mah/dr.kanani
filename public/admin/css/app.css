@@ -1172,6 +1172,16 @@ color: red;
     border-radius: 10px;
     width: 90%;
 }
+#show-appointment-page .box-btn .btn_see{
+    background-color: #47a6ff;
+    color: white;
+    padding: 6px 12px;
+    outline: none;
+    border: none;
+    border-radius: 10px;
+    width: 20%;
+    text-align: center;
+}
 #show-appointment-page .box-btn button.btn_financial{
     background-color: #fdb025;
     color: white;
