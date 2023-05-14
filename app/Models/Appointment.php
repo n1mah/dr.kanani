@@ -19,6 +19,10 @@ class Appointment extends Model
     {
         return $this->hasMany(Prescription::class);
     }
+    public function financialTransactions():\Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(FinancialTransaction::class);
+    }
     protected $fillable = [
         'patient_id','type', 'visit_time', 'descriptions', 'status', 'change_status'
     ];
@@ -40,8 +44,11 @@ class Appointment extends Model
     }
     protected function visitTimeGetter(): Attribute{
         return Attribute::make(
-            get: fn () => (new Verta($this->visit_time))->format('Y/n/j  H:i'), //1402
+            get: fn () => is_null($this->visit_time)
+                ? (null)
+                : (new Verta($this->visit_time))->format('Y/n/j  H:i')
         );
+
     }
 
 }

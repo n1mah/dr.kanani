@@ -17,11 +17,12 @@ class FinancialTransactionFactory extends Factory
      */
     public function definition(): array
     {
-        $appointment= Appointment::all()->random();
 
+        $appointment= Appointment::all()->random();
         $methods = [ "دستگاه کارتخوان" , "کارت به کارت", "نقدی" , "چندحالتی" , "غیره"];
         return [
             'patient_id'=>$appointment->patient->national_code,
+            'appointment_id'=>fake()->randomElement([$appointment->id,null]),
             'title' => fake()->word(),
             'method' => fake()->randomElement($methods),
             'payment_amount' => $appointment->patient->insurance->fee,

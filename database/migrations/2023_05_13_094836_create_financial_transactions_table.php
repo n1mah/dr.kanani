@@ -16,6 +16,8 @@ return new class extends Migration
             $table->text('title');
             $table->unsignedBigInteger("patient_id");
             $table->foreign("patient_id")->references("national_code")->on("patients")->onUpdate("cascade")->onDelete("cascade");
+            $table->unsignedBigInteger("appointment_id")->nullable();
+            $table->foreign("appointment_id")->references("id")->on("appointments");
             $table->string("method")->default("غیره");
             $table->integer("payment_amount");
             $table->string("comment")->nullable();

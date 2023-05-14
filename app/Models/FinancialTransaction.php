@@ -13,6 +13,10 @@ class FinancialTransaction extends Model
     {
         return $this->belongsTo(Patient::class,"patient_id","national_code");
     }
+    public function appointment(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    {
+        return $this->belongsTo(Appointment::class);
+    }
     protected function createdAt(): Attribute
     {
         return Attribute::make(
@@ -21,6 +25,6 @@ class FinancialTransaction extends Model
         );
     }
     protected $fillable = [
-        'title','patient_id','method', 'payment_amount', 'comment'
+        'title','patient_id','appointment_id','method', 'payment_amount', 'comment'
     ];
 }
