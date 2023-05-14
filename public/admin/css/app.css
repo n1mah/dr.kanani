@@ -251,6 +251,10 @@ color: red;
     background-color: rgb(182, 0, 97);
     color: white;
 }
+#patients-page .table table button.btn_financial{
+    background-color: #fdb025;
+    color: white;
+}
 #patients-page .table table button.btn_show{
     background-color: rgba(0, 60, 182, 1);
     color: white;
@@ -478,6 +482,10 @@ color: red;
 }
 #show-patient-page .btn-box .btn_result{
     background-color: rgb(0, 182, 79);
+    color: white;
+}
+#show-patient-page .btn-box .btn_financial{
+    background-color: #fdb025;
     color: white;
 }
 #show-patient-page .btn-box .btn_up{

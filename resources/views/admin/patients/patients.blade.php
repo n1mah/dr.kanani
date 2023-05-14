@@ -34,6 +34,7 @@
                             <th>کدملی</th>
                             <th>نام</th>
                             <th>موبایل</th>
+                            <th>مالی</th>
                             <th>نوبت ها</th>
                             <th>نسخه ها</th>
                             <th>آزمایشات/گزارشات</th>
@@ -49,11 +50,21 @@
                             <td>{{$patient->firstname}} {{$patient->lastname}}</td>
                             <td>{{$patient->mobile}}</td>
                             <td>
-                                @if(count($patient->appointments)>0)
-                                <form action="{{route("patient.appointments",$patient)}}" method="get">
+                                @if(count($patient->financialTransactions)>0)
+                                <form action="{{route("financials.patient",$patient)}}" method="get">
                                     @csrf
-                                    <button type="submit" class="btn_visit">مشاهده</button>
+                                    <button type="submit" class="btn_financial">مشاهده</button>
                                 </form>
+                                @else
+                                  <small class="btn_disable">نوبت تراکنشی ندارد</small>
+                                @endif
+                            </td>
+                            <td>
+                                @if(count($patient->appointments)>0)
+                                    <form action="{{route("patient.appointments",$patient)}}" method="get">
+                                        @csrf
+                                        <button type="submit" class="btn_visit">مشاهده</button>
+                                    </form>
                                 @else
                                     ندارد
                                 @endif

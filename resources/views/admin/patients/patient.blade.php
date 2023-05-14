@@ -51,7 +51,7 @@
                     <a href="{{route("patient.appointments",$patient)}}" @if(count($patient->appointments)<1) onclick="alert('نوبتی وجود ندارد');return false;" @endif class="btn_visit">مشاهده نوبت ها</a>
                     <a href="{{route("patient.prescriptions",$patient)}}" @if(count($patient->prescriptions)<1) onclick="alert('نسخه ای وجود ندارد');return false;" @endif class="btn_prep">مشاهده نسخه ها</a>
                     <a href="{{route("patient.reports",$patient)}}" @if(count($patient->reports)<1) onclick="alert('تست و آزمایش ندارد');return false;" @endif class="btn_result">مشاهده تست ها و آزمایشات</a>
-                    <a href="{{route("financials.patient",$patient)}}" @if(count($patient->financialTransactions)<1) onclick="alert('پرداختی ندارد');return false;" @endif class="btn_result">مشاهده پرداختی ها</a>
+                    <a href="{{route("financials.patient",$patient)}}" @if(count($patient->financialTransactions)<1) onclick="alert('پرداختی ندارد');return false;" @endif class="btn_financial">مشاهده پرداختی ها</a>
                 </div>
                 <div class="back-box">
                     <a href="{{route("patients")}}">بازگشت</a>
