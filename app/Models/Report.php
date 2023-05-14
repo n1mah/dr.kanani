@@ -21,4 +21,8 @@ class Report extends Model
         return $this->belongsTo(Prescription::class,"prescription_id");
     }
 
+    public function report_images():\Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(ReportImage::class,"report_id");
+    }
 }

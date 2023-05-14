@@ -5,7 +5,7 @@
             <x-panel.header-body />
             <hr>
             <div id="show-report-page">
-                <h1> مشاهده گزارش و آزمایش  </h1>
+                <h1> مشاهده گزارش / آزمایش  </h1>
                 <br>
                 <form>
                     <br>
@@ -29,6 +29,7 @@
                         </select>
                     </div>
                     <br>
+
                     <div>
                         <label for="title">عنوان</label>
                         <input disabled id="title" name="title" value="{{$report->title}}">
@@ -36,7 +37,19 @@
                     <br>
                     <div>
                         <label for="content">محتوا گزارش</label>
-                        <textarea disabled id="content" name="content" rows="6">{{$report->content}}</textarea>
+                        <textarea disabled id="content" name="content" rows="3">{{$report->content}}</textarea>
+                    </div>
+                    <br>
+                    <br>
+                    <div class="show-images">
+                        <h3>تصاویر گزارش /آزمایش</h3>
+                        <p>برای مشاهده دقیق تر هرکدام از تصاویر بر روی آن کلیک کنید</p>
+                        <br>
+                        <div class="parent-box">
+                            @foreach($report->report_images as $image)
+                                <a href="{{asset("images/reports/$image->image_path")}}" title="report-{{asset("images/reports/$image->image_path")}}" target="_blank"><img src="{{asset("images/reports/$image->image_path")}}" width="300px" alt="report-{{asset("images/reports/$image->image_path")}}" title="report-{{asset("images/reports/$image->image_path")}}"></a>
+                            @endforeach
+                        </div>
                     </div>
                     <br>
                     @if(isset($report->prescription->id))
@@ -51,11 +64,26 @@
                         <br>
                         <div>
                             <label for="content">متن نسخه</label>
-                            <textarea disabled id="content" name="content" rows="6">{{$report->prescription->text_prescription}}</textarea>
+                            <textarea disabled id="content" name="content" rows="3">{{$report->prescription->text_prescription}}</textarea>
                         </div>
+                        <br>
+                        <div class="show-images">
+                            <h3>تصاویر نسخه ها</h3>
+                            <div class="parent-box parent-box-prescription">
+                                @foreach($report->prescription->images as $image)
+                                    <a href="{{asset("images/prescriptions/$image->image_path")}}" title="prescription-{{asset("images/prescriptions/$image->image_path")}}" target="_blank"><img src="{{asset("images/prescriptions/$image->image_path")}}" width="150px" alt="prescription-{{asset("images/prescriptions/$image->image_path")}}" title="prescription-{{asset("images/prescriptions/$image->image_path")}}"></a>
+                                @endforeach
+                            </div>
+                            <br>
+                        </div>
+                        <br>
                     @endif
                     <br>
+
                 </form>
+
+
+
                 <br>
                 <div class="back-box"><a href="{{route("reports")}}">بازگشت به نسخه ها</a></div>
             </div>

@@ -8,7 +8,7 @@
                 <h1>افزودن آزمایش یا گزارش جدید</h1>
                 <br>
                 <p>بیمار مورد نظر را انتخاب کنید</p>
-                <form action="{{route("report.store")}}" method="post">
+                <form action="{{route("report.store")}}" method="post" enctype="multipart/form-data">
                     @csrf
                     @method('post')
                     <div>
@@ -26,11 +26,16 @@
                     </div>
                     <br>
                     <div>
-                        <label for="content">محتوا/متن<span class="star-red">*</span></label>
-                        <textarea id="content" name="content" rows="6"></textarea>
+                        <label for="content">توضیح گزارش</label>
+                        <textarea id="content" name="content" rows="3"></textarea>
                     </div>
                     <br>
-
+                    <div class="form-group">
+                        <label for="images">انتخاب<span class="star-red">*</span></label>
+                        <label for="images" class="image_file">انتخاب تصاویر گزارش یا آزمایش</label>
+                        <input type="file" name="images[]" id="images" class="form-control custom-file-input" multiple required>
+                    </div>
+                    <br>
                     <input class="btn" type="submit" value="افزودن آزمایش / گزارش ">
                 </form>
                 <br>

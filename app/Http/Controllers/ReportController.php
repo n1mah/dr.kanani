@@ -64,10 +64,22 @@ class ReportController extends Controller
         ]);
     }
 
-    public function store(StoreReportRequest $request): RedirectResponse
+    public function store(StoreReportRequest $request): RedirectResponse|View
     {
-        $report=Report::create($request->all());
-        $patient=$report->patient;
+        $files= request()->file("images");
+        try {
+            $report=Report::make($request->all());
+            $report->save();
+            $reportImageController= new ReportImageController();
+            $reportImageController->store($files,$report->id);
+            $patient=$report->patient;
+        }catch (\Exception){
+            $patients=new Patient;
+            return view('admin.reports.add',[
+                'patients'=>$patients->all(),
+                'back'=>redirect()->back()->getTargetUrl()
+            ]);
+        }
         return redirect()
             ->route('report.addForm2',[
                 'patient'=>$patient,

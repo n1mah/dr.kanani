@@ -18,7 +18,7 @@ return new class extends Migration
             $table->unsignedBigInteger("prescription_id")->nullable();
             $table->foreign("prescription_id")->references("id")->on("prescriptions")->onUpdate("cascade")->onDelete("cascade");
             $table->string("title");
-            $table->string("content");
+            $table->string("content")->nullable();
             $table->timestamps();
         });
     }

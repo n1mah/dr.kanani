@@ -2424,6 +2424,10 @@ display: flex;
     color: white;
     border-radius: 10px;
 }
+
+#add-report-page form .custom-file-input{
+    display: none;
+}
 #add-report-page form{
     display: flex;
     flex-direction: column;
@@ -2624,6 +2628,45 @@ display: flex;
     background-color: #1a202c;
     height: 5px;
     width: 100%;
+}
+
+#show-report-page .splitter{
+    height: 1px;
+    background-color: #b4b4b6;
+    width: 100%;
+    margin: 10px;
+}
+#show-report-page .show-images{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+#show-report-page .show-images h3{
+    text-align: center;
+    width: 100%;
+}
+#show-report-page .show-images p{
+    text-align: center;
+}
+#show-report-page .show-images .parent-box{
+    padding: 10px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+#show-report-page .show-images .parent-box a {
+    margin: 10px;
+}
+#show-report-page .show-images .parent-box a img{
+    border: 1px solid silver;
+}
+#show-report-page .show-images .parent-box a:hover img{
+    border: 2px solid rgb(65, 65, 65);
+    transform: scale(1.1);
+    transition: border 500ms , transform .5s;
 }
 /*show-report-page*/
 

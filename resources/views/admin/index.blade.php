@@ -1,4 +1,3 @@
-
 <x-panel.layouts.header />
     <div id="main">
         <x-panel.aside />
@@ -59,5 +58,4 @@
             </div>
         </div>
     </div>
-
 <x-panel.layouts.footer />
