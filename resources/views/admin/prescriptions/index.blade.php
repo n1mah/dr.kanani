@@ -7,9 +7,7 @@
             <div id="prescriptions-page">
                 <h1>نسخه ها</h1>
                 <br>
-                <div class="add-box">
-                    <a href="{{route("prescription.addForm1")}}">افزودن نسخه جدید</a>
-                </div>
+                <div class="add-box"><a href="{{route("prescription.addForm1")}}">افزودن نسخه جدید</a></div>
                 <br>
                 <div class="table">
                     <table>
@@ -82,5 +80,4 @@
             </div>
         </div>
     </div>
-
 <x-panel.layouts.footer />

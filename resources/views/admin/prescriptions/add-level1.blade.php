@@ -20,18 +20,16 @@
                         </select>
                     </div>
                     <br>
-
                     <input class="btn" type="submit" value="انتخاب بیمار برای ثبت نسخه">
                 </form>
                 <br>
                 <div class="back-box">
-                    <a href="{{redirect()->back()->getTargetUrl() }}">بازگشت</a>
+                    <a href="{{$back}}">بازگشت</a>
                 </div>
                 @if(Session::get('patient_err'))
                     <div class="errorBox">
                         <strong>- {{ Session::get('patient_err') }}</strong>
                     </div>
-
                 @endif
                 @if($errors->any())
                     <div class="errorBox">
@@ -48,5 +46,4 @@
             </div>
         </div>
     </div>
-
 <x-panel.layouts.footer />

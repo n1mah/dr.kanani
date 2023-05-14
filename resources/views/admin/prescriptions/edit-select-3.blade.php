@@ -9,9 +9,7 @@
                 <br>
                 <p>لطفا موردی را که میخواهید ویرایش کنید انتخاب کنید</p>
                 <br>
-                <div class="btn-back-group">
-                    <a href="{{route("prescription.edit_special",$prescription)}}">بازگشت به ویرایش</a>
-                </div>
+                <div class="btn-back-group"><a href="{{route("prescription.edit_special",$prescription)}}">بازگشت به ویرایش</a></div>
                 <br>
                 @if($errors->any())
                     <div class="errorBox">
@@ -59,12 +57,8 @@
                     <br>
                     <br>
                 </form>
-
                 <br>
-
-
             </div>
         </div>
     </div>
-
 <x-panel.layouts.footer />

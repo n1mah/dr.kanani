@@ -39,14 +39,10 @@
                             <div class="show-images">
                                 <h3>تصاویر نسخه ها</h3>
                                 <p>برای مشاهده دقیق تر هرکدام از تصاویر بر روی آن کلیک کنید</p>
-
                                 <br>
                                 <div class="parent-box">
                                     @foreach($prescription->images as $image)
-
-{{--                                    <img src="images/{{$image->image_path}}" width="150px" alt="">--}}
                                         <a href="{{asset("images/$image->image_path")}}" title="prescription-{{asset("images/$image->image_path")}}" target="_blank"><img src="{{asset("images/$image->image_path")}}" width="300px" alt="prescription-{{asset("images/$image->image_path")}}" title="prescription-{{asset("images/$image->image_path")}}"></a>
-
                                     @endforeach
                                 </div>
                             </div>
@@ -57,11 +53,9 @@
                     <a href="{{route("prescription.reports",$prescription)}}" class="btn_result">مشاهده مشاهده تست ها و آزمایشات</a>
                 </div>
                 <div class="back-box">
-                    <a href="{{redirect()->back()->getTargetUrl() }}">بازگشت به نسخه ها</a>
+                    <a href="{{$back}}">بازگشت به نسخه ها</a>
                 </div>
-
             </div>
         </div>
     </div>
-
 <x-panel.layouts.footer />

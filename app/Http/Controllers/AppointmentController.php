@@ -62,10 +62,10 @@ class AppointmentController extends Controller
     public function show(Appointment $appointment)
     {
         $prescriptions=$appointment->prescriptions()->orderBy("updated_at","desc")->paginate(10);
-
         return view('admin.appointments.show',[
             'appointment'=>$appointment,
-            'prescriptions'=>$prescriptions
+            'prescriptions'=>$prescriptions,
+            'back'=> redirect()->back()->getTargetUrl()
         ]);
     }
 
@@ -75,7 +75,8 @@ class AppointmentController extends Controller
         $patient=new Patient();
         return view('admin.appointments.edit',[
             'patients'=>$patient->all(),
-            'appointment'=>$appointment
+            'appointment'=>$appointment,
+            'back'=> redirect()->back()->getTargetUrl()
         ]);
     }
 
@@ -98,7 +99,8 @@ class AppointmentController extends Controller
     {
         $prescriptions=$appointment->prescriptions()->orderBy("updated_at","desc")->paginate(10);
         return view('admin.appointments.prescriptions',[
-            'prescriptions'=>$prescriptions
+            'prescriptions'=>$prescriptions,
+            'back'=> redirect()->back()->getTargetUrl()
         ]);
     }
 

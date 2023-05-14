@@ -6,7 +6,6 @@
             <hr>
             <div id="edit-patient-page">
                 <h1>ویرایش بیمار</h1>
-
                 <br>
                 <form action="{{route("patient.update",$patient)}}" method="post">
                     @csrf
@@ -15,7 +14,6 @@
                         <label for="national_code">کدملی <span class="star-red">*</span></label>
                         <input type="number" disabled id="national_code" name="national_code" value="{{$patient->national_code}}">
                     </div>
-
                     <br>
                     <div>
                         <label for="fName">نام<span class="star-red">*</span></label>
@@ -79,9 +77,7 @@
                     <input class="btn" type="submit" value="ویرایش">
                 </form>
                 <br>
-                <div class="back-box">
-                    <a href="{{route("patients")}}">بازگشت</a>
-                </div>
+                <div class="back-box"><a href="{{route("patients")}}">بازگشت</a></div>
                 @if($errors->any())
                     <div class="errorBox">
                         @foreach($errors->all() as $error)
@@ -92,5 +88,4 @@
             </div>
         </div>
     </div>
-
 <x-panel.layouts.footer />

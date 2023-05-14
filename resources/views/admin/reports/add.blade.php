@@ -34,9 +34,7 @@
                     <input class="btn" type="submit" value="افزودن آزمایش / گزارش ">
                 </form>
                 <br>
-                <div class="back-box">
-                    <a href="{{redirect()->back()->getTargetUrl() }}">بازگشت</a>
-                </div>
+                <div class="back-box"><a href="{{$back}}">بازگشت</a></div>
                 @if($errors->any())
                     <div class="errorBox">
                         @foreach($errors->all() as $error)
@@ -48,5 +46,4 @@
             </div>
         </div>
     </div>
-
 <x-panel.layouts.footer />

@@ -41,17 +41,11 @@
                         <label for="text_prescription">نسخه</label>
                         <textarea id="text_prescription" disabled name="text_prescription" rows="6">{{$prescription->text_prescription}}</textarea>
                     </div>
-                    <br>
-                    <br>
+                    <br><br>
                 </form>
-
                 <br>
-                <div class="back-box">
-                    <a href="{{redirect()->back()->getTargetUrl() }}">بازگشت به نسخه ها</a>
-                </div>
-
+                <div class="back-box"><a href="{{$back}}">بازگشت به نسخه ها</a></div>
             </div>
         </div>
     </div>
-
 <x-panel.layouts.footer />

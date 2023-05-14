@@ -43,9 +43,7 @@
                     <input class="btn" type="submit" value="ویرایش">
                 </form>
                 <br>
-                <div class="back-box">
-                    <a href="{{redirect()->back()->getTargetUrl() }}">بازگشت</a>
-                </div>
+                <div class="back-box"><a href="{{$back}}">بازگشت</a></div>
                 @if($errors->any())
                 <div class="errorBox">
                     @foreach($errors->all() as $error)
@@ -56,8 +54,6 @@
             </div>
         </div>
     </div>
-
-
 <x-panel.layouts.footer>
     <script src="{{asset("admin/js/jquery.js")}}" type="text/javascript"></script>
     <script src="{{asset("admin/js/persian-date.js")}}" type="text/javascript"></script>
@@ -155,7 +151,6 @@
                     "enabled": true,
                     "titleFormat": "YYYY"
                 },
-
             });
         });
     </script>

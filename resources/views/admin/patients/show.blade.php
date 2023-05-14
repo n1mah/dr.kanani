@@ -13,7 +13,6 @@
                         <label for="national_code">کدملی </label>
                         <input type="number" disabled id="national_code" name="national_code" value="{{$patient->national_code}}">
                     </div>
-
                     <br>
                     <div>
                         <label for="fName">نام</label>
@@ -53,11 +52,8 @@
                     <a href="{{route("patient.reports",$patient)}}" @if(count($patient->reports)<1) onclick="alert('تست و آزمایش ندارد');return false;" @endif class="btn_result">مشاهده تست ها و آزمایشات</a>
                     <a href="{{route("financials.patient",$patient)}}" @if(count($patient->financialTransactions)<1) onclick="alert('پرداختی ندارد');return false;" @endif class="btn_financial">مشاهده پرداختی ها</a>
                 </div>
-                <div class="back-box">
-                    <a href="{{route("patients")}}">بازگشت</a>
-                </div>
+                <div class="back-box"><a href="{{route("patients")}}">بازگشت</a></div>
             </div>
         </div>
     </div>
-
 <x-panel.layouts.footer />

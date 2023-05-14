@@ -40,7 +40,6 @@
                     </div>
                     <br>
                     @if(isset($report->prescription->id))
-
                         <hr>
                         <br>
                         <h3>نسخه</h3>
@@ -57,14 +56,9 @@
                     @endif
                     <br>
                 </form>
-
                 <br>
-                <div class="back-box">
-                    <a href="{{route("reports")}}">بازگشت به نسخه ها</a>
-                </div>
-
+                <div class="back-box"><a href="{{route("reports")}}">بازگشت به نسخه ها</a></div>
             </div>
         </div>
     </div>
-
 <x-panel.layouts.footer />

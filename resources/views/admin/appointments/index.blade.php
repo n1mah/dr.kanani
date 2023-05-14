@@ -6,12 +6,7 @@
             <hr>
             <div id="appointments-page">
                 <h1>وقت های ویزیت</h1>
-                <br>
-                <div class="">
-                </div>
-                <br>
-                <hr>
-                <br>
+                <br><br><hr><br>
                 <div class="btn-list">
                 <a class="btn-data" href="{{route("appointments")}}">همه وقت ها</a>
                 <a class="btn-data" href="{{route("appointments.today")}}">وقت های امروز</a>
@@ -22,15 +17,12 @@
                 <a class="btn-data" href="{{route("appointments.before30Day")}}">وقت های 30 روز گذشته</a>
                 </div>
                 <div class="add-box btn-list">
+                    <a class="btn-add" href="{{route("appointment.addForm")}}">افزودن وقت جدید</a>
                     <a class="btn-data canceled" href="{{route("appointments.canceled")}}">نوبت های کنسل شده</a>
                     <a class="btn-data succeed" href="{{route("appointments.succeed")}}">نوبت های ویزیت شده</a>
                     <a class="btn-data initial_status" href="{{route("appointments.initial_status")}}">نوبت های بلاتکلیف</a>
-                    <a class="btn-add" href="{{route("appointment.addForm")}}">افزودن وقت جدید</a>
-
                 </div>
-                <hr>
-                <br>
-                <br>
+                <br><hr><br>
                 <div class="table">
                     <table>
                         <thead>
@@ -151,5 +143,4 @@
             </div>
         </div>
     </div>
-
 <x-panel.layouts.footer />

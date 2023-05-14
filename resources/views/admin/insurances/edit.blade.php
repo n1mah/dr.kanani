@@ -6,7 +6,6 @@
             <hr>
             <div id="edit-insurance-page">
                 <h1>ویرایش بیمه</h1>
-
                 <br>
                 <form action="{{route("insurance.update",$insurance)}}" method="post">
                     @csrf
@@ -24,9 +23,7 @@
                     <input class="btn" type="submit" value="ویرایش">
                 </form>
                 <br>
-                <div class="back-box">
-                    <a href="{{route("insurances")}}">بازگشت</a>
-                </div>
+                <div class="back-box"><a href="{{route("insurances")}}">بازگشت</a></div>
                 @if($errors->any())
                 <div class="errorBox">
                     @foreach($errors->all() as $error)
@@ -37,5 +34,4 @@
             </div>
         </div>
     </div>
-
 <x-panel.layouts.footer />

@@ -31,16 +31,10 @@
                     </div>
                     <br>
                     <input class="btn" type="submit" value="ویرایش">
-
                 </form>
-
                 <br>
-                <div class="back-box">
-                    <a href="{{redirect()->back()->getTargetUrl() }}">بازگشت به نسخه ها</a>
-                </div>
-
+                <div class="back-box"><a href="{{$back}}">بازگشت به نسخه ها</a></div>
             </div>
         </div>
     </div>
-
 <x-panel.layouts.footer />

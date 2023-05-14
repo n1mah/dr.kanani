@@ -9,9 +9,7 @@
             <br>
             <h2>بیمار : <span>{{$prescriptions->first()->appointment->patient->firstname}} {{$prescriptions->first()->appointment->patient->lastname}}</span></h2>
             <h2>وقت : <span>{{$prescriptions->first()->appointment->visit_time}}</span></h2>
-            <div class="add-box">
-                <a href="{{route("prescription.addForm1")}}">افزودن نسخه جدید</a>
-            </div>
+            <div class="add-box"><a href="{{route("prescription.addForm1")}}">افزودن نسخه جدید</a></div>
             <br>
             <div class="table">
                 <table>
@@ -67,11 +65,8 @@
                 <x-panel.pagination :lists="$prescriptions" />
             </div>
             <br>
-            <div class="btn-box">
-                <a href="{{redirect()->back()->getTargetUrl() }}">بازگشت</a>
-            </div>
+            <div class="btn-box"><a href="{{$back}}">بازگشت</a></div>
         </div>
     </div>
 </div>
-
 <x-panel.layouts.footer />

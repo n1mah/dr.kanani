@@ -74,10 +74,9 @@
 
                 <br>
                 <div class="btn-box">
-                    <a href="{{redirect()->back()->getTargetUrl() }}">بازگشت</a>
+                    <a href="{{$back}}">بازگشت</a>
                 </div>
             </div>
         </div>
     </div>
-
 <x-panel.layouts.footer />

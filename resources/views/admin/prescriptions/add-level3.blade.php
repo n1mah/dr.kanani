@@ -25,21 +25,16 @@
                         <label for="text_prescription">توضیح نسخه</label>
                         <textarea id="text_prescription" name="text_prescription" rows="2"></textarea>
                     </div>
-                    <br>
-
-                    <br>
+                    <br><br>
                   <div class="btn-group">
                       <input class="btn" type="submit" value="ثبت نسخه">
                       <a href="{{route("prescriptions")}}">بعدا</a>
                   </div>
                 </form>
-
                 <br>
                 <div class="back-box">
                     <a href="{{route("prescription.addForm1")}}">بازگشت به صفحه انتخاب بیمار</a>
                 </div>
-
-
                 @if($errors->any())
                     <div class="errorBox">
                         @foreach($errors->all() as $error)
@@ -50,5 +45,4 @@
             </div>
         </div>
     </div>
-
 <x-panel.layouts.footer />

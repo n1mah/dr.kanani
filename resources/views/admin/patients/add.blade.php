@@ -6,7 +6,6 @@
             <hr>
             <div id="add-patient-page">
                 <h1>افزودن بیمار جدید</h1>
-
                 <br>
                 <form action="{{route("patient.store")}}" method="post">
                     @csrf
@@ -78,9 +77,7 @@
                     <input class="btn" type="submit" value="افزودن">
                 </form>
                 <br>
-                <div class="back-box">
-                    <a href="{{route("patients")}}">بازگشت</a>
-                </div>
+                <div class="back-box"><a href="{{route("patients")}}">بازگشت</a></div>
                 @if($errors->any())
                     <div class="errorBox">
                         @foreach($errors->all() as $error)
@@ -91,5 +88,4 @@
             </div>
         </div>
     </div>
-
 <x-panel.layouts.footer />

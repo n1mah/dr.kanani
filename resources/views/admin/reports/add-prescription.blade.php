@@ -21,14 +21,10 @@
                         </select>
                     </div>
                     <br>
-
-
                     <input class="btn" type="submit" value="ثبت نسخه مربوط به آزمایش / گزارش ">
                 </form>
                 <br>
-                <div class="back-box">
-                    <a href="{{route("reports") }}">بازگشت</a>
-                </div>
+                <div class="back-box"><a href="{{route("reports")}}">بازگشت</a></div>
                 @if($errors->any())
                     <div class="errorBox">
                         @foreach($errors->all() as $error)
@@ -36,9 +32,7 @@
                         @endforeach
                     </div>
                 @endif
-
             </div>
         </div>
     </div>
-
 <x-panel.layouts.footer />

@@ -59,9 +59,7 @@
                         <label for="description">توضیح</label>
                         <textarea rows="5" disabled id="description" name="descriptions">{{ $appointment->descriptions }}</textarea>
                     </div>
-                    <br>
-
-                    <br>
+                    <br><br>
                     <div>
                         <label for="visit_time">وضعیت</label>
                         @php
@@ -82,12 +80,9 @@
                     </div>
                 </form>
                 <br>
-                <div class="back-box">
-                    <a href="{{redirect()->back()->getTargetUrl() }}">بازگشت</a>
-                </div>
+                <div class="back-box"><a href="{{$back }}">بازگشت</a></div>
                 <br>
                 @if($appointment->status==0)
-
                     <hr>
                   <div class="parent-status">
                       <h2>تغییر وضعیت :</h2>
@@ -165,5 +160,4 @@
             </div>
         </div>
     </div>
-
 <x-panel.layouts.footer />

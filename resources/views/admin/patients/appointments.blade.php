@@ -8,9 +8,7 @@
                 <h1>وقت های ویزیت</h1>
                 <br>
                 <h2>بیمار : <span>{{$appointments->first()->patient->firstname}} {{$appointments->first()->patient->lastname}}</span></h2>
-                <div class="add-box">
-                    <a href="{{route("appointment.addForm")}}">افزودن وقت جدید</a>
-                </div>
+                <div class="add-box"><a href="{{route("appointment.addForm")}}">افزودن وقت جدید</a></div>
                 <br>
                 <div class="table">
                     <table>
@@ -111,11 +109,8 @@
                     <x-panel.pagination :lists="$appointments" />
                 </div>
                 <br>
-                <div class="btn-box">
-                    <a href="{{redirect()->back()->getTargetUrl() }}">بازگشت</a>
-                </div>
+                <div class="btn-box"><a href="{{$back}}">بازگشت</a></div>
             </div>
         </div>
     </div>
-
 <x-panel.layouts.footer />

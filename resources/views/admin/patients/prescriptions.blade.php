@@ -66,11 +66,8 @@
                 <x-panel.pagination :lists="$prescriptions" />
             </div>
             <br>
-            <div class="btn-box">
-                <a href="{{redirect()->back()->getTargetUrl() }}">بازگشت</a>
-            </div>
+            <div class="btn-box"><a href="{{$back}}">بازگشت</a></div>
         </div>
     </div>
 </div>
-
 <x-panel.layouts.footer />

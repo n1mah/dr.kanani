@@ -33,7 +33,8 @@ class ReportController extends Controller
         $patients=new Patient;
         return view('admin.reports.edit-report',[
             'report'=>$report,
-            'patients'=>$patients->all()
+            'patients'=>$patients->all(),
+            'back'=>redirect()->back()->getTargetUrl()
         ]);
     }
 
@@ -58,7 +59,8 @@ class ReportController extends Controller
     {
         $patients=new Patient;
         return view('admin.reports.add',[
-            'patients'=>$patients->all()
+            'patients'=>$patients->all(),
+            'back'=>redirect()->back()->getTargetUrl()
         ]);
     }
 

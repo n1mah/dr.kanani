@@ -9,9 +9,7 @@
                 <br>
                 <p>بیمار مورد نظر خود را انتخاب کنید و سپس برای تکمیل ویرایش در مرحله بعدی وقت (نوبت) را تعیین کنید . درصورتی که نوبت مشخص نشود , ویرایش انجام نمی شود </p>
                 <br>
-                <div class="btn-back-group">
-                    <a href="{{route("prescription.edit_special",$prescription)}}">بازگشت به ویرایش</a>
-                </div>
+                <div class="btn-back-group"><a href="{{route("prescription.edit_special",$prescription)}}">بازگشت به ویرایش</a></div>
                 <br>
                 @if($errors->any())
                     <div class="errorBox">
@@ -58,5 +56,4 @@
             </div>
         </div>
     </div>
-
 <x-panel.layouts.footer />

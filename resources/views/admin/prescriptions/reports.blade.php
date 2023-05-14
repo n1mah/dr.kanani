@@ -41,11 +41,10 @@
                                 @endisset
                             </td>
                             <td>
-                                    <form action="{{route("report.show",$report)}}" method="get">
+                               <form action="{{route("report.show",$report)}}" method="get">
                                         @csrf
                                         <button type="submit" class="btn_see">مشاهده</button>
-                                    </form>
-
+                               </form>
                             </td>
                             <td>
                                 <form  action="{{route("report.edit_special",$report)}}" method="get">
@@ -64,8 +63,6 @@
                         @endforeach
                         </tbody>
                     </table>
-                        <p></p>
-
                 </div>
                 <div class="pagination">
                     <x-panel.pagination :lists="$reports" />
@@ -73,13 +70,9 @@
                 @else
                     <p class="not_record">گزارش یا آزمایشی برای این نسخه بیمار وجود ندارد</p>
                 @endif
-
                 <br>
-                <div class="btn-box">
-                    <a href="{{redirect()->back()->getTargetUrl() }}">بازگشت</a>
-                </div>
+                <div class="btn-box"><a href="{{redirect()->back()->getTargetUrl() }}">بازگشت</a></div>
             </div>
         </div>
     </div>
-
 <x-panel.layouts.footer />

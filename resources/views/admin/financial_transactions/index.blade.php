@@ -13,9 +13,7 @@
                 @if(isset($appointment))
                     <h2>نوبت : <a title="مشاهده" target="_blank" dir="ltr" href="{{route("appointment.show",$financialTransactions->first()->appointment)}}"><span>{{$financialTransactions->first()->appointment->visitTimeGetter}}</span></a></h2>
                 @endif
-                <div class="add-box">
-                    <a href="{{route("financial.addForm")}}">افزودن تراکنش جدید</a>
-                </div>
+                <div class="add-box"><a href="{{route("financial.addForm")}}">افزودن تراکنش جدید</a></div>
                 <br>
                 <hr>
                 @if(!isset($hasSearch))
@@ -30,7 +28,6 @@
                     <input type="search" id="search" name="search" placeholder="جستجو مورد نظر را وارد کنید ...">
                     <input type="submit" id="search_btn" value="جستجو">
                     <span class="split"></span>
-{{--                    <a href="{{route("financials")}}">نمایش همه</a>--}}
                 </form>
                 <br>
                 <hr>
@@ -41,7 +38,6 @@
                         <a class="btn-data" href="{{route("financials.today")}}">تراکنش های مالی امروز</a>
                         <a class="btn-data" href="{{route("financials.last_7day")}}">تراکنش های مالی 7 روز گذشته</a>
                         <a class="btn-data" href="{{route("financials.last_30day")}}">تراکنش های مالی 30 روز گذشته</a>
-
                     </div>
                     <br>
                     <hr>
@@ -121,5 +117,4 @@
             </div>
         </div>
     </div>
-
 <x-panel.layouts.footer />

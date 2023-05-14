@@ -7,9 +7,7 @@
             <div id="reports-page">
                 <h1>گزارشات و آزمایشات</h1>
                 <br>
-                <div class="add-box">
-                    <a href="{{route("report.addForm")}}">افزودن گزارش جدید</a>
-                </div>
+                <div class="add-box"><a href="{{route("report.addForm")}}">افزودن گزارش جدید</a></div>
                 <br>
                 <div class="table">
                     <table>
@@ -32,15 +30,12 @@
                             <td>{{$report->title}}</td>
                             <td>{{$report->content}}</td>
                             <td><a title="مشاهده" target="_blank" href="{{route("patient.show",$report->patient)}}">{{$report->patient->firstname}} {{$report->patient->lastname}}</a></td>
-
                             <td>@isset($report->prescription->id)<a title="مشاهده" class="btn_prepp" target="_blank" href="{{route("patient.show",$report->patient)}}">{{ $report->prescription->id}}<br>{{$report->prescription->reason}}</a>@endisset</td>
-
                             <td>
-                                    <form action="{{route("report.show",$report)}}" method="get">
-                                        @csrf
-                                        <button type="submit" class="btn_see">مشاهده</button>
-                                    </form>
-
+                                <form action="{{route("report.show",$report)}}" method="get">
+                                    @csrf
+                                    <button type="submit" class="btn_see">مشاهده</button>
+                                </form>
                             </td>
                             <td>
                                 <form  action="{{route("report.edit_special",$report)}}" method="get">
@@ -66,5 +61,4 @@
             </div>
         </div>
     </div>
-
 <x-panel.layouts.footer />

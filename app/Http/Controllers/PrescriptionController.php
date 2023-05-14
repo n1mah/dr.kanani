@@ -29,7 +29,8 @@ class PrescriptionController extends Controller
     {
         $patients=new Patient();
         return view('admin.prescriptions.add-level1',[
-            'patients'=>$patients->all()
+            'patients'=>$patients->all(),
+            'back'=>redirect()->back()->getTargetUrl()
         ]);
     }
 
@@ -81,6 +82,7 @@ class PrescriptionController extends Controller
     {
         return view('admin.prescriptions.edit',[
             'prescription'=>$prescription,
+            'back'=>redirect()->back()->getTargetUrl()
         ]);
     }
 
@@ -98,6 +100,7 @@ class PrescriptionController extends Controller
     {
         return view('admin.prescriptions.show',[
             'prescription'=>$prescription,
+            'back'=>redirect()->back()->getTargetUrl()
         ]);
     }
 
@@ -105,6 +108,7 @@ class PrescriptionController extends Controller
     {
         return view('admin.prescriptions.edit-select',[
             'prescription'=>$prescription,
+            'back'=>redirect()->back()->getTargetUrl()
         ]);
     }
 
@@ -193,7 +197,8 @@ class PrescriptionController extends Controller
         return view('admin.prescriptions.reports',[
             'reports'=>$reports,
             'prescription'=>$prescription,
-            'patient'=>$patient
+            'patient'=>$patient,
+            'back'=>redirect()->back()->getTargetUrl()
         ]);
     }
 }

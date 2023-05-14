@@ -7,12 +7,8 @@
             <div id="patients-page">
                 <h1>بیماران</h1>
                 <br>
-                <div class="add-box">
-                    <a href="{{route("patient.addForm")}}">افزودن بیمار جدید</a>
-                </div>
-                <br>
-                <hr>
-                <br>
+                <div class="add-box"><a href="{{route("patient.addForm")}}">افزودن بیمار جدید</a></div>
+                <br><hr><br>
                 <h3>جستجو</h3>
                 <br>
                 <form action="{{route("patients.search")}}" method="post" class="search-box">
@@ -24,9 +20,7 @@
                     <span class="split"></span>
                     <a href="{{route("patients")}}">نمایش همه</a>
                 </form>
-                <br>
-                <hr>
-                <br>
+                <br><hr><br>
                 <div class="table">
                     <table>
                         <thead>
@@ -119,5 +113,4 @@
             </div>
         </div>
     </div>
-
 <x-panel.layouts.footer />

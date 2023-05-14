@@ -29,15 +29,12 @@
                         </select>
                     </div>
                     <br>
-{{--                    <span>برای انتخاب تاریخ و زمان روی تاریخ کلیک کنید</span>--}}
-{{--                    <br>--}}
                     <div>
                         <label for="visit_time_date">تاریخ و زمان ویزیت<span class="star-red">*</span></label>
                         <input readonly type="text" id="visit_time_date" class="visit_time_date" dir="ltr" />
                         <input type="hidden" class="visit_time"  id="visit_time" name="visit_time"/>
                     </div>
                     <br>
-
                     <div>
                     <label for="description">توضیح</label>
                         <textarea id="description" name="descriptions"></textarea>
@@ -46,9 +43,7 @@
                     <input class="btn" type="submit" value="افزودن">
                 </form>
                 <br>
-                <div class="back-box">
-                    <a href="{{redirect()->back()->getTargetUrl() }}">بازگشت</a>
-                </div>
+                <div class="back-box"><a href="{{redirect()->back()->getTargetUrl() }}">بازگشت</a></div>
                 @if($errors->any())
                     <div class="errorBox">
                         @foreach($errors->all() as $error)
@@ -59,7 +54,6 @@
             </div>
         </div>
     </div>
-
 <x-panel.layouts.footer>
     <script src="{{asset("admin/js/jquery.js")}}" type="text/javascript"></script>
     <script src="{{asset("admin/js/persian-date.js")}}" type="text/javascript"></script>
@@ -157,7 +151,6 @@
                     "enabled": true,
                     "titleFormat": "YYYY"
                 },
-
             });
         });
     </script>

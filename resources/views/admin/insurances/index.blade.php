@@ -7,12 +7,8 @@
             <div id="insurances-page">
                 <h1>بیمه ها</h1>
                 <br>
-                <div class="add-box">
-                    <a href="{{route("insurance.addForm")}}">افزودن بیمه جدید</a>
-                </div>
-                <br>
-                <hr>
-                <br>
+                <div class="add-box"><a href="{{route("insurance.addForm")}}">افزودن بیمه جدید</a></div>
+                <br><hr><br>
                 <h3>جستجو</h3>
                 <br>
                 <form action="{{route("insurances.search")}}" method="post" class="search-box">
@@ -69,5 +65,4 @@
             </div>
         </div>
     </div>
-
 <x-panel.layouts.footer />

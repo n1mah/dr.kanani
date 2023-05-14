@@ -25,18 +25,11 @@
                         <label for="text_prescription">نسخه<span class="star-red">*</span></label>
                         <textarea id="text_prescription" name="text_prescription" rows="6"></textarea>
                     </div>
-                    <br>
-
-                    <br>
+                    <br><br>
                       <input class="btn" type="submit" value="ویرایش نسخه">
                 </form>
-
                 <br>
-                <div class="back-box">
-                    <a href="{{redirect()->back()->getTargetUrl() }}">بازگشت به نسخه ها</a>
-                </div>
-
-
+                <div class="back-box"><a href="{{$back}}">بازگشت به نسخه ها</a></div>
                 @if($errors->any())
                     <div class="errorBox">
                         @foreach($errors->all() as $error)
@@ -47,5 +40,4 @@
             </div>
         </div>
     </div>
-
 <x-panel.layouts.footer />

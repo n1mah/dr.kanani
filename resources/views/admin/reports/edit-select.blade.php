@@ -13,7 +13,7 @@
                     <a href="{{route("report.editForm",$report)}}">ویرایش جزییات گزارش&nbsp;  (و ویرایش بیمار)</a>
                     <a href="{{route("report.addForm2",[$report->patient,$report])}}">ویرایش نسخه &nbsp;    (مربوط به گزارش)</a>
                 </div>
-                <form action="">
+                <form>
                     <br>
                     <div>
                         <label for="patient_id">بیمار</label>
@@ -45,16 +45,10 @@
                         <textarea disabled id="content" name="content" rows="6">{{$report->content}}</textarea>
                     </div>
                     <br>
-
                 </form>
-
                 <br>
-                <div class="back-box">
-                    <a href="{{route("reports") }}">بازگشت به نسخه ها</a>
-                </div>
-
+                <div class="back-box"><a href="{{route("reports")}}">بازگشت به نسخه ها</a></div>
             </div>
         </div>
     </div>
-
 <x-panel.layouts.footer />
