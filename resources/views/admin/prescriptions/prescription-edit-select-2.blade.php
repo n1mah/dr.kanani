@@ -34,7 +34,7 @@
                         <select id="appointment_id" name="appointment_id">
                             <option value="">بدون نوبت</option>
                             @foreach($appointments as $appointment_item)
-                                <option value="{{$appointment_item->id}}" {{ $appointment_item->id == $appointment->id ? 'selected' : ''}}>{{$appointment_item->visit_time}}</option>
+                                <option value="{{$appointment_item->id}}" {{ $appointment_item->id == $appointment->id ? 'selected' : ''}}>{{$appointment_item->visitTimeGetter}}</option>
                             @endforeach
                         </select>
                     </div>

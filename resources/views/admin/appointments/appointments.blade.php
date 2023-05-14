@@ -7,8 +7,7 @@
             <div id="appointments-page">
                 <h1>وقت های ویزیت</h1>
                 <br>
-                <div class="add-box">
-                    <a href="{{route("appointment.addForm")}}">افزودن وقت جدید</a>
+                <div class="">
                 </div>
                 <br>
                 <hr>
@@ -22,6 +21,14 @@
                 <a class="btn-data" href="{{route("appointments.period30")}}">وقت های 15 روز قبل و 15  روز آینده</a>
                 <a class="btn-data" href="{{route("appointments.before30Day")}}">وقت های 30 روز گذشته</a>
                 </div>
+                <div class="add-box btn-list">
+                    <a class="btn-data canceled" href="{{route("appointments.canceled")}}">نوبت های کنسل شده</a>
+                    <a class="btn-data succeed" href="{{route("appointments.succeed")}}">نوبت های ویزیت شده</a>
+                    <a class="btn-data initial_status" href="{{route("appointments.initial_status")}}">نوبت های بلاتکلیف</a>
+                    <a class="btn-add" href="{{route("appointment.addForm")}}">افزودن وقت جدید</a>
+
+                </div>
+                <hr>
                 <br>
                 <br>
                 <div class="table">
@@ -87,11 +94,7 @@
                                 @endif
                             </td>
 
-                            @if($appointment->status==2)
-                                    <td class="text_cancel">
-                                        <span class="text_cancel">نوبت کنسل شده</span>
-                                    </td>
-                            @else
+                            @if($appointment->status!=2)
                                     <td>
                                         @if(count($appointment->prescriptions)>0)
                                             <form action="{{route("appointment.prescriptions",$appointment)}}" method="get">
@@ -114,9 +117,7 @@
                                     </td>
                             @endif
                                 @if($appointment->status==2)
-                                    <td class="text_cancel"></td>
-                                    <td class="text_cancel"></td>
-                                    <td class="text_cancel"></td>
+                                    <td class="text_cancel" colspan="5">کنسل شده</td>
                                 @else
 
                             <td>

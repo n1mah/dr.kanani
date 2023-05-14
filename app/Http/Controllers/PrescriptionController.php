@@ -146,7 +146,7 @@ class PrescriptionController extends Controller
             'prescription'=>$prescription,
             'patient_id'=>$patient_id,
             'patient'=>$patientN,
-            'appointments'=>$appointment->where("patient_id",$patient_id)->orderby("visit_time")->get(),
+            'appointments'=>$appointment->where("patient_id",$patient_id)->whereIn("status",[0,1])->orderby("visit_time")->get(),
             'appointment'=>$prescription->appointment
         ]);
 

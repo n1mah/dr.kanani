@@ -743,6 +743,21 @@ color: red;
     text-decoration: none;
     border-radius: 5px;
 }
+#appointments-page .btn-list a.succeed{
+    border: 2px solid #238c00;
+    background-color: #36d700;
+}
+#appointments-page .btn-list a.btn-add{
+    border: 2px solid #1a1a1a;
+}
+#appointments-page .btn-list a.canceled{
+    border: 2px solid #9b0000;
+    background-color: #da0000;
+}
+#appointments-page .btn-list a.initial_status{
+    border: 2px solid #505050;
+    background-color: #a9a9a9;
+}
 #appointments-page .add-box{
     height: 5vh;
     display: flex;

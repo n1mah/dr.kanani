@@ -209,4 +209,25 @@ class AppointmentController extends Controller
             'appointments'=>$between30
         ]);
     }
+    public function canceled(): View|Application|Factory
+    {
+        $appointments= new Appointment;
+        return view('admin.appointments.appointments',[
+            'appointments'=>$appointments->whereIn("status",[2])->orderBy("id","desc")->paginate(10)
+        ]);
+    }
+    public function succeed(): View|Application|Factory
+    {
+        $appointments= new Appointment;
+        return view('admin.appointments.appointments',[
+            'appointments'=>$appointments->whereIn("status",[1])->orderBy("id","desc")->paginate(10)
+        ]);
+    }
+    public function initial_status(): View|Application|Factory
+    {
+        $appointments= new Appointment;
+        return view('admin.appointments.appointments',[
+            'appointments'=>$appointments->whereIn("status",[0])->orderBy("id","desc")->paginate(10)
+        ]);
+    }
 }
