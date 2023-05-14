@@ -53,6 +53,7 @@
                             @if(!isset($hasSearch))
                             <th>بیمار</th>
                             @endif
+                            <th>نوبت</th>
                             <th><small>تاریخ ثبت پرداخت</small></th>
                             <th>مبلغ</th>
                             <th><small>نوع پرداخت</small></th>
@@ -69,6 +70,16 @@
                             @if(!isset($hasSearch))
                             <td><a title="مشاهده" target="_blank" href="{{route("patient.show",$financialTransaction->patient)}}">{{$financialTransaction->patient->firstname}} {{$financialTransaction->patient->lastname}}</a></td>
                             @endif
+                            <td dir="ltr">
+                                @if($financialTransaction->appointment)
+                                    <a title="مشاهده" target="_blank" href="{{route("appointment.show",$financialTransaction->appointment)}}">
+                                        {{$financialTransaction->appointment->visitTimeGetter}}
+                                    </a>
+                                @else
+                                    <small>تراکنش به نوبتی متصل نیست</small>
+                                @endif
+                                </td>
+
                             <td>{{$financialTransaction->created_at}}</td>
                             <td class="money">{{number_format((String)$financialTransaction->payment_amount)}}</td>
                             <td>{{$financialTransaction->method}}</td>
