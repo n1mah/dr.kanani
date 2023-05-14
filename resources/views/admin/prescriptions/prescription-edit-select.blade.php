@@ -24,7 +24,7 @@
                     <br>
                     <div>
                         <label for="visit">وقت (نوبت) انتخاب شده</label>
-                        <input type="text" disabled id="visit" value="{{$prescription->appointment->visit_time}}">
+                        <input type="text" disabled id="visit" dir="ltr" value="{{$prescription->appointment->visitTimeGetter}}">
                     </div>
                     <br>
                     <div>
