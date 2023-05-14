@@ -42,7 +42,7 @@
                                 <br>
                                 <div class="parent-box">
                                     @foreach($prescription->images as $image)
-                                        <a href="{{asset("images/prescriptions/$image->image_path")}}" title="prescription-{{asset("images/$image->image_path")}}" target="_blank"><img src="{{asset("images/$image->image_path")}}" width="300px" alt="prescription-{{asset("images/$image->image_path")}}" title="prescription-{{asset("images/$image->image_path")}}"></a>
+                                        <a href="{{asset("images/prescriptions/$image->image_path")}}" title="prescription-{{asset("images/prescriptions/$image->image_path")}}" target="_blank"><img src="{{asset("images/prescriptions/$image->image_path")}}" width="300px" alt="prescription-{{asset("images/prescriptions/$image->image_path")}}" title="prescription-{{asset("images/prescriptions/$image->image_path")}}"></a>
                                     @endforeach
                                 </div>
                             </div>

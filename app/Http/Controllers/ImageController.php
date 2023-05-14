@@ -20,7 +20,7 @@ class ImageController extends Controller
                 $pass = $file->extension();
                 $imageName = time() . '-c' . $count . '.' . $pass;
                 $img = ImageAlia::make($file)->widen(600);
-                $img->save(public_path("images/" . $imageName));
+                $img->save(public_path("images/prescriptions/" . $imageName));
                 $image = new Image([
                     'image_path' => $imageName,
                     'prescription_id' => $prescription_id,
