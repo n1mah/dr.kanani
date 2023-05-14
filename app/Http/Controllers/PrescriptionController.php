@@ -100,7 +100,7 @@ class PrescriptionController extends Controller
     {
         return view('admin.prescriptions.show',[
             'prescription'=>$prescription,
-            'back'=>redirect()->back()->getTargetUrl()
+            'back'=>route('prescriptions')
         ]);
     }
 

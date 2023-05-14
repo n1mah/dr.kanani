@@ -42,7 +42,7 @@
                                 <br>
                                 <div class="parent-box">
                                     @foreach($prescription->images as $image)
-                                        <a href="{{asset("images/$image->image_path")}}" title="prescription-{{asset("images/$image->image_path")}}" target="_blank"><img src="{{asset("images/$image->image_path")}}" width="300px" alt="prescription-{{asset("images/$image->image_path")}}" title="prescription-{{asset("images/$image->image_path")}}"></a>
+                                        <a href="{{asset("images/prescriptions/$image->image_path")}}" title="prescription-{{asset("images/$image->image_path")}}" target="_blank"><img src="{{asset("images/$image->image_path")}}" width="300px" alt="prescription-{{asset("images/$image->image_path")}}" title="prescription-{{asset("images/$image->image_path")}}"></a>
                                     @endforeach
                                 </div>
                             </div>
@@ -52,9 +52,7 @@
                 <div class="btn-box">
                     <a href="{{route("prescription.reports",$prescription)}}" class="btn_result">مشاهده مشاهده تست ها و آزمایشات</a>
                 </div>
-                <div class="back-box">
-                    <a href="{{$back}}">بازگشت به نسخه ها</a>
-                </div>
+                <div class="back-box"><a href="{{$back}}">بازگشت به نسخه ها</a></div>
             </div>
         </div>
     </div>
