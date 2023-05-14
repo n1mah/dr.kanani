@@ -37,6 +37,13 @@ class FinancialTransactionController extends Controller
             'financialTransactions'=>$financialTransactions->orderBy("id","desc")->paginate(10)
         ]);
     }
+    public function index_ordered_time(): \Illuminate\Contracts\View\View|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application
+    {
+        $financialTransactions= new FinancialTransaction();
+        return view('admin.financial_transactions.index',[
+            'financialTransactions'=>$financialTransactions->orderBy("created_at","asc")->paginate(10)
+        ]);
+    }
     public function search(): \Illuminate\Contracts\View\View|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application
     {
         $search=request("search");
@@ -122,11 +129,22 @@ class FinancialTransactionController extends Controller
     {
         $financialTransaction= new FinancialTransaction;
         $today = $this->GetToday();
-//        dd($today);
-        $tomorrow = $this->GetTomorrow();
-        $financialTransaction_today_tomorrow= $financialTransaction->whereBetween('created_at',[$today,$tomorrow])->orderBy("created_at","asc")->paginate(10);
+        $last_7day = $this->GetSubDay("7");
+//        dd($today,$last_7day);
+        $financialTransaction_last_7_days= $financialTransaction->whereBetween('created_at',[$last_7day,$today])->orderBy("created_at","asc")->paginate(10);
         return view('admin.financial_transactions.index',[
-            'financialTransactions'=>$financialTransaction_today_tomorrow,
+            'financialTransactions'=>$financialTransaction_last_7_days,
+        ]);
+    }
+    public function last_30day()
+    {
+        $financialTransaction= new FinancialTransaction;
+        $today = $this->GetToday();
+        $last_30day = $this->GetSubDay("30");
+//        dd($today,$last_7day);
+        $financialTransaction_last_30_days= $financialTransaction->whereBetween('created_at',[$last_30day,$today])->orderBy("created_at","asc")->paginate(10);
+        return view('admin.financial_transactions.index',[
+            'financialTransactions'=>$financialTransaction_last_30_days,
         ]);
     }
 }

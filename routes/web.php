@@ -107,5 +107,8 @@ Route::group(['prefix' => 'panel'],function (){
     Route::delete('/financial_transactions/{financial_transaction}',[FinancialTransactionController::class,"destroy"])->name("financial.delete");
     Route::get('/financial_transactions/{patient}/patient',[FinancialTransactionController::class,"index_patient"])->name("financials.patient");
     Route::get('/financial_transactions/today/list',[FinancialTransactionController::class,"today"])->name("financials.today");
+    Route::get('/financial_transactions/Last_7_Days/list',[FinancialTransactionController::class,"last_7day"])->name("financials.last_7day");
+    Route::get('/financial_transactions/ordered/list',[FinancialTransactionController::class,"index_ordered_time"])->name("financials.ordered");
+    Route::get('/financial_transactions/Last_30_Days/list',[FinancialTransactionController::class,"last_30day"])->name("financials.last_30day");
 
 });
