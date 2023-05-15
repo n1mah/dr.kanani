@@ -1182,14 +1182,42 @@ color: red;
     width: 20%;
     text-align: center;
 }
-#show-appointment-page .box-btn button.btn_financial{
+#show-appointment-page .box-btn .btn_financial{
     background-color: #fdb025;
+    display: flex;
+    color: white;
+    padding: 2px;
+    outline: none;
+    border: none;
+    border-radius: 10px;
+    width: 90%;
+    text-align: center;
+}
+#show-appointment-page .box-btn form .btn_see{
+    background-color: #47a6ff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     color: white;
     padding: 6px 12px;
     outline: none;
     border: none;
     border-radius: 10px;
     width: 90%;
+    text-align: center;
+}
+#show-appointment-page .box-btn form .btn_financial{
+    background-color: #fdb025;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    padding: 6px 12px;
+    outline: none;
+    border: none;
+    border-radius: 10px;
+    width: 100%;
+    text-align: center;
 }
 #show-appointment-page .parent-status{
     display: flex;

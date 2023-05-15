@@ -23,6 +23,9 @@
                                 <button type="submit" class="btn_see">مشاهده نسخه ها این نوبت</button>
                             </form>
                         @else
+                            <form>
+                                <a type="submit" class="btn_see" onclick="alert('برای این نوبت نسخه ای ثبت نشده');return false;">مشاهده نسخه های نوبت</a>
+                            </form>
                         @endif
                         @if(count($appointment->financialTransactions)>0)
                             <form action="{{route("financials.appointment",$appointment)}}" method="get">
@@ -30,7 +33,9 @@
                                 <button type="submit" class="btn_financial">مشاهده تراکنشات نوبت</button>
                             </form>
                         @else
-                            <a type="submit" class="btn_see" onclick="alert('برای این نوبت تراکنش مالی ثبت نشده');return false;">مشاهده نسخه ها این نوبت</a>
+                        <form>
+                            <a type="submit" class="btn_financial" onclick="alert('برای این نوبت تراکنش مالی ثبت نشده');return false;">مشاهده تراکنش های نوبت</a>
+                        </form>
                         @endif
 
                 </div>
