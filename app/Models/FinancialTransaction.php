@@ -10,7 +10,7 @@ class FinancialTransaction extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'title','patient_id','appointment_id','method', 'payment_amount', 'comment'
+        'title','patient_id','appointment_id','method', 'payment_amount', 'comment', 'visit_time', 'changeable', 'is_active'
     ];
     public function patient(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {
@@ -22,6 +22,21 @@ class FinancialTransaction extends Model
         return $this->belongsTo(Appointment::class);
     }
 
+    protected function payTime(): Attribute
+    {
+        return Attribute::make(
+            get: fn ($value) => strtotime($value),
+            set: fn ($value) => date('Y-m-d H:i:s', (($value/1000)+(3600*3.5))),
+        );
+    }
+
+    protected function payTimeGetter(): Attribute{
+        return Attribute::make(
+            get: fn () => is_null($this->pay_time)
+                ? (null)
+                : (new Verta($this->pay_time))->format('Y/n/j  H:i')
+        );
+    }
     protected function createdAt(): Attribute
     {
         return Attribute::make(

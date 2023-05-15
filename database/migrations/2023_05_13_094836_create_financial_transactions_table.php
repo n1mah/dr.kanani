@@ -21,6 +21,9 @@ return new class extends Migration
             $table->string("method")->default("غیره");
             $table->integer("payment_amount");
             $table->string("comment")->nullable();
+            $table->timestamp("pay_time")->nullable();
+            $table->boolean("changeable")->default(true);
+            $table->boolean("is_active")->default(true);
             $table->timestamps();
         });
     }

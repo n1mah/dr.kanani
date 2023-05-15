@@ -27,6 +27,8 @@ class FinancialTransactionRequest extends FormRequest
             'method'=>'required|max:128',
             'payment_amount'=>'required|numeric',
             'comment'=>'nullable',
+            'pay_time'=>'required|numeric',
+            'changeable'=>'nullable',
         ];
     }
     public function messages(): array
@@ -41,6 +43,8 @@ class FinancialTransactionRequest extends FormRequest
             'method.max' => 'نوع پرداخت نامعتبر می باشد',
             'payment_amount.required' => 'مبلغ پرداخت را وارد کنید',
             'payment_amount.numeric' => 'مبلغ پرداخت نامعتبر می باشد',
+            'pay_time.required' => 'زمان پرداخت را انتخاب کنید',
+            'pay_time.numeric' => 'زمان پرداخت باید تایم استمپ باشد (نامعتبر)',
         ];
     }
 }
