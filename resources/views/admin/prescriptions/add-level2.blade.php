@@ -18,7 +18,7 @@
                         <select id="appointment_id" name="appointment_id" dir="ltr">
                             <option value="">بدون نوبت</option>
                             @foreach($appointments as $appointment)
-                                <option value="{{$appointment->id}}">{{$appointment->visitTimeGetter}}</option>
+                                <option @isset($appointment_id) @if($appointment_id==$appointment->id) selected @endif @endisset value="{{$appointment->id}}">{{$appointment->visitTimeGetter}}</option>
                             @endforeach
                         </select>
                     </div>

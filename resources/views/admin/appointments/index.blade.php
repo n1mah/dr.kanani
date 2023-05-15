@@ -78,7 +78,7 @@
                                     </form>
                                     <form action="{{route("appointment.success",$appointment)}}" method="post">
                                         @csrf
-                                        @method("put")
+                                        @method("get")
                                         <button type="submit" class="btn_success">ویزیت شد</button>
                                     </form>
                                 @elseif($appointment->status==1 || $appointment->status==2)

@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Hekmatinasser\Verta\Verta;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -10,7 +11,7 @@ class FinancialTransaction extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'title','patient_id','appointment_id','method', 'payment_amount', 'comment', 'visit_time', 'changeable', 'is_active'
+        'title','patient_id','appointment_id','method', 'payment_amount', 'comment', 'pay_time', 'changeable', 'is_active'
     ];
     public function patient(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {

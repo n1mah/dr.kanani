@@ -69,14 +69,30 @@ class FinancialTransactionController extends Controller
         return view('admin.financial_transactions.add',[
             "methods"=>$methods,
             'patients'=>$patient->orderBy("firstname","asc")->orderBy("lastname","asc")->get(),
-            'patient_id'=>$patient_id
+            'patient_id'=>$patient_id,
+            'title_h1'=>'ثبت پرداختی'
         ]);
     }
 
-    public function store(FinancialTransactionRequest $request): \Illuminate\Http\RedirectResponse
+    public function store(FinancialTransactionRequest $request)
     {
         FinancialTransaction::create($request->all());
-        return redirect()->route('financials');
+        if ($request->input("appointment_id") !== null){
+            $appointment_id=$request->input("appointment_id");
+            $appointment=Appointment::findOrFail($appointment_id);
+            (new AppointmentController)->success_work($appointment);
+//            return redirect()->route('financials');
+            $patientN=$appointment->patient;
+            $patient_id=$appointment->patient->national_code;
+            $appointment=new Appointment();
+            return view('admin.prescriptions.add-level2',[
+                'appointments'=>$appointment->where("patient_id",$patient_id)->whereIn("status",[0,1])->orderby("visit_time")->get(),
+                'patient'=>$patientN,
+                'appointment_id'=>$appointment_id,
+            ]);
+        }else{
+            return redirect()->route('financials');
+        }
     }
 
     public function show(FinancialTransaction $financialTransaction): \Illuminate\Contracts\View\View|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application

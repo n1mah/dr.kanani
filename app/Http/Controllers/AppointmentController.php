@@ -108,13 +108,35 @@ class AppointmentController extends Controller
         ]);
     }
 
-    public function success(Appointment $appointment): RedirectResponse
+    public function success(Appointment $appointment)
     {
-            $time=time();
-            $appointment->status=1;
-            $appointment->change_status=$time;
-            $appointment->save();
-        return redirect()->back();
+        $patient_id=null;if(request("patient")){$patient_id=request("patient");}
+        $patient= new Patient;
+        $methods = [ "دستگاه کارتخوان" , "کارت به کارت", "نقدی" , "چندحالتی" , "غیره"];
+        return view('admin.financial_transactions.add',[
+            "methods"=>$methods,
+            'appointment'=>$appointment,
+            'patient'=>$appointment->patient,
+            'patients'=>$patient->orderBy("firstname","asc")->orderBy("lastname","asc")->get(),
+            'patient_id'=>$patient_id,
+            'visit'=>'yes',
+            'title_h1'=>'تایید ویزیت و ثبت پرداخت'
+        ]);
+    }
+    public function success_work(Appointment $appointment):void
+    {
+        $time=time();
+        $appointment->status=1;
+        $appointment->change_status=$time;
+        $appointment->save();
+    }
+    public function success_save(Appointment $appointment): RedirectResponse
+    {
+//        $time=time();
+//        $appointment->status=1;
+//        $appointment->change_status=$time;
+//        $appointment->save();
+//        return redirect()->back();
     }
     public function cancel(Appointment $appointment): RedirectResponse
     {

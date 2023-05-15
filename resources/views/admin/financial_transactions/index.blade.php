@@ -82,7 +82,7 @@
                                 @endif
                                 </td>
                             @endif
-                            <td>{{$financialTransaction->created_at}}</td>
+                            <td dir="ltr">{{$financialTransaction->payTimeGetter}}</td>
                             <td class="money">{{number_format((String)$financialTransaction->payment_amount)}}</td>
                             <td>{{$financialTransaction->method}}</td>
                             <td>

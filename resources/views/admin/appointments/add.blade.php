@@ -29,8 +29,9 @@
                     <div>
                         <label for="type">نوع <span class="star-red">*</span></label>
                         <select id="type" name="type">
-                            <option value="ویزیت">ویزیت</option>
-                            <option value="بررسی آزمایش یا تست">بررسی آزمایش یا تست</option>
+                            <option value="ویزیت دکتر">ویزیت دکتر</option>
+                            <option value="ویزیت برای آزمایش یا تست">ویزیت برای آزمایش یا تست</option>
+                            <option value="بررسی آزمایش یا تست (بررسی یا جوابدهی)">بررسی آزمایش یا تست (بررسی یا جوابدهی)</option>
                         </select>
                     </div>
                     <br>

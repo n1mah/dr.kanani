@@ -58,7 +58,8 @@ Route::group(['prefix' => 'panel'],function (){
     Route::put('/appointments/{appointment}',[AppointmentController::class,"update"])->name("appointment.update");
     Route::delete('/appointments/{appointment}',[AppointmentController::class,"destroy"])->name("appointment.delete");
     Route::get('/appointments/{appointment}/prescriptions',[AppointmentController::class,"show_prescriptions"])->name("appointment.prescriptions");
-    Route::put('/appointments/{appointment}/success',[AppointmentController::class,"success"])->name("appointment.success");
+    Route::get('/appointments/{appointment}/success',[AppointmentController::class,"success"])->name("appointment.success");
+    Route::put('/appointments/{appointment}/success',[AppointmentController::class,"success_save"])->name("appointment.success.save");
     Route::put('/appointments/{appointment}/cancel',[AppointmentController::class,"cancel"])->name("appointment.cancel");
     Route::get('/appointment/today_list',[AppointmentController::class,"today"])->name("appointments.today");
     Route::get('/appointment/tomorrow_list',[AppointmentController::class,"tomorrow"])->name("appointments.tomorrow");

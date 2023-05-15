@@ -29,6 +29,7 @@ class FinancialTransactionRequest extends FormRequest
             'comment'=>'nullable',
             'pay_time'=>'required|numeric',
             'changeable'=>'nullable',
+            'appointment_id'=>'nullable|exists:appointments,id',
         ];
     }
     public function messages(): array
