@@ -442,7 +442,6 @@ color: red;
 
 #show-patient-page form input{
     width: 60%;
-
 }
 #show-patient-page form input.btn{
     background-color: #da4b00;
@@ -452,11 +451,12 @@ color: red;
 }
 
 #show-patient-page .btn-box{
-    width: 60%;
+    width: 90%;
     margin: auto;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    flex-wrap: wrap;
 }
 #show-patient-page .btn-box a{
     text-decoration: none;
@@ -467,6 +467,14 @@ color: red;
     display: flex;
     align-items: center;
     justify-content: center;
+}
+#show-patient-page .btn-box form{
+    display: flex;
+    width: auto;
+    height: auto;
+    margin: initial;
+    padding: initial;
+    background-color: initial;
 }
 #show-patient-page .btn-box .btn_prep{
     background-color: rgb(182, 179, 0);
@@ -496,6 +504,33 @@ color: red;
     background-color: #da0000;
     color: white;
 }
+#show-patient-page .btn-box form .btn_del{
+    background-color: #da0000;
+    margin: initial;
+    padding: 10px 16px;
+    border: none;
+    outline: none;
+    color: white;
+    width: 100%;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#show-patient-page .btn-box form .btn_up{
+    background-color: #ff742c;
+    margin: initial;
+    padding: 10px 16px;
+    border: none;
+    outline: none;
+    color: white;
+    width: 100%;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 /*show-patient-page*/
 
 

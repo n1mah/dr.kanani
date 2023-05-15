@@ -47,6 +47,16 @@
                 </form>
                 <br>
                 <div class="btn-box">
+                    <form action="{{route("patient.delete",$patient)}}" method="post">
+                        @csrf
+                        @method('delete')
+                        <button class="btn_del">حذف</button>
+                    </form>
+                    <form action="{{route("patient.editForm",$patient)}}" method="get">
+                        @csrf
+                        <button class="btn_up">ویرایش</button>
+                    </form>
+                    <a href="{{route("patient.appointments",$patient)}}" @if(count($patient->appointments)<1) onclick="alert('نوبتی وجود ندارد');return false;" @endif class="btn_visit">مشاهده نوبت ها</a>
                     <a href="{{route("patient.appointments",$patient)}}" @if(count($patient->appointments)<1) onclick="alert('نوبتی وجود ندارد');return false;" @endif class="btn_visit">مشاهده نوبت ها</a>
                     <a href="{{route("patient.prescriptions",$patient)}}" @if(count($patient->prescriptions)<1) onclick="alert('نسخه ای وجود ندارد');return false;" @endif class="btn_prep">مشاهده نسخه ها</a>
                     <a href="{{route("patient.reports",$patient)}}" @if(count($patient->reports)<1) onclick="alert('تست و آزمایش ندارد');return false;" @endif class="btn_result">مشاهده تست ها و آزمایشات</a>

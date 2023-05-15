@@ -62,7 +62,7 @@ class PatientController extends Controller
     public function destroy(Patient $patient)
     {
         $patient->delete();
-        return redirect()->back();
+        return redirect()->route('patients');
     }
 
     public function show_appointments(Patient $patient): View|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application
