@@ -67,6 +67,11 @@
                             <textarea disabled id="content" name="content" rows="3">{{$report->prescription->text_prescription}}</textarea>
                         </div>
                         <br>
+                        <div>
+                            <label for="appointment"> ویزیت</label>
+                            <input type="text" dir="ltr" disabled id="appointment" value="{{$report->prescription->appointment->visitTimeGetter}}">
+                        </div>
+                        <br>
                         <div class="show-images">
                             <h3>تصاویر نسخه ها</h3>
                             <div class="parent-box parent-box-prescription">
