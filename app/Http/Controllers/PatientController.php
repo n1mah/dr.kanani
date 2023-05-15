@@ -67,29 +67,35 @@ class PatientController extends Controller
 
     public function show_appointments(Patient $patient): View|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application
     {
+        $patient_id=null;if(request("id")){$patient_id=request("id");}
         $appointments=$patient->appointments()->orderBy("visit_time","desc")->paginate(10);
         return view('admin.patients.appointments',[
             'appointments'=>$appointments,
-            'back'=> redirect()->back()->getTargetUrl()
+            'back'=> redirect()->back()->getTargetUrl(),
+            'patient_id_add'=>$patient_id
         ]);
     }
 
     public function show_prescriptions(Patient $patient): View|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application
     {
+        $patient_id=null;if(request("id")){$patient_id=request("id");}
         $prescriptions=$patient->prescriptions()->orderBy("updated_at","desc")->paginate(10);
         return view('admin.patients.prescriptions',[
             'prescriptions'=>$prescriptions,
-            'back'=> redirect()->back()->getTargetUrl()
+            'back'=> redirect()->back()->getTargetUrl(),
+            'patient_id_add'=>$patient_id
         ]);
     }
 
     public function show_reports(Patient $patient): View|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application
     {
+        $patient_id=null;if(request("id")){$patient_id=request("id");}
         $reports=$patient->reports()->orderBy("updated_at","desc")->paginate(10);
         return view('admin.patients.reports',[
             'reports'=>$reports,
             'patient'=>$patient,
-            'back'=> redirect()->back()->getTargetUrl()
+            'back'=> redirect()->back()->getTargetUrl(),
+            'patient_id_add'=>$patient_id
         ]);
     }
 

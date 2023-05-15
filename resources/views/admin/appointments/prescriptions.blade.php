@@ -9,7 +9,7 @@
             <br>
             <h2>بیمار : <span>{{$prescriptions->first()->appointment->patient->firstname}} {{$prescriptions->first()->appointment->patient->lastname}}</span></h2>
             <h2>وقت : <span>{{$prescriptions->first()->appointment->visit_time}}</span></h2>
-            <div class="add-box"><a href="{{route("prescription.addForm1")}}">افزودن نسخه جدید</a></div>
+            <div class="add-box"><a href="{{route("prescription.addForm1")}}@if(isset($patient_id_add)&&!is_null($patient_id_add))?patient={{$patient_id_add}}@endif">افزودن نسخه جدید</a></div>
             <br>
             <div class="table">
                 <table>

@@ -10,7 +10,7 @@
                 <h2>بیمار : <span>{{$patient->firstname}} {{$patient->lastname}}</span></h2>
                 <br>
                 <div class="add-box">
-                    <a href="{{route("report.addForm")}}">افزودن گزارش جدید</a>
+                    <a href="{{route("report.addForm")}}@if(isset($patient_id_add)&&!is_null($patient_id_add))?patient={{$patient_id_add}}@endif">افزودن گزارش جدید</a>
                 </div>
                 <br>
                 @if(count($reports)>0)

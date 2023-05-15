@@ -15,7 +15,12 @@
                         <label for="patient_id">بیمار<span class="star-red">*</span></label>
                         <select id="patient_id" name="patient_id">
                             @foreach($patients as $patient)
-                                <option value="{{$patient->national_code}}">{{$patient->firstname}} {{$patient->lastname}}</option>
+                                <option
+                                    value="{{$patient->national_code}}"
+                                    @if(isset($patient_id) && !is_null($patient_id))
+                                        @if($patient_id==$patient->national_code) selected @endif
+                                    @endif
+                                >{{$patient->firstname}} {{$patient->lastname}}</option>
                             @endforeach
                         </select>
                     </div>

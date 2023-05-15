@@ -47,6 +47,7 @@
                                 @if(count($patient->financialTransactions)>0)
                                 <form action="{{route("financials.patient",$patient)}}" method="get">
                                     @csrf
+                                    <input type="hidden" name="id" value="{{$patient->national_code}}">
                                     <button type="submit" class="btn_financial">مشاهده</button>
                                 </form>
                                 @else
@@ -57,6 +58,7 @@
                                 @if(count($patient->appointments)>0)
                                     <form action="{{route("patient.appointments",$patient)}}" method="get">
                                         @csrf
+                                        <input type="hidden" name="id" value="{{$patient->national_code}}">
                                         <button type="submit" class="btn_visit">مشاهده</button>
                                     </form>
                                 @else
@@ -67,6 +69,7 @@
                                 @if(count($patient->prescriptions)>0)
                                 <form action="{{route("patient.prescriptions",$patient)}}" method="get">
                                     @csrf
+                                    <input type="hidden" name="id" value="{{$patient->national_code}}">
                                     <button type="submit" class="btn_prep">مشاهده</button>
                                 </form>
                                 @else
@@ -77,6 +80,7 @@
                                 @if(count($patient->reports)>0)
                                 <form action="{{route("patient.reports",$patient)}}" method="get">
                                     @csrf
+                                    <input type="hidden" name="id" value="{{$patient->national_code}}">
                                     <button type="submit" class="btn_report">مشاهده</button>
                                 </form>
                                 @else

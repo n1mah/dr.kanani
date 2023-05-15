@@ -91,6 +91,7 @@
                                         @if(count($appointment->prescriptions)>0)
                                             <form action="{{route("appointment.prescriptions",$appointment)}}" method="get">
                                                 @csrf
+                                                <input type="hidden" name="id" value="{{$appointment->patient->national_code}}">
                                                 <button type="submit" class="btn_prep">مشاهده نسخه ها این نوبت</button>
                                             </form>
                                         @else
@@ -101,6 +102,7 @@
                                         @if(count($appointment->financialTransactions)>0)
                                             <form action="{{route("financials.appointment",$appointment)}}" method="get">
                                                 @csrf
+                                                <input type="hidden" name="id" value="{{$appointment->patient->national_code}}">
                                                 <button type="submit" class="btn_financial">مشاهده تاراکنش های این نوبت</button>
                                             </form>
                                         @else

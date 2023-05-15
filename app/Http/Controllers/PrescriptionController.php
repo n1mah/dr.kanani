@@ -28,10 +28,12 @@ class PrescriptionController extends Controller
 
     public function create():View
     {
+        $patient_id=null;if(request("patient")){$patient_id=request("patient");}
         $patients=new Patient();
         return view('admin.prescriptions.add-level1',[
-            'patients'=>$patients->all(),
-            'back'=>redirect()->back()->getTargetUrl()
+            'patients'=>$patients->orderBy("firstname","asc")->orderBy("lastname","asc")->get(),
+            'back'=>redirect()->back()->getTargetUrl(),
+            'patient_id'=>$patient_id
         ]);
     }
 
@@ -200,13 +202,15 @@ class PrescriptionController extends Controller
 
     public function show_reports(Prescription $prescription):View
     {
+        $patient_id=null;if(request("id")){$patient_id=request("id");}
         $reports=$prescription->reports()->orderBy("updated_at","desc")->paginate(10);
         $patient=$prescription->appointment->patient;
         return view('admin.prescriptions.reports',[
             'reports'=>$reports,
             'prescription'=>$prescription,
             'patient'=>$patient,
-            'back'=>redirect()->back()->getTargetUrl()
+            'back'=>redirect()->back()->getTargetUrl(),
+            'patient_id_add'=>$patient_id
         ]);
     }
 

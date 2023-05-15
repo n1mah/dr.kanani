@@ -63,11 +63,13 @@ class FinancialTransactionController extends Controller
 
     public function create(): \Illuminate\Contracts\View\View|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application
     {
+        $patient_id=null;if(request("patient")){$patient_id=request("patient");}
         $patient= new Patient;
         $methods = [ "دستگاه کارتخوان" , "کارت به کارت", "نقدی" , "چندحالتی" , "غیره"];
         return view('admin.financial_transactions.add',[
             "methods"=>$methods,
-            'patients'=>$patient->orderBy("firstname","asc")->orderBy("lastname","asc")->get()
+            'patients'=>$patient->orderBy("firstname","asc")->orderBy("lastname","asc")->get(),
+            'patient_id'=>$patient_id
         ]);
     }
 
@@ -109,20 +111,24 @@ class FinancialTransactionController extends Controller
 
     public function index_patient(Patient $patient): \Illuminate\Contracts\View\View|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application
     {
+        $patient_id=null;if(request("id")){$patient_id=request("id");}
         $financialTransactions=$patient->financialTransactions()->orderBy("id","desc")->paginate(10);
         return view('admin.financial_transactions.index',[
             'financialTransactions'=>$financialTransactions,
-            'hasSearch'=>false
+            'hasSearch'=>false,
+            'patient_id_add'=>$patient_id
         ]);
     }
 
     public function index_appointment(Appointment $appointment): \Illuminate\Contracts\View\View|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application
     {
+        $patient_id=null;if(request("id")){$patient_id=request("id");}
         $financialTransactions=$appointment->financialTransactions()->orderBy("id","desc")->paginate(10);
         return view('admin.financial_transactions.index',[
             'financialTransactions'=>$financialTransactions,
             'hasSearch'=>false,
-            'appointment'=>true
+            'appointment'=>true,
+            'patient_id_add'=>$patient_id
         ]);
     }
 

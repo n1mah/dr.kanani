@@ -8,7 +8,7 @@
                 <h1>وقت های ویزیت</h1>
                 <br>
                 <h2>بیمار : <span>{{$appointments->first()->patient->firstname}} {{$appointments->first()->patient->lastname}}</span></h2>
-                <div class="add-box"><a href="{{route("appointment.addForm")}}">افزودن وقت جدید</a></div>
+                <div class="add-box"><a href="{{route("appointment.addForm")}}@if(isset($patient_id_add)&&!is_null($patient_id_add))?patient={{$patient_id_add}}@endif">افزودن وقت جدید</a></div>
                 <br>
                 <div class="table">
                     <table>

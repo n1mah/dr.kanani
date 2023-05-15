@@ -48,6 +48,7 @@
                                 @if(($prescription->reports()->count()>0))
                                     <form action="{{route("prescription.reports",$prescription)}}" method="get">
                                         @csrf
+                                        <input type="hidden" name="id" value="{{$prescription->reports->first()->patient_id}}">
                                         <button type="submit" class="btn_report">مشاهده</button>
                                     </form>
                                 @else

@@ -13,7 +13,7 @@
                 @if(isset($appointment))
                     <h2>نوبت : <a title="مشاهده" target="_blank" dir="ltr" href="{{route("appointment.show",$financialTransactions->first()->appointment)}}"><span>{{$financialTransactions->first()->appointment->visitTimeGetter}}</span></a></h2>
                 @endif
-                <div class="add-box"><a href="{{route("financial.addForm")}}">افزودن تراکنش جدید</a></div>
+                <div class="add-box"><a href="{{route("financial.addForm")}}@if(isset($patient_id_add)&&!is_null($patient_id_add))?patient={{$patient_id_add}}@endif">افزودن تراکنش جدید</a></div>
                 <br>
                 <hr>
                 @if(!isset($hasSearch))

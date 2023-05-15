@@ -58,10 +58,12 @@ class ReportController extends Controller
 
     public function create():View
     {
+        $patient_id=null;if(request("patient")){$patient_id=request("patient");}
         $patients=new Patient;
         return view('admin.reports.add',[
-            'patients'=>$patients->all(),
-            'back'=>redirect()->back()->getTargetUrl()
+            'patients'=>$patients->orderBy("firstname","asc")->orderBy("lastname","asc")->get(),
+            'back'=>redirect()->back()->getTargetUrl(),
+            'patient_id'=>$patient_id
         ]);
     }
 
