@@ -111,9 +111,11 @@
                         </tbody>
                     </table>
                 </div>
-                <div class="pagination">
-                    <x-panel.pagination :lists="$financialTransactions" />
-                </div>
+                @if(!isset($search))
+                    <div class="pagination">
+                        <x-panel.pagination :lists="$financialTransactions" />
+                    </div>
+                @endif
             </div>
         </div>
     </div>

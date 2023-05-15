@@ -107,9 +107,11 @@
                         </tbody>
                     </table>
                 </div>
-                <div class="pagination">
-                    <x-panel.pagination :lists="$patients" />
-                </div>
+                @if(!isset($search))
+                    <div class="pagination">
+                        <x-panel.pagination :lists="$patients" />
+                    </div>
+                @endif
             </div>
         </div>
     </div>

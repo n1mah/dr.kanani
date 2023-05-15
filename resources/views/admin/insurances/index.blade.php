@@ -59,9 +59,11 @@
                         </tbody>
                     </table>
                 </div>
-                <div class="pagination">
-                    <x-panel.pagination :lists="$insurances" />
-                </div>
+                @if(!isset($search))
+                    <div class="pagination">
+                        <x-panel.pagination :lists="$insurances" />
+                    </div>
+                @endif
             </div>
         </div>
     </div>

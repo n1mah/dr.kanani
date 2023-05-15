@@ -56,7 +56,8 @@ class FinancialTransactionController extends Controller
             ->orWhere('method', 'LIKE', '%'.$search.'%')
             ->orWhere('national_code', 'LIKE', '%'.$search.'%');
         return view('admin.financial_transactions.index',[
-            'financialTransactions'=>$financialTransactions->orderBy("id","desc")->paginate(10)
+            'financialTransactions'=>$financialTransactions->orderBy("id","desc")->get(),
+            'search'=>'has'
         ]);
     }
 

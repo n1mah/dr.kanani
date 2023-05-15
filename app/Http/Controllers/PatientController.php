@@ -102,7 +102,8 @@ class PatientController extends Controller
                            ->orWhere('national_code', 'LIKE', '%'.$search.'%')
                            ->orWhere('insurances.title', 'LIKE', '%'.$search.'%');
         return view('admin.patients.index',[
-            'patients'=>$patients->orderBy("patients.updated_at","desc")->paginate(10)
+            'patients'=>$patients->orderBy("patients.updated_at","desc")->get(),
+            'search'=>'has'
         ]);
     }
 }
