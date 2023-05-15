@@ -101,6 +101,9 @@ Route::group(['prefix' => 'panel'],function (){
     Route::get('/reports/{report}/edit',[ReportController::class,"edit"])->name("report.editForm");
     Route::put('/reports/{report}',[ReportController::class,"update"])->name("report.update");
     Route::delete('/reports/{report}',[ReportController::class,"destroy"])->name("report.delete");
+    Route::get('/reports/{report}/edit-image',[ReportController::class,"edit_image"])->name("report.image");
+    Route::delete('/reports/image/{reportImage}',[ReportController::class,"delete_image"])->name("report.image.delete");
+    Route::post('/reports/{report}/image',[ReportController::class,"store_image"])->name("report.image.store");
 
 
     Route::get('/financial_transactions',[FinancialTransactionController::class,"index"])->name("financials");

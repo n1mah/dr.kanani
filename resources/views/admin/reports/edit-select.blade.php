@@ -13,6 +13,7 @@
                     <a href="{{route("report.editForm",$report)}}">ویرایش جزییات گزارش <br> ( +ویرایش بیمار )</a>
                     <a href="{{route("report.addForm2",[$report->patient,$report])}}">ویرایش نسخه انتخابی <br>  (مربوط به گزارش )</a>
                     <a href="{{route("report.addForm2",[$report->patient,$report])}}">ویرایش تصاویر آزمایش</a>
+                    <a href="{{route("report.image",[$report])}}">ویرایش تصویر نسخه</a>
                 </div>
                 <form>
                     <br>

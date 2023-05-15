@@ -6,6 +6,7 @@ use App\Http\Requests\StoreReportRequest;
 use App\Http\Requests\UpdateReportRequest;
 use App\Models\Patient;
 use App\Models\Report;
+use App\Models\ReportImage;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -105,5 +106,37 @@ class ReportController extends Controller
     {
         $report->delete();
         return redirect()->back();
+    }
+    public function edit_image(Report $report): RedirectResponse | View
+    {
+        return view('admin.reports.edit-images',[
+            'report'=>$report,
+        ]);
+    }
+    public function delete_image(ReportImage $reportImage)
+    {
+
+        $report=$reportImage->report;
+        $reportImage->delete();
+        return redirect()->route('report.image',$report);
+    }
+    public function store_image(Request $request,Report $report): RedirectResponse|View
+    {
+        $files= $request->file("images");
+        try {
+            $reportImageController= new ReportImageController();
+            $reportImageController->store($files,$report->id);
+            $patient=$report->patient;
+        }catch (\Exception){
+            $patients=new Patient;
+            return view('admin.reports.edit-images',[
+                'report'=>$report,
+                'patients'=>$patients->all(),
+                'back'=>redirect()->back()->getTargetUrl()
+            ]);
+        }
+        return view('admin.reports.edit-images',[
+            'report'=>$report,
+        ]);
     }
 }
