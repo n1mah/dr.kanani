@@ -92,6 +92,7 @@
                                     <button class="btn_see">مشاهده</button>
                                 </form>
                             </td>
+                            @if($financialTransaction->changeable==true)
                             <td>
                                 <form action="{{route("financial.editForm",$financialTransaction)}}" method="get">
                                     @csrf
@@ -106,6 +107,9 @@
                                     <button class="btn_del">حذف</button>
                                 </form>
                             </td>
+                            @else
+                                <td colspan="2">غیر قابل تغییر</td>
+                            @endif
                         </tr>
                         @endforeach
                         </tbody>

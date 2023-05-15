@@ -96,9 +96,8 @@
                           @method("put")
                           <button type="submit" class="btn_cancel">کنسل</button>
                       </form>
-                      <form class="status" action="{{route("appointment.success",$appointment)}}" method="post">
+                      <form class="status" action="{{route("appointment.success",$appointment)}}" method="get">
                           @csrf
-                          @method("put")
                           <button type="submit" class="btn_success">ویزیت شد</button>
                       </form>
                   </div>
