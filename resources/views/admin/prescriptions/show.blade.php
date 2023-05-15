@@ -7,6 +7,18 @@
             <div id="show-prescription-page">
                 <h1> مشاهده جزییات  نسخه </h1>
                 <br>
+                <div class="box-btn">
+                    <form action="{{route("prescription.edit_special",$prescription)}}" method="get">
+                        @csrf
+                        <button type="submit" class="btn_up">ویرایش</button>
+                    </form>
+                    <form action="{{route("prescription.delete",$prescription)}}" method="post">
+                        @csrf
+                        @method('delete')
+                        <button class="btn_del">حذف</button>
+                    </form>
+                </div>
+                <br>
                 <form>
                     @csrf
                     <br>

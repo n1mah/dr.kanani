@@ -105,7 +105,7 @@ class ReportController extends Controller
     public function destroy(Report $report): RedirectResponse
     {
         $report->delete();
-        return redirect()->back();
+        return redirect()->route('reports');
     }
     public function edit_image(Report $report): RedirectResponse | View
     {

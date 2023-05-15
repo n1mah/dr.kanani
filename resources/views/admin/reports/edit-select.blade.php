@@ -5,15 +5,15 @@
             <x-panel.header-body />
             <hr>
             <div id="edit-special-report-page">
-                <h1> ویرایش نسخه </h1>
+                <h1> ویرایش آزمایش / گزارش </h1>
                 <br>
                 <p>لطفا موردی را که میخواهید ویرایش کنید انتخاب کنید</p>
                 <br>
                 <div class="btn-group">
                     <a href="{{route("report.editForm",$report)}}">ویرایش جزییات گزارش <br> ( +ویرایش بیمار )</a>
                     <a href="{{route("report.addForm2",[$report->patient,$report])}}">ویرایش نسخه انتخابی <br>  (مربوط به گزارش )</a>
-                    <a href="{{route("report.addForm2",[$report->patient,$report])}}">ویرایش تصاویر آزمایش</a>
-                    <a href="{{route("report.image",[$report])}}">ویرایش تصویر نسخه</a>
+                    <a href="{{route("prescription.image",$report->prescription)}}"> ویرایش تصویر نسخه<br>افزودن تصویر نسخه</a>
+                    <a href="{{route("report.image",[$report])}}"> ویرایش تصویر آزمایش<br>افزودن تصویر آزمایش</a>
                 </div>
                 <form>
                     <br>

@@ -195,7 +195,7 @@ class PrescriptionController extends Controller
     public function destroy(Prescription $prescription): RedirectResponse
     {
         $prescription->delete();
-        return redirect()->back();
+        return redirect()->route('prescriptions');
     }
 
     public function show_reports(Prescription $prescription):View

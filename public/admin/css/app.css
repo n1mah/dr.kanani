@@ -1809,6 +1809,95 @@ color: red;
     transform: scale(1.1);
     transition: border 500ms , transform .5s;
 }
+
+#show-prescription-page .box-btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#show-prescription-page .box-btn form{
+    display: flex;
+    width: auto;
+    height: auto;
+    margin: initial;
+    padding: initial;
+    background-color: initial;
+}
+#show-prescription-page .box-btn button.btn_up{
+    background-color: #ff742c;
+    color: white;
+    padding: 6px 12px;
+    outline: none;
+    border: none;
+    border-radius: 10px;
+    width: 90%;
+
+}
+#show-prescription-page .box-btn button.btn_del{
+    background-color: #da0000;
+    color: white;
+    padding: 6px 12px;
+    outline: none;
+    border: none;
+    border-radius: 10px;
+    width: 90%;
+}
+#show-prescription-page .box-btn button.btn_see{
+    background-color: #47a6ff;
+    color: white;
+    padding: 6px 12px;
+    outline: none;
+    border: none;
+    border-radius: 10px;
+    width: 90%;
+}
+#show-prescription-page .box-btn .btn_see{
+    background-color: #47a6ff;
+    color: white;
+    padding: 6px 12px;
+    outline: none;
+    border: none;
+    border-radius: 10px;
+    width: 20%;
+    text-align: center;
+}
+#show-prescription-page .box-btn .btn_financial{
+    background-color: #fdb025;
+    display: flex;
+    color: white;
+    padding: 2px;
+    outline: none;
+    border: none;
+    border-radius: 10px;
+    width: 90%;
+    text-align: center;
+}
+#show-prescription-page .box-btn form .btn_see{
+    background-color: #47a6ff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    padding: 6px 12px;
+    outline: none;
+    border: none;
+    border-radius: 10px;
+    width: 90%;
+    text-align: center;
+}
+#show-prescription-page .box-btn form .btn_financial{
+    background-color: #fdb025;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    padding: 6px 12px;
+    outline: none;
+    border: none;
+    border-radius: 10px;
+    width: 100%;
+    text-align: center;
+}
 /*show-prescription-page*/
 
 
@@ -2051,6 +2140,95 @@ color: red;
 }
 #edit-special-prescription-page .show-images .parent-box .box a:hover img{
     border:none;
+}
+
+#edit-special-prescription-page .box-btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#edit-special-prescription-page .box-btn form{
+    display: flex;
+    width: auto;
+    height: auto;
+    margin: initial;
+    padding: initial;
+    background-color: initial;
+}
+#edit-special-prescription-page .box-btn button.btn_up{
+    background-color: #ff742c;
+    color: white;
+    padding: 6px 12px;
+    outline: none;
+    border: none;
+    border-radius: 10px;
+    width: 90%;
+
+}
+#edit-special-prescription-page .box-btn button.btn_del{
+    background-color: #da0000;
+    color: white;
+    padding: 6px 12px;
+    outline: none;
+    border: none;
+    border-radius: 10px;
+    width: 90%;
+}
+#edit-special-prescription-page .box-btn button.btn_see{
+    background-color: #47a6ff;
+    color: white;
+    padding: 6px 12px;
+    outline: none;
+    border: none;
+    border-radius: 10px;
+    width: 90%;
+}
+#edit-special-prescription-page .box-btn .btn_see{
+    background-color: #47a6ff;
+    color: white;
+    padding: 6px 12px;
+    outline: none;
+    border: none;
+    border-radius: 10px;
+    width: 20%;
+    text-align: center;
+}
+#edit-special-prescription-page .box-btn .btn_financial{
+    background-color: #fdb025;
+    display: flex;
+    color: white;
+    padding: 2px;
+    outline: none;
+    border: none;
+    border-radius: 10px;
+    width: 90%;
+    text-align: center;
+}
+#edit-special-prescription-page .box-btn form .btn_see{
+    background-color: #47a6ff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    padding: 6px 12px;
+    outline: none;
+    border: none;
+    border-radius: 10px;
+    width: 90%;
+    text-align: center;
+}
+#edit-special-prescription-page .box-btn form .btn_financial{
+    background-color: #fdb025;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    padding: 6px 12px;
+    outline: none;
+    border: none;
+    border-radius: 10px;
+    width: 100%;
+    text-align: center;
 }
 /*edit-special-prescription-page*/
 
@@ -2819,6 +2997,96 @@ display: flex;
     transform: scale(1.1);
     transition: border 500ms , transform .5s;
 }
+
+#show-report-page .box-btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#show-report-page .box-btn form{
+    display: flex;
+    width: auto;
+    height: auto;
+    margin: initial;
+    padding: initial;
+    background-color: initial;
+}
+#show-report-page .box-btn button.btn_up{
+    background-color: #ff742c;
+    color: white;
+    padding: 6px 12px;
+    outline: none;
+    border: none;
+    border-radius: 10px;
+    width: 90%;
+
+}
+#show-report-page .box-btn button.btn_del{
+    background-color: #da0000;
+    color: white;
+    padding: 6px 12px;
+    outline: none;
+    border: none;
+    border-radius: 10px;
+    width: 90%;
+}
+#show-report-page .box-btn button.btn_see{
+    background-color: #47a6ff;
+    color: white;
+    padding: 6px 12px;
+    outline: none;
+    border: none;
+    border-radius: 10px;
+    width: 90%;
+}
+#show-report-page .box-btn .btn_see{
+    background-color: #47a6ff;
+    color: white;
+    padding: 6px 12px;
+    outline: none;
+    border: none;
+    border-radius: 10px;
+    width: 20%;
+    text-align: center;
+}
+#show-report-page .box-btn .btn_financial{
+    background-color: #fdb025;
+    display: flex;
+    color: white;
+    padding: 2px;
+    outline: none;
+    border: none;
+    border-radius: 10px;
+    width: 90%;
+    text-align: center;
+}
+#show-report-page .box-btn form .btn_see{
+    background-color: #47a6ff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    padding: 6px 12px;
+    outline: none;
+    border: none;
+    border-radius: 10px;
+    width: 90%;
+    text-align: center;
+}
+#show-report-page .box-btn form .btn_financial{
+    background-color: #fdb025;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    padding: 6px 12px;
+    outline: none;
+    border: none;
+    border-radius: 10px;
+    width: 100%;
+    text-align: center;
+}
+
 /*show-report-page*/
 
 

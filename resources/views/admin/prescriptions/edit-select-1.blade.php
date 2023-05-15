@@ -42,12 +42,12 @@
                     <br>
                     <div>
                         <label for="reason">علت مراجعه</label>
-                        <textarea id="reason" disabled name="text_prescription" rows="6">{{$prescription->reason}}</textarea>
+                        <textarea id="reason" disabled name="text_prescription" rows="2">{{$prescription->reason}}</textarea>
                     </div>
                     <br>
                     <div>
-                        <label for="text_prescription">نسخه</label>
-                        <textarea id="text_prescription" disabled name="text_prescription" rows="6">{{$prescription->text_prescription}}</textarea>
+                        <label for="text_prescription">توضیح نسخه</label>
+                        <textarea id="text_prescription" disabled name="text_prescription" rows="3">{{$prescription->text_prescription}}</textarea>
                     </div>
                     <br>
                     <br>
