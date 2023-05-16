@@ -34,12 +34,12 @@
                                 @if(count($prescription->images)<1)
                                     <form action="{{route("prescription.editForm",$prescription)}}" method="post">
                                         @csrf
-                                        <button type="submit" class="btn_add">افزودن نسخه</button>
+                                        <button type="submit" class="btn_add">افزودن نسخه و آپلود تصاویر</button>
                                     </form>
                                 @else
                                     <form action="{{route("prescription.show",$prescription)}}" method="get">
                                         @csrf
-                                        <button type="submit" class="btn_see">مشاهده جزییات</button>
+                                        <button type="submit" class="btn_see">مشاهده نسخه</button>
                                     </form>
                                 @endif
 

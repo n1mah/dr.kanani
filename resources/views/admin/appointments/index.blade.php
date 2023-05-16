@@ -74,12 +74,12 @@
                                     <form action="{{route("appointment.cancel",$appointment)}}" method="post">
                                         @csrf
                                         @method("put")
-                                        <button type="submit" class="btn_cancel">کنسل</button>
+                                        <button type="submit" class="btn_cancel">کنسل شده؟</button>
                                     </form>
                                     <form action="{{route("appointment.success",$appointment)}}" method="post">
                                         @csrf
                                         @method("get")
-                                        <button type="submit" class="btn_success">ویزیت شد</button>
+                                        <button type="submit" class="btn_success">ویزیت شده؟</button>
                                     </form>
                                 @elseif($appointment->status==1 || $appointment->status==2)
                                     <span class="text_unknown">غیر قابل تغییر</span>
@@ -92,7 +92,7 @@
                                             <form action="{{route("appointment.prescriptions",$appointment)}}" method="get">
                                                 @csrf
                                                 <input type="hidden" name="id" value="{{$appointment->patient->national_code}}">
-                                                <button type="submit" class="btn_prep">مشاهده نسخه ها این نوبت</button>
+                                                <button type="submit" class="btn_prep">مشاهده نسخه ها</button>
                                             </form>
                                         @else
                                             <span class="btn_disable">نوبت نسخه ای ندارد</span>
@@ -103,7 +103,7 @@
                                             <form action="{{route("financials.appointment",$appointment)}}" method="get">
                                                 @csrf
                                                 <input type="hidden" name="id" value="{{$appointment->patient->national_code}}">
-                                                <button type="submit" class="btn_financial">مشاهده تاراکنش های این نوبت</button>
+                                                <button type="submit" class="btn_financial">مشاهده تراکنش ها</button>
                                             </form>
                                         @else
                                             <span class="btn_disable">نوبت تراکنشی ندارد</span>

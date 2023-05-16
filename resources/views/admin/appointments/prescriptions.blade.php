@@ -8,7 +8,7 @@
             <h1>نسخه ها</h1>
             <br>
             <h2>بیمار : <span>{{$prescriptions->first()->appointment->patient->firstname}} {{$prescriptions->first()->appointment->patient->lastname}}</span></h2>
-            <h2>وقت : <span>{{$prescriptions->first()->appointment->visit_time}}</span></h2>
+            <h2>وقت : <span dir="ltr">{{$prescriptions->first()->appointment->visitTimeGetter}}</span></h2>
             <div class="add-box"><a href="{{route("prescription.addForm1")}}@if(isset($patient_id_add)&&!is_null($patient_id_add))?patient={{$patient_id_add}}@endif">افزودن نسخه جدید</a></div>
             <br>
             <div class="table">
@@ -30,15 +30,16 @@
                             <td>{{$prescription->reason}}</td>
                             <td>{{$prescription->type}}</td>
                             <td>
-                                @if(empty(trim($prescription->text_prescription)))
+                                @if(($prescription->images()->count()<1))
                                     <form action="{{route("prescription.editForm",$prescription)}}" method="post">
                                         @csrf
-                                        <button type="submit" class="btn_add">افزودن متن نسخه</button>
+                                        <button type="submit" class="btn_add">افزودن نسخه و آپلود تصاویر</button>
+                                        <span>نسخه فاقد تصویر می باشد</span>
                                     </form>
                                 @else
                                     <form action="{{route("prescription.show",$prescription)}}" method="get">
                                         @csrf
-                                        <button type="submit" class="btn_see">مشاهده جزییات</button>
+                                        <button type="submit" class="btn_see">مشاهده نسخه</button>
                                     </form>
                                 @endif
 
