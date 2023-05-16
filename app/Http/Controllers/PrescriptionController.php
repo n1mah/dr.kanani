@@ -61,8 +61,9 @@ class PrescriptionController extends Controller
         ]);
     }
 
-    public function store(Patient $patient,StorePrescriptionRequest $request): View|Application|Factory|\Illuminate\Contracts\Foundation\Application
+    public function store(Patient $patient,StorePrescriptionRequest $request)
     {
+        $methods = [ "دستگاه کارتخوان" , "کارت به کارت", "نقدی" , "چندحالتی" , "غیره"];
         $validated = $request->all();
         $appointment_id=$validated["appointment_id"];
         if ($appointment_id==="" || is_null($appointment_id)){
@@ -72,12 +73,58 @@ class PrescriptionController extends Controller
             $appointmentN->type = $validated["type"];
             $appointmentN->visit_time =time();
             $appointmentN->save();
+//            (new AppointmentController)->success_work($appointmentN);
+
+                $patient_id=$patient->national_code;
+                $patient= new Patient;
+                $appointment_id=$appointmentN->id;
+                $prescription= Prescription::create([...$validated,'appointment_id'=>$appointment_id]);
+            return view('admin.financial_transactions.add',[
+                    "methods"=>$methods,
+                    'appointment'=>$appointmentN,
+                    'patient'=>$appointmentN->patient,
+                    'patients'=>$patient->orderBy("firstname","asc")->orderBy("lastname","asc")->get(),
+                    'patient_id'=>$patient_id,
+                    'visit'=>'yes',
+                    'title_h1'=>' تایید ویزیت و ثبت پرداخت و (مرحله بعد آپلود تصاویر نسخه و توضیح آن)',
+                    'prescription'=>$prescription->id,
+                    'next'=>[
+                        'route'=>'admin.prescriptions.add-level3',
+                    ]
+                ]);
+
+
             $validated["appointment_id"]=$appointmentN->id;
+        }else{
+            $appointment=Appointment::findOrFail($appointment_id);
+            if($appointment->status==1){
+                $prescription= Prescription::create($validated);
+                return view('admin.prescriptions.add-level3',[
+                    'prescription'=>$prescription,
+                ]);
+
+            }elseif ($appointment->status==0){
+//                (new AppointmentController)->success_work($appointment);
+                $prescription= Prescription::create($validated);
+                return view('admin.financial_transactions.add',[
+                    "methods"=>$methods,
+                    'appointment'=>$appointment,
+                    'patient'=>$appointment->patient,
+                    'patients'=>$patient->orderBy("firstname","asc")->orderBy("lastname","asc")->get(),
+                    'patient_id'=>$appointment->patient->national_code,
+                    'visit'=>'yes',
+                    'title_h1'=>' تایید ویزیت و ثبت پرداخت و (مرحله بعد آپلود تصاویر نسخه و توضیح آن)',
+                    'next'=>[
+                        'route'=>'admin.prescriptions.add-level3',
+                        'prescription'=>$prescription,
+                    ]
+                ]);
+            }else{ // cancel // !valid
+                return redirect()->route('appointments');
+
+            }
+
         }
-        $prescription= Prescription::create($validated);
-        return view('admin.prescriptions.add-level3',[
-            'prescription'=>$prescription,
-        ]);
     }
 
     public function edit(Prescription $prescription):View

@@ -6,6 +6,7 @@ use App\Http\Requests\FinancialTransactionRequest;
 use App\Models\Appointment;
 use App\Models\FinancialTransaction;
 use App\Models\Patient;
+use App\Models\Prescription;
 use Hekmatinasser\Verta\Verta;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
@@ -85,6 +86,16 @@ class FinancialTransactionController extends Controller
             $patient_id=$appointment->patient->national_code;
             $appointment=new Appointment();
             FinancialTransaction::create([...$request->all(),'changeable'=>false]);
+
+
+            if ($request->input("prescription") !== null){
+                $prescription=$prescription_id=$request->input("prescription");
+                Prescription::findOrFail($prescription_id);
+                return view('admin.prescriptions.add-level3',[
+                    'prescription'=>$prescription,
+                ]);
+            }
+
             return view('admin.prescriptions.add-level2',[
                 'appointments'=>$appointment->where("patient_id",$patient_id)->whereIn("status",[0,1])->orderby("visit_time")->get(),
                 'patient'=>$patientN,

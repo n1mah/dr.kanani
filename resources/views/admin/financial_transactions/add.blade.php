@@ -74,6 +74,9 @@
                     <textarea name="comment" id="comment" rows="2"></textarea>
                 </div>
                 <br>
+                @isset($prescription)
+                <input type="hidden" name="prescription" value="{{$prescription}}">
+                @endisset
                 <input class="btn" type="submit" value="افزودن">
             </form>
             <br>
