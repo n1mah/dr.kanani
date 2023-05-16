@@ -2486,6 +2486,17 @@ color: red;
 #patient-prescriptions-page .table table button.btn_add{
     background-color: #7b00ff;
     color: white;
+    margin-bottom: 0;
+}
+#patient-prescriptions-page .table form{
+    display: flex;
+    flex-direction: column;
+}
+#patient-prescriptions-page .table form span{
+    font-size: xx-small;
+    padding: 5px;
+    margin-bottom: 4px;
+
 }
 /*patient-prescriptions-page*/
 
@@ -2581,6 +2592,17 @@ color: red;
 #appointment-prescriptions-page .table table button.btn_add{
     background-color: #7b00ff;
     color: white;
+    margin-bottom: 0;
+}
+#appointment-prescriptions-page .table form{
+    display: flex;
+    flex-direction: column;
+}
+#appointment-prescriptions-page .table form span{
+    font-size: xx-small;
+    padding: 5px;
+    margin-bottom: 4px;
+
 }
 /*appointment-prescriptions-page*/
 
