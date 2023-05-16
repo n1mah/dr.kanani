@@ -92,9 +92,6 @@ class PrescriptionController extends Controller
                         'route'=>'admin.prescriptions.add-level3',
                     ]
                 ]);
-
-
-            $validated["appointment_id"]=$appointmentN->id;
         }else{
             $appointment=Appointment::findOrFail($appointment_id);
             if($appointment->status==1){
@@ -102,7 +99,6 @@ class PrescriptionController extends Controller
                 return view('admin.prescriptions.add-level3',[
                     'prescription'=>$prescription,
                 ]);
-
             }elseif ($appointment->status==0){
 //                (new AppointmentController)->success_work($appointment);
                 $prescription= Prescription::create($validated);
@@ -114,9 +110,9 @@ class PrescriptionController extends Controller
                     'patient_id'=>$appointment->patient->national_code,
                     'visit'=>'yes',
                     'title_h1'=>' تایید ویزیت و ثبت پرداخت و (مرحله بعد آپلود تصاویر نسخه و توضیح آن)',
+                    'prescription'=>$prescription->id,
                     'next'=>[
                         'route'=>'admin.prescriptions.add-level3',
-                        'prescription'=>$prescription,
                     ]
                 ]);
             }else{ // cancel // !valid
@@ -127,11 +123,10 @@ class PrescriptionController extends Controller
         }
     }
 
-    public function edit(Prescription $prescription):View
+    public function edit(Prescription $prescription)
     {
-        return view('admin.prescriptions.edit',[
+        return view('admin.prescriptions.add-level3',[
             'prescription'=>$prescription,
-            'back'=>redirect()->back()->getTargetUrl()
         ]);
     }
 
@@ -140,8 +135,10 @@ class PrescriptionController extends Controller
         $files= request()->file("images");
         $imageController= new ImageController;
         $imageController->store($files,$prescription->id);
-        $prescription->text_prescription=request("text_prescription");
-        $prescription->save();
+        if (!is_null(request("text_prescription"))){
+            $prescription->text_prescription=request("text_prescription");
+            $prescription->save();
+        }
         return redirect()->route('prescription.show',$prescription);
     }
 
