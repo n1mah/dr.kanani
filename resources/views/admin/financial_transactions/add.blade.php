@@ -12,8 +12,21 @@
             <form action="{{route("financial.store")}}" method="post">
                 @csrf
                 @method('post')
+                @isset($prescription)
+                    <div>
+                        <label for="type">نوع <span class="star-red">*</span></label>
+                        <select id="type" name="type">
+                            <option value="ویزیت دکتر">ویزیت دکتر</option>
+                            <option value="ویزیت برای آزمایش یا تست">ویزیت برای آزمایش یا تست</option>
+                            <option value="بررسی آزمایش یا تست (بررسی یا جوابدهی)">بررسی آزمایش یا تست (بررسی یا جوابدهی)</option>
+                            <option value="غیره">غیره</option>
+                        </select>
+                    </div>
+                    <br>
+                    <br>
+                @endisset
                 <div>
-                    <label for="title">عنوان@if(isset($visit))@else<span class="star-red">*</span>@endif</label>
+                    <label for="title">عنوان@if(isset($visit))@else<span class="star-red">*</span>@endif<span class="star-red" id="ch"></span></label>
                     <input type="text" @if(isset($visit))class="readonly" readonly @endif id="title" name="title"
                            value="@if(isset($visit))حق ویزیت دکتر@endif">
                 </div>
@@ -45,7 +58,7 @@
                     <br>
                 @endif
                 <div>
-                    <label for="payment_amount">مبلغ پرداختی<span class="star-red">*</span></label>
+                    <label for="payment_amount" >مبلغ پرداختی<span class="star-red">*</span></label>
                     <input type="number" id="payment_amount" name="payment_amount"
                            @if(isset($visit))value="{{$patient->insurance->fee}}"@else
                                value=""@endif>
@@ -75,14 +88,6 @@
                 </div>
                 <br>
                 @isset($prescription)
-                    <div>
-                        <label for="type">نوع <span class="star-red">*</span></label>
-                        <select id="type" name="type">
-                            <option value="ویزیت دکتر">ویزیت دکتر</option>
-                            <option value="ویزیت برای آزمایش یا تست">ویزیت برای آزمایش یا تست</option>
-                            <option value="بررسی آزمایش یا تست (بررسی یا جوابدهی)">بررسی آزمایش یا تست (بررسی یا جوابدهی)</option>
-                        </select>
-                    </div>
                 <input type="hidden" name="prescription" value="{{$prescription}}">
                 @endisset
                 @isset($next["route"])
@@ -201,5 +206,40 @@
                 },
             });
         });
+    </script>
+    <script>
+        $('body').ready(function(){
+            let fee='{{$patient->insurance->fee}}';
+            $("#type").change(function () {
+                let value=$(this).val();
+                let input,price;
+                let star=$('#ch');
+                let title=$('#title');
+                let payment_amount=$("#payment_amount");
+                payment_amount.attr('placeholder', "لطفا مبلغ را وارد کنید");
+                title.attr('readonly', true);
+                star.text("");
+                if(value==="ویزیت دکتر") {
+                    input="حق ویزیت دکتر";
+                    price=fee;
+                }else if(value==="ویزیت برای آزمایش یا تست"){
+                    input="هزینه تست یا آزمایش";
+                    price="";
+                }else if(value==="بررسی آزمایش یا تست (بررسی یا جوابدهی)"){
+                    input="مشاهده بررسی یا جواب دهی تست یا آزمایش";
+                    price="0";
+                }else if(value==="غیره"){
+                    input="";
+                    price="";
+                    title.attr('readonly', false);
+                    title.attr('readonly', false);
+                    title.attr('required', true);
+                    star.text("*");
+                    title.attr('placeholder', "لطفا عنوان مورد نظر خود را وارد کنید اگه هیچکدام از موارد نیست");
+                }
+                title.val(input);
+                payment_amount.val(price);
+            })
+        })
     </script>
 </x-panel.layouts.footer>
