@@ -125,17 +125,18 @@
                             <tr>
                                 <td>{{$prescription->id}}</td>
                                 <td>{{$prescription->reason}}</td>
-                                <td>{{$prescription->type}}</td>
-                                <td>
-                                    @if(empty(trim($prescription->text_prescription)))
+                                <td>{{$prescription->appointment->type}}</td>
+                                <td id="pre">
+                                    @if(($prescription->images()->count()<1))
                                         <form action="{{route("prescription.editForm",$prescription)}}" method="post">
                                             @csrf
-                                            <button type="submit" class="btn_add">افزودن متن نسخه</button>
+                                            <button type="submit" class="btn_add">افزودن نسخه و آپلود تصاویر</button>
+                                            <span>نسخه فاقد تصویر می باشد</span>
                                         </form>
                                     @else
                                         <form action="{{route("prescription.show",$prescription)}}" method="get">
                                             @csrf
-                                            <button type="submit" class="btn_see">مشاهده جزییات</button>
+                                            <button type="submit" class="btn_see">مشاهده نسخه</button>
                                         </form>
                                     @endif
 

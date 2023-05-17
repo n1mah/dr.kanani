@@ -75,6 +75,14 @@
                 </div>
                 <br>
                 @isset($prescription)
+                    <div>
+                        <label for="type">نوع <span class="star-red">*</span></label>
+                        <select id="type" name="type">
+                            <option value="ویزیت دکتر">ویزیت دکتر</option>
+                            <option value="ویزیت برای آزمایش یا تست">ویزیت برای آزمایش یا تست</option>
+                            <option value="بررسی آزمایش یا تست (بررسی یا جوابدهی)">بررسی آزمایش یا تست (بررسی یا جوابدهی)</option>
+                        </select>
+                    </div>
                 <input type="hidden" name="prescription" value="{{$prescription}}">
                 @endisset
                 @isset($next["route"])

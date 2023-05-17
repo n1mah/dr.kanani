@@ -1403,6 +1403,21 @@ color: red;
     margin: 2px 4px;
     cursor: not-allowed;
 }
+#prescriptions-page .table table button.btn_add{
+    background-color: #7b00ff;
+    color: white;
+    margin-bottom: 0;
+}
+#prescriptions-page .table form{
+    display: flex;
+    flex-direction: column;
+}
+#prescriptions-page .table form span{
+    font-size: xx-small;
+    padding: 5px;
+    margin-bottom: 4px;
+
+}
 /*prescriptions-page*/
 
 
@@ -1897,6 +1912,21 @@ color: red;
     border-radius: 10px;
     width: 100%;
     text-align: center;
+}
+#show-appointment-page #pre form button.btn_add{
+    background-color: #7b00ff;
+    color: white;
+    margin-bottom: 0;
+}
+#show-appointment-page #pre form{
+    display: flex;
+    flex-direction: column;
+}
+#show-appointment-page #pre form span{
+    font-size: xx-small;
+    padding: 5px;
+    margin-bottom: 4px;
+
 }
 /*show-prescription-page*/
 

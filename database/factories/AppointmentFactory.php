@@ -17,10 +17,11 @@ class AppointmentFactory extends Factory
      */
     public function definition(): array
     {
+        $types = ["ویزیت دکتر","ویزیت برای آزمایش یا تست","بررسی آزمایش یا تست (بررسی یا جوابدهی)"];
         $time=fake()->numberBetween(1682777781,1704067199);
         return [
 //            'patient_id' => Patient::all()->random()->id,
-            'type' => fake()->word(),
+            'type' => fake()->randomElement($types),
             'visit_time' => $time*1000,
             'status' => 1,
 //            'change_status' => $time+(60*60*2),

@@ -70,7 +70,7 @@ class PrescriptionController extends Controller
             $appointmentN = new Appointment;
             $appointmentN->patient_id =$patient->national_code;
             $appointmentN->descriptions =$validated["reason"];
-            $appointmentN->type = $validated["type"];
+            $appointmentN->type = "نامشخص";
             $appointmentN->visit_time =time()*1000;
             $appointmentN->save();
 //            (new AppointmentController)->success_work($appointmentN);

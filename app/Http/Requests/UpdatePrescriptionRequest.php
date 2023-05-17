@@ -24,7 +24,6 @@ class UpdatePrescriptionRequest extends FormRequest
         return [
 //            'appointment_id'=>'exists:appointments,id|nullable',
             'reason'=>'required|max:255',
-            'type'=>'required|max:64',
             'text_prescription'=>'nullable',
         ];
     }
@@ -35,8 +34,6 @@ class UpdatePrescriptionRequest extends FormRequest
 //            'appointment_id.exists' => 'وقت (نوبت) وجود ندارد . لطفا به درستی انتخاب کنید',
             'reason.required' => 'دلیل مراجعه را وارد کنید',
             'reason.max' => 'دلیل مراجعه نامعتبر می باشد . لطفا حداکثر در ۲۵۵ کارکتر توضیح دهید',
-            'type.required' => 'نوع ویزیت را به درستی انتخاب کنید',
-            'type.max' => 'نوع ویزیت نامعتبر می باشد',
         ];
     }
 }

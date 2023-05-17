@@ -29,7 +29,7 @@
                         <tr>
                             <td>{{$prescription->id}}</td>
                             <td>{{$prescription->reason}}</td>
-                            <td>{{$prescription->type}}</td>
+                            <td>{{$prescription->appointment->type}}</td>
                             <td>
                                 @if(($prescription->images()->count()<1))
                                     <form action="{{route("prescription.editForm",$prescription)}}" method="post">

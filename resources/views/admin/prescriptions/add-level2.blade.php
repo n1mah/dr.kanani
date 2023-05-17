@@ -28,14 +28,6 @@
                         <textarea id="reason" name="reason" rows="3"></textarea>
                     </div>
                     <br>
-                    <div>
-                        <label for="type">نوع مراجعه <span class="star-red">*</span></label>
-                        <select id="type" name="type">
-                            <option value="ویزیت">ویزیت</option>
-                            <option value="بررسی آزمایش یا تست">بررسی آزمایش یا تست</option>
-                        </select>
-                    </div>
-                    <br>
                     <input class="btn" type="submit" value="انتخاب نوبت , دلیل مراجعه و نوع مراجعه   - ادامه ">
                 </form>
                 <br>

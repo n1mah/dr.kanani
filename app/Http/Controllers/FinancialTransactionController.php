@@ -81,6 +81,8 @@ class FinancialTransactionController extends Controller
             $appointment_id=$request->input("appointment_id");
             $appointment=Appointment::findOrFail($appointment_id);
             (new AppointmentController)->success_work($appointment);
+            $appointment->type=$request->input("type");
+            $appointment->save();
 //            return redirect()->route('financials');
             $patientN=$appointment->patient;
             $patient_id=$appointment->patient->national_code;

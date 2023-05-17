@@ -16,7 +16,6 @@ return new class extends Migration
             $table->unsignedBigInteger("appointment_id");
             $table->foreign("appointment_id")->references("id")->on("appointments")->onUpdate("cascade")->onDelete("cascade");
             $table->string("reason")->nullable();
-            $table->string("type");
             $table->string("text_prescription")->nullable();
             $table->timestamps();
         });

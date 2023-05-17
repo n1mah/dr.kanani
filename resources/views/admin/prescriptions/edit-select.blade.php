@@ -35,7 +35,7 @@
                     <br>
                     <div>
                         <label for="type">نوع ویزیت</label>
-                        <input type="text" disabled id="type" value="{{$prescription->type}}">
+                        <input type="text" disabled id="type" value="{{$prescription->appointment->type}}">
                     </div>
                     <br>
                     <div>

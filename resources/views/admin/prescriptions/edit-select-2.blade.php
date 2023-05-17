@@ -42,11 +42,6 @@
                     </div>
                     <br>
                     <div>
-                        <label for="type">نوع ویزیت</label>
-                        <input type="text" disabled id="type" value="{{$prescription->type}}">
-                    </div>
-                    <br>
-                    <div>
                         <label for="reason">علت مراجعه</label>
                         <textarea id="reason" disabled name="text_prescription" rows="2">{{$prescription->reason}}</textarea>
                     </div>
