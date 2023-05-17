@@ -52,6 +52,7 @@
                         <textarea disabled id="content" name="content" rows="3">{{$report->content}}</textarea>
                     </div>
                     <br>
+                    @if(count($report->report_images)>0)
                     <br>
                     <div class="show-images">
                         <h3>تصاویر گزارش /آزمایش</h3>
@@ -63,6 +64,7 @@
                             @endforeach
                         </div>
                     </div>
+                    @endif
                     <br>
                     @if(isset($report->prescription->id))
                         <hr>
@@ -83,6 +85,7 @@
                             <label for="appointment"> ویزیت</label>
                             <input type="text" dir="ltr" disabled id="appointment" value="{{$report->prescription->appointment->visitTimeGetter}}">
                         </div>
+                        @if(count($report->prescription->images)>0)
                         <br>
                         <div class="show-images">
                             <h3>تصاویر نسخه ها</h3>
@@ -94,6 +97,9 @@
                             <br>
                         </div>
                         <br>
+                        @else
+                            <p id="not-pic">برای این نسخه تصویری وجود ندارد</p>
+                        @endif
                     @endif
                     <br>
 

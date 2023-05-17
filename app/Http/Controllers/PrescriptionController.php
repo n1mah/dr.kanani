@@ -213,7 +213,7 @@ class PrescriptionController extends Controller
             $appointmentN = new Appointment;
             $appointmentN->patient_id =$patient_id;
             $appointmentN->descriptions =$prescription->reason;
-            $appointmentN->type =$prescription->type;
+            $appointmentN->type = "نامشخص";
             $appointmentN->visit_time =time()*1000;
             $appointmentN->save();
 
@@ -305,7 +305,7 @@ class PrescriptionController extends Controller
         ]);
     }
 
-    public function delete_image( $image): RedirectResponse
+    public function delete_image(Prescription $prescription ,Image $image): RedirectResponse
     {
         $image->delete();
         return redirect()->back();

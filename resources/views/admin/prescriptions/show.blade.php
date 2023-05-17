@@ -47,6 +47,7 @@
                         <textarea id="text_prescription" disabled name="text_prescription" rows="2">{{$prescription->text_prescription}}</textarea>
                     </div>
                     <br>
+                    @if(count($prescription->images)>0)
                     <div class="splitter"></div>
                             <div class="show-images">
                                 <h3>تصاویر نسخه ها</h3>
@@ -59,6 +60,9 @@
                                 </div>
                             </div>
                     <br>
+                    @else
+                        <p id="not-pic">برای این نسخه تصویری وجود ندارد</p>
+                    @endif
                 </form>
                 <br>
                 <div class="btn-box">

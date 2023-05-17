@@ -49,7 +49,14 @@
     /*text-shadow:0 0 2px rgba(26, 32, 44, 0.57);*/
     /*font-weight: bold;*/
 }
-
+#not-pic{
+    color: white;
+    background: #d70000;
+    padding: 10px;
+    border-radius: 9px;
+    border-bottom: 3px white solid;
+    cursor: not-allowed;
+}
 #main .body{
     min-height: 100vh;
     width: 85%;
@@ -2259,6 +2266,28 @@ color: red;
     border-radius: 10px;
     width: 100%;
     text-align: center;
+}
+
+#edit-special-prescription-page form#upload-pic{
+    display: flex;
+    padding: 0;
+    margin: 0;
+    width: initial;
+    background: initial;
+    border-radius: initial;
+    flex-direction: initial;
+    align-items: initial;
+    justify-content: initial;
+}
+#edit-special-prescription-page form#upload-pic button.btn_add{
+    margin: 0;
+    background-color: #7b00ff;
+    color: white;
+    margin-bottom: 0;
+    padding:9px 12px;
+    outline: none;
+    border: none;
+    border-radius: 10px;
 }
 /*edit-special-prescription-page*/
 

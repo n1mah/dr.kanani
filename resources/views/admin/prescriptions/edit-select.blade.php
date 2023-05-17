@@ -10,9 +10,16 @@
                 <div class="btn-group">
                     <a href="{{route("prescription.edit_special_1",$prescription)}}">ویرایش بیمار ( و نوبت )</a>
                     <a href="{{route("prescription.edit_special_2",$prescription)}}">ویرایش نوبت</a>
-                    <a href="{{route("prescription.edit_special_3",$prescription)}}">ویرایش محتوا نسخه</a>
-                    <a href="{{route("prescription.image",$prescription)}}">ویرایش تصویر نسخه</a>
-                </div>
+                    @if(count($prescription->images)>0)
+                        <a href="{{route("prescription.edit_special_3",$prescription)}}">ویرایش محتوا نسخه</a>
+                        <a href="{{route("prescription.image",$prescription)}}">ویرایش تصویر نسخه</a>
+                    @else
+                        <form id="upload-pic" action="{{route("prescription.editForm",$prescription)}}" method="post">
+                            @csrf
+                            <button type="submit" class="btn_add">افزودن نسخه و آپلود تصاویر</button>
+                        </form>
+                    @endif
+                     </div>
                 <div class="box-btn">
                     <form action="{{route("prescription.delete",$prescription)}}" method="post">
                         @csrf
@@ -49,6 +56,8 @@
                     </div>
                     <br>
                     <div class="splitter"></div>
+
+                    @if(count($prescription->images)>0)
                     <div class="show-images">
                         <h3>تصاویر نسخه ها</h3>
                         <p>برای مشاهده دقیق تر هرکدام از تصاویر بر روی آن کلیک کنید</p>
@@ -60,6 +69,9 @@
                         </div>
                     </div>
                     <br>
+                    @else
+                        <p id="not-pic">برای این نسخه تصویری وجود ندارد</p>
+                    @endif
                 </form>
 
                 <br>
