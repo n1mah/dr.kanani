@@ -42,7 +42,6 @@
                                         <button type="submit" class="btn_see">مشاهده نسخه</button>
                                     </form>
                                 @endif
-
                             </td>
                             <td>
                                 @if(($prescription->reports()->count()>0))
