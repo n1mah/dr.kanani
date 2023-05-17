@@ -33,6 +33,11 @@
                     </div>
                     <br>
                     <div>
+                        <label for="pay_time_date">زمان پرداخت</label>
+                        <input readonly type="text" id="pay_time_date" class="pay_time_date" dir="ltr"  value="{{ $financialTransaction->payTimeGetter }}"/>
+                    </div>
+                    <br>
+                    <div>
                         <label for="comment">توضیح</label>
                         <textarea disabled name="comment" id="comment" rows="2">{{$financialTransaction->comment}}</textarea>
                     </div>

@@ -12,7 +12,7 @@
             <form action="{{route("financial.store")}}" method="post">
                 @csrf
                 @method('post')
-                @isset($prescription)
+                @if(isset($visit) || isset($prescription))
                     <div>
                         <label for="type">نوع <span class="star-red">*</span></label>
                         <select id="type" name="type">
@@ -24,7 +24,7 @@
                     </div>
                     <br>
                     <br>
-                @endisset
+                @endif
                 <div>
                     <label for="title">عنوان@if(isset($visit))@else<span class="star-red">*</span>@endif<span class="star-red" id="ch"></span></label>
                     <input type="text" @if(isset($visit))class="readonly" readonly @endif id="title" name="title"
