@@ -77,6 +77,9 @@
                 @isset($prescription)
                 <input type="hidden" name="prescription" value="{{$prescription}}">
                 @endisset
+                @isset($next["route"])
+                <input type="hidden" name="route" value="{{$next["route"]}}">
+                @endisset
                 <input class="btn" type="submit" value="افزودن">
             </form>
             <br>

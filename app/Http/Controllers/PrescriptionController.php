@@ -71,7 +71,7 @@ class PrescriptionController extends Controller
             $appointmentN->patient_id =$patient->national_code;
             $appointmentN->descriptions =$validated["reason"];
             $appointmentN->type = $validated["type"];
-            $appointmentN->visit_time =time();
+            $appointmentN->visit_time =time()*1000;
             $appointmentN->save();
 //            (new AppointmentController)->success_work($appointmentN);
 
@@ -171,16 +171,16 @@ class PrescriptionController extends Controller
     public function edit_special_2(Prescription $prescription): RedirectResponse | View
     {
         $appointment=new Appointment();
-        $patient_id=request("patient_id");
-        if (is_null($patient_id)) {
-            $patient_id = $prescription->appointment->patient->national_code;
-        }
-        $patient=new Patient();
+            $patient_id=
+            is_null(request("patient_id"))?
+            $prescription->appointment->patient->national_code:
+            request("patient_id");
         try {
-            $patientN=$patient->findOrFail($patient_id)->where('national_code', $patient_id)->get()->first();
+            $patientN=Patient::findOrFail($patient_id)->where('national_code', $patient_id)->get()->first();
         }catch(\Exception $exception){
             return  redirect()->back()->withErrors(['patient_err' => ['لطفا بیمار را از لیست بیماران انتخاب کنید (نامعتبر)']]);
         }
+//        $appointment=$appointment->where("patient_id",$patient_id)->whereIn("status",[0,1])->orderby("visit_time")->get();
         return view('admin.prescriptions.edit-select-2',[
             'prescription'=>$prescription,
             'patient_id'=>$patient_id,
@@ -200,28 +200,75 @@ class PrescriptionController extends Controller
 
     public function edit_special_2_process(Prescription $prescription,$patient_id): Factory|Application|View|\Illuminate\Contracts\Foundation\Application|RedirectResponse
     {
+
+        $methods = [ "دستگاه کارتخوان" , "کارت به کارت", "نقدی" , "چندحالتی" , "غیره"];
         $appointment_id=request("appointment_id");
         if ($appointment_id==="" || is_null($appointment_id)){
+            try {
+                Patient::findOrFail($patient_id)->where('national_code', $patient_id)->get()->first();
+            }catch(\Exception $exception){
+                return  redirect()->route("prescription.edit_special",$prescription)->withErrors(['patient_err' => ['لطفا بیمار را از لیست بیماران انتخاب کنید (نامعتبر)']]);
+            }
+
             $appointmentN = new Appointment;
             $appointmentN->patient_id =$patient_id;
             $appointmentN->descriptions =$prescription->reason;
             $appointmentN->type =$prescription->type;
-            $appointmentN->visit_time =time();
+            $appointmentN->visit_time =time()*1000;
             $appointmentN->save();
+
+
             $appointment_id=$appointmentN->id;
+            $prescription->appointment_id=$appointment_id;
+            $prescription->save();
+
+            return view('admin.financial_transactions.add',[
+                "methods"=>$methods,
+                'appointment'=>$appointmentN,
+                'patient'=>$appointmentN->patient,
+                'patients'=>Patient::orderBy("firstname","asc")->orderBy("lastname","asc")->get(),
+                'patient_id'=>$patient_id,
+                'visit'=>'yes',
+                'title_h1'=>' تایید ویزیت و ثبت پرداخت و (مرحله بعد آپلود تصاویر نسخه و توضیح آن)',
+                'prescription'=>$prescription->id,
+                'next'=>[
+                    'route'=>'admin.prescriptions.show',
+                ]
+            ]);
+
         }else{
             try {
-                $appointment = new Appointment;
-                $appointment->findOrFail($appointment_id)->get()->first();
+                $appointment =Appointment::findOrFail($appointment_id);
             }catch(\Exception $exception){
                 return  redirect()->back()->withErrors(['appointment_err' => [' لطفا نوبت را از لیست انتخاب کنید (نامعتبر) یا بدون نوبت قرار دهید']]);
             }
         }
-        $prescription->appointment_id=$appointment_id;
-        $prescription->save();
-        return view('admin.prescriptions.edit-select',[
-            'prescription'=>$prescription,
-        ]);
+        if($appointment->status==1) {
+            $prescription->appointment_id=$appointment_id;
+            $prescription->save();
+            return view('admin.prescriptions.edit-select',[
+                'prescription'=>$prescription,
+                'back'=>redirect()->back()->getTargetUrl()
+            ]);
+        }elseif ($appointment->status==0){
+            $prescription->appointment_id=$appointment->id;
+            $prescription->save();
+            return view('admin.financial_transactions.add',[
+                "methods"=>$methods,
+                'appointment'=>$appointment,
+                'patient'=>$appointment->patient,
+                'patients'=>Patient::orderBy("firstname","asc")->orderBy("lastname","asc")->get(),
+                'patient_id'=>$patient_id,
+                'visit'=>'yes',
+                'title_h1'=>' تایید ویزیت و ثبت پرداخت و (مرحله بعد آپلود تصاویر نسخه و توضیح آن)',
+                'prescription'=>$prescription->id,
+                'next'=>[
+                    'route'=>'admin.prescriptions.show',
+                ]
+            ]);
+        }elseif ($appointment->status==2){
+            return  redirect()->route("appointments");
+        }
     }
 
     public function edit_special_3(Prescription $prescription): View

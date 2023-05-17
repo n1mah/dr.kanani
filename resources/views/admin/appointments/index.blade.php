@@ -103,7 +103,7 @@
                                             <form action="{{route("financials.appointment",$appointment)}}" method="get">
                                                 @csrf
                                                 <input type="hidden" name="id" value="{{$appointment->patient->national_code}}">
-                                                <button type="submit" class="btn_financial">مشاهده تراکنش ها</button>
+                                                <button type="submit" class="btn_financial">مشاهده تراکنش</button>
                                             </form>
                                         @else
                                             <span class="btn_disable">نوبت تراکنشی ندارد</span>

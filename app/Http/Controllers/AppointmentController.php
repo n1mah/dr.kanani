@@ -75,7 +75,7 @@ class AppointmentController extends Controller
     {
         $patient=new Patient();
         return view('admin.appointments.edit',[
-            'patients'=>$patient->all(),
+            'patients'=>$patient->orderBy("firstname","asc")->orderBy("lastname","asc")->get(),
             'appointment'=>$appointment,
             'back'=> redirect()->back()->getTargetUrl()
         ]);

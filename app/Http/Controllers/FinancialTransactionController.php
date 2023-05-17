@@ -88,9 +88,28 @@ class FinancialTransactionController extends Controller
             FinancialTransaction::create([...$request->all(),'changeable'=>false]);
 
 
+
+
             if ($request->input("prescription") !== null){
-                $prescription=$prescription_id=$request->input("prescription");
-                Prescription::findOrFail($prescription_id);
+                if ($request->input("route") !== null){
+                    if ($request->input("route")=="admin.prescriptions.show"){
+                        $prescription_id=$request->input("prescription");
+                        $prescription=Prescription::findOrFail($prescription_id);
+                        if (count($prescription->images)>1){
+                        return view('admin.prescriptions.show',[
+                            'prescription'=>$prescription,
+                            'back'=>route('prescriptions')
+                        ]);
+                        }else{
+                            return view('admin.prescriptions.add-level3',[
+                                'prescription'=>$prescription,
+                            ]);
+                        }
+
+                    }
+                }
+                $prescription_id=$request->input("prescription");
+                $prescription=Prescription::findOrFail($prescription_id);
                 return view('admin.prescriptions.add-level3',[
                     'prescription'=>$prescription,
                 ]);
