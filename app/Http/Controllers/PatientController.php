@@ -73,6 +73,12 @@ class PatientController extends Controller
        $patient->save();
         return redirect()->route('patients');
     }
+    public function active(Patient $patient)
+    {
+       $patient->is_active=true;
+       $patient->save();
+        return redirect()->route('patients');
+    }
 
     public function show_appointments(Patient $patient): View|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application
     {
