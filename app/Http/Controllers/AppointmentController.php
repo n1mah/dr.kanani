@@ -48,7 +48,7 @@ class AppointmentController extends Controller
         $patient_id=null;if(request("patient")){$patient_id=request("patient");}
         $patients=new Patient();
         return view('admin.appointments.add',[
-            'patients'=>$patients->orderBy("firstname","asc")->orderBy("lastname","asc")->get(),
+            'patients'=>$patients->where("is_active",true)->orderBy("firstname","asc")->orderBy("lastname","asc")->get(),
             'patient_id'=>$patient_id
         ]);
     }
@@ -75,7 +75,7 @@ class AppointmentController extends Controller
     {
         $patient=new Patient();
         return view('admin.appointments.edit',[
-            'patients'=>$patient->orderBy("firstname","asc")->orderBy("lastname","asc")->get(),
+            'patients'=>$patient->where("is_active",true)->orderBy("firstname","asc")->orderBy("lastname","asc")->get(),
             'appointment'=>$appointment,
             'back'=> redirect()->back()->getTargetUrl()
         ]);
@@ -117,7 +117,7 @@ class AppointmentController extends Controller
                 "methods"=>$methods,
                 'appointment'=>$appointment,
                 'patient'=>$appointment->patient,
-                'patients'=>$patient->orderBy("firstname","asc")->orderBy("lastname","asc")->get(),
+                'patients'=>$patient->orderBy("firstname","asc")->orderBy("lastname","asc")->get(),//->where("is_active",true)
                 'patient_id'=>$patient_id,
                 'visit'=>'yes',
                 'title_h1'=>'تایید ویزیت و ثبت پرداخت'

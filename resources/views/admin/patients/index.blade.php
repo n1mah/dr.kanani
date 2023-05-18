@@ -18,7 +18,7 @@
                     <input type="search" id="search" name="search" placeholder="متن جستجو خود را وارد کنید ...">
                     <input type="submit" id="search_btn" value="جستجو">
                     <span class="split"></span>
-                    <a href="{{route("patients")}}">نمایش همه</a>
+                    <a href="{{route("patients")}}">نمایش همه بیماران فعال</a>
                     <a href="{{route("patients.inactive")}}">نمایش بیماران حذف شده</a>
                 </form>
                 <br><hr><br>

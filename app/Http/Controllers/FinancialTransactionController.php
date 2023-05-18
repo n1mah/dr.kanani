@@ -69,7 +69,7 @@ class FinancialTransactionController extends Controller
         $methods = [ "دستگاه کارتخوان" , "کارت به کارت", "نقدی" , "چندحالتی" , "غیره"];
         return view('admin.financial_transactions.add',[
             "methods"=>$methods,
-            'patients'=>$patient->orderBy("firstname","asc")->orderBy("lastname","asc")->get(),
+            'patients'=>$patient->where("is_active",true)->orderBy("firstname","asc")->orderBy("lastname","asc")->get(),
             'patient_id'=>$patient_id,
             'title_h1'=>'ثبت پرداختی'
         ]);
@@ -142,7 +142,7 @@ class FinancialTransactionController extends Controller
         $methods = [ "دستگاه کارتخوان" , "کارت به کارت", "نقدی" , "چندحالتی" , "غیره"];
         return view('admin.financial_transactions.edit',[
             "methods"=>$methods,
-            'patients'=>$patient->orderBy("firstname","asc")->orderBy("lastname","asc")->get(),
+            'patients'=>$patient->where("is_active",true)->orderBy("firstname","asc")->orderBy("lastname","asc")->get(),
             'financialTransaction'=>$financialTransaction,
         ]);
         }else{

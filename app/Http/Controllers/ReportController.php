@@ -34,7 +34,7 @@ class ReportController extends Controller
         $patients=new Patient;
         return view('admin.reports.edit-report',[
             'report'=>$report,
-            'patients'=>$patients->all(),
+            'patients'=>$patients->where("is_active",true)->get(),
             'back'=>redirect()->back()->getTargetUrl()
         ]);
     }
@@ -61,7 +61,7 @@ class ReportController extends Controller
         $patient_id=null;if(request("patient")){$patient_id=request("patient");}
         $patients=new Patient;
         return view('admin.reports.add',[
-            'patients'=>$patients->orderBy("firstname","asc")->orderBy("lastname","asc")->get(),
+            'patients'=>$patients->where("is_active",true)->orderBy("firstname","asc")->orderBy("lastname","asc")->get(),
             'back'=>redirect()->back()->getTargetUrl(),
             'patient_id'=>$patient_id
         ]);
@@ -79,7 +79,7 @@ class ReportController extends Controller
         }catch (\Exception){
             $patients=new Patient;
             return view('admin.reports.add',[
-                'patients'=>$patients->all(),
+                'patients'=>$patients->where("is_active",true)->orderBy("firstname","asc")->orderBy("lastname","asc")->get(),
                 'back'=>redirect()->back()->getTargetUrl()
             ]);
         }

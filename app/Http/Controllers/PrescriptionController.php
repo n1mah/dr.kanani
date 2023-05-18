@@ -31,7 +31,7 @@ class PrescriptionController extends Controller
         $patient_id=null;if(request("patient")){$patient_id=request("patient");}
         $patients=new Patient();
         return view('admin.prescriptions.add-level1',[
-            'patients'=>$patients->orderBy("firstname","asc")->orderBy("lastname","asc")->get(),
+            'patients'=>$patients->where("is_active",true)->orderBy("firstname","asc")->orderBy("lastname","asc")->get(),
             'back'=>redirect()->back()->getTargetUrl(),
             'patient_id'=>$patient_id
         ]);
@@ -57,7 +57,7 @@ class PrescriptionController extends Controller
     {
         $patients=new Patient();
         return view('admin.prescriptions.add-level1',[
-            'patients'=>$patients->all()
+            'patients'=>$patients->where("is_active",true)->get()
         ]);
     }
 
@@ -164,7 +164,7 @@ class PrescriptionController extends Controller
         return view('admin.prescriptions.edit-select-1',[
             'prescription'=>$prescription,
             'patient'=>$prescription->appointment->patient,
-            'patients'=>$patients->all(),
+            'patients'=>$patients->where("is_active",true)->get(),
         ]);
     }
 
@@ -176,7 +176,7 @@ class PrescriptionController extends Controller
             $prescription->appointment->patient->national_code:
             request("patient_id");
         try {
-            $patientN=Patient::findOrFail($patient_id)->where('national_code', $patient_id)->get()->first();
+            $patientN=Patient::findOrFail($patient_id)->where("is_active",true)->where('national_code', $patient_id)->get()->first();
         }catch(\Exception $exception){
             return  redirect()->back()->withErrors(['patient_err' => ['لطفا بیمار را از لیست بیماران انتخاب کنید (نامعتبر)']]);
         }
