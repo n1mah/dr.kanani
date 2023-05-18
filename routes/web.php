@@ -44,6 +44,7 @@ Route::group(['prefix' => 'panel'],function (){
 
 
     Route::get('/insurances',[InsuranceController::class,"index"])->name("insurances");
+    Route::get('/insurances/inactive',[InsuranceController::class,"index_inactive"])->name("insurances.inactive");
     Route::get('/insurances/create',[InsuranceController::class,"create"])->name("insurance.addForm");
     Route::post('/insurances',[InsuranceController::class,"store"])->name("insurance.store");
     Route::get('/insurances/{insurance}',[InsuranceController::class,"show"])->name("insurance.show");

@@ -18,7 +18,8 @@
                     <input type="search" id="search" name="search" placeholder="عنوان را وارد کنید ...">
                     <input type="submit" id="search_btn" value="جستجو">
                     <span class="split"></span>
-                    <a href="{{route("insurances")}}">نمایش همه</a>
+                    <a href="{{route("insurances")}}">نمایش بیمه های فعال</a>
+                    <a href="{{route("insurances.inactive")}}">نمایش بیمه های حذف شده</a>
                 </form>
                 <br>
                 <hr>

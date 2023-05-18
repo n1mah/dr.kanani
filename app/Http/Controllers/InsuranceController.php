@@ -13,7 +13,15 @@ class InsuranceController extends Controller
     {
         $insurance= new Insurance();
         return view('admin.insurances.index',[
-            'insurances'=>$insurance->orderBy("id","desc")->paginate(10)
+            'insurances'=>$insurance->where("is_active",true)->orderBy("id","desc")->paginate(10)
+        ]);
+
+    }
+    public function index_inactive():View
+    {
+        $insurance= new Insurance();
+        return view('admin.insurances.index',[
+            'insurances'=>$insurance->where("is_active",false)->orderBy("id","desc")->paginate(10)
         ]);
 
     }

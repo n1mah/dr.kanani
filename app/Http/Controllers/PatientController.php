@@ -33,7 +33,7 @@ class PatientController extends Controller
     {
         $insurances=new Insurance();
         return view('admin.patients.add',[
-            'insurances'=>$insurances->all()
+            'insurances'=>$insurances->where("is_active",true)->get()
         ]);
     }
 
@@ -42,7 +42,7 @@ class PatientController extends Controller
         $insurances=new Insurance();
         return view('admin.patients.edit',[
             'patient'=>$patient,
-            'insurances'=>$insurances->all()
+            'insurances'=>$insurances->where("is_active",true)->get()
         ]);
     }
 
