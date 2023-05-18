@@ -33,7 +33,9 @@
                 <hr>
                     <br>
                     <div class="btn-list">
-                        <a class="btn-data" href="{{route("financials")}}">همه تراکنش های مالی</a>
+                        <a class="btn-data" href="{{route("financials")}}">تراکنشات مالی فعال</a>
+                        <a class="btn-data" href="{{route("financials.all")}}">همه تراکنش های مالی</a>
+                        <a class="btn-data" href="{{route("financials.inactive")}}">تراکنشات مالی حذف شده</a>
                         <a class="btn-data" href="{{route("financials.ordered")}}">همه تراکنش های مالی به ترتیب زمان</a>
                         <a class="btn-data" href="{{route("financials.today")}}">تراکنش های مالی امروز</a>
                         <a class="btn-data" href="{{route("financials.last_7day")}}">تراکنش های مالی 7 روز گذشته</a>

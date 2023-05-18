@@ -35,6 +35,20 @@ class FinancialTransactionController extends Controller
     {
         $financialTransactions= new FinancialTransaction();
         return view('admin.financial_transactions.index',[
+            'financialTransactions'=>$financialTransactions->where("is_active",true)->orderBy("id","desc")->paginate(10)
+        ]);
+    }
+    public function index_inactive(): \Illuminate\Contracts\View\View|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application
+    {
+        $financialTransactions= new FinancialTransaction();
+        return view('admin.financial_transactions.index',[
+            'financialTransactions'=>$financialTransactions->where("is_active",false)->orderBy("id","desc")->paginate(10)
+        ]);
+    }
+    public function index_all(): \Illuminate\Contracts\View\View|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application
+    {
+        $financialTransactions= new FinancialTransaction();
+        return view('admin.financial_transactions.index',[
             'financialTransactions'=>$financialTransactions->orderBy("id","desc")->paginate(10)
         ]);
     }
@@ -43,7 +57,7 @@ class FinancialTransactionController extends Controller
     {
         $financialTransactions= new FinancialTransaction();
         return view('admin.financial_transactions.index',[
-            'financialTransactions'=>$financialTransactions->orderBy("created_at","asc")->paginate(10)
+            'financialTransactions'=>$financialTransactions->where("is_active",true)->orderBy("created_at","asc")->paginate(10)
         ]);
     }
 
@@ -57,7 +71,7 @@ class FinancialTransactionController extends Controller
             ->orWhere('method', 'LIKE', '%'.$search.'%')
             ->orWhere('national_code', 'LIKE', '%'.$search.'%');
         return view('admin.financial_transactions.index',[
-            'financialTransactions'=>$financialTransactions->orderBy("id","desc")->get(),
+            'financialTransactions'=>$financialTransactions->where("is_active",true)->orderBy("id","desc")->get(),
             'search'=>'has'
         ]);
     }

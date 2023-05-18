@@ -3745,7 +3745,6 @@ border-bottom:2px solid #1a202c;
 
 #financial-page .btn-list a{
     padding: 6px 10px;
-    display: flex;
     border: none;
     outline: none;
     border: 2px solid #0c6eff;
@@ -3755,6 +3754,10 @@ border-bottom:2px solid #1a202c;
     font-size: medium;
     text-decoration: none;
     border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
 }
 #financial-page .search-box a{
     padding: 6px 10px;
