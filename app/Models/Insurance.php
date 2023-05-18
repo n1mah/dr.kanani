@@ -10,7 +10,7 @@ class Insurance extends Model
     use HasFactory;
 
     protected $fillable = [
-        'title','fee'
+        'title','fee','is_active'
     ];
 
     public function patients():\Illuminate\Database\Eloquent\Relations\HasMany

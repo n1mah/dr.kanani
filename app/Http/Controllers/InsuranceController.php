@@ -44,7 +44,9 @@ class InsuranceController extends Controller
 
     public function destroy(Insurance $insurance): \Illuminate\Http\RedirectResponse
     {
-         $insurance->delete();
+//         $insurance->delete();
+        $insurance->is_active=false;
+        $insurance->save();
          return redirect()->back();
     }
 

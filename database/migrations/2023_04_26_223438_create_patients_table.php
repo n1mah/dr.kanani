@@ -22,6 +22,7 @@ return new class extends Migration
             $table->foreign("insurance_id")->references("id")->on("insurances")->onUpdate("cascade")->onDelete("cascade");
             $table->string("mobile");
             $table->string("phone")->nullable();
+            $table->boolean("is_active")->default(true);
             $table->timestamps();
         });
     }

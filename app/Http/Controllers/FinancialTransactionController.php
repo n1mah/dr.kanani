@@ -162,7 +162,10 @@ class FinancialTransactionController extends Controller
     public function destroy(FinancialTransaction $financialTransaction): \Illuminate\Http\RedirectResponse
     {
         if ($financialTransaction->changeable){
-            $financialTransaction->delete();
+            $financialTransaction->is_active=false;
+            $financialTransaction->save();
+//            $financialTransaction->delete();
+
         }
         return redirect()->route('financials');
     }

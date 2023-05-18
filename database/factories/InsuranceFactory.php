@@ -20,7 +20,8 @@ class InsuranceFactory extends Factory
         $fees = [1800000, 1200000, 1000000, 1650000];
         return [
             'title' => fake()->jobTitle(),
-            'fee' => fake()->randomElement($fees)
+            'fee' => fake()->randomElement($fees),
+            'is_active' => true,
         ];
     }
 }

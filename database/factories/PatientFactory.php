@@ -25,6 +25,7 @@ class PatientFactory extends Factory
             'year' => fake()->numberBetween(1350,1400),
             'mobile' => "09".fake()->randomElement([12,'03',18,10,33,39,37,36]).fake()->numberBetween(1000000,9999999),
             'phone' => "0".fake()->randomElement([81,21]).fake()->numberBetween(10000000,99999999),
+            'is_active' => true,
             ];
     }
 }

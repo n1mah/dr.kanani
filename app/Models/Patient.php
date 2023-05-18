@@ -10,7 +10,7 @@ class Patient extends Model
     use HasFactory;
     protected $primaryKey = 'national_code';
     protected $fillable = [
-        'national_code','firstname','lastname', 'day', 'month', 'year','insurance_id','mobile','phone'
+        'national_code','firstname','lastname', 'day', 'month', 'year','insurance_id','mobile','phone','is_active'
     ];
     public $incrementing = false;
 
