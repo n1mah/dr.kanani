@@ -18,7 +18,14 @@ class PatientController extends Controller
     {
         $patient= new Patient;
         return view('admin.patients.index',[
-            'patients'=>$patient->orderBy("created_at","asc")->paginate(10)
+            'patients'=>$patient->where("is_active",true)->orderBy("created_at","asc")->paginate(10)
+        ]);
+    }
+    public function index_inactive(): View|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application
+    {
+        $patient= new Patient;
+        return view('admin.patients.index',[
+            'patients'=>$patient->where("is_active",false)->orderBy("created_at","asc")->paginate(10)
         ]);
     }
 
@@ -105,6 +112,7 @@ class PatientController extends Controller
     {
         $search=request("search");
         $patients= Patient::join('insurances', 'insurances.id', '=', 'patients.insurance_id')
+                           ->select('patients.*','insurances.*','patients.is_active as is_active','insurances.is_active as insurance_is_active')
                            ->where('firstname', 'LIKE', '%'.$search.'%')
                            ->orWhere('lastname', 'LIKE', '%'.$search.'%')
                            ->orWhere('national_code', 'LIKE', '%'.$search.'%')
