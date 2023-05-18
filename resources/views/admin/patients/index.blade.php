@@ -19,6 +19,7 @@
                     <input type="submit" id="search_btn" value="جستجو">
                     <span class="split"></span>
                     <a href="{{route("patients")}}">نمایش همه</a>
+                    <a href="{{route("patients.inactive")}}">نمایش بیماران حذف شده</a>
                 </form>
                 <br><hr><br>
                 <div class="table">
@@ -39,7 +40,7 @@
                         </thead>
                         <tbody>
                         @foreach($patients as $patient)
-                        <tr>
+                        <tr @if($patient->is_active==false) class="red-record" @endif>
                             <td>{{$patient->national_code}}</td>
                             <td>{{$patient->firstname}} {{$patient->lastname}}</td>
                             <td>{{$patient->mobile}}</td>
@@ -94,17 +95,30 @@
                                 </form>
                             </td>
                             <td>
+                                @if($patient->is_active==true)
                                 <form action="{{route("patient.editForm",$patient)}}" method="get">
                                     @csrf
                                     <button type="submit" class="btn_up">ویرایش</button>
                                 </form>
+                                @else
+                                    <small>غیر فعال می باشد</small>
+                                @endif
+
                             </td>
                             <td>
-                                <form action="{{route("patient.delete",$patient)}}" method="post">
+                                @if($patient->is_active==true)
+                                    <form action="{{route("patient.delete",$patient)}}" method="post">
                                     @csrf
                                     @method('delete')
-                                    <button class=" btn_del">حذف</button>
-                                </form>
+                                    <button class=" btn_del">غیر فعال</button>
+                                    </form>
+                                @else
+                                    <form action="{{route("patient.active",$patient)}}" method="post">
+                                        @csrf
+                                        @method('post')
+                                        <button class="btn_active">فعال سازی مجدد</button>
+                                    </form>
+                                @endif
                             </td>
                         </tr>
                         @endforeach

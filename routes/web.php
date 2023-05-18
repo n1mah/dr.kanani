@@ -29,12 +29,14 @@ Route::group(['prefix' => 'panel'],function (){
     Route::get('/',[DashboardController::class,"index"])->name("dashboard");
 
     Route::get('/patients',[PatientController::class,"index"])->name("patients");
+    Route::get('/patients/inactive',[PatientController::class,"index_inactive"])->name("patients.inactive");
     Route::get('/patients/create',[PatientController::class,"create"])->name("patient.addForm");
     Route::post('/patients',[PatientController::class,"store"])->name("patient.store");
     Route::get('/patients/{patient}',[PatientController::class,"show"])->name("patient.show");
     Route::get('/patients/{patient}/edit',[PatientController::class,"edit"])->name("patient.editForm");
     Route::put('/patients/{patient}',[PatientController::class,"update"])->name("patient.update");
     Route::delete('/patients/{patient}',[PatientController::class,"destroy"])->name("patient.delete");
+    Route::post('/patients/{patient}/active',[PatientController::class,"active"])->name("patient.active");
     Route::get('/patients/{patient}/appointments',[PatientController::class,"show_appointments"])->name("patient.appointments");
     Route::get('/patients/{patient}/prescriptions',[PatientController::class,"show_prescriptions"])->name("patient.prescriptions");
     Route::get('/patients/{patient}/reports',[PatientController::class,"show_reports"])->name("patient.reports");

@@ -57,6 +57,10 @@
     border-bottom: 3px white solid;
     cursor: not-allowed;
 }
+.red-record{
+    color: white;
+    background: #ff7676;
+}
 #main .body{
     min-height: 100vh;
     width: 85%;
@@ -272,6 +276,10 @@ color: red;
 }
 #patients-page .table table button.btn_del{
     background-color: #da0000;
+    color: white;
+}
+#patients-page .table table button.btn_active{
+    background-color: #4bbe23;
     color: white;
 }
 /*patients-page*/
