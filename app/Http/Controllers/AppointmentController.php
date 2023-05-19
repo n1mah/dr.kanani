@@ -66,7 +66,7 @@ class AppointmentController extends Controller
         return view('admin.appointments.show',[
             'appointment'=>$appointment,
             'prescriptions'=>$prescriptions,
-            'back'=> redirect()->back()->getTargetUrl()
+            'back'=> route("prescriptions")
         ]);
     }
 
@@ -77,7 +77,7 @@ class AppointmentController extends Controller
         return view('admin.appointments.edit',[
             'patients'=>$patient->where("is_active",true)->orderBy("firstname","asc")->orderBy("lastname","asc")->get(),
             'appointment'=>$appointment,
-            'back'=> redirect()->back()->getTargetUrl()
+            'back'=> route("prescriptions")
         ]);
     }
 
@@ -102,7 +102,8 @@ class AppointmentController extends Controller
         $prescriptions=$appointment->prescriptions()->orderBy("updated_at","desc")->paginate(10);
         return view('admin.appointments.prescriptions',[
             'prescriptions'=>$prescriptions,
-            'back'=> redirect()->back()->getTargetUrl(),
+//            'back'=> route("appointment.show",$appointment),
+            'back'=> route("appointments"),
             'patient_id_add'=>$patient_id
         ]);
     }

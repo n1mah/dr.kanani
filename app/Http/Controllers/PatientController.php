@@ -86,7 +86,7 @@ class PatientController extends Controller
         $appointments=$patient->appointments()->orderBy("visit_time","desc")->paginate(10);
         return view('admin.patients.appointments',[
             'appointments'=>$appointments,
-            'back'=> redirect()->back()->getTargetUrl(),
+            'back'=> route("patient.show",$patient),
             'patient_id_add'=>$patient_id
         ]);
     }
@@ -97,7 +97,7 @@ class PatientController extends Controller
         $prescriptions=$patient->prescriptions()->orderBy("updated_at","desc")->paginate(10);
         return view('admin.patients.prescriptions',[
             'prescriptions'=>$prescriptions,
-            'back'=> redirect()->back()->getTargetUrl(),
+            'back'=> route("patient.show",$patient),
             'patient_id_add'=>$patient_id
         ]);
     }
@@ -109,7 +109,7 @@ class PatientController extends Controller
         return view('admin.patients.reports',[
             'reports'=>$reports,
             'patient'=>$patient,
-            'back'=> redirect()->back()->getTargetUrl(),
+            'back'=> route("patient.show",$patient),
             'patient_id_add'=>$patient_id
         ]);
     }

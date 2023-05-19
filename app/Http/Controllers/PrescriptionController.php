@@ -32,7 +32,7 @@ class PrescriptionController extends Controller
         $patients=new Patient();
         return view('admin.prescriptions.add-level1',[
             'patients'=>$patients->where("is_active",true)->orderBy("firstname","asc")->orderBy("lastname","asc")->get(),
-            'back'=>redirect()->back()->getTargetUrl(),
+            'back'=>route("prescriptions"),
             'patient_id'=>$patient_id
         ]);
     }
@@ -58,7 +58,7 @@ class PrescriptionController extends Controller
         $patients=new Patient();
         return view('admin.prescriptions.add-level1',[
             'patients'=>$patients->where("is_active",true)->get(),
-            'back'=>redirect()->route("prescriptions")
+            'back'=>route("prescriptions")
         ]);
     }
 
@@ -155,7 +155,7 @@ class PrescriptionController extends Controller
     {
         return view('admin.prescriptions.edit-select',[
             'prescription'=>$prescription,
-            'back'=>redirect()->back()->getTargetUrl()
+            'back'=>route("prescriptions"),
         ]);
     }
 
@@ -249,7 +249,7 @@ class PrescriptionController extends Controller
             $prescription->save();
             return view('admin.prescriptions.edit-select',[
                 'prescription'=>$prescription,
-                'back'=>redirect()->back()->getTargetUrl()
+                'back'=>route("prescriptions"),
             ]);
         }elseif ($appointment->status==0){
             $prescription->appointment_id=$appointment->id;
@@ -301,7 +301,7 @@ class PrescriptionController extends Controller
             'reports'=>$reports,
             'prescription'=>$prescription,
             'patient'=>$patient,
-            'back'=>redirect()->back()->getTargetUrl(),
+            'back'=>route("reports"),
             'patient_id_add'=>$patient_id
         ]);
     }
@@ -309,6 +309,6 @@ class PrescriptionController extends Controller
     public function delete_image(Prescription $prescription ,Image $image): RedirectResponse
     {
         $image->delete();
-        return redirect()->back();
+        return redirect()->route("prescription.show",$prescription);
     }
 }
