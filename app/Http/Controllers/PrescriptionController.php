@@ -57,7 +57,8 @@ class PrescriptionController extends Controller
     {
         $patients=new Patient();
         return view('admin.prescriptions.add-level1',[
-            'patients'=>$patients->where("is_active",true)->get()
+            'patients'=>$patients->where("is_active",true)->get(),
+            'back'=>redirect()->route("prescriptions")
         ]);
     }
 

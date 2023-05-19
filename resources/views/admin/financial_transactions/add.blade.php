@@ -12,23 +12,58 @@
             <form action="{{route("financial.store")}}" method="post">
                 @csrf
                 @method('post')
+                @php
+                    $title_value="";
+                    $selected=["","","",""];
+                    $title_readonly="";
+                    $title_star="";
+                    $type_disabled="";
+                    $type_star="*";
+                    if(isset($visit)){
+                    $type_disabled="disabled";
+                    $title_readonly="class='readonly' readonly";
+                    $type_star="";
+                        if($appointment->type=="ویزیت دکتر"){
+                            $title_value="حق ویزیت دکتر";
+                            $selected[0]="selected";
+                        }elseif($appointment->type=="ویزیت برای آزمایش یا تست"){
+                            $title_value="هزینه تست یا آزمایش";
+                            $selected[1]="selected";
+                        }elseif($appointment->type=="بررسی آزمایش یا تست (بررسی یا جوابدهی)"){
+                            $title_value="مشاهده بررسی یا جواب دهی تست یا آزمایش";
+                            $selected[2]="selected";
+                        }elseif($appointment->type=="غیره"){
+                            $title_value="";
+                            $selected[3]="selected";
+                            $title_readonly="";
+                            $title_star="*";
+                        }elseif($appointment->type=="نامشخص"){
+                            $title_value="حق ویزیت دکتر";
+                            $title_readonly="";
+                            $title_star="*";
+                            $type_star="*";
+                            $type_disabled="";
+                        }
+                    }
+                @endphp
                 @if(isset($visit) || isset($prescription))
                     <div>
-                        <label for="type">نوع <span class="star-red">*</span></label>
-                        <select id="type" name="type">
-                            <option value="ویزیت دکتر">ویزیت دکتر</option>
-                            <option value="ویزیت برای آزمایش یا تست">ویزیت برای آزمایش یا تست</option>
-                            <option value="بررسی آزمایش یا تست (بررسی یا جوابدهی)">بررسی آزمایش یا تست (بررسی یا جوابدهی)</option>
-                            <option value="غیره">غیره</option>
+                        <label for="type">نوع <span class="star-red">{{$type_star}}</span></label>
+                        <select id="type" name="type" {{$type_disabled}}>
+                            <option {{$selected[0]}} value="ویزیت دکتر">ویزیت دکتر</option>
+                            <option {{$selected[1]}} value="ویزیت برای آزمایش یا تست">ویزیت برای آزمایش یا تست</option>
+                            <option {{$selected[2]}} value="بررسی آزمایش یا تست (بررسی یا جوابدهی)">بررسی آزمایش یا تست (بررسی یا جوابدهی)</option>
+                            <option {{$selected[3]}} value="غیره">غیره</option>
                         </select>
                     </div>
                     <br>
                     <br>
                 @endif
                 <div>
-                    <label for="title">عنوان@if(isset($visit))@else<span class="star-red">*</span>@endif<span class="star-red" id="ch"></span></label>
-                    <input type="text" @if(isset($visit))class="readonly" readonly @endif id="title" name="title"
-                           value="@if(isset($visit))حق ویزیت دکتر@endif">
+
+                    <label for="title">عنوان<span class="star-red"  id="ch">{{$title_star}}</span></label>
+                    <input type="text" {{$title_readonly}} id="title" name="title"
+                           value="{{$title_value}}">
                 </div>
                 <br>
                 <div>

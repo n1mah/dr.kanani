@@ -12,6 +12,7 @@
                         <label for="title">عنوان</label>
                         <input disabled type="text" id="title" name="title" value="{{$financialTransaction->title}}">
                     </div>
+
                     <br>
                     <div>
                         <label for="patient_id">بیمار</label>
@@ -41,6 +42,21 @@
                         <label for="comment">توضیح</label>
                         <textarea disabled name="comment" id="comment" rows="2">{{$financialTransaction->comment}}</textarea>
                     </div>
+                    <br>
+                    @if($financialTransaction->appointment)
+                    <br>
+                    <br>
+                    <div>
+                        <label for="title">نوع نوبت (وقت)</label>
+                        <input disabled type="text" id="title" name="title" value="{{$financialTransaction->appointment->type}}">
+                    </div>
+                    <br>
+                    <div>
+                        <label for="title">زمان نوبت (وقت)</label>
+                        <input disabled type="text" dir="ltr" id="title" name="title" value="{{$financialTransaction->appointment->visitTimeGetter}}">
+                    </div>
+                    <br>
+                    @endif
                 </form>
                 <br>
                 <div class="back-box"><a href="{{route("financials")}}">بازگشت</a></div>
