@@ -1,0 +1,87 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: IRANSans !important;
+    padding-top: 5vh;
+    flex-direction: column;
+}
+.main h1{
+    text-align: center;
+    color: #4848d7;
+}
+.main{
+    width: 50%;
+    background: #cfcfff;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    margin: 20px;
+    padding: 4vh;
+    border-radius: 15px;
+}
+.main .register,.main .login{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.main form{
+    width: 70%;
+    margin-top: 5vh;
+    margin-bottom: 5vh
+}
+.main .row{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px;
+    margin: 4px;
+}
+.main .row input{
+    width: 80%;
+    padding:5px 10px;
+    border: none;
+    outline: none;
+    border-radius: 3px;
+    border-bottom: 2px solid #6262ff;
+}
+.main .row label{
+    width: 15%;
+}
+
+.main .row input[type=submit]{
+    width: 100%;
+    background:#6262ff;
+    padding:7px 12px;
+    color: white;
+    font-weight: bold;
+    border-radius: 5px;
+}
+.main a{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40%;
+    background: #ff7f62;
+    padding:5px 9px;
+    color: white;
+    font-weight: bold;
+    border-radius: 5px;
+    text-decoration: none;
+}
+.errors{
+    margin: 10px;
+    padding: 15px;
+    background: #ff8e8e;
+    border-radius: 10px;
+    width: 60%;
+}

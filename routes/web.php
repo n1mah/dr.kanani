@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AppointmentController;
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\FinancialTransactionController;
 use App\Http\Controllers\ImageController;
@@ -24,9 +25,16 @@ use App\Http\Controllers\Controller;
 
 Route::get('/', function () {
 });
+Route::group(['middleware' => 'guest'],function (){
+    Route::get('/login',[AuthController::class,"login"])->name("login");
+    Route::post('/login/process',[AuthController::class,"login_check"])->name("login_process");
+//    Route::get('/register',[AuthController::class,"register"])->name("register");
+//    Route::post('/register',[AuthController::class,"register_check"])->name("register_process");
+});
 
-Route::group(['prefix' => 'panel'],function (){
+    Route::group(['prefix' => 'panel','middleware' => 'auth'],function (){
     Route::get('/',[DashboardController::class,"index"])->name("dashboard");
+    Route::get('/logout',[AuthController::class,"logout"])->name("logout");
 
     Route::get('/patients',[PatientController::class,"index"])->name("patients");
     Route::get('/patients/inactive',[PatientController::class,"index_inactive"])->name("patients.inactive");

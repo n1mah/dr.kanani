@@ -8,6 +8,7 @@
             <li><a href="{{route("prescriptions")}}">نسخه ها</a></li>
             <li><a href="{{route("reports")}}">آزمایش و گزارشات</a></li>
             <li><a href="{{route("financials")}}">تراکنش های مالی</a></li>
+            <li><a href="{{route("logout")}}">خروج</a></li>
         </ul>
     </nav>
 </div>
