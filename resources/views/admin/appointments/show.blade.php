@@ -160,7 +160,7 @@
                     </table>
                 </div>
                 @else
-                    <p class="text-center">نسخه ای برای این وقت ویزیت وجود ندارد</p>
+                    <p class="text-center">نسخه ای برای این ویزیت وجود ندارد</p>
                 @endif
             </div>
         </div>

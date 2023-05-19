@@ -77,7 +77,7 @@
                             <td dir="ltr">
                                 @if($financialTransaction->appointment)
                                     <a title="مشاهده" target="_blank" href="{{route("appointment.show",$financialTransaction->appointment)}}">
-                                        {{$financialTransaction->appointment->visitTimeGetter}}
+                                        مشاهده نوبت <br>{{$financialTransaction->appointment->visitTimeGetter}}
                                     </a>
                                 @else
                                     <small>تراکنش به نوبتی متصل نیست</small>

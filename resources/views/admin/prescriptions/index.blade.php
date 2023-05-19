@@ -18,6 +18,7 @@
                             <th>نام بیمار</th>
                             <th>نوع</th>
                             <th>نسخه</th>
+                            <th>نوبت</th>
                             <th>گزارش/آزمایش</th>
                             <th>ویرایش</th>
                             <th>حذف</th>
@@ -40,6 +41,15 @@
                                     <form action="{{route("prescription.show",$prescription)}}" method="get">
                                         @csrf
                                         <button type="submit" class="btn_see">مشاهده نسخه</button>
+                                    </form>
+                                @endif
+                            </td>
+                            <td>
+                                @if(($prescription->appointment))
+                                    <form action="{{route("appointment.show",$prescription->appointment)}}" method="get">
+                                        @csrf
+                                        <button type="submit" class="btn_visit">مشاهده نوبت <br>
+                                        {{$prescription->appointment->id}}</button>
                                     </form>
                                 @endif
                             </td>

@@ -13,6 +13,7 @@
                             <tr>
                                 <th>نام بیمار</th>
                                 <th>وقت ملاقات</th>
+                                <th>نوع</th>
                                 <th>وضعیت</th>
                                 <th>مشاهده</th>
                             </tr>
@@ -22,6 +23,7 @@
                                 <tr>
                                     <td @if($appointment->status==2) class="text_cancel" @elseif($appointment->status==1)  class="text_success" @endif>{{$appointment->patient->firstname}} {{$appointment->patient->lastname}}</td>
                                     <td @if($appointment->status==2) class="text_cancel" @elseif($appointment->status==1)  class="text_success" @endif dir="ltr">{{$appointment->visitTimeGetter}}</td>
+                                    <td @if($appointment->status==2) class="text_cancel" @elseif($appointment->status==1)  class="text_success" @endif style="width: 15%"><small>{{$appointment->type}}</small></td>
                                     @if($appointment->status==0)
                                         <td class="text_unknown">
                                             <span class="text_unknown">تعیین نشده</span>
