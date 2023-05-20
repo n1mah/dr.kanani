@@ -109,26 +109,27 @@ class ReportController extends Controller
         $report->delete();
         return redirect()->route('reports');
     }
+
     public function edit_image(Report $report): RedirectResponse | View
     {
         return view('admin.reports.edit-images',[
             'report'=>$report,
         ]);
     }
+
     public function delete_image(ReportImage $reportImage)
     {
-
         $report=$reportImage->report;
         $reportImage->delete();
         return redirect()->route('report.image',$report);
     }
+
     public function store_image(Request $request,Report $report): RedirectResponse|View
     {
         $files= $request->file("images");
         try {
             $reportImageController= new ReportImageController();
             $reportImageController->store($files,$report->id);
-            $patient=$report->patient;
         }catch (\Exception){
             $patients=new Patient;
             return view('admin.reports.edit-images',[

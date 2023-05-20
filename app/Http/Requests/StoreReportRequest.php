@@ -23,7 +23,6 @@ class StoreReportRequest extends FormRequest
     {
         return [
             'patient_id'=>'exists:patients,national_code',
-//          'prescription_id'=>'',
             'title'=>'required|max:128',
             'content'=>'nullable|max:512',
             'images.*' => 'required|image|max:2000',
@@ -36,7 +35,6 @@ class StoreReportRequest extends FormRequest
             'title.required' => 'عنوان را وارد کنید',
             'title.max' => 'عنوان نامعتبر می باشد . لطفا حداکثر در ۱۲۸ کارکتر توضیح دهید',
             'content.max' => 'محتوا آزمایش یا گزارش نامعتبر می باشد',
-
             'images.*' => 'تصاویر را به درستی انتخاب کنید . حجم فایل انتخابی باید کمتر از 2مگابایت و از انواع تصاویر با پسوند مجاز',
             'images.*.required' => 'تصویر را انتخاب کنید',
             'images.*.image' => 'تصاویر را به درستی انتخاب کنید . نوع فایل مجاز نمی باشد',

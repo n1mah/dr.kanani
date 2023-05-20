@@ -37,7 +37,5 @@ class InsuranceRequest extends FormRequest
             'fee.numeric' => 'مبلغ ویزیت را به درستی وارد کنید ( عدد انگلیسی )',
         ];
     }
-//    protected $redirect = ;
-//    protected $redirectRoute = 'insurances';
 
 }

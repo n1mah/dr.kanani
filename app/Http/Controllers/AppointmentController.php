@@ -59,7 +59,6 @@ class AppointmentController extends Controller
         return redirect()->route('appointments');
     }
 
-
     public function show(Appointment $appointment)
     {
         $prescriptions=$appointment->prescriptions()->orderBy("updated_at","desc")->paginate(10);
@@ -69,7 +68,6 @@ class AppointmentController extends Controller
             'back'=> route("prescriptions")
         ]);
     }
-
 
     public function edit(Appointment $appointment): View|Application|Factory
     {
@@ -81,14 +79,12 @@ class AppointmentController extends Controller
         ]);
     }
 
-
     public function update(UpdateAppointmentRequest $request, Appointment $appointment): RedirectResponse
     {
         $validated = $request->validated();
         $appointment->update($validated);
         return redirect()->route('appointments');
     }
-
 
     public function destroy(Appointment $appointment): RedirectResponse
     {
@@ -102,7 +98,6 @@ class AppointmentController extends Controller
         $prescriptions=$appointment->prescriptions()->orderBy("updated_at","desc")->paginate(10);
         return view('admin.appointments.prescriptions',[
             'prescriptions'=>$prescriptions,
-//            'back'=> route("appointment.show",$appointment),
             'back'=> route("appointments"),
             'patient_id_add'=>$patient_id
         ]);
@@ -127,6 +122,7 @@ class AppointmentController extends Controller
             return redirect()->route('financials');
         }
     }
+
     public function success_work(Appointment $appointment):void
     {
         if ($appointment->status==0){
@@ -136,14 +132,12 @@ class AppointmentController extends Controller
             $appointment->save();
         }
     }
+
     public function success_save(Appointment $appointment): RedirectResponse
     {
-//        $time=time();
-//        $appointment->status=1;
-//        $appointment->change_status=$time;
-//        $appointment->save();
-//        return redirect()->back();
+
     }
+
     public function cancel(Appointment $appointment): RedirectResponse
     {
             $time=time();
@@ -163,6 +157,7 @@ class AppointmentController extends Controller
             'appointments'=>$appointments_today_tomorrow
         ]);
     }
+
     public function tomorrow(): View|Application|Factory|\Illuminate\Contracts\Foundation\Application
     {
         $appointments= new Appointment;
@@ -173,6 +168,7 @@ class AppointmentController extends Controller
             'appointments'=>$appointments_tomorrow_afterTomorrow
         ]);
     }
+
     public function week(): View|Application|Factory|\Illuminate\Contracts\Foundation\Application
     {
         $appointments= new Appointment;
@@ -183,6 +179,7 @@ class AppointmentController extends Controller
             'appointments'=>$appointments_7
         ]);
     }
+
     public function month(): View|Application|Factory|\Illuminate\Contracts\Foundation\Application
     {
         $appointments= new Appointment;
@@ -193,6 +190,7 @@ class AppointmentController extends Controller
             'appointments'=>$appointments_30
         ]);
     }
+
     public function period30(): View|Application|Factory|\Illuminate\Contracts\Foundation\Application
     {
         $appointments= new Appointment;
@@ -213,6 +211,7 @@ class AppointmentController extends Controller
             'appointments'=>$between30days
         ]);
     }
+
     public function canceled(): View|Application|Factory
     {
         $appointments= new Appointment;
@@ -220,6 +219,7 @@ class AppointmentController extends Controller
             'appointments'=>$appointments->whereIn("status",[2])->orderBy("id","desc")->paginate(10)
         ]);
     }
+
     public function succeed(): View|Application|Factory
     {
         $appointments= new Appointment;
@@ -227,6 +227,7 @@ class AppointmentController extends Controller
             'appointments'=>$appointments->whereIn("status",[1])->orderBy("id","desc")->paginate(10)
         ]);
     }
+
     public function initial_status(): View|Application|Factory
     {
         $appointments= new Appointment;

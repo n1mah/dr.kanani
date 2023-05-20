@@ -37,7 +37,4 @@ class ImageRequest extends FormRequest
             'images.*.max' => 'اندازه تصاویر بزرگ می باشد ',
         ];
     }
-//    protected $redirect = ;
-//    protected $redirectRoute = 'insurances';
-
 }

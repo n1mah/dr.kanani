@@ -32,7 +32,6 @@ class AuthController extends Controller
     }
     public function login_check(LoginRequest $request)
     {
-
         $data=[
             "email"=> $request->email,
             "password"=>$request->password
@@ -42,10 +41,12 @@ class AuthController extends Controller
         }
         return back()->with("error","ایمیل یا رمز عبور اشتباه می باشد");
     }
+
     public function login()
     {
         return view("login");
     }
+
     public function logout()
     {
         Auth::logout();

@@ -68,7 +68,6 @@ class PatientController extends Controller
 
     public function destroy(Patient $patient)
     {
-//        $patient->delete();
        $patient->is_active=false;
        $patient->save();
         return redirect()->route('patients');

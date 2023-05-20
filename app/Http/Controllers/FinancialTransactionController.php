@@ -98,15 +98,10 @@ class FinancialTransactionController extends Controller
             if ($appointment->type=="نامشخص")
                  $appointment->type=$request->input("type");
             $appointment->save();
-//            return redirect()->route('financials');
             $patientN=$appointment->patient;
             $patient_id=$appointment->patient->national_code;
             $appointment=new Appointment();
             FinancialTransaction::create([...$request->all(),'changeable'=>false]);
-
-
-
-
             if ($request->input("prescription") !== null){
                 if ($request->input("route") !== null){
                     if ($request->input("route")=="admin.prescriptions.show"){
@@ -122,7 +117,6 @@ class FinancialTransactionController extends Controller
                                 'prescription'=>$prescription,
                             ]);
                         }
-
                     }
                 }
                 $prescription_id=$request->input("prescription");
@@ -131,7 +125,6 @@ class FinancialTransactionController extends Controller
                     'prescription'=>$prescription,
                 ]);
             }
-
             return view('admin.prescriptions.add-level2',[
                 'appointments'=>$appointment->where("patient_id",$patient_id)->whereIn("status",[0,1])->orderby("visit_time")->get(),
                 'patient'=>$patientN,
@@ -163,7 +156,6 @@ class FinancialTransactionController extends Controller
         }else{
             return redirect()->route('financials');
         }
-
     }
 
     public function update(FinancialTransactionRequest $request,FinancialTransaction $financialTransaction): \Illuminate\Http\RedirectResponse
@@ -179,8 +171,6 @@ class FinancialTransactionController extends Controller
         if ($financialTransaction->changeable){
             $financialTransaction->is_active=false;
             $financialTransaction->save();
-//            $financialTransaction->delete();
-
         }
         return redirect()->route('financials');
     }

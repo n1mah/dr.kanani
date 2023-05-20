@@ -15,15 +15,14 @@ class InsuranceController extends Controller
         return view('admin.insurances.index',[
             'insurances'=>$insurance->where("is_active",true)->orderBy("id","desc")->paginate(10)
         ]);
-
     }
+
     public function index_inactive():View
     {
         $insurance= new Insurance();
         return view('admin.insurances.index',[
             'insurances'=>$insurance->where("is_active",false)->orderBy("id","desc")->paginate(10)
         ]);
-
     }
 
     public function create():View
@@ -36,6 +35,7 @@ class InsuranceController extends Controller
         Insurance::create($request->all());
         return redirect()->route('insurances');
     }
+
     public function edit(Insurance $insurance):View
     {
         return view('admin.insurances.edit',[
@@ -52,7 +52,6 @@ class InsuranceController extends Controller
 
     public function destroy(Insurance $insurance): \Illuminate\Http\RedirectResponse
     {
-//         $insurance->delete();
         $insurance->is_active=false;
         $insurance->save();
          return redirect()->back();

@@ -74,8 +74,6 @@ class PrescriptionController extends Controller
             $appointmentN->type = "نامشخص";
             $appointmentN->visit_time =time()*1000;
             $appointmentN->save();
-//            (new AppointmentController)->success_work($appointmentN);
-
                 $patient_id=$patient->national_code;
                 $patient= new Patient;
                 $appointment_id=$appointmentN->id;
@@ -101,7 +99,6 @@ class PrescriptionController extends Controller
                     'prescription'=>$prescription,
                 ]);
             }elseif ($appointment->status==0){
-//                (new AppointmentController)->success_work($appointment);
                 $prescription= Prescription::create($validated);
                 return view('admin.financial_transactions.add',[
                     "methods"=>$methods,
@@ -118,9 +115,7 @@ class PrescriptionController extends Controller
                 ]);
             }else{ // cancel // !valid
                 return redirect()->route('appointments');
-
             }
-
         }
     }
 
@@ -181,7 +176,6 @@ class PrescriptionController extends Controller
         }catch(\Exception $exception){
             return  redirect()->back()->withErrors(['patient_err' => ['لطفا بیمار را از لیست بیماران انتخاب کنید (نامعتبر)']]);
         }
-//        $appointment=$appointment->where("patient_id",$patient_id)->whereIn("status",[0,1])->orderby("visit_time")->get();
         return view('admin.prescriptions.edit-select-2',[
             'prescription'=>$prescription,
             'patient_id'=>$patient_id,
@@ -201,7 +195,6 @@ class PrescriptionController extends Controller
 
     public function edit_special_2_process(Prescription $prescription,$patient_id): Factory|Application|View|\Illuminate\Contracts\Foundation\Application|RedirectResponse
     {
-
         $methods = [ "دستگاه کارتخوان" , "کارت به کارت", "نقدی" , "چندحالتی" , "غیره"];
         $appointment_id=request("appointment_id");
         if ($appointment_id==="" || is_null($appointment_id)){
@@ -210,19 +203,15 @@ class PrescriptionController extends Controller
             }catch(\Exception $exception){
                 return  redirect()->route("prescription.edit_special",$prescription)->withErrors(['patient_err' => ['لطفا بیمار را از لیست بیماران انتخاب کنید (نامعتبر)']]);
             }
-
             $appointmentN = new Appointment;
             $appointmentN->patient_id =$patient_id;
             $appointmentN->descriptions =$prescription->reason;
             $appointmentN->type = "نامشخص";
             $appointmentN->visit_time =time()*1000;
             $appointmentN->save();
-
-
             $appointment_id=$appointmentN->id;
             $prescription->appointment_id=$appointment_id;
             $prescription->save();
-
             return view('admin.financial_transactions.add',[
                 "methods"=>$methods,
                 'appointment'=>$appointmentN,
