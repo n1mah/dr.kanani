@@ -13,6 +13,10 @@ return new class extends Migration
     {
         Schema::create('items_analyses', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger("analysis_id");
+            $table->foreign("analysis_id")->references("id")->on("analyses")->onUpdate("cascade")->onDelete("cascade");
+            $table->text('value');
+            $table->timestamp("datetime")->nullable();
             $table->timestamps();
         });
     }
