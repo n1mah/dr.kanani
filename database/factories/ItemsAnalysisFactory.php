@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Analysis;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -16,8 +17,11 @@ class ItemsAnalysisFactory extends Factory
      */
     public function definition(): array
     {
+        $time=fake()->numberBetween(1682777781,1704067199);
         return [
-            //
+            'analysis_id' => Analysis::all()->random()->id,
+            'value' => fake()->word(),
+            'datetime' => $time*1000,
         ];
     }
 }

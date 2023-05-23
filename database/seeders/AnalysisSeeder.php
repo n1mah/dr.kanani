@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Analysis;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -12,6 +13,8 @@ class AnalysisSeeder extends Seeder
      */
     public function run(): void
     {
-        //
+        Analysis::factory()
+            ->count(10)
+            ->create();
     }
 }
