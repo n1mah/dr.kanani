@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Items_analysis;
 use App\Models\Items_analysis as ItemsAnalysis;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
