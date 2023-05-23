@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('analyses', function (Blueprint $table) {
             $table->id();
+            $table->text('title');
+            $table->unsignedBigInteger("patient_id");
+            $table->foreign("patient_id")->references("national_code")->on("patients")->onUpdate("cascade")->onDelete("cascade");
             $table->timestamps();
         });
     }
