@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AnalysisController;
 use App\Http\Controllers\AppointmentController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
@@ -134,5 +135,8 @@ Route::group(['middleware' => 'guest'],function (){
     Route::get('/financial_transactions/ordered/list',[FinancialTransactionController::class,"index_ordered_time"])->name("financials.ordered");
     Route::get('/financial_transactions/Last_30_Days/list',[FinancialTransactionController::class,"last_30day"])->name("financials.last_30day");
     Route::get('/financial_transactions/{appointment}/appointment',[FinancialTransactionController::class,"index_appointment"])->name("financials.appointment");
+
+
+        Route::post('/analysis/{patient}',[AnalysisController::class,"store"])->name("analysis.store");
 
 });
