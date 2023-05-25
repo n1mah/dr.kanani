@@ -7,6 +7,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\FinancialTransactionController;
 use App\Http\Controllers\ImageController;
 use App\Http\Controllers\InsuranceController;
+use App\Http\Controllers\ItemsAnalysisController;
 use App\Http\Controllers\PatientController;
 use App\Http\Controllers\PrescriptionController;
 use App\Http\Controllers\ReportController;
@@ -138,5 +139,5 @@ Route::group(['middleware' => 'guest'],function (){
 
 
         Route::post('/analysis/{patient}',[AnalysisController::class,"store"])->name("analysis.store");
-
-});
+        Route::post('/items_analysis/{analysis}',[ItemsAnalysisController::class,"store"])->name("item_analysis.store");
+    });
