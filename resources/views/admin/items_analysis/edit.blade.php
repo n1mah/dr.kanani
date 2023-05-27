@@ -1,4 +1,4 @@
-<x-panel.layouts.header>
+    <x-panel.layouts.header>
     <link rel="stylesheet" href="{{asset("admin/css/persian-datepicker.css")}}">
 </x-panel.layouts.header>
     <div id="main">

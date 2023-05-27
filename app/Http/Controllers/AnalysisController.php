@@ -6,5 +6,7 @@ use Illuminate\Http\Request;
 
 class AnalysisController extends Controller
 {
-    //
-}
+    public function store()
+    {
+        //store
+    }}
