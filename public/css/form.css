@@ -85,3 +85,26 @@ body{
     border-radius: 10px;
     width: 60%;
 }
+
+.errors-box{
+    margin: 10px;
+    padding: 15px;
+    background: #ff8e8e;
+    border-radius: 10px;
+    width: 60%;
+}
+.succes{
+    margin: 10px;
+    padding: 15px;
+    background: #8effa8;
+    border-radius: 10px;
+    width: 60%;
+}
+
+.succes-box{
+    margin: 10px;
+    padding: 15px;
+    background: #8effa8;
+    border-radius: 10px;
+    width: 60%;
+}
